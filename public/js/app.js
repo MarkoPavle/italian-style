@@ -25259,6 +25259,7 @@ __WEBPACK_IMPORTED_MODULE_3__fortawesome_fontawesome__["default"].library.add(__
 Vue.use(__WEBPACK_IMPORTED_MODULE_2__packages_auth_Auth__["a" /* default */]);
 
 axios.defaults.headers.common['Authorization'] = 'Bearer ' + Vue.auth.getToken();
+axios.defaults.headers.common['baseURL'] = 'http://localhost/cim/public/';
 
 __WEBPACK_IMPORTED_MODULE_1__routes__["a" /* router */].beforeEach(function (to, from, next) {
     if (to.matched.some(function (record) {
@@ -25313,7 +25314,6 @@ try {
 window.axios = __webpack_require__(29);
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-window.axios.defaults.headers.common['baseURL'] = 'http://localhost/vueadmin/public/';
 
 /**
  * Next we will register the CSRF Token as a common header with Axios so that
@@ -54167,7 +54167,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             var data = {
                 client_id: 2,
-                client_secret: 'bLZ0Fniz58z77uGBnxWr36BhTf5aoD3WqviI2TjA',
+                client_secret: 'cj1a19BmaWBM0CmdfGhBlAuRYAay6wTw95McBt0T',
                 grant_type: 'password',
                 username: this.email,
                 password: this.password

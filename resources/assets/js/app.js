@@ -54,6 +54,7 @@ fontawesome.library.add(faPlus, faEnvelope, faBell, faCommentAlt, faChevronCircl
 Vue.use(Auth);
 
 axios.defaults.headers.common['Authorization'] = 'Bearer ' + Vue.auth.getToken();
+axios.defaults.headers.common['baseURL'] = 'http://localhost/cim/public/';
 
 router.beforeEach(
     (to, from, next) => {
