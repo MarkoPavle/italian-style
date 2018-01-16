@@ -8,9 +8,11 @@ use Illuminate\Http\Request;
 class UsersController extends Controller
 {
     public function index(){
-        $users = User::orderBy('created_at', 'DESC')->paginate(50);
+        $users = User::select('id', 'name', 'email', 'role_id', 'created_at')->orderBy('created_at', 'DESC')->paginate(50);
+        $columns = ['id', 'ime', 'email', 'pravo pristupa', 'kreirano'];
         return response()->json([
-            'users' => $users
+            'users' => $users,
+            'columns' => $columns
         ]);
     }
 }

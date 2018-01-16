@@ -5,6 +5,9 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
     state: {
+        /** auth **/
+        user: null,
+
         /** show nav bars **/
         showRightBar: false,
         hideLeftBar: false,
@@ -30,6 +33,11 @@ export const store = new Vuex.Store({
         newslettersItemActive: false,
     },
     getters: {
+        /** auth **/
+        getUser: state => {
+            return state.user;
+        },
+
         /** show nav bars **/
         getShowRightBar: state => {
             return state.showRightBar;
@@ -79,6 +87,11 @@ export const store = new Vuex.Store({
         },
     },
     mutations: {
+        /** auth **/
+        changeUser: (state, callback) => {
+            state.user = callback;
+        },
+
         /** show nav bars **/
         changeShowRightBar: state => {
             state.showRightBar = !state.showRightBar;
@@ -113,6 +126,11 @@ export const store = new Vuex.Store({
         },
     },
     actions: {
+        /** auth **/
+        changeUser: (context, callback) => {
+            context.commit('changeUser', callback);
+        },
+
         /** show nav bars **/
         changeShowRightBar: context => {
             context.commit('changeShowRightBar');

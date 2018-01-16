@@ -56,15 +56,9 @@
 </template>
 
 <script>
-    import { apiHost } from '../../config';
     import FontAwesomeIcon from '@fortawesome/vue-fontawesome';
 
     export default {
-        data(){
-            return {
-                domain : apiHost
-            }
-        },
         components: {
             'font-awesome-icon': FontAwesomeIcon
         },

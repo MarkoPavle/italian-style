@@ -14,13 +14,7 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Cras justo odio</li>
-                            <li class="list-group-item">Dapibus ac facilisis in</li>
-                            <li class="list-group-item">Vestibulum at eros</li>
-                        </ul>
-                    </div>
+                    <table-helper :columns="columns" :data="users"></table-helper>
                 </div>
             </div>
         </div>
@@ -28,11 +22,17 @@
 </template>
 
 <script>
+    import TableHelper from '../helper/TableHelper.vue';
+
     export default {
         data(){
             return {
-                users: {}
+                users: {},
+                columns: []
             }
+        },
+        component: {
+            'table-helper': TableHelper
         },
         created(){
             console.log('spisak korisnika');
@@ -43,6 +43,7 @@
                 axios.get('api/users')
                     .then(res => {
                         this.users = res.data.users.data;
+                        this.columns = res.data.columns;
                         console.log(this.users);
                     })
                     .catch(e => {

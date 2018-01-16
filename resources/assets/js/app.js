@@ -31,6 +31,9 @@ Vue.component('login', require('./components/auth/Login.vue'));
 Vue.component('register', require('./components/auth/Register.vue'));
 Vue.component('logout', require('./components/auth/Logout.vue'));
 
+/** HELPER **/
+Vue.component('table-helper', require('./components/helper/TableHelper.vue'));
+
 import { store } from './store/store';
 import { router } from './routes';
 import Auth from './packages/auth/Auth';
@@ -54,7 +57,6 @@ fontawesome.library.add(faPlus, faEnvelope, faBell, faCommentAlt, faChevronCircl
 Vue.use(Auth);
 
 axios.defaults.headers.common['Authorization'] = 'Bearer ' + Vue.auth.getToken();
-axios.defaults.headers.common['baseURL'] = 'http://localhost/cim/public/';
 
 router.beforeEach(
     (to, from, next) => {

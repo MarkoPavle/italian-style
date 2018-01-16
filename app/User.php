@@ -27,4 +27,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function getRoleIdAttribute($value)
+    {
+        if($value == 0){
+            return 'urednik';
+        }else{
+            return 'admin';
+        }
+    }
 }

@@ -67,7 +67,7 @@
                             <font-awesome-icon icon="chevron-circle-down" />
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink4">
-                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#" v-if="user">{{ user.name }}</a>
                             <a class="dropdown-item" href="#">Another action</a>
                             <a class="dropdown-item" href="#">Something else here</a>
                             <div class="dropdown-divider"></div>
@@ -97,9 +97,28 @@
         computed: {
             showRightBar(){
                 return this.$store.getters.getShowRightBar;
+            },
+            user(){
+                return this.$store.getters.getUser;
             }
         },
+        created(){
+            this.storeUser();
+        },
         methods: {
+            /** auth **/
+            storeUser(){
+                if(this.$store.getters.getUser == null){
+                    axios.get('api/user')
+                        .then(res => {
+                            this.$store.dispatch('changeUser', res.data);
+                        })
+                        .catch(e => {
+                            console.log(e);
+                        });
+                }
+            },
+
             changeShowRightBar(){
                 this.$store.dispatch('changeShowRightBar');
             },
