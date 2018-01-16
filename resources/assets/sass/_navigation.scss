@@ -242,6 +242,7 @@
   height: calc(100vh - 80px);
   padding: 0;
   background-color: $tamna;
+  z-index: 100;
 
   -ms-transform: translate(0, 0); /* IE 9 */
   -webkit-transform: translate(0, 0); /* Safari */
