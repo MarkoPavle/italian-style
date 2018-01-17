@@ -1,5 +1,5 @@
 <template>
-    <div id="leftMenu" :class="{ 'hide': hideLeftBar }">
+    <div id="leftMenu" :class="{ 'hide': hideLeftBar }" v-if="user">
         <ul>
             <li>
                 <font-awesome-icon icon="home" />
@@ -63,6 +63,11 @@
             'font-awesome-icon': FontAwesomeIcon
         },
         computed: {
+            /** auth **/
+            user(){
+                return this.$store.getters.getUser;
+            },
+
             /** nav **/
             hideLeftBar(){
                 return this.$store.getters.getHideLeftBar;

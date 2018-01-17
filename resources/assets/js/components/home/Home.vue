@@ -28,7 +28,30 @@
 
 <script>
     export default {
-
+        computed: {
+            user(){
+                return this.$store.getters.getUser;
+            }
+        },
+        created(){
+            this.storeUser();
+        },
+        methods: {
+            /** auth **/
+            storeUser(){
+                axios.defaults.headers.common['Authorization'] = 'Bearer ' + this.$auth.getToken();
+                console.log('hello from home');
+                if(this.$store.getters.getUser == null){
+                    axios.get('api/user')
+                        .then(res => {
+                            this.$store.dispatch('changeUser', res.data);
+                        })
+                        .catch(e => {
+                            console.log(e);
+                        });
+                }
+            },
+        }
     }
 </script>
 

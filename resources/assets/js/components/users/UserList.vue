@@ -14,7 +14,7 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <table-helper :columns="columns" :data="users"></table-helper>
+                    <table-helper :columns="columns" :data="users" :table="'users'" @removeRow="deleteUser($event)"></table-helper>
                 </div>
             </div>
         </div>
@@ -49,6 +49,9 @@
                     .catch(e => {
                         console.log(e);
                     });
+            },
+            removeUser(id){
+                console.log('brisanje usera ' + id);
             }
         }
     }

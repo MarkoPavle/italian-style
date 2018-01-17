@@ -14,6 +14,20 @@
     width: 100%;
     margin-left: 0;
   }
+
+  h5{
+    margin-bottom: 0;
+  }
+
+  .card{
+    padding: 15px;
+    margin-bottom: 30px;
+    height: auto;
+  }
+
+  small{
+    color: red !important;
+  }
 }
 
 /** AUTH **/
@@ -27,7 +41,7 @@
   height: 100vh;
   justify-content: center;
   align-items: center;
-  z-index: 4;
+  z-index: 101;
 
   .form-body{
     position: relative;
@@ -55,6 +69,15 @@
         color: white;
       }
     }
+  }
+}
+
+.table-hover{
+
+  svg{
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
   }
 }
 

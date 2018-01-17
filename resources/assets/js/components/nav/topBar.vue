@@ -108,7 +108,7 @@
         methods: {
             /** auth **/
             storeUser(){
-                if(this.$store.getters.getUser == null){
+                if(this.$store.getters.getUser == null && this.$auth.isAuth()){
                     axios.get('api/user')
                         .then(res => {
                             this.$store.dispatch('changeUser', res.data);
