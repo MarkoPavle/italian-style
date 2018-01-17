@@ -23,6 +23,7 @@
 
 <script>
     import TableHelper from '../helper/TableHelper.vue';
+    import swal from 'sweetalert2';
 
     export default {
         data(){
@@ -50,9 +51,34 @@
                         console.log(e);
                     });
             },
-            removeUser(id){
-                console.log('brisanje usera ' + id);
-            }
+            deleteUser(id){
+                swal({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.value) {
+                        axios.delete('api/users/' + id)
+                            .then(res => {
+                                setTimeout(function () {
+                                    this.$router.push('/users');
+                                }, 1000);
+                            })
+                            .catch(e => {
+                                console.log(e);
+                            });
+                        swal(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        )
+                    }
+                })
+            },
         }
     }
 </script>

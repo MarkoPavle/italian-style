@@ -11,6 +11,7 @@ import Register from './components/auth/Register.vue';
 
 import UserList from './components/users/UserList.vue';
 import UserEdit from './components/users/UserEdit.vue';
+import UserCreate from './components/users/UserCreate.vue';
 
 export const router = new VueRouter({
     routes: [
@@ -21,6 +22,7 @@ export const router = new VueRouter({
         { path: "/logout", component: Logout, meta: { forAuth: true } },
 
         { path: "/users", component: UserList, meta: { forAuth: true } },
+        { path: "/users/create", component: UserCreate, meta: { forAuth: true } },
         { path: "/users/:id/edit", component: UserEdit, meta: { forAuth: true } },
     ],
 

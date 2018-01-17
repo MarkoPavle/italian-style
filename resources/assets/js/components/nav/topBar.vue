@@ -23,7 +23,7 @@
                                 <a class="dropdown-item" href="#">Članak</a>
                                 <a class="dropdown-item" href="#">Kategoriju članka</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Korisnika</a>
+                                <a class="dropdown-item" href="#" @click="newUser()">Korisnik</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Proizvod</a>
                                 <a class="dropdown-item" href="#">Kategoriju proizvoda</a>
@@ -124,6 +124,9 @@
             },
             changeHideLeftBar(){
                 this.$store.dispatch('changeHideLeftBar');
+            },
+            newUser(){
+                this.$router.push('/users/create');
             },
         }
     }

@@ -7,7 +7,7 @@
                         <ul class="list-group list-group-flush">
                             <li><router-link tag="a" :to="'/home'">Početna</router-link></li>
                             <li><router-link tag="a" :to="'/users'">Korisnici</router-link></li>
-                            <li>Iznena korisnika</li>
+                            <li>Kreiranje korisnika</li>
                         </ul>
                     </div>
                 </div>
@@ -45,8 +45,8 @@
                             <div class="form-group">
                                 <label for="role">Pravo pristupa</label>
                                 <select name="role" class="form-control" id="role" v-model="user.role_id">
-                                    <option value="0" :selected="user.role_id == 0">Urednik</option>
-                                    <option value="1" :selected="user.role_id == 1">Admin</option>
+                                    <option value="0" selected>Urednik</option>
+                                    <option value="1">Admin</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -56,7 +56,14 @@
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <upload-image-helper :image="user.image" :defaultImage="'img/user-image.png'" :titleImage="'korisnika'" :error="error" @uploadImage="upload($event)"></upload-image-helper>
+                    <upload-image-helper
+                            :image="user.image"
+                            :defaultImage="'img/user-image.png'"
+                            :titleImage="'korisnika'"
+                            :error="error"
+                            @uploadImage="upload($event)"
+                            @removeRow="remove($event)"
+                    ></upload-image-helper>
                 </div>
             </div>
         </div>
@@ -71,7 +78,9 @@
     export default {
         data(){
           return {
-              user: {},
+              user: {
+                  role_id: 0
+              },
               error: null
           }
         },
@@ -79,12 +88,9 @@
             'font-awesome-icon': FontAwesomeIcon,
             'upload-image-helper': UploadImageHelper,
         },
-        created(){
-            this.getUser();
-        },
         methods: {
             submit(){
-                axios.patch('api/users/' + this.user.id, this.user)
+                axios.post('api/users', this.user)
                     .then(res => {
                         swal({
                             position: 'center',
@@ -93,41 +99,15 @@
                             showConfirmButton: false,
                             timer: 1500
                         });
-                        this.error = null;
+                        this.$router.push('/users');
                     }).catch(e => {
                         console.log(e.response);
                         this.error = e.response.data.errors;
                     });
             },
-            getUser(){
-                axios.get('api/users/' + this.$route.params.id)
-                    .then(res => {
-                        this.user = res.data.user;
-                        console.log(this.user);
-                    })
-                    .catch(e => {
-                        console.log(e);
-                        this.error = e.response.data.errors;
-                    });
-            },
             upload(image){
-                axios.post('api/users/' + this.user.id + '/image', { image: image[0] })
-                    .then(res => {
-                        console.log(res);
-                        this.user.image = res.data.image;
-                        this.error = null;
-                        swal({
-                            position: 'center',
-                            type: 'success',
-                            title: 'Success',
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                    }).catch(e => {
-                        console.log(e);
-                        this.error = e.response.data.errors;
-                    });
-            }
+                this.user.image = image[0];
+            },
         }
     }
 </script>
