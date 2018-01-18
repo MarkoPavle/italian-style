@@ -3,11 +3,11 @@
         <ul>
             <li>
                 <font-awesome-icon icon="home" />
-                <router-link tag="a" :to="'/home'">Početna</router-link>
+                <router-link tag="a" :to="'/home'">Home</router-link>
             </li>
             <li :class="{ 'active': showSettingsItemActive }" :style="{ 'display': showSettingsItem ? 'block' : 'none' }">
                 <font-awesome-icon icon="angle-right" />
-                <a href="#" @click="changeShowSettingsItemActive()">Podešavanja</a>
+                <a href="#" @click="changeShowSettingsItemActive()">Settings</a>
                 <font-awesome-icon icon="cogs"/>
                 <ul>
                     <li><a href="#">SEO</a></li>
@@ -16,29 +16,29 @@
             </li>
             <li :class="{ 'active': showUsersItemActive }" :style="{ 'display': showUsersItem ? 'block' : 'none' }">
                 <font-awesome-icon icon="angle-right" />
-                <a href="#" @click="changeShowUsersItemActive()">Korisnici</a>
+                <a href="#" @click="changeShowUsersItemActive()">Users</a>
                 <font-awesome-icon icon="users" />
                 <ul>
-                    <li><router-link tag="a" :to="'/users'">Pregled korisnika</router-link></li>
-                    <li><a href="#">Pravo pristupa</a></li>
+                    <li><router-link tag="a" :to="'/users'">User review</router-link></li>
+                    <li><a href="#">Roles</a></li>
                 </ul>
             </li>
             <li :class="{ 'active': showPostsItemActive }" :style="{ 'display': showPostsItem ? 'block' : 'none' }">
                 <font-awesome-icon icon="angle-right" />
-                <a href="#" @click="changeShowPostsItemActive()">Članci</a>
+                <a href="#" @click="changeShowPostsItemActive()">Posts</a>
                 <font-awesome-icon icon="paste" />
                 <ul>
-                    <li><a href="#">Pregled članaka</a></li>
-                    <li><a href="#">Pregled kategorija</a></li>
+                    <li><a href="#">Post review</a></li>
+                    <li><a href="#">Category review</a></li>
                 </ul>
             </li>
             <li :class="{ 'active': showProductsItemActive }" :style="{ 'display': showProductsItem ? 'block' : 'none' }">
                 <font-awesome-icon icon="angle-right" />
-                <a href="#" @click="changeShowProductsItemActive()">Prodavnica</a>
+                <a href="#" @click="changeShowProductsItemActive()">Shop</a>
                 <font-awesome-icon icon="shopping-cart" />
                 <ul>
-                    <li><a href="#">Pregled proizvoda</a></li>
-                    <li><a href="#">Pregled kategorija</a></li>
+                    <li><a href="#">Product review</a></li>
+                    <li><a href="#">Category review</a></li>
                 </ul>
             </li>
             <li :class="{ 'active': showNewslettersItemActive }" :style="{ 'display': showNewslettersItem ? 'block' : 'none' }">
@@ -46,9 +46,9 @@
                 <a href="#" @click="changeShowNewslettersItemActive()">Newsletter</a>
                 <font-awesome-icon icon="envelope" />
                 <ul>
-                    <li><a href="#">Pregled Newslettera</a></li>
-                    <li><a href="#">Pregled pretplatnika</a></li>
-                    <li><a href="#">Pregled banera</a></li>
+                    <li><a href="#">Newsletter review</a></li>
+                    <li><a href="#">Subscriber review</a></li>
+                    <li><a href="#">Banner review</a></li>
                 </ul>
             </li>
         </ul>
