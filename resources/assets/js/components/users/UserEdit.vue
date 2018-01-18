@@ -5,9 +5,9 @@
                 <div class="col-md-12">
                     <div id="breadcrumbs">
                         <ul class="list-group list-group-flush">
-                            <li><router-link tag="a" :to="'/home'">Početna</router-link></li>
-                            <li><router-link tag="a" :to="'/users'">Korisnici</router-link></li>
-                            <li>Iznena korisnika</li>
+                            <li><router-link tag="a" :to="'/home'">Home</router-link></li>
+                            <li><router-link tag="a" :to="'/users'">Users</router-link></li>
+                            <li>Edit user</li>
                         </ul>
                     </div>
                 </div>
@@ -16,7 +16,7 @@
             <div class="row bela">
                 <div class="col-md-12">
                     <div class="card">
-                        <h5>Izmena korisnika</h5>
+                        <h5>Edit user</h5>
                     </div>
                 </div>
 
