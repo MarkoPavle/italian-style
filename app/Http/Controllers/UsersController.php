@@ -13,7 +13,7 @@ class UsersController extends Controller
 {
     public function index(){
         $users = User::select('id', 'name', 'email', 'role_id', 'created_at')->orderBy('created_at', 'DESC')->paginate(3);
-        $columns = ['id', 'ime', 'email', 'pravo pristupa', 'kreirano'];
+        $columns = ['id', 'name', 'email', 'role', 'created at'];
         return response()->json([
             'users' => $users,
             'columns' => $columns

@@ -3,7 +3,7 @@
         <thead>
         <tr>
             <th scope="col" v-for="column in columns">{{ column }}</th>
-            <th>akcija</th>
+            <th>action</th>
         </tr>
         </thead>
         <tbody>

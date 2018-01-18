@@ -3,29 +3,29 @@
         <div id="login">
             <div class="form-body">
                 <div class="form-header">
-                    Registracija
+                    Register
                 </div>
                 <form @submit.prevent="register()">
                     <div class="form-group">
-                        <label for="exampleInputName">Ime</label>
+                        <label for="exampleInputName">Name</label>
                         <input type="text" name="name" class="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Vaše imea" v-model="name">
                         <small class="form-text text-muted" v-if="errors && errors['name']">{{ errors['name'][0] }}</small>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Email adresa</label>
+                        <label for="exampleInputEmail1">Email address</label>
                         <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Vaša email adresa" v-model="email">
                         <small class="form-text text-muted" v-if="errors && errors['email']">{{ errors['email'][0] }}</small>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Lozinka</label>
+                            <label for="exampleInputPassword1">Password</label>
                         <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Lozinka" v-model="password">
                         <small class="form-text text-muted" v-if="errors && errors['password']">{{ errors['password'][0] }}</small>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword2">Potvrda lozinke</label>
+                        <label for="exampleInputPassword2">Password confirmation</label>
                         <input type="password" name="password_confirmation" class="form-control" id="exampleInputPassword2" placeholder="Potvrda lozinke" v-model="password_confirmation">
                     </div>
-                    <button type="submit" class="btn btn-primary">Potvrdi</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>
@@ -65,7 +65,3 @@
         }
     }
 </script>
-
-<style>
-
-</style>
