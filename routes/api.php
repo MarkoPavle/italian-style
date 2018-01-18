@@ -19,3 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::middleware('auth:api')->resource('users', 'UsersController');
 Route::middleware('auth:api')->post('users/{id}/image', 'UsersController@uploadImage');
+
+Route::middleware('auth:api')->resource('categories', 'CategoriesController');
