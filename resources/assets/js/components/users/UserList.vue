@@ -17,23 +17,31 @@
                     <table-helper :columns="columns" :data="users" :table="'users'" @removeRow="deleteUser($event)"></table-helper>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <paginate-helper :paginate="paginate" @clickLink="clickToLink($event)"></paginate-helper>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
     import TableHelper from '../helper/TableHelper.vue';
+    import PaginateHelper from '../helper/PaginateHelper.vue';
     import swal from 'sweetalert2';
 
     export default {
         data(){
             return {
                 users: {},
-                columns: []
+                columns: [],
+                paginate: {}
             }
         },
         component: {
-            'table-helper': TableHelper
+            'table-helper': TableHelper,
+            'paginate-helper': PaginateHelper
         },
         created(){
             console.log('spisak korisnika');
@@ -45,7 +53,8 @@
                     .then(res => {
                         this.users = res.data.users.data;
                         this.columns = res.data.columns;
-                        console.log(this.users);
+                        this.paginate = res.data.users;
+                        console.log(res.data.users);
                     })
                     .catch(e => {
                         console.log(e);
@@ -64,9 +73,7 @@
                     if (result.value) {
                         axios.delete('api/users/' + id)
                             .then(res => {
-                                setTimeout(function () {
-                                    this.$router.push('/users');
-                                }, 1000);
+                                this.$router.push('/users');
                             })
                             .catch(e => {
                                 console.log(e);
@@ -79,6 +86,18 @@
                     }
                 })
             },
+            clickToLink(index){
+                axios.get('api/users?page=' + index)
+                    .then(res => {
+                        this.users = res.data.users.data;
+                        this.columns = res.data.columns;
+                        this.paginate = res.data.users;
+                        console.log(res.data.users);
+                    })
+                    .catch(e => {
+                        console.log(e);
+                    });
+            }
         }
     }
 </script>

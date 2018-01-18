@@ -50,7 +50,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <button class="btn btn-primary">Izmeni</button>
+                                <button class="btn btn-primary">Kreiraj</button>
                             </div>
                         </form>
                     </div>

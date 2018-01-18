@@ -47,7 +47,10 @@
                             this.$store.dispatch('changeUser', res.data);
                         })
                         .catch(e => {
-                            console.log(e);
+                            if(e.response.status == 401){
+                                this.$auth.destroyToken();
+                                this.$router.push('/login');
+                            }
                         });
                 }
             },

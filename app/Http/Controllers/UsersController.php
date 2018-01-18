@@ -12,7 +12,7 @@ use File;
 class UsersController extends Controller
 {
     public function index(){
-        $users = User::select('id', 'name', 'email', 'role_id', 'created_at')->orderBy('created_at', 'DESC')->paginate(50);
+        $users = User::select('id', 'name', 'email', 'role_id', 'created_at')->orderBy('created_at', 'DESC')->paginate(3);
         $columns = ['id', 'ime', 'email', 'pravo pristupa', 'kreirano'];
         return response()->json([
             'users' => $users,

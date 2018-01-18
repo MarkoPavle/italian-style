@@ -33,6 +33,7 @@ Vue.component('logout', require('./components/auth/Logout.vue'));
 
 /** HELPER **/
 Vue.component('table-helper', require('./components/helper/TableHelper.vue'));
+Vue.component('paginate-helper', require('./components/helper/PaginateHelper.vue'));
 
 import { store } from './store/store';
 import { router } from './routes';
