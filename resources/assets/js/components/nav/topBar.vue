@@ -23,10 +23,10 @@
                                 <a class="dropdown-item" href="#">Članak</a>
                                 <a class="dropdown-item" href="#">Kategoriju članka</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" @click="newUser()">Korisnik</a>
+                                <a class="dropdown-item" href="#" @click.prevent="newUser()">Korisnik</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Proizvod</a>
-                                <a class="dropdown-item" href="#">Kategoriju proizvoda</a>
+                                <a class="dropdown-item" href="#" @click.prevent="newCategory()">Kategoriju proizvoda</a>
                             </div>
                         </div>
                     </li>
@@ -130,6 +130,9 @@
             },
             newUser(){
                 this.$router.push('/users/create');
+            },
+            newCategory(){
+                this.$router.push('/categories/create');
             },
         }
     }

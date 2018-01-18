@@ -7,6 +7,8 @@
 
 require('./bootstrap');
 
+require('./../talvbansal/media-manager/js/media-manager');
+
 window.Vue = require('vue');
 
 /**
@@ -23,17 +25,10 @@ Vue.component('top-bar', require('./components/nav/topBar.vue'));
 Vue.component('right-bar', require('./components/nav/rightBar.vue'));
 Vue.component('left-bar', require('./components/nav/leftBar.vue'));
 
-/** HOME **/
-Vue.component('home', require('./components/home/Home.vue'));
-
-/** AUTH **/
-Vue.component('login', require('./components/auth/Login.vue'));
-Vue.component('register', require('./components/auth/Register.vue'));
-Vue.component('logout', require('./components/auth/Logout.vue'));
-
 /** HELPER **/
 Vue.component('table-helper', require('./components/helper/TableHelper.vue'));
 Vue.component('paginate-helper', require('./components/helper/PaginateHelper.vue'));
+Vue.component('textarea-helper', require('./components/helper/TextAreaHelper.vue'));
 
 import { store } from './store/store';
 import { router } from './routes';

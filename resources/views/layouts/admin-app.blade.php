@@ -27,6 +27,14 @@
 </div>
 
 <!-- Scripts -->
+<script src="//cdn.ckeditor.com/4.6.2/full/ckeditor.js"></script>
 <script src="{{ asset('js/app.js') }}"></script>
+<sctipt>
+    window.onload = function () {
+        CKEDITOR.replace('body', {
+            "filebrowserBrowseUrl": "{!! url('filemanager/show') !!}"
+        });
+    };
+</sctipt>
 </body>
 </html>
