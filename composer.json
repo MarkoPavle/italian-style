@@ -1,13 +1,17 @@
 {
     "name": "laravel/laravel",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "type": "project",
     "require": {
         "php": ">=7.0.0",
         "Intervention/Image": "^2.4",
         "barryvdh/laravel-cors": "^0.11.0",
+        "ctf0/media-manager": "^2.5",
         "dimsav/laravel-translatable": "^8.1",
         "fideloper/proxy": "~3.3",
         "illuminate/html": "^5.0",
@@ -18,8 +22,7 @@
         "laravelcollective/html": "^5.5",
         "laravelnews/laravel-twbs4": "^1.2",
         "mcamara/laravel-localization": "^1.3",
-        "mews/captcha": "^2.1",
-        "talvbansal/media-manager": "^2.5"
+        "mews/captcha": "^2.1"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
@@ -44,8 +47,7 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": [
-            ]
+            "dont-discover": []
         }
     },
     "scripts": {
@@ -57,7 +59,8 @@
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover"
+            "@php artisan package:discover",
+            "App\\Providers\\EventServiceProvider::postAutoloadDump"
         ]
     },
     "config": {

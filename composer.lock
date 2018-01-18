@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8068fe9864f3a492e0f29e774b07601d",
+    "content-hash": "b618f14535ae7b6819c8907da2be6501",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -120,6 +120,113 @@
             "time": "2018-01-04T06:59:27+00:00"
         },
         {
+            "name": "ctf0/media-manager",
+            "version": "v2.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ctf0/Laravel-Media-Manager.git",
+                "reference": "d3b960f9c46386142b3bd16dcb84f5e14943409b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ctf0/Laravel-Media-Manager/zipball/d3b960f9c46386142b3bd16dcb84f5e14943409b",
+                "reference": "d3b960f9c46386142b3bd16dcb84f5e14943409b",
+                "shasum": ""
+            },
+            "require": {
+                "ctf0/package-changelog": "^1.0",
+                "illuminate/support": "~5.4.0|~5.5.0",
+                "maennchen/zipstream-php": "^0.5.0",
+                "php": "~7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "ctf0\\MediaManager\\MediaManagerServiceProvider"
+                    ]
+                },
+                "changeLog": "logs"
+            },
+            "autoload": {
+                "psr-4": {
+                    "ctf0\\MediaManager\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Muah",
+                    "email": "muah003@gmail.com"
+                }
+            ],
+            "description": "A Media Manager Built With Vuejs & Laravel",
+            "homepage": "https://github.com/ctf0/Laravel-Media-Manager",
+            "keywords": [
+                "ctf0",
+                "gui",
+                "laravel",
+                "manager",
+                "media",
+                "mediamanager"
+            ],
+            "time": "2018-01-17T03:46:35+00:00"
+        },
+        {
+            "name": "ctf0/package-changelog",
+            "version": "v1.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ctf0/PackageChangeLog.git",
+                "reference": "31296cf42ee2993dbc478ccfaace282c162a2006"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ctf0/PackageChangeLog/zipball/31296cf42ee2993dbc478ccfaace282c162a2006",
+                "reference": "31296cf42ee2993dbc478ccfaace282c162a2006",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0",
+                "php": "~7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "ctf0\\PackageChangeLog\\PackageChangeLogServiceProvider"
+                    ]
+                },
+                "changeLog": "logs"
+            },
+            "autoload": {
+                "psr-4": {
+                    "ctf0\\PackageChangeLog\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Muah",
+                    "email": "muah003@gmail.com"
+                }
+            ],
+            "description": "show package changeLog on install/update",
+            "homepage": "https://github.com/ctf0/PackageChangeLog",
+            "keywords": [
+                "ctf0",
+                "laravel",
+                "package-changelog"
+            ],
+            "time": "2017-10-24T11:48:12+00:00"
+        },
+        {
             "name": "defuse/php-encryption",
             "version": "v2.1.0",
             "source": {
@@ -181,61 +288,6 @@
                 "symmetric key cryptography"
             ],
             "time": "2017-05-18T21:28:48+00:00"
-        },
-        {
-            "name": "dflydev/apache-mime-types",
-            "version": "v1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dflydev/dflydev-apache-mime-types.git",
-                "reference": "f30a57e59b7476e4c5270b6a0727d79c9c0eb861"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dflydev/dflydev-apache-mime-types/zipball/f30a57e59b7476e4c5270b6a0727d79c9c0eb861",
-                "reference": "f30a57e59b7476e4c5270b6a0727d79c9c0eb861",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3"
-            },
-            "require-dev": {
-                "twig/twig": "1.*"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Dflydev\\ApacheMimeTypes": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Dragonfly Development Inc.",
-                    "email": "info@dflydev.com",
-                    "homepage": "http://dflydev.com"
-                },
-                {
-                    "name": "Beau Simensen",
-                    "email": "beau@dflydev.com",
-                    "homepage": "http://beausimensen.com"
-                }
-            ],
-            "description": "Apache MIME Types",
-            "keywords": [
-                "apache",
-                "mime",
-                "mimetypes"
-            ],
-            "time": "2013-05-14T02:02:01+00:00"
         },
         {
             "name": "dimsav/laravel-translatable",
@@ -1094,16 +1146,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.5.31",
+            "version": "v5.5.32",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "a47b50a5981c0cf0139939dfaea4191784b65acb"
+                "reference": "254e4c3e133f5bc8d6068cdf28ea062abc10adf2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/a47b50a5981c0cf0139939dfaea4191784b65acb",
-                "reference": "a47b50a5981c0cf0139939dfaea4191784b65acb",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/254e4c3e133f5bc8d6068cdf28ea062abc10adf2",
+                "reference": "254e4c3e133f5bc8d6068cdf28ea062abc10adf2",
                 "shasum": ""
             },
             "require": {
@@ -1224,7 +1276,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2018-01-16T15:39:45+00:00"
+            "time": "2018-01-18T13:27:23+00:00"
         },
         {
             "name": "laravel/passport",
@@ -1727,6 +1779,58 @@
                 "server"
             ],
             "time": "2017-12-23T23:33:42+00:00"
+        },
+        {
+            "name": "maennchen/zipstream-php",
+            "version": "v0.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/maennchen/ZipStream-PHP.git",
+                "reference": "253855c215bf4b993b15b69b755c4b745e235db4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/maennchen/ZipStream-PHP/zipball/253855c215bf4b993b15b69b755c4b745e235db4",
+                "reference": "253855c215bf4b993b15b69b755c4b745e235db4",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">= 7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ZipStream\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Paul Duncan",
+                    "email": "pabs@pablotron.org"
+                },
+                {
+                    "name": "Jesse Donat",
+                    "email": "donatj@gmail.com"
+                },
+                {
+                    "name": "Jonatan Männchen",
+                    "email": "jonatan@maennchen.ch"
+                }
+            ],
+            "description": "ZipStream is a library for dynamically streaming dynamic zip files from PHP without writing to the disk at all on the server.",
+            "keywords": [
+                "stream",
+                "zip"
+            ],
+            "time": "2017-12-18T14:36:30+00:00"
         },
         {
             "name": "mcamara/laravel-localization",
@@ -3501,72 +3605,6 @@
             "time": "2018-01-03T17:14:19+00:00"
         },
         {
-            "name": "talvbansal/media-manager",
-            "version": "2.5.8",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/talvbansal/media-manager.git",
-                "reference": "94901a14dca99a4a13a71d8f7f3748f5a1ea5062"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/talvbansal/media-manager/zipball/94901a14dca99a4a13a71d8f7f3748f5a1ea5062",
-                "reference": "94901a14dca99a4a13a71d8f7f3748f5a1ea5062",
-                "shasum": ""
-            },
-            "require": {
-                "dflydev/apache-mime-types": "^1.0",
-                "php": ">=5.6"
-            },
-            "require-dev": {
-                "illuminate/routing": "5.*",
-                "illuminate/support": "5.*",
-                "mockery/mockery": "^0.9",
-                "orchestra/testbench": "3.*",
-                "phpunit/phpunit": "^5.7"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "TalvBansal\\MediaManager\\Providers\\MediaManagerServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "TalvBansal\\MediaManager\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Talvinder Bansal",
-                    "email": "talvbansal@hotmail.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "A media browser and uploader for laravel apps written in vue js and bootstrap",
-            "keywords": [
-                "Media Manager",
-                "Vue.js",
-                "blog",
-                "bootstrap",
-                "developers",
-                "easel",
-                "file uploader",
-                "files",
-                "laravel",
-                "media",
-                "minimal",
-                "uploader"
-            ],
-            "time": "2017-11-28T13:35:06+00:00"
-        },
-        {
             "name": "tijsverkoyen/css-to-inline-styles",
             "version": "2.2.1",
             "source": {
@@ -5310,21 +5348,21 @@
         },
         {
             "name": "symfony/thanks",
-            "version": "v1.0.1",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/thanks.git",
-                "reference": "b637913a92664571afd1067fc645ecb30c9cf5b2"
+                "reference": "0621e9e403cbae531165c98c99f05221bf3b9dba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/thanks/zipball/b637913a92664571afd1067fc645ecb30c9cf5b2",
-                "reference": "b637913a92664571afd1067fc645ecb30c9cf5b2",
+                "url": "https://api.github.com/repos/symfony/thanks/zipball/0621e9e403cbae531165c98c99f05221bf3b9dba",
+                "reference": "0621e9e403cbae531165c98c99f05221bf3b9dba",
                 "shasum": ""
             },
             "require": {
                 "composer-plugin-api": "^1.1",
-                "php": "^5.5.9|^7.0.8"
+                "php": "^5.5.9|^7.0.0"
             },
             "type": "composer-plugin",
             "extra": {
@@ -5349,7 +5387,7 @@
                 }
             ],
             "description": "Give thanks (in the form of a GitHub ⭐) to your fellow PHP package maintainers (not limited to Symfony components)!",
-            "time": "2018-01-03T09:30:52+00:00"
+            "time": "2018-01-10T15:41:47+00:00"
         },
         {
             "name": "theseer/tokenizer",

@@ -19,7 +19,7 @@
                         [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', 'Image' ]
                     ],
                     height: 300,
-                    filebrowserBrowseUrl: 'test'
+                    filebrowserBrowseUrl: 'media'
                 }
             }
         },

@@ -41,7 +41,6 @@
                             <div class="form-group">
                                 <button class="btn btn-primary">Create</button>
                             </div>
-                            <media-manager></media-manager>
                         </form>
                     </div>
                 </div>

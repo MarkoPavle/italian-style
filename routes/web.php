@@ -19,12 +19,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('/admin', function () {
     return view('layouts.admin-app');
 });
 
-\TalvBansal\MediaManager\Routes\MediaRoutes::get();
+// MediaManager
+ctf0\MediaManager\MediaRoutes::routes();

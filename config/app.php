@@ -172,7 +172,7 @@ return [
         Dimsav\Translatable\TranslatableServiceProvider::class,
         Ixudra\Curl\CurlServiceProvider::class,
         Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
-        TalvBansal\MediaManager\Providers\MediaManagerServiceProvider::class,
+        ctf0\MediaManager\MediaManagerServiceProvider::class,
         /*
          * Application Service Providers...
          */
