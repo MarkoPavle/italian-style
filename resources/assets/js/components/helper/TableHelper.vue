@@ -8,7 +8,7 @@
         </thead>
         <tbody>
             <tr v-for="row in data">
-                <td v-for="item in row">{{ item }}</td>
+                <td v-for="item in row" v-if="!Array.isArray(item)">{{ item }}</td>
                 <td>
                     <font-awesome-icon icon="pencil-alt" @click="editRow(row['id'])"/>
                     <font-awesome-icon icon="times" @click="removeRow(row['id'])" />

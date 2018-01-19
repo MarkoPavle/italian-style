@@ -13,7 +13,7 @@ class CreateCategoryRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,15 +25,17 @@ class CreateCategoryRequest extends FormRequest
     {
         return [
             'title' => 'required',
+            'slug' => 'required',
             'desc' => 'min:6',
         ];
     }
 
-    public function messages()
+    /*public function messages()
     {
         return [
             'title.required' => 'Naziv je obavezan',
+            'title.slug' => 'Slug je obavezan',
             'desc.min' => 'Opis mora imati minimum 6 karatktera',
         ];
-    }
+    }*/
 }

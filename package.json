@@ -33,6 +33,7 @@
     "vue": "^2.5.13",
     "vue-ckeditor2": "^1.21.0",
     "vue-router": "^3.0.1",
+    "vue-switches": "^2.0.1",
     "vuex": "^3.0.1"
   }
 }

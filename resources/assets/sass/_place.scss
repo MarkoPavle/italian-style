@@ -31,6 +31,30 @@
   small{
     color: red !important;
   }
+
+
+  .vue-switcher-theme--bootstrap {
+    &.vue-switcher-color--primary {
+      div {
+        background-color: lighten($primary, 10%);
+
+        &:after {
+          // for the circle on the switch
+          background-color: darken($primary, 5%);
+        }
+      }
+
+      &.vue-switcher--unchecked {
+        div {
+          background-color: lighten($primary, 30%);
+
+          &:after {
+            background-color: lighten($primary, 10%);
+          }
+        }
+      }
+    }
+  }
 }
 
 /** AUTH **/

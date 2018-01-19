@@ -28,7 +28,6 @@ Vue.component('left-bar', require('./components/nav/leftBar.vue'));
 /** HELPER **/
 Vue.component('table-helper', require('./components/helper/TableHelper.vue'));
 Vue.component('paginate-helper', require('./components/helper/PaginateHelper.vue'));
-Vue.component('textarea-helper', require('./components/helper/TextAreaHelper.vue'));
 
 import { store } from './store/store';
 import { router } from './routes';

@@ -30,7 +30,7 @@ class CreateUserRequest extends FormRequest
         ];
     }
 
-    public function messages()
+    /*public function messages()
     {
         return [
             'name.required' => 'Ime je obavezno',
@@ -41,5 +41,5 @@ class CreateUserRequest extends FormRequest
             'password.confirmed' => 'Lozinka nije ispravno potvrđena',
             'password.min' => 'Lozinka mora imati minimum 6 karaktera',
         ];
-    }
+    }*/
 }

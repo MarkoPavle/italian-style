@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\EditUserRequest;
-use App\Http\Requests\UploadUserImageRequest;
 use App\User;
 use Illuminate\Http\Request;
 use File;
@@ -62,7 +61,7 @@ class UsersController extends Controller
         ]);
     }
 
-    public function uploadImage(Request $request, $id){
+    public function uploadImage($id){
         $image = User::base64UploadImage($id, request('image'));
         return response()->json([
             'image' => $image

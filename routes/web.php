@@ -12,6 +12,9 @@
 */
 
 Route::get('/', function () {
+    return $categories = \App\Category::select('categories.id')
+        ->join('category_translations', 'categories.id', '=', 'category_translations.category_id')
+        ->orderBy('categories.created_at', 'DESC')->groupBy('categories.id')->paginate(3);
     return view('welcome');
 });
 

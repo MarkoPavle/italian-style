@@ -31,12 +31,19 @@
                             <div class="form-group">
                                 <label for="slug">Slug</label>
                                 <input type="text" name="slug" class="form-control" id="slug" placeholder="Slug" v-model="category.slug">
-                                <small class="form-text text-muted" v-if="error != null && error.email">{{ error.email[0] }}</small>
+                                <small class="form-text text-muted" v-if="error != null && error.slug">{{ error.slug[0] }}</small>
                             </div>
                             <div class="form-group">
                                 <label>Category description</label>
-                                <textarea-helper @getText="getDesc($event)"></textarea-helper>
+                                <ckeditor
+                                        v-model="category.desc"
+                                        :config="config">
+                                </ckeditor>
                                 <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.desc[0] }}</small>
+                            </div>
+                            <div class="form-group">
+                                <label>Published</label><br>
+                                <switches v-model="category.publish" theme="bootstrap" color="primary"></switches>
                             </div>
                             <div class="form-group">
                                 <button class="btn btn-primary" type="submit">Create</button>
@@ -62,28 +69,36 @@
 <script>
     import FontAwesomeIcon from '@fortawesome/vue-fontawesome';
     import UploadImageHelper from '../helper/UploadImageHelper.vue';
-    import TextAreaHelper from '../helper/TextAreaHelper.vue';
     import swal from 'sweetalert2';
+    import Switches from 'vue-switches';
+    import Ckeditor from 'vue-ckeditor2';
 
     export default {
         data(){
           return {
               category: {
-                  desc: null
+                  desc: null,
+                  publish: false
               },
-              error: null
+              error: null,
+              config: {
+                  toolbar: [
+                      [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', 'Image' ]
+                  ],
+                  height: 300,
+                  filebrowserBrowseUrl: 'media'
+              }
           }
         },
         components: {
             'font-awesome-icon': FontAwesomeIcon,
             'upload-image-helper': UploadImageHelper,
-            'textarea-helper': TextAreaHelper,
+            'switches': Switches,
+            'ckeditor': Ckeditor
         },
         methods: {
             submit(){
-                console.log('submit');
-                console.log(this.category);
-                /*axios.post('api/categories', this.category)
+                axios.post('api/categories', this.category)
                     .then(res => {
                         swal({
                             position: 'center',
@@ -96,13 +111,14 @@
                     }).catch(e => {
                         console.log(e.response);
                         this.error = e.response.data.errors;
-                    });*/
+                    });
             },
             upload(image){
                 this.category.image = image[0];
             },
             getDesc(text){
-                console.log('emit: ' + text);
+                console.log('emit: ');
+                console.log(text);
                 this.desc = text;
             },
         }
