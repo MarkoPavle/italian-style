@@ -100,7 +100,7 @@
                             </button>
                         </div>
 
-                        {{-- rename --}}
+                        {{-- rename
                         <div class="control" v-if="!isBulkSelecting()">
                             <button class="button is-link"
                                 :disabled="item_ops() || isLoading"
@@ -109,6 +109,7 @@
                                 <span>{{ trans('MediaManager::messages.rename') }}</span>
                             </button>
                         </div>
+                        --}}
 
                         {{-- editor --}}
                         <div class="control" v-if="!isBulkSelecting()">

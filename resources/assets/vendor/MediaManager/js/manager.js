@@ -27,7 +27,7 @@ Vue.use(require('vue-tippy'), {
             }
         }
     }
-})
+});
 
 // v-touch
 let VueTouch = require('vue-touch')

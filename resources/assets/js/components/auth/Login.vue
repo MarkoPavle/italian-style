@@ -3,7 +3,7 @@
         <div id="login">
             <div class="form-body">
                 <div class="form-header">
-                    Logovanje
+                    Login
                 </div>
                 <form @submit.prevent="login()">
                     <div class="form-group">
