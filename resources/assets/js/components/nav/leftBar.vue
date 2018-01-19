@@ -38,7 +38,7 @@
                 <font-awesome-icon icon="shopping-cart" />
                 <ul>
                     <li><a href="#">Product review</a></li>
-                    <li><a href="#">Category review</a></li>
+                    <li><router-link tag="a" :to="'/categories'">Category review</router-link></li>
                 </ul>
             </li>
             <li :class="{ 'active': showNewslettersItemActive }" :style="{ 'display': showNewslettersItem ? 'block' : 'none' }">
