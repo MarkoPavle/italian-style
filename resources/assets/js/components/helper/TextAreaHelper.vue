@@ -2,8 +2,7 @@
     <ckeditor
             v-model="content"
             :config="config"
-            @blur="onBlur($event)"
-            @focus="onFocus($event)">
+            @blur="onBlur($event)">
     </ckeditor>
 </template>
 
@@ -26,11 +25,8 @@
         components: { Ckeditor },
         methods: {
             onBlur (editor) {
-                console.log(editor)
+                this.$emit('getText', editor)
             },
-            onFocus (editor) {
-                console.log(editor)
-            }
         }
     }
 </script>

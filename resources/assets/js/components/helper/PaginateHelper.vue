@@ -1,5 +1,5 @@
 <template>
-    <nav aria-label="Page navigation example" v-if="">
+    <nav aria-label="Page navigation example" v-if="paginate.last_page > 1">
         <ul class="pagination justify-content-center">
             <li class="page-item" :class="{ 'disabled': paginate.current_page == 1 }"  @click.prevent="firstLink(paginate.current_page)">
                 <a class="page-link" href="#" aria-label="Previous">

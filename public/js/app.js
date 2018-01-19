@@ -33412,249 +33412,277 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("nav", { attrs: { "aria-label": "Page navigation example" } }, [
-    _c(
-      "ul",
-      { staticClass: "pagination justify-content-center" },
-      [
+  return _vm.paginate.last_page > 1
+    ? _c("nav", { attrs: { "aria-label": "Page navigation example" } }, [
         _c(
-          "li",
-          {
-            staticClass: "page-item",
-            class: { disabled: _vm.paginate.current_page == 1 },
-            on: {
-              click: function($event) {
-                $event.preventDefault()
-                _vm.firstLink(_vm.paginate.current_page)
-              }
-            }
-          },
-          [_vm._m(0)]
-        ),
-        _vm._v(" "),
-        _vm.paginate.last_page > 10
-          ? [
-              _vm.paginate.current_page < _vm.first
-                ? [
-                    _vm._l(_vm.first, function(index) {
-                      return _c(
-                        "li",
-                        {
-                          staticClass: "page-item",
-                          class: { active: _vm.paginate.current_page == index },
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              _vm.clickLink(index)
-                            }
-                          }
-                        },
-                        [
-                          _c(
-                            "a",
-                            { staticClass: "page-link", attrs: { href: "#" } },
-                            [_vm._v(_vm._s(index))]
-                          )
-                        ]
-                      )
-                    }),
-                    _vm._v(" "),
-                    _vm._m(1),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      {
-                        staticClass: "page-item",
-                        on: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            _vm.clickLink(_vm.paginate.last_page)
-                          }
-                        }
-                      },
-                      [
-                        _c(
-                          "a",
-                          { staticClass: "page-link", attrs: { href: "#" } },
-                          [_vm._v(_vm._s(_vm.paginate.last_page))]
-                        )
-                      ]
-                    )
-                  ]
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.paginate.current_page > _vm.paginate.last_page - 6
-                ? [
-                    _c(
-                      "li",
-                      {
-                        staticClass: "page-item",
-                        on: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            _vm.clickLink(1)
-                          }
-                        }
-                      },
-                      [
-                        _c(
-                          "a",
-                          { staticClass: "page-link", attrs: { href: "#" } },
-                          [_vm._v("1")]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _vm._m(2),
-                    _vm._v(" "),
-                    _vm._l(_vm.first, function(index) {
-                      return _c(
-                        "li",
-                        {
-                          staticClass: "page-item",
-                          class: {
-                            active:
-                              _vm.paginate.current_page == index + _vm.last
-                          },
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              _vm.clickLink(index + _vm.last)
-                            }
-                          }
-                        },
-                        [
-                          _c(
-                            "a",
-                            { staticClass: "page-link", attrs: { href: "#" } },
-                            [_vm._v(_vm._s(index + _vm.last))]
-                          )
-                        ]
-                      )
-                    })
-                  ]
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.paginate.current_page >= 6 &&
-              _vm.paginate.current_page <= _vm.paginate.last_page - 6
-                ? [
-                    _c(
-                      "li",
-                      {
-                        staticClass: "page-item",
-                        on: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            _vm.clickLink(1)
-                          }
-                        }
-                      },
-                      [
-                        _c(
-                          "a",
-                          { staticClass: "page-link", attrs: { href: "#" } },
-                          [_vm._v("1")]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _vm._m(3),
-                    _vm._v(" "),
-                    _vm._l(_vm.first, function(index) {
-                      return _c(
-                        "li",
-                        {
-                          staticClass: "page-item",
-                          class: {
-                            active:
-                              _vm.paginate.current_page == index + _vm.medStart
-                          },
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              _vm.clickLink(index + _vm.medStart)
-                            }
-                          }
-                        },
-                        [
-                          _c(
-                            "a",
-                            { staticClass: "page-link", attrs: { href: "#" } },
-                            [_vm._v(_vm._s(index + _vm.medStart))]
-                          )
-                        ]
-                      )
-                    }),
-                    _vm._v(" "),
-                    _vm._m(4),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      {
-                        staticClass: "page-item",
-                        on: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            _vm.clickLink(_vm.paginate.last_page)
-                          }
-                        }
-                      },
-                      [
-                        _c(
-                          "a",
-                          { staticClass: "page-link", attrs: { href: "#" } },
-                          [_vm._v(_vm._s(_vm.paginate.last_page))]
-                        )
-                      ]
-                    )
-                  ]
-                : _vm._e()
-            ]
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.paginate.last_page <= 10
-          ? _vm._l(_vm.paginate.last_page, function(index) {
-              return _c(
-                "li",
-                {
-                  staticClass: "page-item",
-                  class: { active: _vm.paginate.current_page == index },
-                  on: {
-                    click: function($event) {
-                      $event.preventDefault()
-                      _vm.clickLink(index)
-                    }
+          "ul",
+          { staticClass: "pagination justify-content-center" },
+          [
+            _c(
+              "li",
+              {
+                staticClass: "page-item",
+                class: { disabled: _vm.paginate.current_page == 1 },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    _vm.firstLink(_vm.paginate.current_page)
                   }
-                },
-                [
-                  _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-                    _vm._v(_vm._s(index))
-                  ])
+                }
+              },
+              [_vm._m(0)]
+            ),
+            _vm._v(" "),
+            _vm.paginate.last_page > 10
+              ? [
+                  _vm.paginate.current_page < _vm.first
+                    ? [
+                        _vm._l(_vm.first, function(index) {
+                          return _c(
+                            "li",
+                            {
+                              staticClass: "page-item",
+                              class: {
+                                active: _vm.paginate.current_page == index
+                              },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  _vm.clickLink(index)
+                                }
+                              }
+                            },
+                            [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "page-link",
+                                  attrs: { href: "#" }
+                                },
+                                [_vm._v(_vm._s(index))]
+                              )
+                            ]
+                          )
+                        }),
+                        _vm._v(" "),
+                        _vm._m(1),
+                        _vm._v(" "),
+                        _c(
+                          "li",
+                          {
+                            staticClass: "page-item",
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                _vm.clickLink(_vm.paginate.last_page)
+                              }
+                            }
+                          },
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "page-link",
+                                attrs: { href: "#" }
+                              },
+                              [_vm._v(_vm._s(_vm.paginate.last_page))]
+                            )
+                          ]
+                        )
+                      ]
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.paginate.current_page > _vm.paginate.last_page - 6
+                    ? [
+                        _c(
+                          "li",
+                          {
+                            staticClass: "page-item",
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                _vm.clickLink(1)
+                              }
+                            }
+                          },
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "page-link",
+                                attrs: { href: "#" }
+                              },
+                              [_vm._v("1")]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _vm._m(2),
+                        _vm._v(" "),
+                        _vm._l(_vm.first, function(index) {
+                          return _c(
+                            "li",
+                            {
+                              staticClass: "page-item",
+                              class: {
+                                active:
+                                  _vm.paginate.current_page == index + _vm.last
+                              },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  _vm.clickLink(index + _vm.last)
+                                }
+                              }
+                            },
+                            [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "page-link",
+                                  attrs: { href: "#" }
+                                },
+                                [_vm._v(_vm._s(index + _vm.last))]
+                              )
+                            ]
+                          )
+                        })
+                      ]
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.paginate.current_page >= 6 &&
+                  _vm.paginate.current_page <= _vm.paginate.last_page - 6
+                    ? [
+                        _c(
+                          "li",
+                          {
+                            staticClass: "page-item",
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                _vm.clickLink(1)
+                              }
+                            }
+                          },
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "page-link",
+                                attrs: { href: "#" }
+                              },
+                              [_vm._v("1")]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _vm._m(3),
+                        _vm._v(" "),
+                        _vm._l(_vm.first, function(index) {
+                          return _c(
+                            "li",
+                            {
+                              staticClass: "page-item",
+                              class: {
+                                active:
+                                  _vm.paginate.current_page ==
+                                  index + _vm.medStart
+                              },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  _vm.clickLink(index + _vm.medStart)
+                                }
+                              }
+                            },
+                            [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "page-link",
+                                  attrs: { href: "#" }
+                                },
+                                [_vm._v(_vm._s(index + _vm.medStart))]
+                              )
+                            ]
+                          )
+                        }),
+                        _vm._v(" "),
+                        _vm._m(4),
+                        _vm._v(" "),
+                        _c(
+                          "li",
+                          {
+                            staticClass: "page-item",
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                _vm.clickLink(_vm.paginate.last_page)
+                              }
+                            }
+                          },
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "page-link",
+                                attrs: { href: "#" }
+                              },
+                              [_vm._v(_vm._s(_vm.paginate.last_page))]
+                            )
+                          ]
+                        )
+                      ]
+                    : _vm._e()
                 ]
-              )
-            })
-          : _vm._e(),
-        _vm._v(" "),
-        _c(
-          "li",
-          {
-            staticClass: "page-item",
-            class: {
-              disabled: _vm.paginate.current_page == _vm.paginate.last_page
-            },
-            on: {
-              click: function($event) {
-                $event.preventDefault()
-                _vm.lastLink(_vm.paginate.current_page)
-              }
-            }
-          },
-          [_vm._m(5)]
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.paginate.last_page <= 10
+              ? _vm._l(_vm.paginate.last_page, function(index) {
+                  return _c(
+                    "li",
+                    {
+                      staticClass: "page-item",
+                      class: { active: _vm.paginate.current_page == index },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.clickLink(index)
+                        }
+                      }
+                    },
+                    [
+                      _c(
+                        "a",
+                        { staticClass: "page-link", attrs: { href: "#" } },
+                        [_vm._v(_vm._s(index))]
+                      )
+                    ]
+                  )
+                })
+              : _vm._e(),
+            _vm._v(" "),
+            _c(
+              "li",
+              {
+                staticClass: "page-item",
+                class: {
+                  disabled: _vm.paginate.current_page == _vm.paginate.last_page
+                },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    _vm.lastLink(_vm.paginate.current_page)
+                  }
+                }
+              },
+              [_vm._m(5)]
+            )
+          ],
+          2
         )
-      ],
-      2
-    )
-  ])
+      ])
+    : _vm._e()
 }
 var staticRenderFns = [
   function() {
@@ -35380,7 +35408,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            category: {},
+            category: {
+                desc: null
+            },
             error: null
         };
     },
@@ -35392,24 +35422,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     methods: {
         submit: function submit() {
-            var _this = this;
-
-            axios.post('api/categories', this.category).then(function (res) {
-                __WEBPACK_IMPORTED_MODULE_3_sweetalert2___default()({
-                    position: 'center',
-                    type: 'success',
-                    title: 'Success',
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-                _this.$router.push('/categories');
-            }).catch(function (e) {
-                console.log(e.response);
-                _this.error = e.response.data.errors;
-            });
+            console.log('submit');
+            console.log(this.category);
+            /*axios.post('api/categories', this.category)
+                .then(res => {
+                    swal({
+                        position: 'center',
+                        type: 'success',
+                        title: 'Success',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    this.$router.push('/categories');
+                }).catch(e => {
+                    console.log(e.response);
+                    this.error = e.response.data.errors;
+                });*/
         },
         upload: function upload(image) {
-            this.user.image = image[0];
+            this.category.image = image[0];
+        },
+        getDesc: function getDesc(text) {
+            console.log('emit: ' + text);
+            this.desc = text;
         }
     }
 });
@@ -35422,7 +35457,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_ckeditor2__ = __webpack_require__(77);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_ckeditor2___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_ckeditor2__);
-//
 //
 //
 //
@@ -35449,10 +35483,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     components: { Ckeditor: __WEBPACK_IMPORTED_MODULE_0_vue_ckeditor2___default.a },
     methods: {
         onBlur: function onBlur(editor) {
-            console.log(editor);
-        },
-        onFocus: function onFocus(editor) {
-            console.log(editor);
+            this.$emit('getText', editor);
         }
     }
 });
@@ -35734,9 +35765,6 @@ var render = function() {
     on: {
       blur: function($event) {
         _vm.onBlur($event)
-      },
-      focus: function($event) {
-        _vm.onFocus($event)
       }
     },
     model: {
@@ -35894,7 +35922,13 @@ var render = function() {
                   [
                     _c("label", [_vm._v("Category description")]),
                     _vm._v(" "),
-                    _c("textarea-helper", { attrs: { id: "desc" } }),
+                    _c("textarea-helper", {
+                      on: {
+                        getText: function($event) {
+                          _vm.getDesc($event)
+                        }
+                      }
+                    }),
                     _vm._v(" "),
                     _vm.error != null && _vm.error.desc
                       ? _c("small", { staticClass: "form-text text-muted" }, [
@@ -35954,7 +35988,11 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-group" }, [
-      _c("button", { staticClass: "btn btn-primary" }, [_vm._v("Create")])
+      _c(
+        "button",
+        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+        [_vm._v("Create")]
+      )
     ])
   }
 ]

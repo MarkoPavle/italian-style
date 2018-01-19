@@ -24,7 +24,16 @@ class CreateCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required',
+            'desc' => 'min:6',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'title.required' => 'Naziv je obavezan',
+            'desc.min' => 'Opis mora imati minimum 6 karatktera',
         ];
     }
 }

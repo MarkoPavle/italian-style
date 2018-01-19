@@ -35,11 +35,11 @@
                             </div>
                             <div class="form-group">
                                 <label>Category description</label>
-                                <textarea-helper id="desc"></textarea-helper>
+                                <textarea-helper @getText="getDesc($event)"></textarea-helper>
                                 <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.desc[0] }}</small>
                             </div>
                             <div class="form-group">
-                                <button class="btn btn-primary">Create</button>
+                                <button class="btn btn-primary" type="submit">Create</button>
                             </div>
                         </form>
                     </div>
@@ -68,7 +68,9 @@
     export default {
         data(){
           return {
-              category: {},
+              category: {
+                  desc: null
+              },
               error: null
           }
         },
@@ -79,7 +81,9 @@
         },
         methods: {
             submit(){
-                axios.post('api/categories', this.category)
+                console.log('submit');
+                console.log(this.category);
+                /*axios.post('api/categories', this.category)
                     .then(res => {
                         swal({
                             position: 'center',
@@ -92,10 +96,14 @@
                     }).catch(e => {
                         console.log(e.response);
                         this.error = e.response.data.errors;
-                    });
+                    });*/
             },
             upload(image){
-                this.user.image = image[0];
+                this.category.image = image[0];
+            },
+            getDesc(text){
+                console.log('emit: ' + text);
+                this.desc = text;
             },
         }
     }

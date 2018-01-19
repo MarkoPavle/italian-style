@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Http\Requests\CreateCategoryRequest;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
@@ -16,7 +17,10 @@ class CategoriesController extends Controller
         ]);
     }
 
-    public function store(){
-
+    public function store(CreateCategoryRequest $request){
+        $category = Category::create($request->all());
+        return response()->json([
+            'category' => $category
+        ]);
     }
 }
