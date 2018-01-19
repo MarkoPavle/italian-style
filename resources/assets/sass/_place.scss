@@ -10,6 +10,9 @@
   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
   box-sizing: border-box;
 
+  -webkit-transition: all 1s; /* Safari */
+  transition: all 1s;
+
   @include max-breakpoint(xs){
     width: 100%;
     margin-left: 0;

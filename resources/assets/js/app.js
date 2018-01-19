@@ -7,7 +7,7 @@
 
 require('./bootstrap');
 
-require('./../vendor/MediaManager/js/manager');
+//require('./../vendor/MediaManager/js/manager');
 
 window.Vue = require('vue');
 

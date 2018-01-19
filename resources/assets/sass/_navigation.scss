@@ -255,6 +255,12 @@
     -ms-transform: translate(-250px, 0); /* IE 9 */
     -webkit-transform: translate(-250px, 0); /* Safari */
     transform: translate(-250px, 0); /* Standard syntax */
+
+    &.hide + #place{
+      -ms-transform: translate(-220px, 0); /* IE 9 */
+      -webkit-transform: translate(-220px, 0); /* Safari */
+      transform: translate(-220px, 0); /* Standard syntax */
+    }
   }
 
   &.hide{
@@ -264,6 +270,14 @@
 
     -webkit-transition: all 1s; /* Safari */
     transition: all 1s;
+
+    + #place{
+      width: calc(100vw - 30px);
+
+      -ms-transform: translate(-220px, 0); /* IE 9 */
+      -webkit-transform: translate(-220px, 0); /* Safari */
+      transform: translate(-220px, 0); /* Standard syntax */
+    }
 
     @include max-breakpoint(xs){
       -ms-transform: translate(0, 0); /* IE 9 */

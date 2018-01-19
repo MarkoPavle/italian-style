@@ -15,4 +15,8 @@ class CategoriesController extends Controller
             'columns' => $columns
         ]);
     }
+
+    public function store(){
+
+    }
 }

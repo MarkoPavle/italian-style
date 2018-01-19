@@ -10172,6 +10172,14 @@ a.text-dark:hover {
     transform: translate(-250px, 0);
     /* Standard syntax */
   }
+
+  #leftMenu.hide + #place {
+    /* IE 9 */
+    -webkit-transform: translate(-220px, 0);
+    /* Safari */
+    transform: translate(-220px, 0);
+    /* Standard syntax */
+  }
 }
 
 #leftMenu.hide {
@@ -10183,6 +10191,15 @@ a.text-dark:hover {
   -webkit-transition: all 1s;
   /* Safari */
   transition: all 1s;
+}
+
+#leftMenu.hide + #place {
+  width: calc(100vw - 30px);
+  /* IE 9 */
+  -webkit-transform: translate(-220px, 0);
+  /* Safari */
+  transform: translate(-220px, 0);
+  /* Standard syntax */
 }
 
 @media (max-width: 576px) {
@@ -10361,6 +10378,9 @@ a.text-dark:hover {
   /* Safari/Chrome, other WebKit */
   /* Firefox, other Gecko */
   box-sizing: border-box;
+  -webkit-transition: all 1s;
+  /* Safari */
+  transition: all 1s;
 }
 
 @media (max-width: 576px) {

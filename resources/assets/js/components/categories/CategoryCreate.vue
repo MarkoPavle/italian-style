@@ -79,7 +79,7 @@
         },
         methods: {
             submit(){
-                axios.post('api/categories', this.user)
+                axios.post('api/categories', this.category)
                     .then(res => {
                         swal({
                             position: 'center',
