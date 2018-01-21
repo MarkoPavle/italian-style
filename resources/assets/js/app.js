@@ -26,8 +26,10 @@ Vue.component('right-bar', require('./components/nav/rightBar.vue'));
 Vue.component('left-bar', require('./components/nav/leftBar.vue'));
 
 /** HELPER **/
-Vue.component('table-helper', require('./components/helper/TableHelper.vue'));
 Vue.component('paginate-helper', require('./components/helper/PaginateHelper.vue'));
+Vue.component('font-awesome-icon', require('@fortawesome/vue-fontawesome'));
+
+
 
 import { store } from './store/store';
 import { router } from './routes';

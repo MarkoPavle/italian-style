@@ -6,8 +6,8 @@
                     <div id="breadcrumbs">
                         <ul class="list-group list-group-flush">
                             <li><router-link tag="a" :to="'/home'">Home</router-link></li>
-                            <li><router-link tag="a" :to="'/users'">Users</router-link></li>
-                            <li>Edit user</li>
+                            <li><router-link tag="a" :to="'/users'">Categories</router-link></li>
+                            <li>Category edit</li>
                         </ul>
                     </div>
                 </div>
@@ -16,7 +16,7 @@
             <div class="row bela">
                 <div class="col-md-12">
                     <div class="card">
-                        <h5>Edit user</h5>
+                        <h5>Category edit</h5>
                     </div>
                 </div>
 
@@ -24,39 +24,42 @@
                     <div class="card">
                         <form @submit.prevent="submit()">
                             <div class="form-group">
-                                <label for="name">Ime</label>
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Ime" v-model="user.name">
-                                <small class="form-text text-muted" v-if="error != null && error.name">{{ error.name[0] }}</small>
+                                <label for="title">Title</label>
+                                <input type="text" name="title" class="form-control" id="title" placeholder="Ime" v-model="category.title">
+                                <small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>
                             </div>
                             <div class="form-group">
-                                <label for="email">Email adresa</label>
-                                <input type="email" name="email" class="form-control" id="email" placeholder="Email adresa" v-model="user.email">
-                                <small class="form-text text-muted" v-if="error != null && error.email">{{ error.email[0] }}</small>
+                                <label for="slug">Slug</label>
+                                <input type="text" name="slug" class="form-control" id="slug" placeholder="Slug" v-model="category.slug">
+                                <small class="form-text text-muted" v-if="error != null && error.slug">{{ error.slug[0] }}</small>
                             </div>
                             <div class="form-group">
-                                <label for="password">Lozinka</label>
-                                <input type="password" name="password" class="form-control" id="password" placeholder="Lozinka" v-model="user.password">
-                                <small class="form-text text-muted" v-if="error != null && error.password">{{ error.password[0] }}</small>
+                                <label>Category description</label>
+                                <ckeditor
+                                        v-model="category.desc"
+                                        :config="config">
+                                </ckeditor>
+                                <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.desc[0] }}</small>
                             </div>
                             <div class="form-group">
-                                <label for="password_confirmation">Potvrda lozinke</label>
-                                <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Potvrda lozinka" v-model="user.password_confirmation">
+                                <label>Published</label><br>
+                                <switches v-model="category.publish" theme="bootstrap" color="primary"></switches>
                             </div>
                             <div class="form-group">
-                                <label for="role">Pravo pristupa</label>
-                                <select name="role" class="form-control" id="role" v-model="user.role_id">
-                                    <option value="0" :selected="user.role_id == 0">Urednik</option>
-                                    <option value="1" :selected="user.role_id == 1">Admin</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <button class="btn btn-primary">Izmeni</button>
+                                <button class="btn btn-primary" type="submit">Edit</button>
                             </div>
                         </form>
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <upload-image-helper :image="user.image" :defaultImage="'img/user-image.png'" :titleImage="'korisnika'" :error="error" @uploadImage="upload($event)"></upload-image-helper>
+                    <upload-image-helper
+                            :image="category.image"
+                            :defaultImage="null"
+                            :titleImage="'Category'"
+                            :error="error"
+                            @uploadImage="upload($event)"
+                            @removeRow="remove($event)"
+                    ></upload-image-helper>
                 </div>
             </div>
         </div>
@@ -67,25 +70,48 @@
     import FontAwesomeIcon from '@fortawesome/vue-fontawesome';
     import UploadImageHelper from '../helper/UploadImageHelper.vue';
     import swal from 'sweetalert2';
+    import Switches from 'vue-switches';
+    import Ckeditor from 'vue-ckeditor2';
 
     export default {
         data(){
           return {
-              user: {},
-              error: null
+              category: {},
+              error: null,
+              config: {
+                  toolbar: [
+                      [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', 'Image' ]
+                  ],
+                  height: 300,
+                  filebrowserBrowseUrl: 'media'
+              }
           }
         },
         components: {
             'font-awesome-icon': FontAwesomeIcon,
             'upload-image-helper': UploadImageHelper,
+            'switches': Switches,
+            'ckeditor': Ckeditor
         },
         created(){
-            this.getUser();
+            this.getCategory();
         },
         methods: {
-            submit(){
-                axios.patch('api/users/' + this.user.id, this.user)
+            getCategory(){
+                axios.get('api/categories/' + this.$route.params.id)
                     .then(res => {
+                        this.category = res.data.category;
+                        console.log(this.category);
+                    })
+                    .catch(e => {
+                        console.log(e);
+                        this.error = e.response.data.errors;
+                    });
+            },
+            submit(){
+                axios.patch('api/categories/' + this.category.id, this.category)
+                    .then(res => {
+                        this.category = res.data.category;
                         swal({
                             position: 'center',
                             type: 'success',
@@ -99,22 +125,11 @@
                         this.error = e.response.data.errors;
                     });
             },
-            getUser(){
-                axios.get('api/users/' + this.$route.params.id)
-                    .then(res => {
-                        this.user = res.data.user;
-                        console.log(this.user);
-                    })
-                    .catch(e => {
-                        console.log(e);
-                        this.error = e.response.data.errors;
-                    });
-            },
             upload(image){
-                axios.post('api/users/' + this.user.id + '/image', { image: image[0] })
+                axios.post('api/categories/' + this.category.id + '/image', { image: image[0] })
                     .then(res => {
                         console.log(res);
-                        this.user.image = res.data.image;
+                        this.category.image = res.data.image;
                         this.error = null;
                         swal({
                             position: 'center',
@@ -124,14 +139,15 @@
                             timer: 1500
                         });
                     }).catch(e => {
-                        console.log(e);
-                        this.error = e.response.data.errors;
-                    });
+                    console.log(e);
+                    this.error = e.response.data.errors;
+                });
+            },
+            getDesc(text){
+                console.log('emit: ');
+                console.log(text);
+                this.desc = text;
             }
         }
     }
 </script>
-
-<style>
-
-</style>

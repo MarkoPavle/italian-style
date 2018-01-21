@@ -14,7 +14,29 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <table-helper :columns="columns" :data="categories" :table="'categories'" @removeRow="deleteCategory($event)"></table-helper>
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">title</th>
+                            <th scope="col">publish</th>
+                            <th scope="col">created at</th>
+                            <th>action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr v-for="row in categories">
+                            <td>{{ row.id }}</td>
+                            <td>{{ row.title }}</td>
+                            <td>{{ row.publish }}</td>
+                            <td>{{ row.created_at }}</td>
+                            <td>
+                                <font-awesome-icon icon="pencil-alt" @click="editRow(row['id'])"/>
+                                <font-awesome-icon icon="times" @click="deleteRow(row)" />
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <div class="row">
@@ -27,21 +49,20 @@
 </template>
 
 <script>
-    import TableHelper from '../helper/TableHelper.vue';
     import PaginateHelper from '../helper/PaginateHelper.vue';
     import swal from 'sweetalert2';
+    import FontAwesomeIcon from '@fortawesome/vue-fontawesome';
 
     export default {
         data(){
             return {
                 categories: {},
-                columns: [],
                 paginate: {}
             }
         },
-        component: {
-            'table-helper': TableHelper,
-            'paginate-helper': PaginateHelper
+        components: {
+            'paginate-helper': PaginateHelper,
+            'font-awesome-icon': FontAwesomeIcon
         },
         created(){
             console.log('spisak kategorija');
@@ -52,7 +73,6 @@
                 axios.get('api/categories')
                     .then(res => {
                         this.categories = res.data.categories.data;
-                        this.columns = res.data.columns;
                         this.paginate = res.data.categories;
                         console.log(res.data.categories);
                     })
@@ -60,7 +80,10 @@
                         console.log(e);
                     });
             },
-            deleteUser(id){
+            editRow(id){
+                this.$router.push('categories/' + id + '/edit');
+            },
+            deleteRow(row){
                 swal({
                     title: 'Are you sure?',
                     text: "You won't be able to revert this!",
@@ -71,18 +94,20 @@
                     confirmButtonText: 'Yes, delete it!'
                 }).then((result) => {
                     if (result.value) {
-                        axios.delete('api/categories/' + id)
+                        axios.delete('api/categories/' + row.id)
                             .then(res => {
-                                this.$router.push('/categories');
+                                this.categories = this.categories.filter(function (item) {
+                                    return row.id != item.id;
+                                });
+                                swal(
+                                    'Deleted!',
+                                    'Your file has been deleted.',
+                                    'success'
+                                );
                             })
                             .catch(e => {
                                 console.log(e);
                             });
-                        swal(
-                            'Deleted!',
-                            'Your file has been deleted.',
-                            'success'
-                        )
                     }
                 })
             },

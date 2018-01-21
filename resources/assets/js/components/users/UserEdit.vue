@@ -56,7 +56,7 @@
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <upload-image-helper :image="user.image" :defaultImage="'img/user-image.png'" :titleImage="'korisnika'" :error="error" @uploadImage="upload($event)"></upload-image-helper>
+                    <upload-image-helper :image="user.image" :defaultImage="'img/user-image.png'" :titleImage="'User'" :error="error" @uploadImage="upload($event)"></upload-image-helper>
                 </div>
             </div>
         </div>

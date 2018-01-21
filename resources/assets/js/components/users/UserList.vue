@@ -11,10 +11,33 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-md-12">
-                    <table-helper :columns="columns" :data="users" :table="'users'" @removeRow="deleteUser($event)"></table-helper>
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">name</th>
+                            <th scope="col">email</th>
+                            <th scope="col">role</th>
+                            <th scope="col">created at</th>
+                            <th>action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr v-for="row in users">
+                            <td>{{ row.id }}</td>
+                            <td>{{ row.name }}</td>
+                            <td>{{ row.email }}</td>
+                            <td>{{ row.role_id }}</td>
+                            <td>{{ row.created_at }}</td>
+                            <td>
+                                <font-awesome-icon icon="pencil-alt" @click="editRow(row['id'])"/>
+                                <font-awesome-icon icon="times" @click="deleteRow(row)" />
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <div class="row">
@@ -27,9 +50,9 @@
 </template>
 
 <script>
-    import TableHelper from '../helper/TableHelper.vue';
     import PaginateHelper from '../helper/PaginateHelper.vue';
     import swal from 'sweetalert2';
+    import FontAwesomeIcon from '@fortawesome/vue-fontawesome';
 
     export default {
         data(){
@@ -39,9 +62,8 @@
                 paginate: {}
             }
         },
-        component: {
-            'table-helper': TableHelper,
-            'paginate-helper': PaginateHelper
+        components: {
+            'font-awesome-icon': FontAwesomeIcon
         },
         created(){
             console.log('spisak korisnika');
@@ -60,7 +82,10 @@
                         console.log(e);
                     });
             },
-            deleteUser(id){
+            editRow(id){
+                this.$router.push('users/' + id + '/edit');
+            },
+            deleteRow(row){
                 swal({
                     title: 'Are you sure?',
                     text: "You won't be able to revert this!",
@@ -71,18 +96,20 @@
                     confirmButtonText: 'Yes, delete it!'
                 }).then((result) => {
                     if (result.value) {
-                        axios.delete('api/users/' + id)
+                        axios.delete('api/users/' + row.id)
                             .then(res => {
-                                this.$router.push('/users');
+                                this.users = this.users.filter(function (item) {
+                                    return row.id != item.id;
+                                });
+                                swal(
+                                    'Deleted!',
+                                    'Your file has been deleted.',
+                                    'success'
+                                );
                             })
                             .catch(e => {
                                 console.log(e);
                             });
-                        swal(
-                            'Deleted!',
-                            'Your file has been deleted.',
-                            'success'
-                        )
                     }
                 })
             },
