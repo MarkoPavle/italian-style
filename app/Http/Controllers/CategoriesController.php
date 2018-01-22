@@ -77,4 +77,11 @@ class CategoriesController extends Controller
             'image' => $image
         ]);
     }
+
+    public function lists(){
+        $categories = Category::where('publish', 1)->orderBy('title', 'ASC')->pluck('title', 'id')->prepend('Without category', 0);
+        return response()->json([
+            'categories' => $categories
+        ]);
+    }
 }

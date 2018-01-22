@@ -37378,6 +37378,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 desc: null,
                 publish: false
             },
+            lists: {},
             error: null,
             config: {
                 toolbar: [['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', 'Image']],
@@ -37393,6 +37394,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         'switches': __WEBPACK_IMPORTED_MODULE_3_vue_switches___default.a,
         'ckeditor': __WEBPACK_IMPORTED_MODULE_4_vue_ckeditor2___default.a
     },
+    created: function created() {
+        this.getList();
+    },
+
     methods: {
         submit: function submit() {
             var _this = this;
@@ -37414,6 +37419,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         upload: function upload(image) {
             console.log(image[0]);
             this.post.image = image[0];
+        },
+        getList: function getList() {
+            var _this2 = this;
+
+            axios.get('api/categories/lists').then(function (res) {
+                console.log(res);
+                _this2.lists = res.data.categories;
+            }).catch(function (e) {
+                console.log(e.response);
+                _this2.error = e.response.data.errors;
+            });
         }
     }
 });

@@ -93,6 +93,7 @@
                   desc: null,
                   publish: false
               },
+              lists: {},
               error: null,
               config: {
                   toolbar: [
@@ -108,6 +109,9 @@
             'upload-image-helper': UploadImageHelper,
             'switches': Switches,
             'ckeditor': Ckeditor
+        },
+        created(){
+            this.getList();
         },
         methods: {
             submit(){
@@ -129,6 +133,16 @@
             upload(image){
                 console.log(image[0]);
                 this.post.image = image[0];
+            },
+            getList(){
+                axios.get('api/categories/lists')
+                    .then(res => {
+                        console.log(res);
+                        this.lists = res.data.categories;
+                    }).catch(e => {
+                        console.log(e.response);
+                        this.error = e.response.data.errors;
+                    });
             }
         }
     }
