@@ -43,4 +43,8 @@ class User extends Authenticatable
         $user->update();
         return $user->image;
     }
+
+    public function post(){
+        return $this->hasMany(Post::class);
+    }
 }

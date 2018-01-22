@@ -22,3 +22,6 @@ Route::middleware('auth:api')->post('users/{id}/image', 'UsersController@uploadI
 
 Route::middleware('auth:api')->resource('categories', 'CategoriesController');
 Route::middleware('auth:api')->post('categories/{id}/image', 'CategoriesController@uploadImage');
+
+Route::middleware('auth:api')->resource('posts', 'PostsController');
+Route::middleware('auth:api')->post('posts/{id}/image', 'PostsController@uploadImage');

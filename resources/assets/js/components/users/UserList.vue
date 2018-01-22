@@ -58,7 +58,6 @@
         data(){
             return {
                 users: {},
-                columns: [],
                 paginate: {}
             }
         },
@@ -117,9 +116,7 @@
                 axios.get('api/users?page=' + index)
                     .then(res => {
                         this.users = res.data.users.data;
-                        this.columns = res.data.columns;
                         this.paginate = res.data.users;
-                        console.log(res.data.users);
                     })
                     .catch(e => {
                         console.log(e);

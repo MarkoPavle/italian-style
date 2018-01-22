@@ -6,7 +6,7 @@
                     <div id="breadcrumbs">
                         <ul class="list-group list-group-flush">
                             <li><router-link tag="a" :to="'/home'">Home</router-link></li>
-                            <li>Categories</li>
+                            <li>Posts</li>
                         </ul>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr v-for="row in categories">
+                        <tr v-for="row in posts">
                             <td>{{ row.id }}</td>
                             <td>{{ row.title }}</td>
                             <td>{{ row.publish }}</td>
@@ -56,7 +56,7 @@
     export default {
         data(){
             return {
-                categories: {},
+                posts: {},
                 paginate: {}
             }
         },
@@ -65,23 +65,23 @@
             'font-awesome-icon': FontAwesomeIcon
         },
         created(){
-            console.log('spisak kategorija');
-            this.getCategories();
+            console.log('spisak postova');
+            this.getPosts();
         },
         methods: {
-            getCategories(){
-                axios.get('api/categories')
+            getPosts(){
+                axios.get('api/posts')
                     .then(res => {
-                        this.categories = res.data.categories.data;
-                        this.paginate = res.data.categories;
-                        console.log(res.data.categories);
+                        this.posts = res.data.posts.data;
+                        this.paginate = res.data.posts;
+                        console.log(res.data.posts);
                     })
                     .catch(e => {
                         console.log(e);
                     });
             },
             editRow(id){
-                this.$router.push('categories/' + id + '/edit');
+                this.$router.push('posts/' + id + '/edit');
             },
             deleteRow(row){
                 swal({
@@ -94,9 +94,9 @@
                     confirmButtonText: 'Yes, delete it!'
                 }).then((result) => {
                     if (result.value) {
-                        axios.delete('api/categories/' + row.id)
+                        axios.delete('api/posts/' + row.id)
                             .then(res => {
-                                this.categories = this.categories.filter(function (item) {
+                                this.posts = this.posts.filter(function (item) {
                                     return row.id != item.id;
                                 });
                                 swal(
@@ -112,11 +112,11 @@
                 })
             },
             clickToLink(index){
-                axios.get('api/categories?page=' + index)
+                axios.get('api/posts?page=' + index)
                     .then(res => {
-                        this.categories = res.data.categories.data;
-                        this.paginate = res.data.categories;
-                        console.log(res.data.categories);
+                        this.posts = res.data.posts.data;
+                        this.paginate = res.data.posts;
+                        console.log(res.data.posts);
                     })
                     .catch(e => {
                         console.log(e);

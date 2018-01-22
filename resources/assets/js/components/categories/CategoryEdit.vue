@@ -6,7 +6,7 @@
                     <div id="breadcrumbs">
                         <ul class="list-group list-group-flush">
                             <li><router-link tag="a" :to="'/home'">Home</router-link></li>
-                            <li><router-link tag="a" :to="'/users'">Categories</router-link></li>
+                            <li><router-link tag="a" :to="'/categories'">Categories</router-link></li>
                             <li>Category edit</li>
                         </ul>
                     </div>
