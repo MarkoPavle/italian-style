@@ -28,7 +28,7 @@
                 <a href="#" @click="changeShowPostsItemActive()">Posts</a>
                 <font-awesome-icon icon="paste" />
                 <ul>
-                    <li><a href="#">Post review</a></li>
+                    <li><router-link tag="a" :to="'/posts'">Post review</router-link></li>
                     <li><a href="#">Category review</a></li>
                 </ul>
             </li>
@@ -141,7 +141,3 @@
         }
     }
 </script>
-
-<style>
-
-</style>

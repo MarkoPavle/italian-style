@@ -20,6 +20,8 @@ export const router = new VueRouter({
         { path: "/categories/:id/edit", component: require('./components/categories/CategoryEdit.vue'), meta: { forAuth: true } },
 
         { path: "/posts", component: require('./components/posts/PostList.vue'), meta: { forAuth: true } },
+        { path: "/posts/create", component: require('./components/posts/PostCreate.vue'), meta: { forAuth: true } },
+        { path: "/posts/:id/edit", component: require('./components/posts/PostEdit.vue'), meta: { forAuth: true } },
     ],
 
     linkActiveClass: 'active'

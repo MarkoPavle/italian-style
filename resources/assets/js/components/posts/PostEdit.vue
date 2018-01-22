@@ -6,8 +6,8 @@
                     <div id="breadcrumbs">
                         <ul class="list-group list-group-flush">
                             <li><router-link tag="a" :to="'/home'">Home</router-link></li>
-                            <li><router-link tag="a" :to="'/categories'">Categories</router-link></li>
-                            <li>Category edit</li>
+                            <li><router-link tag="a" :to="'/posts'">Posts</router-link></li>
+                            <li>Post edit</li>
                         </ul>
                     </div>
                 </div>
@@ -16,7 +16,7 @@
             <div class="row bela">
                 <div class="col-md-12">
                     <div class="card">
-                        <h5>Category edit</h5>
+                        <h5>Post edit</h5>
                     </div>
                 </div>
 
@@ -25,25 +25,30 @@
                         <form @submit.prevent="submit()">
                             <div class="form-group">
                                 <label for="title">Title</label>
-                                <input type="text" name="title" class="form-control" id="title" placeholder="Ime" v-model="category.title">
+                                <input type="text" name="title" class="form-control" id="title" placeholder="Ime" v-model="post.title">
                                 <small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>
                             </div>
                             <div class="form-group">
                                 <label for="slug">Slug</label>
-                                <input type="text" name="slug" class="form-control" id="slug" placeholder="Slug" v-model="category.slug">
+                                <input type="text" name="slug" class="form-control" id="slug" placeholder="Slug" v-model="post.slug">
                                 <small class="form-text text-muted" v-if="error != null && error.slug">{{ error.slug[0] }}</small>
                             </div>
                             <div class="form-group">
-                                <label>Category description</label>
+                                <label for="short">Short</label>
+                                <textarea name="short" id="short" cols="3" rows="4" class="form-control" placeholder="Short text" v-model="post.short"></textarea>
+                                <small class="form-text text-muted" v-if="error != null && error.short">{{ error.short[0] }}</small>
+                            </div>
+                            <div class="form-group">
+                                <label>Body</label>
                                 <ckeditor
-                                        v-model="category.desc"
+                                        v-model="post.body"
                                         :config="config">
                                 </ckeditor>
-                                <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.desc[0] }}</small>
+                                <small class="form-text text-muted" v-if="error != null && error.body">{{ error.body[0] }}</small>
                             </div>
                             <div class="form-group">
                                 <label>Published</label><br>
-                                <switches v-model="category.publish" theme="bootstrap" color="primary"></switches>
+                                <switches v-model="post.publish" theme="bootstrap" color="primary"></switches>
                             </div>
                             <div class="form-group">
                                 <button class="btn btn-primary" type="submit">Edit</button>
@@ -53,9 +58,9 @@
                 </div>
                 <div class="col-sm-4">
                     <upload-image-helper
-                            :image="category.image"
+                            :image="post.image"
                             :defaultImage="null"
-                            :titleImage="'Category'"
+                            :titleImage="'Post'"
                             :error="error"
                             @uploadImage="upload($event)"
                             @removeRow="remove($event)"
@@ -76,7 +81,7 @@
     export default {
         data(){
           return {
-              category: {},
+              post: {},
               error: null,
               config: {
                   toolbar: [
@@ -94,14 +99,13 @@
             'ckeditor': Ckeditor
         },
         created(){
-            this.getCategory();
+            this.getPost();
         },
         methods: {
-            getCategory(){
-                axios.get('api/categories/' + this.$route.params.id)
+            getPost(){
+                axios.get('api/posts/' + this.$route.params.id)
                     .then(res => {
-                        this.category = res.data.category;
-                        console.log(this.category);
+                        this.post = res.data.post;
                     })
                     .catch(e => {
                         console.log(e);
@@ -109,9 +113,9 @@
                     });
             },
             submit(){
-                axios.patch('api/categories/' + this.category.id, this.category)
+                axios.patch('api/posts/' + this.post.id, this.post)
                     .then(res => {
-                        this.category = res.data.category;
+                        this.Post = res.data.Post;
                         swal({
                             position: 'center',
                             type: 'success',
@@ -126,10 +130,10 @@
                     });
             },
             upload(image){
-                axios.post('api/categories/' + this.category.id + '/image', { image: image[0] })
+                axios.post('api/posts/' + this.post.id + '/image', { image: image[0] })
                     .then(res => {
                         console.log(res);
-                        this.category.image = res.data.image;
+                        this.post.image = res.data.image;
                         this.error = null;
                         swal({
                             position: 'center',
