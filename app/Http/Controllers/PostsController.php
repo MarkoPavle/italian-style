@@ -25,9 +25,10 @@ class PostsController extends Controller
         request('slug')? $post->slug = str_slug(request('slug')) : $post->slug = str_slug(request('title'));
         $post->short = request('short');
         $post->body = request('body');
-        $post->order = 1;
+        $post->body2 = request('body2');
         request('publish')? $post->publish = true : $post->publish = false;
         $post->save();
+        if(request('image')){ Post::base64UploadImage($post->id, request('image')); }
 
         return response()->json([
             'post' => $post
@@ -35,15 +36,32 @@ class PostsController extends Controller
     }
 
     public function show($id){
-        $post = post::find($id);
+        request('locale')? $locale = request('locale') : $locale = 'en';
+        app()->setLocale($locale);
+        $post = Post::find($id);
         return response()->json([
             'post' => $post
         ]);
     }
 
-    public function update(CreatePostRequest $request, $id){
-        $post = post::find($id);
+    public function update($id){
+        $post = Post::find($id);
+        request('publish')? $post->publish = true : $post->publish = false;
+        $post->update();
+        return response()->json([
+            'message' => 'done'
+        ]);
+    }
+
+    public function updateLang(CreatePostRequest $request, $id){
+        request('locale')? $locale = request('locale') : $locale = 'en';
+        app()->setLocale($locale);
+        $post = Post::find($id);
+        $post->title = request('title');
         request('slug')? $post->slug = str_slug(request('slug')) : $post->slug = str_slug(request('title'));
+        $post->short = request('short');
+        $post->body = request('body');
+        $post->body2 = request('body2');
         $post->update($request->except('image', 'slug'));
         return response()->json([
             'post' => $post

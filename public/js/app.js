@@ -36826,7 +36826,7 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Edit")]
+        [_vm._v("Edit general")]
       )
     ])
   },
@@ -37356,6 +37356,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -37404,12 +37412,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         },
         upload: function upload(image) {
+            console.log(image[0]);
             this.post.image = image[0];
-        },
-        getDesc: function getDesc(text) {
-            console.log('emit: ');
-            console.log(text);
-            this.desc = text;
         }
     }
 });
@@ -37602,6 +37606,32 @@ var render = function() {
                     _vm.error != null && _vm.error.body
                       ? _c("small", { staticClass: "form-text text-muted" }, [
                           _vm._v(_vm._s(_vm.error.body[0]))
+                        ])
+                      : _vm._e()
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "form-group" },
+                  [
+                    _c("label", [_vm._v("Extra description")]),
+                    _vm._v(" "),
+                    _c("ckeditor", {
+                      attrs: { config: _vm.config },
+                      model: {
+                        value: _vm.post.body2,
+                        callback: function($$v) {
+                          _vm.$set(_vm.post, "body2", $$v)
+                        },
+                        expression: "post.body2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _vm.error != null && _vm.error.body2
+                      ? _c("small", { staticClass: "form-text text-muted" }, [
+                          _vm._v(_vm._s(_vm.error.body2[0]))
                         ])
                       : _vm._e()
                   ],
@@ -37873,6 +37903,32 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -37910,7 +37966,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this = this;
 
             axios.get('api/posts/' + this.$route.params.id + '?locale=' + locale).then(function (res) {
-                if (res.data.Post != null) {
+                if (res.data.post != null) {
                     if (locale == 'en') {
                         _this.post = res.data.post;
                     } else {
@@ -38017,7 +38073,7 @@ var render = function() {
                 "li",
                 [
                   _c("router-link", { attrs: { tag: "a", to: "/posts" } }, [
-                    _vm._v("posts")
+                    _vm._v("Posts")
                   ])
                 ],
                 1
@@ -38210,20 +38266,62 @@ var render = function() {
                             : _vm._e()
                         ]),
                         _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { attrs: { for: "short" } }, [
+                            _vm._v("Short")
+                          ]),
+                          _vm._v(" "),
+                          _c("textarea", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.post.short,
+                                expression: "post.short"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              name: "short",
+                              id: "short",
+                              cols: "3",
+                              rows: "4",
+                              placeholder: "Short text"
+                            },
+                            domProps: { value: _vm.post.short },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(_vm.post, "short", $event.target.value)
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm.error != null && _vm.error.short
+                            ? _c(
+                                "small",
+                                { staticClass: "form-text text-muted" },
+                                [_vm._v(_vm._s(_vm.error.short[0]))]
+                              )
+                            : _vm._e()
+                        ]),
+                        _vm._v(" "),
                         _c(
                           "div",
                           { staticClass: "form-group" },
                           [
-                            _c("label", [_vm._v("Post description")]),
+                            _c("label", [_vm._v("Body")]),
                             _vm._v(" "),
                             _c("ckeditor", {
                               attrs: { config: _vm.config },
                               model: {
-                                value: _vm.post.desc,
+                                value: _vm.post.body,
                                 callback: function($$v) {
-                                  _vm.$set(_vm.post, "desc", $$v)
+                                  _vm.$set(_vm.post, "body", $$v)
                                 },
-                                expression: "post.desc"
+                                expression: "post.body"
                               }
                             }),
                             _vm._v(" "),
@@ -38231,7 +38329,35 @@ var render = function() {
                               ? _c(
                                   "small",
                                   { staticClass: "form-text text-muted" },
-                                  [_vm._v(_vm._s(_vm.error.desc[0]))]
+                                  [_vm._v(_vm._s(_vm.error.body[0]))]
+                                )
+                              : _vm._e()
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "form-group" },
+                          [
+                            _c("label", [_vm._v("Extra description")]),
+                            _vm._v(" "),
+                            _c("ckeditor", {
+                              attrs: { config: _vm.config },
+                              model: {
+                                value: _vm.post.body2,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.post, "body2", $$v)
+                                },
+                                expression: "post.body2"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _vm.error != null && _vm.error.desc
+                              ? _c(
+                                  "small",
+                                  { staticClass: "form-text text-muted" },
+                                  [_vm._v(_vm._s(_vm.error.body2[0]))]
                                 )
                               : _vm._e()
                           ],
@@ -38356,20 +38482,66 @@ var render = function() {
                             : _vm._e()
                         ]),
                         _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { attrs: { for: "shortIta" } }, [
+                            _vm._v("Short")
+                          ]),
+                          _vm._v(" "),
+                          _c("textarea", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.postIta.short,
+                                expression: "postIta.short"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              name: "short",
+                              id: "shortIta",
+                              cols: "3",
+                              rows: "4",
+                              placeholder: "Short text"
+                            },
+                            domProps: { value: _vm.postIta.short },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.postIta,
+                                  "short",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm.error != null && _vm.error.short
+                            ? _c(
+                                "small",
+                                { staticClass: "form-text text-muted" },
+                                [_vm._v(_vm._s(_vm.error.short[0]))]
+                              )
+                            : _vm._e()
+                        ]),
+                        _vm._v(" "),
                         _c(
                           "div",
                           { staticClass: "form-group" },
                           [
-                            _c("label", [_vm._v("Post description")]),
+                            _c("label", [_vm._v("Body")]),
                             _vm._v(" "),
                             _c("ckeditor", {
                               attrs: { config: _vm.config },
                               model: {
-                                value: _vm.postIta.desc,
+                                value: _vm.postIta.body,
                                 callback: function($$v) {
-                                  _vm.$set(_vm.postIta, "desc", $$v)
+                                  _vm.$set(_vm.postIta, "body", $$v)
                                 },
-                                expression: "postIta.desc"
+                                expression: "postIta.body"
                               }
                             }),
                             _vm._v(" "),
@@ -38377,7 +38549,35 @@ var render = function() {
                               ? _c(
                                   "small",
                                   { staticClass: "form-text text-muted" },
-                                  [_vm._v(_vm._s(_vm.error.desc[0]))]
+                                  [_vm._v(_vm._s(_vm.error.body[0]))]
+                                )
+                              : _vm._e()
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "form-group" },
+                          [
+                            _c("label", [_vm._v("Extra description")]),
+                            _vm._v(" "),
+                            _c("ckeditor", {
+                              attrs: { config: _vm.config },
+                              model: {
+                                value: _vm.postIta.body2,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.postIta, "body2", $$v)
+                                },
+                                expression: "postIta.body2"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _vm.error != null && _vm.error.desc
+                              ? _c(
+                                  "small",
+                                  { staticClass: "form-text text-muted" },
+                                  [_vm._v(_vm._s(_vm.error.body2[0]))]
                                 )
                               : _vm._e()
                           ],
@@ -38414,7 +38614,7 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Edit")]
+        [_vm._v("Edit general")]
       )
     ])
   },
@@ -55768,7 +55968,7 @@ var render = function() {
                     "aria-haspopup": "true",
                     "aria-expanded": "false",
                     "data-tooltip": "tooltip",
-                    "data-placement": "bottom",
+                    "data-placement": "left",
                     title: "Kreiraj novo"
                   }
                 },

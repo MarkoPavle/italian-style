@@ -38,7 +38,7 @@
                                     @removeRow="remove($event)"
                             ></upload-image-helper>
                                 <div class="form-group">
-                                    <button class="btn btn-primary" type="submit">Edit</button>
+                                    <button class="btn btn-primary" type="submit">Edit general</button>
                                 </div>
                         </form>
                     </div>

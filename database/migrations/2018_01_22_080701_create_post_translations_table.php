@@ -21,6 +21,7 @@ class CreatePostTranslationsTable extends Migration
             $table->string('slug')->nullable();
             $table->text('short')->nullable();
             $table->text('body')->nullable();
+            $table->text('body2')->nullable();
             $table->string('locale')->index();
 
             $table->unique(['post_id','locale']);

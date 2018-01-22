@@ -15,7 +15,7 @@
                 <ul class="top-nav float-right">
                     <li>
                         <div class="dropdown show">
-                            <a class="btn btn-danger dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-tooltip="tooltip" data-placement="bottom" title="Kreiraj novo">
+                            <a class="btn btn-danger dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-tooltip="tooltip" data-placement="left" title="Kreiraj novo">
                                 <font-awesome-icon icon="plus"/>
                             </a>
 

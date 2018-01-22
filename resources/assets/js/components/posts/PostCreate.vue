@@ -47,6 +47,14 @@
                                 <small class="form-text text-muted" v-if="error != null && error.body">{{ error.body[0] }}</small>
                             </div>
                             <div class="form-group">
+                                <label>Extra description</label>
+                                <ckeditor
+                                        v-model="post.body2"
+                                        :config="config">
+                                </ckeditor>
+                                <small class="form-text text-muted" v-if="error != null && error.body2">{{ error.body2[0] }}</small>
+                            </div>
+                            <div class="form-group">
                                 <label>Published</label><br>
                                 <switches v-model="post.publish" theme="bootstrap" color="primary"></switches>
                             </div>
@@ -119,13 +127,9 @@
                     });
             },
             upload(image){
+                console.log(image[0]);
                 this.post.image = image[0];
-            },
-            getDesc(text){
-                console.log('emit: ');
-                console.log(text);
-                this.desc = text;
-            },
+            }
         }
     }
 </script>

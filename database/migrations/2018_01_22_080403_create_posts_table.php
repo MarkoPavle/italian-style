@@ -21,6 +21,8 @@ class CreatePostsTable extends Migration
             $table->integer('level')->nullable()->default(1);
             $table->integer('order')->nullable();
             $table->string('image')->nullable();
+            $table->integer('price')->nullable()->default(0);
+            $table->timestamp('publish_at')->nullable();
             $table->boolean('publish')->nullable();
             $table->timestamps();
         });

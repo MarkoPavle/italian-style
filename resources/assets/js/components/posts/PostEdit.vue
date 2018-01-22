@@ -6,7 +6,7 @@
                     <div id="breadcrumbs">
                         <ul class="list-group list-group-flush">
                             <li><router-link tag="a" :to="'/home'">Home</router-link></li>
-                            <li><router-link tag="a" :to="'/posts'">posts</router-link></li>
+                            <li><router-link tag="a" :to="'/posts'">Posts</router-link></li>
                             <li>Post edit</li>
                         </ul>
                     </div>
@@ -38,7 +38,7 @@
                                     @removeRow="remove($event)"
                             ></upload-image-helper>
                                 <div class="form-group">
-                                    <button class="btn btn-primary" type="submit">Edit</button>
+                                    <button class="btn btn-primary" type="submit">Edit general</button>
                                 </div>
                         </form>
                     </div>
@@ -69,12 +69,25 @@
                                         <small class="form-text text-muted" v-if="error != null && error.slug">{{ error.slug[0] }}</small>
                                     </div>
                                     <div class="form-group">
-                                        <label>Post description</label>
+                                        <label for="short">Short</label>
+                                        <textarea name="short" id="short" cols="3" rows="4" class="form-control" placeholder="Short text" v-model="post.short"></textarea>
+                                        <small class="form-text text-muted" v-if="error != null && error.short">{{ error.short[0] }}</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Body</label>
                                         <ckeditor
-                                                v-model="post.desc"
+                                                v-model="post.body"
                                                 :config="config">
                                         </ckeditor>
-                                        <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.desc[0] }}</small>
+                                        <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.body[0] }}</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Extra description</label>
+                                        <ckeditor
+                                                v-model="post.body2"
+                                                :config="config">
+                                        </ckeditor>
+                                        <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.body2[0] }}</small>
                                     </div>
                                     <div class="form-group">
                                         <button class="btn btn-primary" type="submit">Edit on English</button>
@@ -95,12 +108,25 @@
                                         <small class="form-text text-muted" v-if="error != null && error.slug">{{ error.slug[0] }}</small>
                                     </div>
                                     <div class="form-group">
-                                        <label>Post description</label>
+                                        <label for="shortIta">Short</label>
+                                        <textarea name="short" id="shortIta" cols="3" rows="4" class="form-control" placeholder="Short text" v-model="postIta.short"></textarea>
+                                        <small class="form-text text-muted" v-if="error != null && error.short">{{ error.short[0] }}</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Body</label>
                                         <ckeditor
-                                                v-model="postIta.desc"
+                                                v-model="postIta.body"
                                                 :config="config">
                                         </ckeditor>
-                                        <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.desc[0] }}</small>
+                                        <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.body[0] }}</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Extra description</label>
+                                        <ckeditor
+                                                v-model="postIta.body2"
+                                                :config="config">
+                                        </ckeditor>
+                                        <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.body2[0] }}</small>
                                     </div>
                                     <div class="form-group">
                                         <button class="btn btn-primary" type="submit">Edit on Italian</button>
@@ -151,7 +177,7 @@
             getPost(locale){
                 axios.get('api/posts/' + this.$route.params.id + '?locale=' + locale)
                     .then(res => {
-                        if(res.data.Post != null){
+                        if(res.data.post != null){
                             if(locale == 'en'){
                                 this.post = res.data.post;
                             }else{

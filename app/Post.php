@@ -12,11 +12,11 @@ class Post extends Model
 
     public static $list_limit = 50;
 
-    public $translatedAttributes = ['title', 'slug', 'short', 'body'];
+    public $translatedAttributes = ['title', 'slug', 'short', 'body', 'body2'];
 
     protected $table = 'posts';
 
-    protected $fillable = ['id', 'brand_id', 'order', 'parent', 'level', 'image', 'publish'];
+    protected $fillable = ['id', 'brand_id', 'order', 'parent', 'level', 'image', 'price', 'publish', 'publish_at'];
 
     public static function base64UploadImage($post_id, $image){
         $post = self::find($post_id);
