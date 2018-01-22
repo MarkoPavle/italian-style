@@ -10476,6 +10476,10 @@ a.text-dark:hover {
   cursor: pointer;
 }
 
+#myTabContent {
+  padding-top: 15px;
+}
+
 footer {
   position: relative;
   bottom: 0;

@@ -21,12 +21,12 @@
 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
                                 <a class="dropdown-item" href="#" @click.prevent="newPost()">Post</a>
-                                <a class="dropdown-item" href="#">Post category</a>
+                                <a class="dropdown-item" href="#" @click.prevent="newCategory()">Post category</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" @click.prevent="newUser()">User</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Product</a>
-                                <a class="dropdown-item" href="#" @click.prevent="newCategory()">Product category</a>
+                                <a class="dropdown-item" href="#">Product category</a>
                             </div>
                         </div>
                     </li>

@@ -29,7 +29,7 @@
                 <font-awesome-icon icon="paste" />
                 <ul>
                     <li><router-link tag="a" :to="'/posts'">Post review</router-link></li>
-                    <li><a href="#">Category review</a></li>
+                    <li><router-link tag="a" :to="'/categories'">Category review</router-link></li>
                 </ul>
             </li>
             <li :class="{ 'active': showProductsItemActive }" :style="{ 'display': showProductsItem ? 'block' : 'none' }">

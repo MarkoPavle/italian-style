@@ -34,13 +34,26 @@ class CategoriesController extends Controller
     }
 
     public function show($id){
+        request('locale')? $locale = request('locale') : $locale = 'en';
+        app()->setLocale($locale);
         $category = Category::find($id);
         return response()->json([
             'category' => $category
         ]);
     }
 
-    public function update(CreateCategoryRequest $request, $id){
+    public function update($id){
+        $category = Category::find($id);
+        request('publish')? $category->publish = true : $category->publish = false;
+        $category->update();
+        return response()->json([
+            'message' => 'done'
+        ]);
+    }
+
+    public function updateLang(CreateCategoryRequest $request, $id){
+        request('locale')? $locale = request('locale') : $locale = 'en';
+        app()->setLocale($locale);
         $category = Category::find($id);
         request('slug')? $category->slug = str_slug(request('slug')) : $category->slug = str_slug(request('title'));
         $category->update($request->except('image', 'slug'));

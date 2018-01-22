@@ -25,7 +25,6 @@ class CreateCategoryRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'slug' => 'required',
             'desc' => 'min:6',
         ];
     }
@@ -34,7 +33,6 @@ class CreateCategoryRequest extends FormRequest
     {
         return [
             'title.required' => 'Naziv je obavezan',
-            'title.slug' => 'Slug je obavezan',
             'desc.min' => 'Opis mora imati minimum 6 karatktera',
         ];
     }*/
