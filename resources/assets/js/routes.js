@@ -24,6 +24,9 @@ export const router = new VueRouter({
         { path: "/posts/:id/edit", component: require('./components/posts/PostEdit.vue'), meta: { forAuth: true } },
 
         { path: "/settings/:id/edit", component: require('./components/settings/SettingEdit.vue'), meta: { forAuth: true } },
+
+        { path: "/themes", component: require('./components/themes/ThemeList.vue'), meta: { forAuth: true } },
+        { path: "/themes/create", component: require('./components/themes/ThemeCreate.vue'), meta: { forAuth: true } },
     ],
 
     linkActiveClass: 'active'

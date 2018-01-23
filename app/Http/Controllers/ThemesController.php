@@ -12,6 +12,8 @@ class ThemesController extends Controller
     {
         $theme = Theme::create($request->all());
         $theme->slug = str_slug($request->input('title'));
+        request('publish')? $theme->publish = true : $theme->publish = false;
+        request('active')? $theme->active = true : $theme->active = false;
         $theme->update();
 
         return response()->json([

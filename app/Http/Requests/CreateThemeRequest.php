@@ -13,7 +13,7 @@ class CreateThemeRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,16 @@ class CreateThemeRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required',
+            'author' => 'required',
         ];
     }
+
+    /*public function messages()
+    {
+        return [
+            'title.required' => 'Naziv teme je obavezan',
+            'author.required' => 'Autor teme je obavezan',
+        ];
+    }*/
 }

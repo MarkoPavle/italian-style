@@ -115,12 +115,7 @@
             },
             upload(image){
                 this.category.image = image[0];
-            },
-            getDesc(text){
-                console.log('emit: ');
-                console.log(text);
-                this.desc = text;
-            },
+            }
         }
     }
 </script>
