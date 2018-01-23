@@ -29574,7 +29574,7 @@ function _interopRequireDefault(obj) {
 _vue2.default.use(_vueRouter2.default);
 
 var router = exports.router = new _vueRouter2.default({
-        routes: [{ path: "/home", component: __webpack_require__(33), meta: { forAuth: true } }, { path: "/login", component: __webpack_require__(39), meta: { forVisitors: true } }, { path: "/register", component: __webpack_require__(42), meta: { forVisitors: true } }, { path: "/logout", component: __webpack_require__(45), meta: { forAuth: true } }, { path: "/users", component: __webpack_require__(48), meta: { forAuth: true } }, { path: "/users/create", component: __webpack_require__(55), meta: { forAuth: true } }, { path: "/users/:id/edit", component: __webpack_require__(62), meta: { forAuth: true } }, { path: "/categories", component: __webpack_require__(67), meta: { forAuth: true } }, { path: "/categories/create", component: __webpack_require__(70), meta: { forAuth: true } }, { path: "/categories/:id/edit", component: __webpack_require__(82), meta: { forAuth: true } }, { path: "/posts", component: __webpack_require__(85), meta: { forAuth: true } }, { path: "/posts/create", component: __webpack_require__(88), meta: { forAuth: true } }, { path: "/posts/:id/edit", component: __webpack_require__(91), meta: { forAuth: true } }],
+        routes: [{ path: "/home", component: __webpack_require__(33), meta: { forAuth: true } }, { path: "/login", component: __webpack_require__(39), meta: { forVisitors: true } }, { path: "/register", component: __webpack_require__(42), meta: { forVisitors: true } }, { path: "/logout", component: __webpack_require__(45), meta: { forAuth: true } }, { path: "/users", component: __webpack_require__(48), meta: { forAuth: true } }, { path: "/users/create", component: __webpack_require__(55), meta: { forAuth: true } }, { path: "/users/:id/edit", component: __webpack_require__(62), meta: { forAuth: true } }, { path: "/categories", component: __webpack_require__(67), meta: { forAuth: true } }, { path: "/categories/create", component: __webpack_require__(70), meta: { forAuth: true } }, { path: "/categories/:id/edit", component: __webpack_require__(82), meta: { forAuth: true } }, { path: "/posts", component: __webpack_require__(85), meta: { forAuth: true } }, { path: "/posts/create", component: __webpack_require__(88), meta: { forAuth: true } }, { path: "/posts/:id/edit", component: __webpack_require__(91), meta: { forAuth: true } }, { path: "/settings/:id/edit", component: __webpack_require__(157), meta: { forAuth: true } }],
 
         linkActiveClass: 'active'
 });
@@ -61326,7 +61326,21 @@ var render = function() {
                 _vm._v(" "),
                 _c("font-awesome-icon", { attrs: { icon: "cogs" } }),
                 _vm._v(" "),
-                _vm._m(0)
+                _c("ul", [
+                  _c(
+                    "li",
+                    [
+                      _c(
+                        "router-link",
+                        { attrs: { tag: "a", to: "/settings/1/edit" } },
+                        [_vm._v("SEO")]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _vm._m(0)
+                ])
               ],
               1
             ),
@@ -61461,11 +61475,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("ul", [
-      _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("SEO")])]),
-      _vm._v(" "),
-      _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Theme")])])
-    ])
+    return _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Theme")])])
   },
   function() {
     var _vm = this
@@ -61504,6 +61514,1321 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 156 */,
+/* 157 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(158)
+/* template */
+var __vue_template__ = __webpack_require__(159)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\settings\\SettingEdit.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-db539d10", Component.options)
+  } else {
+    hotAPI.reload("data-v-db539d10", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 158 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__fortawesome_vue_fontawesome__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__fortawesome_vue_fontawesome___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__fortawesome_vue_fontawesome__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_sweetalert2__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_sweetalert2___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_sweetalert2__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_switches__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_switches___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_switches__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_ckeditor2__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_ckeditor2___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vue_ckeditor2__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            setting: {},
+            settingIta: {},
+            error: null,
+            config: {
+                toolbar: [['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', 'Image']],
+                height: 300,
+                filebrowserBrowseUrl: 'media'
+            }
+        };
+    },
+
+    components: {
+        'font-awesome-icon': __WEBPACK_IMPORTED_MODULE_0__fortawesome_vue_fontawesome___default.a,
+        'switches': __WEBPACK_IMPORTED_MODULE_2_vue_switches___default.a,
+        'ckeditor': __WEBPACK_IMPORTED_MODULE_3_vue_ckeditor2___default.a
+    },
+    created: function created() {
+        this.getSetting('en');
+        this.getSetting('it');
+    },
+
+    methods: {
+        getSetting: function getSetting(locale) {
+            var _this = this;
+
+            axios.get('api/settings/1/edit?locale=' + locale).then(function (res) {
+                if (res.data.setting != null) {
+                    if (locale == 'en') {
+                        _this.setting = res.data.setting;
+                    } else {
+                        _this.settingIta = res.data.setting;
+                    }
+                }
+            }).catch(function (e) {
+                console.log(e);
+                _this.error = e.response.data.errors;
+            });
+        },
+        submit: function submit(locale) {
+            var _this2 = this;
+
+            var data = {};
+            if (locale == 'en') {
+                data = this.setting;
+            } else {
+                data = this.settingIta;
+            }
+            axios.post('api/settings/' + this.setting.id + '/updateLang?locale=' + locale, data).then(function (res) {
+                __WEBPACK_IMPORTED_MODULE_1_sweetalert2___default()({
+                    position: 'center',
+                    type: 'success',
+                    title: 'Success',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                _this2.error = null;
+            }).catch(function (e) {
+                console.log(e.response);
+                _this2.error = e.response.data.errors;
+            });
+        },
+        general: function general() {
+            var _this3 = this;
+
+            axios.patch('api/settings/' + this.setting.id + '/update', this.setting).then(function (res) {
+                __WEBPACK_IMPORTED_MODULE_1_sweetalert2___default()({
+                    position: 'center',
+                    type: 'success',
+                    title: 'Success',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                _this3.error = null;
+            }).catch(function (e) {
+                console.log(e.response);
+                _this3.error = e.response.data.errors;
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 159 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { attrs: { id: "place" } }, [
+    _c("div", { staticClass: "container-fluid" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-12" }, [
+          _c("div", { attrs: { id: "breadcrumbs" } }, [
+            _c("ul", { staticClass: "list-group list-group-flush" }, [
+              _c(
+                "li",
+                [
+                  _c("router-link", { attrs: { tag: "a", to: "/home" } }, [
+                    _vm._v("Home")
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("li", [_vm._v("Settings edit")])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row bela" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-4" }, [
+          _c("div", { staticClass: "card" }, [
+            _c("h5", [_vm._v("General info")]),
+            _vm._v(" "),
+            _c("hr"),
+            _vm._v(" "),
+            _c(
+              "form",
+              {
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    _vm.general()
+                  }
+                }
+              },
+              [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "Phone1" } }, [
+                    _vm._v("Phone 1")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.setting.phone1,
+                        expression: "setting.phone1"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      name: "Phone1",
+                      id: "Phone1",
+                      placeholder: "Enter phone 1"
+                    },
+                    domProps: { value: _vm.setting.phone1 },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.setting, "phone1", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.error != null && _vm.error.phone1
+                    ? _c("small", { staticClass: "form-text text-muted" }, [
+                        _vm._v(_vm._s(_vm.error.phone1[0]))
+                      ])
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "Phone1" } }, [
+                    _vm._v("Phone 2")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.setting.phone2,
+                        expression: "setting.phone2"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      name: "Phone2",
+                      id: "Phone2",
+                      placeholder: "Enter phone 2"
+                    },
+                    domProps: { value: _vm.setting.phone2 },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.setting, "phone2", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.error != null && _vm.error.phone2
+                    ? _c("small", { staticClass: "form-text text-muted" }, [
+                        _vm._v(_vm._s(_vm.error.phone2[0]))
+                      ])
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "Email1" } }, [
+                    _vm._v("Email 1")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.setting.email1,
+                        expression: "setting.email1"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "email",
+                      name: "Email1",
+                      id: "Email1",
+                      placeholder: "Enter email 1"
+                    },
+                    domProps: { value: _vm.setting.email1 },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.setting, "email1", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.error != null && _vm.error.email1
+                    ? _c("small", { staticClass: "form-text text-muted" }, [
+                        _vm._v(_vm._s(_vm.error.email1[0]))
+                      ])
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "Email2" } }, [
+                    _vm._v("Email 2")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.setting.email2,
+                        expression: "setting.email2"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "email",
+                      name: "Email2",
+                      id: "Email2",
+                      placeholder: "Enter email 2"
+                    },
+                    domProps: { value: _vm.setting.email2 },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.setting, "email2", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.error != null && _vm.error.email2
+                    ? _c("small", { staticClass: "form-text text-muted" }, [
+                        _vm._v(_vm._s(_vm.error.email2[0]))
+                      ])
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "facebook" } }, [
+                    _vm._v("Facebook")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.setting.facebook,
+                        expression: "setting.facebook"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      name: "Email2",
+                      id: "facebook",
+                      placeholder: "Enter facebook"
+                    },
+                    domProps: { value: _vm.setting.facebook },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.setting, "facebook", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.error != null && _vm.error.facebook
+                    ? _c("small", { staticClass: "form-text text-muted" }, [
+                        _vm._v(_vm._s(_vm.error.facebook[0]))
+                      ])
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "facebook" } }, [
+                    _vm._v("Twitter")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.setting.twitter,
+                        expression: "setting.twitter"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      name: "Twitter",
+                      id: "twitter",
+                      placeholder: "Enter twitter"
+                    },
+                    domProps: { value: _vm.setting.twitter },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.setting, "twitter", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.error != null && _vm.error.twitter
+                    ? _c("small", { staticClass: "form-text text-muted" }, [
+                        _vm._v(_vm._s(_vm.error.twitter[0]))
+                      ])
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "instagram" } }, [
+                    _vm._v("Instagram")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.setting.instagram,
+                        expression: "setting.instagram"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      name: "Instagram",
+                      id: "instagram",
+                      placeholder: "Enter instagram"
+                    },
+                    domProps: { value: _vm.setting.instagram },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.setting, "instagram", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.error != null && _vm.error.instagram
+                    ? _c("small", { staticClass: "form-text text-muted" }, [
+                        _vm._v(_vm._s(_vm.error.instagram[0]))
+                      ])
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "google" } }, [_vm._v("Google")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.setting.google,
+                        expression: "setting.google"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      name: "Google",
+                      id: "google",
+                      placeholder: "Enter google"
+                    },
+                    domProps: { value: _vm.setting.google },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.setting, "google", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.error != null && _vm.error.google
+                    ? _c("small", { staticClass: "form-text text-muted" }, [
+                        _vm._v(_vm._s(_vm.error.google[0]))
+                      ])
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "analytics" } }, [
+                    _vm._v("Google Analytics")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.setting.analytics,
+                        expression: "setting.analytics"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      name: "Analytics",
+                      id: "analytics",
+                      placeholder: "Enter google analytics"
+                    },
+                    domProps: { value: _vm.setting.analytics },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.setting, "analytics", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.error != null && _vm.error.analytics
+                    ? _c("small", { staticClass: "form-text text-muted" }, [
+                        _vm._v(_vm._s(_vm.error.analytics[0]))
+                      ])
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "form-group" },
+                  [
+                    _c("label", [_vm._v("Newsletter")]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("switches", {
+                      attrs: { theme: "bootstrap", color: "primary" },
+                      model: {
+                        value: _vm.setting.newsletter,
+                        callback: function($$v) {
+                          _vm.$set(_vm.setting, "newsletter", $$v)
+                        },
+                        expression: "setting.newsletter"
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _vm._m(1)
+              ]
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-8" }, [
+          _c("div", { staticClass: "card" }, [
+            _c("h5", [_vm._v("Language info")]),
+            _vm._v(" "),
+            _c("hr"),
+            _vm._v(" "),
+            _vm._m(2),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "tab-content", attrs: { id: "myTabContent" } },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "tab-pane fade show active",
+                    attrs: {
+                      id: "eng",
+                      role: "tabpanel",
+                      "aria-labelledby": "home-tab"
+                    }
+                  },
+                  [
+                    _c(
+                      "form",
+                      {
+                        on: {
+                          submit: function($event) {
+                            $event.preventDefault()
+                            _vm.submit("en")
+                          }
+                        }
+                      },
+                      [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { attrs: { for: "address" } }, [
+                            _vm._v("Address")
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.setting.address,
+                                expression: "setting.address"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "text",
+                              name: "address",
+                              id: "address",
+                              placeholder: "address"
+                            },
+                            domProps: { value: _vm.setting.address },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.setting,
+                                  "address",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm.error != null && _vm.error.address
+                            ? _c(
+                                "small",
+                                { staticClass: "form-text text-muted" },
+                                [_vm._v(_vm._s(_vm.error.address[0]))]
+                              )
+                            : _vm._e()
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { attrs: { for: "title" } }, [
+                            _vm._v("Title")
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.setting.title,
+                                expression: "setting.title"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "text",
+                              name: "title",
+                              id: "title",
+                              placeholder: "Title"
+                            },
+                            domProps: { value: _vm.setting.title },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.setting,
+                                  "title",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm.error != null && _vm.error.title
+                            ? _c(
+                                "small",
+                                { staticClass: "form-text text-muted" },
+                                [_vm._v(_vm._s(_vm.error.title[0]))]
+                              )
+                            : _vm._e()
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { attrs: { for: "keywords" } }, [
+                            _vm._v("Keywords")
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.setting.keywords,
+                                expression: "setting.keywords"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "text",
+                              name: "keywords",
+                              id: "keywords",
+                              placeholder: "Keywords"
+                            },
+                            domProps: { value: _vm.setting.keywords },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.setting,
+                                  "keywords",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm.error != null && _vm.error.keywords
+                            ? _c(
+                                "small",
+                                { staticClass: "form-text text-muted" },
+                                [_vm._v(_vm._s(_vm.error.keywords[0]))]
+                              )
+                            : _vm._e()
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "form-group" },
+                          [
+                            _c("label", [_vm._v("Description")]),
+                            _vm._v(" "),
+                            _c("ckeditor", {
+                              attrs: { config: _vm.config },
+                              model: {
+                                value: _vm.setting.desc,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.setting, "desc", $$v)
+                                },
+                                expression: "setting.desc"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _vm.error != null && _vm.error.desc
+                              ? _c(
+                                  "small",
+                                  { staticClass: "form-text text-muted" },
+                                  [_vm._v(_vm._s(_vm.error.desc[0]))]
+                                )
+                              : _vm._e()
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "form-group" },
+                          [
+                            _c("label", [_vm._v("Footer text")]),
+                            _vm._v(" "),
+                            _c("ckeditor", {
+                              attrs: { config: _vm.config },
+                              model: {
+                                value: _vm.setting.footer,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.setting, "footer", $$v)
+                                },
+                                expression: "setting.footer"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _vm.error != null && _vm.error.desc
+                              ? _c(
+                                  "small",
+                                  { staticClass: "form-text text-muted" },
+                                  [_vm._v(_vm._s(_vm.error.footer[0]))]
+                                )
+                              : _vm._e()
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _vm._m(3)
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "tab-pane fade",
+                    attrs: {
+                      id: "ita",
+                      role: "tabpanel",
+                      "aria-labelledby": "contact-tab"
+                    }
+                  },
+                  [
+                    _c(
+                      "form",
+                      {
+                        on: {
+                          submit: function($event) {
+                            $event.preventDefault()
+                            _vm.submit("it")
+                          }
+                        }
+                      },
+                      [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { attrs: { for: "address2" } }, [
+                            _vm._v("Address")
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.settingIta.address,
+                                expression: "settingIta.address"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "text",
+                              name: "address",
+                              id: "address2",
+                              placeholder: "address"
+                            },
+                            domProps: { value: _vm.settingIta.address },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.settingIta,
+                                  "address",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm.error != null && _vm.error.address
+                            ? _c(
+                                "small",
+                                { staticClass: "form-text text-muted" },
+                                [_vm._v(_vm._s(_vm.error.address[0]))]
+                              )
+                            : _vm._e()
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { attrs: { for: "title2" } }, [
+                            _vm._v("Title")
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.settingIta.title,
+                                expression: "settingIta.title"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "text",
+                              name: "title",
+                              id: "title2",
+                              placeholder: "Title"
+                            },
+                            domProps: { value: _vm.settingIta.title },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.settingIta,
+                                  "title",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm.error != null && _vm.error.title
+                            ? _c(
+                                "small",
+                                { staticClass: "form-text text-muted" },
+                                [_vm._v(_vm._s(_vm.error.title[0]))]
+                              )
+                            : _vm._e()
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { attrs: { for: "keywords2" } }, [
+                            _vm._v("Keywords")
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.settingIta.keywords,
+                                expression: "settingIta.keywords"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "text",
+                              name: "keywords",
+                              id: "keywords2",
+                              placeholder: "Keywords"
+                            },
+                            domProps: { value: _vm.settingIta.keywords },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.settingIta,
+                                  "keywords",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm.error != null && _vm.error.keywords
+                            ? _c(
+                                "small",
+                                { staticClass: "form-text text-muted" },
+                                [_vm._v(_vm._s(_vm.error.keywords[0]))]
+                              )
+                            : _vm._e()
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "form-group" },
+                          [
+                            _c("label", [_vm._v("Description")]),
+                            _vm._v(" "),
+                            _c("ckeditor", {
+                              attrs: { config: _vm.config },
+                              model: {
+                                value: _vm.settingIta.desc,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.settingIta, "desc", $$v)
+                                },
+                                expression: "settingIta.desc"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _vm.error != null && _vm.error.desc
+                              ? _c(
+                                  "small",
+                                  { staticClass: "form-text text-muted" },
+                                  [_vm._v(_vm._s(_vm.error.desc[0]))]
+                                )
+                              : _vm._e()
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "form-group" },
+                          [
+                            _c("label", [_vm._v("Footer text")]),
+                            _vm._v(" "),
+                            _c("ckeditor", {
+                              attrs: { config: _vm.config },
+                              model: {
+                                value: _vm.settingIta.footer,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.settingIta, "footer", $$v)
+                                },
+                                expression: "settingIta.footer"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _vm.error != null && _vm.error.desc
+                              ? _c(
+                                  "small",
+                                  { staticClass: "form-text text-muted" },
+                                  [_vm._v(_vm._s(_vm.error.footer[0]))]
+                                )
+                              : _vm._e()
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _vm._m(4)
+                      ]
+                    )
+                  ]
+                )
+              ]
+            )
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-12" }, [
+      _c("div", { staticClass: "card" }, [_c("h5", [_vm._v("Settings edit")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+        [_vm._v("Edit general")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "ul",
+      { staticClass: "nav nav-tabs", attrs: { id: "myTab", role: "tablist" } },
+      [
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link active",
+              attrs: {
+                id: "home-tab",
+                "data-toggle": "tab",
+                href: "#eng",
+                role: "tab",
+                "aria-controls": "home",
+                "aria-selected": "true"
+              }
+            },
+            [_vm._v("English")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link",
+              attrs: {
+                id: "contact-tab",
+                "data-toggle": "tab",
+                href: "#ita",
+                role: "tab",
+                "aria-controls": "contact",
+                "aria-selected": "false"
+              }
+            },
+            [_vm._v("Italian")]
+          )
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+        [_vm._v("Edit on English")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+        [_vm._v("Edit on Italian")]
+      )
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-db539d10", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

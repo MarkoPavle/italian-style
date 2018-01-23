@@ -32,3 +32,9 @@ Route::middleware('auth:api')->post('posts/{id}/gallery', 'PostsController@galle
 Route::middleware('auth:api')->get('posts/{id}/gallery', 'PostsController@gallery');
 
 Route::middleware('auth:api')->post('photos/{id}/destroy', 'PhotosController@destroy');
+
+Route::middleware('auth:api')->get('settings/{id}/edit', 'SettingsController@edit');
+Route::middleware('auth:api')->patch('settings/{id}/update', 'SettingsController@update');
+Route::middleware('auth:api')->post('settings/{id}/updateLang', 'SettingsController@updateLang');
+
+Route::middleware('auth:api')->resource('themes', 'ThemesController');

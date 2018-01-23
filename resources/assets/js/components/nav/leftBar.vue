@@ -10,7 +10,7 @@
                 <a href="#" @click="changeShowSettingsItemActive()">Settings</a>
                 <font-awesome-icon icon="cogs"/>
                 <ul>
-                    <li><a href="#">SEO</a></li>
+                    <li><router-link tag="a" :to="'/settings/1/edit'">SEO</router-link></li>
                     <li><a href="#">Theme</a></li>
                 </ul>
             </li>
