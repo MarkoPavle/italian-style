@@ -38,3 +38,4 @@ Route::middleware('auth:api')->patch('settings/{id}/update', 'SettingsController
 Route::middleware('auth:api')->post('settings/{id}/updateLang', 'SettingsController@updateLang');
 
 Route::middleware('auth:api')->resource('themes', 'ThemesController');
+Route::middleware('auth:api')->post('themes/{id}/image', 'ThemesController@uploadImage');

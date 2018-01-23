@@ -6,7 +6,7 @@
                     <div id="breadcrumbs">
                         <ul class="list-group list-group-flush">
                             <li><router-link tag="a" :to="'/home'">Home</router-link></li>
-                            <li>Categories</li>
+                            <li>Themes</li>
                         </ul>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr v-for="row in categories">
+                        <tr v-for="row in themes">
                             <td>{{ row.id }}</td>
                             <td>{{ row.title }}</td>
                             <td>{{ row.publish }}</td>
@@ -56,7 +56,7 @@
     export default {
         data(){
             return {
-                categories: {},
+                themes: {},
                 paginate: {}
             }
         },
@@ -65,23 +65,21 @@
             'font-awesome-icon': FontAwesomeIcon
         },
         created(){
-            console.log('spisak kategorija');
-            this.getCategories();
+            this.getThemes();
         },
         methods: {
-            getCategories(){
-                axios.get('api/categories')
+            getThemes(){
+                axios.get('api/themes')
                     .then(res => {
-                        this.categories = res.data.categories.data;
-                        this.paginate = res.data.categories;
-                        console.log(res.data.categories);
+                        this.themes = res.data.themes.data;
+                        this.paginate = res.data.themes;
                     })
                     .catch(e => {
                         console.log(e);
                     });
             },
             editRow(id){
-                this.$router.push('categories/' + id + '/edit');
+                this.$router.push('themes/' + id + '/edit');
             },
             deleteRow(row){
                 swal({
@@ -89,14 +87,14 @@
                     text: "You won't be able to revert this!",
                     type: 'warning',
                     showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
+                    confirmButtonColor: '#51d2b7',
+                    cancelButtonColor: '#fb9678',
                     confirmButtonText: 'Yes, delete it!'
                 }).then((result) => {
                     if (result.value) {
-                        axios.delete('api/categories/' + row.id)
+                        axios.delete('api/themes/' + row.id)
                             .then(res => {
-                                this.categories = this.categories.filter(function (item) {
+                                this.themes = this.themes.filter(function (item) {
                                     return row.id != item.id;
                                 });
                                 swal(
@@ -112,11 +110,10 @@
                 })
             },
             clickToLink(index){
-                axios.get('api/categories?page=' + index)
+                axios.get('api/themes?page=' + index)
                     .then(res => {
-                        this.categories = res.data.categories.data;
-                        this.paginate = res.data.categories;
-                        console.log(res.data.categories);
+                        this.themes = res.data.themes.data;
+                        this.paginate = res.data.themes;
                     })
                     .catch(e => {
                         console.log(e);

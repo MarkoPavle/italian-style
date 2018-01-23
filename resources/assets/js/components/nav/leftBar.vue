@@ -11,7 +11,7 @@
                 <font-awesome-icon icon="cogs"/>
                 <ul>
                     <li><router-link tag="a" :to="'/settings/1/edit'">SEO</router-link></li>
-                    <li><a href="#">Theme</a></li>
+                    <li><router-link tag="a" :to="'/themes'">Theme</router-link></li>
                 </ul>
             </li>
             <li :class="{ 'active': showUsersItemActive }" :style="{ 'display': showUsersItem ? 'block' : 'none' }">

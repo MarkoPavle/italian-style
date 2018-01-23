@@ -340,6 +340,7 @@
       transition: all 1s;
 
       &.active{
+        background-color: $svetla;
 
         ul{
           height: 100%;

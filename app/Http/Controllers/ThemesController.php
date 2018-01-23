@@ -5,9 +5,17 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateThemeRequest;
 use App\Theme;
 use Illuminate\Http\Request;
+use File;
 
 class ThemesController extends Controller
 {
+    public function index(){
+        $themes = Theme::select('*')->orderBy('created_at', 'DESC')->paginate(3);
+        return response()->json([
+            'themes' => $themes,
+        ]);
+    }
+
     public function store(CreateThemeRequest $request)
     {
         $theme = Theme::create($request->all());
@@ -18,6 +26,13 @@ class ThemesController extends Controller
 
         return response()->json([
             'message' => 'done'
+        ]);
+    }
+
+    public function show($id){
+        $theme = Theme::find($id);
+        return response()->json([
+            'theme' => $theme
         ]);
     }
 
@@ -38,6 +53,23 @@ class ThemesController extends Controller
 
         return response()->json([
             'message' => 'done'
+        ]);
+    }
+
+    public function destroy($id){
+        $theme = Theme::find($id);
+        if(!empty($theme->image)) File::delete($theme->image);
+        Theme::destroy($theme->id);
+        return response()->json([
+            'message' => 'deleted'
+        ]);
+    }
+
+    public function uploadImage($id){
+        $theme = Theme::find($id);
+        $image = Theme::base64UploadImage($theme, request('image'));
+        return response()->json([
+            'image' => $image
         ]);
     }
 }
