@@ -28,4 +28,7 @@ Route::middleware('auth:api')->post('categories/{id}/lang', 'CategoriesControlle
 Route::middleware('auth:api')->resource('posts', 'PostsController');
 Route::middleware('auth:api')->post('posts/{id}/image', 'PostsController@uploadImage');
 Route::middleware('auth:api')->post('posts/{id}/lang', 'PostsController@updateLang');
-Route::middleware('auth:api')->post('posts/{id}/gallery', 'PostsController@gallery');
+Route::middleware('auth:api')->post('posts/{id}/gallery', 'PostsController@galleryUpdate');
+Route::middleware('auth:api')->get('posts/{id}/gallery', 'PostsController@gallery');
+
+Route::middleware('auth:api')->post('photos/{id}/destroy', 'PhotosController@destroy');

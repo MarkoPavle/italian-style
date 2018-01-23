@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreatePostRequest;
+use App\Http\Requests\UploadGalleryRequest;
 use App\Photo;
 use App\Post;
 use Illuminate\Http\Request;
@@ -79,16 +80,22 @@ class PostsController extends Controller
         ]);
     }
 
-    public function uploadImage($id){
+    public function uploadImage(UploadGalleryRequest $request, $id){
         $image = Post::base64UploadImage($id, request('image'));
         return response()->json([
             'image' => $image
         ]);
     }
 
-    public function gallery($id){
+    public function galleryUpdate($id){
         Photo::saveImage($id, request('file'));
+        return 'done';
+    }
 
-        return 'http://localhost/cim/public/uploads/posts/1516631926-6.jpg';
+    public function gallery($id){
+        $photos = Post::find($id)->photo;
+        return response()->json([
+            'photos' => $photos
+        ]);
     }
 }

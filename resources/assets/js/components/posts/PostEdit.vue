@@ -20,6 +20,19 @@
                     </div>
                 </div>
 
+                <div class="col-md-12">
+                    <div class="card">
+                        <h5>Gallery images</h5>
+                        <hr>
+                        <div id="gallery" v-if="photos">
+                            <div v-for="photo in photos" class="photo">
+                                <font-awesome-icon icon="times" @click="deletePhoto(photo)" />
+                                <img :src="photo.file_path_small" class="img-thumbnail" alt="post.title">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col-md-4">
                     <div class="card">
                         <h5>General info</h5>
@@ -50,7 +63,7 @@
                         </form>
                     </div><!-- .card -->
                     <div class="card">
-                        <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions"></vue-dropzone>
+                        <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions" @vdropzone-success="showSuccess()"></vue-dropzone>
                     </div>
                 </div>
                 <div class="col-md-8">
@@ -167,6 +180,7 @@
               postIta: {},
               error: null,
               lists: {},
+              photos: {},
               config: {
                   toolbar: [
                       [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', 'Image' ]
@@ -182,6 +196,11 @@
               }
           }
         },
+        computed: {
+            post_id(){
+                return this.post.id;
+            }
+        },
         components: {
             'font-awesome-icon': FontAwesomeIcon,
             'upload-image-helper': UploadImageHelper,
@@ -193,6 +212,7 @@
             this.getPost('en');
             this.getPost('it');
             this.getList();
+            this.getPhotos();
         },
         methods: {
             getPost(locale){
@@ -281,6 +301,31 @@
                     console.log(e.response);
                     this.error = e.response.data.errors;
                 });
+            },
+            getPhotos(){
+                axios.get('api/posts/' + this.$route.params.id + '/gallery')
+                    .then(res => {
+                        console.log(res);
+                        this.photos = res.data.photos;
+                    }).catch(e => {
+                    console.log(e.response);
+                    this.error = e.response.data.errors;
+                });
+            },
+            deletePhoto(photo){
+                axios.post('api/photos/' + photo.id + '/destroy')
+                    .then(res => {
+                        console.log(res);
+                        this.photos = this.photos.filter(function (item) {
+                            return photo.id != item.id;
+                        });
+                    }).catch(e => {
+                        console.log(e.response);
+                        this.error = e.response.data.errors;
+                    });
+            },
+            showSuccess(){
+                this.getPhotos();
             }
         }
     }
