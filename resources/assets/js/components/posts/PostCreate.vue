@@ -24,6 +24,13 @@
                     <div class="card">
                         <form @submit.prevent="submit()">
                             <div class="form-group">
+                                <label for="category">Category</label>
+                                <select name="category" id="category" class="form-control" v-model="post.category_id">
+                                    <option :value="index" v-for="(category, index) in lists">{{ category }}</option>
+                                </select>
+                                <small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>
+                            </div>
+                            <div class="form-group">
                                 <label for="title">Title</label>
                                 <input type="text" name="title" class="form-control" id="title" placeholder="Ime" v-model="post.title">
                                 <small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>
@@ -91,7 +98,8 @@
           return {
               post: {
                   desc: null,
-                  publish: false
+                  publish: false,
+                  category_id: 0
               },
               lists: {},
               error: null,

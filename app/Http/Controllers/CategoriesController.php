@@ -55,7 +55,9 @@ class CategoriesController extends Controller
         request('locale')? $locale = request('locale') : $locale = 'en';
         app()->setLocale($locale);
         $category = Category::find($id);
+        $category->title = request('title');
         request('slug')? $category->slug = str_slug(request('slug')) : $category->slug = str_slug(request('title'));
+        $category->desc = request('desc');
         $category->update($request->except('image', 'slug'));
         return response()->json([
             'category' => $category
@@ -79,7 +81,11 @@ class CategoriesController extends Controller
     }
 
     public function lists(){
-        $categories = Category::where('publish', 1)->orderBy('title', 'ASC')->pluck('title', 'id')->prepend('Without category', 0);
+        $locale = 'en';
+        app()->setLocale($locale);
+        $categories = Category::join('category_translations', 'categories.id', '=', 'category_translations.category_id')
+            ->where('categories.publish', 1)->orderBy('category_translations.title', 'ASC')->where('category_translations.locale', $locale)
+            ->pluck('category_translations.title', 'categories.id')->prepend('Without category', 0);
         return response()->json([
             'categories' => $categories
         ]);

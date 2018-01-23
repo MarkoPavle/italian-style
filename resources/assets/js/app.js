@@ -28,6 +28,7 @@ Vue.component('left-bar', require('./components/nav/leftBar.vue'));
 /** HELPER **/
 Vue.component('paginate-helper', require('./components/helper/PaginateHelper.vue'));
 Vue.component('font-awesome-icon', require('@fortawesome/vue-fontawesome'));
+Vue.component('gallery-helper', require('./components/helper/GalleryHelper.vue'));
 
 
 

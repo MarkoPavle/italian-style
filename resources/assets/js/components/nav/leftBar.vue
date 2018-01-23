@@ -32,15 +32,6 @@
                     <li><router-link tag="a" :to="'/categories'">Category review</router-link></li>
                 </ul>
             </li>
-            <li :class="{ 'active': showProductsItemActive }" :style="{ 'display': showProductsItem ? 'block' : 'none' }">
-                <font-awesome-icon icon="angle-right" />
-                <a href="#" @click="changeShowProductsItemActive()">Shop</a>
-                <font-awesome-icon icon="shopping-cart" />
-                <ul>
-                    <li><a href="#">Product review</a></li>
-                    <li><router-link tag="a" :to="'/categories'">Category review</router-link></li>
-                </ul>
-            </li>
             <li :class="{ 'active': showNewslettersItemActive }" :style="{ 'display': showNewslettersItem ? 'block' : 'none' }">
                 <font-awesome-icon icon="angle-right" />
                 <a href="#" @click="changeShowNewslettersItemActive()">Newsletter</a>

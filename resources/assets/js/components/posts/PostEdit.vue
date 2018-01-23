@@ -26,6 +26,13 @@
                         <hr>
                         <form @submit.prevent="general()">
                             <div class="form-group">
+                                <label for="category">Category</label>
+                                <select name="category" id="category" class="form-control" v-model="post.category_id">
+                                    <option :value="index" v-for="(category, index) in lists">{{ category }}</option>
+                                </select>
+                                <small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>
+                            </div>
+                            <div class="form-group">
                                 <label>Published</label><br>
                                 <switches v-model="post.publish" theme="bootstrap" color="primary"></switches>
                             </div>
@@ -41,6 +48,9 @@
                                     <button class="btn btn-primary" type="submit">Edit general</button>
                                 </div>
                         </form>
+                    </div><!-- .card -->
+                    <div class="card">
+                        <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions"></vue-dropzone>
                     </div>
                 </div>
                 <div class="col-md-8">
@@ -147,6 +157,8 @@
     import swal from 'sweetalert2';
     import Switches from 'vue-switches';
     import Ckeditor from 'vue-ckeditor2';
+    import vue2Dropzone from 'vue2-dropzone';
+    import 'vue2-dropzone/dist/vue2Dropzone.css';
 
     export default {
         data(){
@@ -154,12 +166,19 @@
               post: {},
               postIta: {},
               error: null,
+              lists: {},
               config: {
                   toolbar: [
                       [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', 'Image' ]
                   ],
                   height: 300,
                   filebrowserBrowseUrl: 'media'
+              },
+              dropzoneOptions: {
+                  url: 'api/posts/' + this.$route.params.id + '/gallery',
+                  thumbnailWidth: 150,
+                  maxFilesize: 0.5,
+                  headers: { "Authorization": "Bearer " + this.$auth.getToken() }
               }
           }
         },
@@ -167,11 +186,13 @@
             'font-awesome-icon': FontAwesomeIcon,
             'upload-image-helper': UploadImageHelper,
             'switches': Switches,
-            'ckeditor': Ckeditor
+            'ckeditor': Ckeditor,
+            'vue-dropzone': vue2Dropzone
         },
         created(){
             this.getPost('en');
             this.getPost('it');
+            this.getList();
         },
         methods: {
             getPost(locale){
@@ -248,6 +269,16 @@
                         });
                     }).catch(e => {
                     console.log(e);
+                    this.error = e.response.data.errors;
+                });
+            },
+            getList(){
+                axios.get('api/categories/lists')
+                    .then(res => {
+                        console.log(res);
+                        this.lists = res.data.categories;
+                    }).catch(e => {
+                    console.log(e.response);
                     this.error = e.response.data.errors;
                 });
             }
