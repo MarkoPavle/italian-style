@@ -275,7 +275,7 @@
                 });
             },
             upload(image){
-                axios.post('api/posts/' + this.post.id + '/image', { image: image[0] })
+                axios.post('api/posts/' + this.post.id + '/image', { file: image[0] })
                     .then(res => {
                         console.log(res);
                         this.post.image = res.data.image;

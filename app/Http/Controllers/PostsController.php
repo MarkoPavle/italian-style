@@ -81,7 +81,7 @@ class PostsController extends Controller
     }
 
     public function uploadImage(UploadGalleryRequest $request, $id){
-        $image = Post::base64UploadImage($id, request('image'));
+        $image = Post::base64UploadImage($id, request('file'));
         return response()->json([
             'image' => $image
         ]);
