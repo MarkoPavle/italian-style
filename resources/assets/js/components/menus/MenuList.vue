@@ -121,7 +121,7 @@
                     });
             },
             links(id){
-                this.$router.push('/menu-links/' + id + '/edit');
+                this.$router.push('/menu-links/' + id + '/sort');
             }
         }
     }

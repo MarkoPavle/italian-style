@@ -10412,6 +10412,30 @@ a.text-dark:hover {
   color: red !important;
 }
 
+#place .sortable li {
+  border: 1px solid #d4d4d4;
+  border-radius: 3px;
+  border-color: #D4D4D4 #D4D4D4 #BCBCBC;
+  padding: 6px;
+  margin: 0;
+  background: #f6f6f6;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), color-stop(47%, #f6f6f6), to(#ededed));
+  background: linear-gradient(to bottom, #ffffff 0%, #f6f6f6 47%, #ededed 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 );
+}
+
+#place .sortable li svg {
+  margin: 5px;
+}
+
+#place .sortable li svg.sort {
+  cursor: move;
+}
+
+#place .sortable li svg.edit {
+  cursor: pointer;
+}
+
 #place .vue-switcher-theme--bootstrap.vue-switcher-color--primary div {
   background-color: #7adcc8;
 }
