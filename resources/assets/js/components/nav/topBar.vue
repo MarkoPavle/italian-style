@@ -26,6 +26,7 @@
                                 <a class="dropdown-item" href="#" @click.prevent="newUser()">User</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#"  @click.prevent="newTheme()">Theme</a>
+                                <a class="dropdown-item" href="#"  @click.prevent="newMenu()">Menu</a>
                             </div>
                         </div>
                     </li>
@@ -138,6 +139,9 @@
             },
             newTheme(){
                 this.$router.push('/themes/create');
+            },
+            newMenu(){
+                this.$router.push('/menus/create');
             },
         }
     }
