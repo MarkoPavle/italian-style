@@ -5,7 +5,8 @@
   height: auto;
   margin-left: 250px;
   background-color: $info;
-  padding: 15px 0;
+  padding: 15px 1% 15px 0;
+  box-sizing: border-box;
 
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
@@ -147,7 +148,8 @@ footer{
   color: white;
   text-align: center;
   margin: 0 0 0 250px;
-  padding: 0;
+  padding: 0 1% 0 0;
+  box-sizing: border-box;
 
   p{
     margin-bottom: 0;

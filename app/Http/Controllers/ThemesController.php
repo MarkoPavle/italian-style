@@ -45,6 +45,8 @@ class ThemesController extends Controller
         $theme->author_address = request('author_address');
         $theme->author_email = request('author_email');
         $theme->developer = request('developer');
+        request('publish')? $theme->publish = true : $theme->publish = false;
+        request('active')? $theme->active = true : $theme->active = false;
 
         if(request('image')){
             self::base64UploadImage($theme, request('image'));
