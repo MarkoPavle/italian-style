@@ -16,16 +16,12 @@ class CreateMenuLinksTable extends Migration
         Schema::create('menu_links', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('menu_id')->unsigned()->nullable();
-            $table->integer('cat_id')->unsigned()->nullable();
-            $table->string('title')->nullable();
-            $table->string('link')->nullable();
-            $table->string('desc')->nullable();
-            $table->string('sufix')->nullable();
+            $table->integer('category_id')->unsigned()->nullable();
+
             $table->integer('type')->nullable();
             $table->integer('order')->nullable();
             $table->integer('parent')->nullable();
             $table->integer('level')->nullable();
-            $table->string('locale')->nullable();
             $table->boolean('publish')->default(1);
             $table->timestamps();
 

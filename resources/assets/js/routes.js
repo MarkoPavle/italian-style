@@ -32,6 +32,8 @@ export const router = new VueRouter({
         { path: "/menus", component: require('./components/menus/MenuList.vue'), meta: { forAuth: true } },
         { path: "/menus/create", component: require('./components/menus/MenuCreate.vue'), meta: { forAuth: true } },
         { path: "/menus/:id/edit", component: require('./components/menus/MenuEdit.vue'), meta: { forAuth: true } },
+
+        { path: "/menu-links/:id/edit", component: require('./components/menuLinks/MenuLinks.vue'), meta: { forAuth: true } },
     ],
 
     linkActiveClass: 'active'

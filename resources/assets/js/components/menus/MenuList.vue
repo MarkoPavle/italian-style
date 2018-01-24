@@ -120,8 +120,8 @@
                         console.log(e);
                     });
             },
-            links(){
-                console.log('links');
+            links(id){
+                this.$router.push('/menu-links/' + id + '/edit');
             }
         }
     }
