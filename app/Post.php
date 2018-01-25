@@ -16,7 +16,7 @@ class Post extends Model
 
     protected $table = 'posts';
 
-    protected $fillable = ['id', 'user_id', 'category_id', 'language_id', 'order', 'parent', 'level', 'image', 'price', 'publish', 'publish_at'];
+    protected $fillable = ['id', 'user_id', 'category_id', 'order', 'parent', 'level', 'image', 'publish', 'publish_at'];
 
     public static function base64UploadImage($post_id, $image){
         $post = self::find($post_id);
@@ -43,9 +43,5 @@ class Post extends Model
 
     public function photo(){
         return $this->hasMany(Photo::class);
-    }
-
-    public function language(){
-        return $this->belongsTo(Language::class);
     }
 }

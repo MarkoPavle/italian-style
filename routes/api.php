@@ -38,6 +38,12 @@ Route::middleware('auth:api')->resource('collections', 'CollectionsController');
 Route::middleware('auth:api')->post('collections/{id}/image', 'CollectionsController@uploadImage');
 Route::middleware('auth:api')->post('collections/{id}/lang', 'CollectionsController@updateLang');
 
+Route::middleware('auth:api')->resource('products', 'ProductsController');
+Route::middleware('auth:api')->post('products/{id}/image', 'ProductsController@uploadImage');
+Route::middleware('auth:api')->post('products/{id}/lang', 'ProductsController@updateLang');
+Route::middleware('auth:api')->post('products/{id}/gallery', 'ProductsController@galleryUpdate');
+Route::middleware('auth:api')->get('products/{id}/gallery', 'ProductsController@gallery');
+
 Route::middleware('auth:api')->get('settings/{id}/edit', 'SettingsController@edit');
 Route::middleware('auth:api')->patch('settings/{id}/update', 'SettingsController@update');
 Route::middleware('auth:api')->post('settings/{id}/updateLang', 'SettingsController@updateLang');

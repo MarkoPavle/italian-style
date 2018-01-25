@@ -27,7 +27,7 @@
                         <div id="gallery" v-if="photos">
                             <div v-for="photo in photos" class="photo">
                                 <font-awesome-icon icon="times" @click="deletePhoto(photo)" />
-                                <img :src="photo.file_path_small" class="img-thumbnail" alt="post.title">
+                                <img :src="photo.file_path_small" class="img-thumbnail" alt="product.title">
                             </div>
                         </div>
                     </div>
@@ -56,9 +56,9 @@
                                     @uploadImage="upload($event)"
                                     @removeRow="remove($event)"
                             ></upload-image-helper>
-                                <div class="form-group">
-                                    <button class="btn btn-primary" type="submit">Edit general</button>
-                                </div>
+                            <div class="form-group">
+                                <button class="btn btn-primary" type="submit">Edit general</button>
+                            </div>
                         </form>
                     </div><!-- .card -->
                     <div class="card">
@@ -82,23 +82,23 @@
                                 <form @submit.prevent="submit('en')">
                                     <div class="form-group">
                                         <label for="title">Title</label>
-                                        <input type="text" name="title" class="form-control" id="title" placeholder="Title" v-model="post.title">
+                                        <input type="text" name="title" class="form-control" id="title" placeholder="Title" v-model="product.title">
                                         <small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>
                                     </div>
                                     <div class="form-group">
                                         <label for="slug">Slug</label>
-                                        <input type="text" name="slug" class="form-control" id="slug" placeholder="Slug" v-model="post.slug">
+                                        <input type="text" name="slug" class="form-control" id="slug" placeholder="Slug" v-model="product.slug">
                                         <small class="form-text text-muted" v-if="error != null && error.slug">{{ error.slug[0] }}</small>
                                     </div>
                                     <div class="form-group">
                                         <label for="short">Short</label>
-                                        <textarea name="short" id="short" cols="3" rows="4" class="form-control" placeholder="Short text" v-model="post.short"></textarea>
+                                        <textarea name="short" id="short" cols="3" rows="4" class="form-control" placeholder="Short text" v-model="product.short"></textarea>
                                         <small class="form-text text-muted" v-if="error != null && error.short">{{ error.short[0] }}</small>
                                     </div>
                                     <div class="form-group">
                                         <label>Body</label>
                                         <ckeditor
-                                                v-model="post.body"
+                                                v-model="product.body"
                                                 :config="config">
                                         </ckeditor>
                                         <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.body[0] }}</small>
@@ -106,7 +106,7 @@
                                     <div class="form-group">
                                         <label>Extra description</label>
                                         <ckeditor
-                                                v-model="post.body2"
+                                                v-model="product.body2"
                                                 :config="config">
                                         </ckeditor>
                                         <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.body2[0] }}</small>
@@ -121,23 +121,23 @@
                                 <form @submit.prevent="submit('it')">
                                     <div class="form-group">
                                         <label for="title2">Title</label>
-                                        <input type="text" name="title" class="form-control" id="title2" placeholder="Title" v-model="postIta.title">
+                                        <input type="text" name="title" class="form-control" id="title2" placeholder="Title" v-model="productIta.title">
                                         <small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>
                                     </div>
                                     <div class="form-group">
                                         <label for="slug2">Slug</label>
-                                        <input type="text" name="slug" class="form-control" id="slug2" placeholder="Slug" v-model="postIta.slug">
+                                        <input type="text" name="slug" class="form-control" id="slug2" placeholder="Slug" v-model="productIta.slug">
                                         <small class="form-text text-muted" v-if="error != null && error.slug">{{ error.slug[0] }}</small>
                                     </div>
                                     <div class="form-group">
                                         <label for="shortIta">Short</label>
-                                        <textarea name="short" id="shortIta" cols="3" rows="4" class="form-control" placeholder="Short text" v-model="postIta.short"></textarea>
+                                        <textarea name="short" id="shortIta" cols="3" rows="4" class="form-control" placeholder="Short text" v-model="productIta.short"></textarea>
                                         <small class="form-text text-muted" v-if="error != null && error.short">{{ error.short[0] }}</small>
                                     </div>
                                     <div class="form-group">
                                         <label>Body</label>
                                         <ckeditor
-                                                v-model="postIta.body"
+                                                v-model="productIta.body"
                                                 :config="config">
                                         </ckeditor>
                                         <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.body[0] }}</small>
@@ -145,7 +145,7 @@
                                     <div class="form-group">
                                         <label>Extra description</label>
                                         <ckeditor
-                                                v-model="postIta.body2"
+                                                v-model="productIta.body2"
                                                 :config="config">
                                         </ckeditor>
                                         <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.body2[0] }}</small>
@@ -175,8 +175,8 @@
     export default {
         data(){
           return {
-              post: {},
-              postIta: {},
+              product: {},
+              productIta: {},
               error: null,
               lists: {},
               photos: {},
@@ -188,7 +188,7 @@
                   filebrowserBrowseUrl: 'media'
               },
               dropzoneOptions: {
-                  url: 'api/posts/' + this.$route.params.id + '/gallery',
+                  url: 'api/products/' + this.$route.params.id + '/gallery',
                   thumbnailWidth: 150,
                   maxFilesize: 0.5,
                   headers: { "Authorization": "Bearer " + this.$auth.getToken() }
@@ -196,8 +196,8 @@
           }
         },
         computed: {
-            post_id(){
-                return this.post.id;
+            product_id(){
+                return this.product.id;
             }
         },
         components: {
@@ -208,20 +208,20 @@
             'vue-dropzone': vue2Dropzone
         },
         created(){
-            this.getPost('en');
-            this.getPost('it');
+            this.getProduct('en');
+            this.getProduct('it');
             this.getList();
             this.getPhotos();
         },
         methods: {
-            getPost(locale){
-                axios.get('api/posts/' + this.$route.params.id + '?locale=' + locale)
+            getProduct(locale){
+                axios.get('api/products/' + this.$route.params.id + '?locale=' + locale)
                     .then(res => {
-                        if(res.data.post != null){
+                        if(res.data.product != null){
                             if(locale == 'en'){
-                                this.post = res.data.post;
+                                this.product = res.data.product;
                             }else{
-                                this.postIta = res.data.post;
+                                this.productIta = res.data.product;
                             }
                         }
                     })
@@ -233,16 +233,16 @@
             submit(locale){
                 let data = {};
                 if(locale == 'en'){
-                    data = this.post;
+                    data = this.product;
                 }else{
-                    data = this.postIta;
+                    data = this.productIta;
                 }
-                axios.post('api/posts/' + this.post.id + '/lang?locale=' + locale, data)
+                axios.post('api/products/' + this.product.id + '/lang?locale=' + locale, data)
                     .then(res => {
                         if(locale == 'en'){
-                            this.post = res.data.post;
+                            this.product = res.data.product;
                         }else{
-                            this.postIta = res.data.post;
+                            this.productIta = res.data.product;
                         }
                         swal({
                             position: 'center',
@@ -258,7 +258,7 @@
                     });
             },
             general(){
-                axios.patch('api/posts/' + this.post.id, this.post)
+                axios.patch('api/products/' + this.product.id, this.product)
                     .then(res => {
                         swal({
                             position: 'center',
@@ -269,15 +269,14 @@
                         });
                         this.error = null;
                     }).catch(e => {
-                    console.log(e.response);
-                    this.error = e.response.data.errors;
-                });
+                        console.log(e.response);
+                        this.error = e.response.data.errors;
+                    });
             },
             upload(image){
-                axios.post('api/posts/' + this.post.id + '/image', { file: image[0] })
+                axios.post('api/products/' + this.product.id + '/image', { file: image[0] })
                     .then(res => {
-                        console.log(res);
-                        this.post.image = res.data.image;
+                        this.product.image = res.data.image;
                         this.error = null;
                         swal({
                             position: 'center',
@@ -287,34 +286,31 @@
                             timer: 1500
                         });
                     }).catch(e => {
-                    console.log(e);
-                    this.error = e.response.data.errors;
-                });
+                        console.log(e);
+                        this.error = e.response.data.errors;
+                    });
             },
             getList(){
-                axios.get('api/categories/lists')
+                axios.get('api/collections/lists')
                     .then(res => {
-                        console.log(res);
-                        this.lists = res.data.categories;
+                        this.lists = res.data.collections;
                     }).catch(e => {
-                    console.log(e.response);
-                    this.error = e.response.data.errors;
-                });
+                        console.log(e.response);
+                        this.error = e.response.data.errors;
+                    });
             },
             getPhotos(){
-                axios.get('api/posts/' + this.$route.params.id + '/gallery')
+                axios.get('api/products/' + this.$route.params.id + '/gallery')
                     .then(res => {
-                        console.log(res);
                         this.photos = res.data.photos;
                     }).catch(e => {
-                    console.log(e.response);
-                    this.error = e.response.data.errors;
-                });
+                        console.log(e.response);
+                        this.error = e.response.data.errors;
+                    });
             },
             deletePhoto(photo){
                 axios.post('api/photos/' + photo.id + '/destroy')
                     .then(res => {
-                        console.log(res);
                         this.photos = this.photos.filter(function (item) {
                             return photo.id != item.id;
                         });

@@ -24,8 +24,8 @@
                     <div class="card">
                         <form @submit.prevent="submit()">
                             <div class="form-group">
-                                <label for="name">Ime</label>
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Ime" v-model="user.name">
+                                <label for="name">Name</label>
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Name" v-model="user.name">
                                 <small class="form-text text-muted" v-if="error != null && error.name">{{ error.name[0] }}</small>
                             </div>
                             <div class="form-group">

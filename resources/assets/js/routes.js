@@ -27,6 +27,10 @@ export const router = new VueRouter({
         { path: "/collections/create", component: require('./components/collections/CollectionCreate.vue'), meta: { forAuth: true } },
         { path: "/collections/:id/edit", component: require('./components/collections/CollectionEdit.vue'), meta: { forAuth: true } },
 
+        { path: "/products", component: require('./components/products/ProductList.vue'), meta: { forAuth: true } },
+        { path: "/products/create", component: require('./components/products/ProductCreate.vue'), meta: { forAuth: true } },
+        { path: "/products/:id/edit", component: require('./components/products/ProductEdit.vue'), meta: { forAuth: true } },
+
         { path: "/settings/:id/edit", component: require('./components/settings/SettingEdit.vue'), meta: { forAuth: true } },
 
         { path: "/themes", component: require('./components/themes/ThemeList.vue'), meta: { forAuth: true } },

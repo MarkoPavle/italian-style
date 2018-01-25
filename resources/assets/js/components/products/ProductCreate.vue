@@ -6,8 +6,8 @@
                     <div id="breadcrumbs">
                         <ul class="list-group list-group-flush">
                             <li><router-link tag="a" :to="'/home'">Home</router-link></li>
-                            <li><router-link tag="a" :to="'/posts'">Posts</router-link></li>
-                            <li>Post create</li>
+                            <li><router-link tag="a" :to="'/products'">Products</router-link></li>
+                            <li>Product create</li>
                         </ul>
                     </div>
                 </div>
@@ -16,7 +16,7 @@
             <div class="row bela">
                 <div class="col-md-12">
                     <div class="card">
-                        <h5>Post create</h5>
+                        <h5>Product create</h5>
                     </div>
                 </div>
 
@@ -24,30 +24,30 @@
                     <div class="card">
                         <form @submit.prevent="submit()">
                             <div class="form-group">
-                                <label for="category">Category</label>
-                                <select name="category" id="category" class="form-control" v-model="post.category_id">
-                                    <option :value="index" v-for="(category, index) in lists">{{ category }}</option>
+                                <label for="collection">Collection</label>
+                                <select name="collection" id="collection" class="form-control" v-model="product.collection_id">
+                                    <option :value="index" v-for="(collection, index) in lists">{{ collection }}</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="title">Title</label>
-                                <input type="text" name="title" class="form-control" id="title" placeholder="Title" v-model="post.title">
+                                <input type="text" name="title" class="form-control" id="title" placeholder="Title" v-model="product.title">
                                 <small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>
                             </div>
                             <div class="form-group">
                                 <label for="slug">Slug</label>
-                                <input type="text" name="slug" class="form-control" id="slug" placeholder="Slug" v-model="post.slug">
+                                <input type="text" name="slug" class="form-control" id="slug" placeholder="Slug" v-model="product.slug">
                                 <small class="form-text text-muted" v-if="error != null && error.slug">{{ error.slug[0] }}</small>
                             </div>
                             <div class="form-group">
                                 <label for="short">Short</label>
-                                <textarea name="short" id="short" cols="3" rows="4" class="form-control" placeholder="Short text" v-model="post.short"></textarea>
+                                <textarea name="short" id="short" cols="3" rows="4" class="form-control" placeholder="Short text" v-model="product.short"></textarea>
                                 <small class="form-text text-muted" v-if="error != null && error.short">{{ error.short[0] }}</small>
                             </div>
                             <div class="form-group">
                                     <label>Body</label>
                                 <ckeditor
-                                        v-model="post.body"
+                                        v-model="product.body"
                                         :config="config">
                                 </ckeditor>
                                 <small class="form-text text-muted" v-if="error != null && error.body">{{ error.body[0] }}</small>
@@ -55,14 +55,14 @@
                             <div class="form-group">
                                 <label>Extra description</label>
                                 <ckeditor
-                                        v-model="post.body2"
+                                        v-model="product.body2"
                                         :config="config">
                                 </ckeditor>
                                 <small class="form-text text-muted" v-if="error != null && error.body2">{{ error.body2[0] }}</small>
                             </div>
                             <div class="form-group">
                                 <label>Published</label><br>
-                                <switches v-model="post.publish" theme="bootstrap" color="primary"></switches>
+                                <switches v-model="product.publish" theme="bootstrap" color="primary"></switches>
                             </div>
                             <div class="form-group">
                                 <button class="btn btn-primary" type="submit">Create</button>
@@ -72,9 +72,9 @@
                 </div>
                 <div class="col-sm-4">
                     <upload-image-helper
-                            :image="post.image"
+                            :image="product.image"
                             :defaultImage="null"
-                            :titleImage="'Post'"
+                            :titleImage="'Product'"
                             :error="error"
                             @uploadImage="upload($event)"
                             @removeRow="remove($event)"
@@ -95,7 +95,7 @@
     export default {
         data(){
           return {
-              post: {
+              product: {
                   desc: null,
                   publish: false,
                   category_id: 0
@@ -122,7 +122,7 @@
         },
         methods: {
             submit(){
-                axios.post('api/posts', this.post)
+                axios.post('api/products', this.product)
                     .then(res => {
                         swal({
                             position: 'center',
@@ -131,7 +131,7 @@
                             showConfirmButton: false,
                             timer: 1500
                         });
-                        this.$router.push('/posts');
+                        this.$router.push('/products');
                     }).catch(e => {
                         console.log(e.response);
                         this.error = e.response.data.errors;
@@ -139,12 +139,12 @@
             },
             upload(image){
                 console.log(image[0]);
-                this.post.image = image[0];
+                this.product.image = image[0];
             },
             getList(){
-                axios.get('api/categories/lists')
+                axios.get('api/collections/lists')
                     .then(res => {
-                        this.lists = res.data.categories;
+                        this.lists = res.data.collections;
                     }).catch(e => {
                         console.log(e.response);
                         this.error = e.response.data.errors;

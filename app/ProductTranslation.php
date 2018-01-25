@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PostTranslation extends Model
+class ProductTranslation extends Model
 {
     public $timestamps = false;
 
@@ -13,7 +13,7 @@ class PostTranslation extends Model
      *
      * @var string
      */
-    protected $table = 'post_translations';
+    protected $table = 'product_translations';
 
     /**
      * The attributes that are mass assignable.

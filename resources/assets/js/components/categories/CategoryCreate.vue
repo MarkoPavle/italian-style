@@ -25,7 +25,7 @@
                         <form @submit.prevent="submit()">
                             <div class="form-group">
                                 <label for="title">Title</label>
-                                <input type="text" name="title" class="form-control" id="title" placeholder="Ime" v-model="category.title">
+                                <input type="text" name="title" class="form-control" id="title" placeholder="Title" v-model="category.title">
                                 <small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>
                             </div>
                             <div class="form-group">

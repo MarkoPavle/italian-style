@@ -6,7 +6,7 @@
                     <div id="breadcrumbs">
                         <ul class="list-group list-group-flush">
                             <li><router-link tag="a" :to="'/home'">Home</router-link></li>
-                            <li>Posts</li>
+                            <li>Products</li>
                         </ul>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr v-for="row in posts">
+                        <tr v-for="row in products">
                             <td>{{ row.id }}</td>
                             <td>{{ row.title }}</td>
                             <td>{{ row.publish }}</td>
@@ -56,7 +56,7 @@
     export default {
         data(){
             return {
-                posts: {},
+                products: {},
                 paginate: {}
             }
         },
@@ -65,22 +65,21 @@
             'font-awesome-icon': FontAwesomeIcon
         },
         created(){
-            console.log('spisak postova');
-            this.getPosts();
+            this.getProducts();
         },
         methods: {
-            getPosts(){
-                axios.get('api/posts')
+            getProducts(){
+                axios.get('api/products')
                     .then(res => {
-                        this.posts = res.data.posts.data;
-                        this.paginate = res.data.posts;
+                        this.products = res.data.products.data;
+                        this.paginate = res.data.products;
                     })
                     .catch(e => {
                         console.log(e);
                     });
             },
             editRow(id){
-                this.$router.push('posts/' + id + '/edit');
+                this.$router.push('products/' + id + '/edit');
             },
             deleteRow(row){
                 swal({
@@ -93,9 +92,9 @@
                     confirmButtonText: 'Yes, delete it!'
                 }).then((result) => {
                     if (result.value) {
-                        axios.delete('api/posts/' + row.id)
+                        axios.delete('api/products/' + row.id)
                             .then(res => {
-                                this.posts = this.posts.filter(function (item) {
+                                this.products = this.products.filter(function (item) {
                                     return row.id != item.id;
                                 });
                                 swal(
@@ -111,10 +110,10 @@
                 })
             },
             clickToLink(index){
-                axios.get('api/posts?page=' + index)
+                axios.get('api/products?page=' + index)
                     .then(res => {
-                        this.posts = res.data.posts.data;
-                        this.paginate = res.data.posts;
+                        this.products = res.data.products.data;
+                        this.paginate = res.data.products;
                     })
                     .catch(e => {
                         console.log(e);
