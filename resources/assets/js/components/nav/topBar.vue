@@ -20,6 +20,9 @@
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
+                                <a class="dropdown-item" href="#" @click.prevent="newProduct()">Product</a>
+                                <a class="dropdown-item" href="#" @click.prevent="newCollection()">Collection</a>
+                                <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" @click.prevent="newPost()">Post</a>
                                 <a class="dropdown-item" href="#" @click.prevent="newCategory()">Post category</a>
                                 <div class="dropdown-divider"></div>
