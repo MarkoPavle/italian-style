@@ -114,8 +114,8 @@
     export default {
         data(){
           return {
-              category: {},
-              categoryIta: {},
+              link: {},
+              linkIta: {},
               error: null,
           }
         },
@@ -148,16 +148,16 @@
             submit(locale){
                 let data = {};
                 if(locale == 'en'){
-                    data = this.category;
+                    data = this.link;
                 }else{
-                    data = this.categoryIta;
+                    data = this.linkIta;
                 }
-                axios.post('api/categories/' + this.category.id + '/lang?locale=' + locale, data)
+                axios.patch('api/menu-links/' + this.link.id + '?locale=' + locale, data)
                     .then(res => {
                         if(locale == 'en'){
-                            this.category = res.data.category;
+                            this.link = res.data.link;
                         }else{
-                            this.categoryIta = res.data.category;
+                            this.linkIta = res.data.link;
                         }
                         swal({
                             position: 'center',
@@ -171,40 +171,6 @@
                         console.log(e.response);
                         this.error = e.response.data.errors;
                     });
-            },
-            general(){
-                axios.patch('api/categories/' + this.category.id, this.category)
-                    .then(res => {
-                        swal({
-                            position: 'center',
-                            type: 'success',
-                            title: 'Success',
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                        this.error = null;
-                    }).catch(e => {
-                    console.log(e.response);
-                    this.error = e.response.data.errors;
-                });
-            },
-            upload(image){
-                axios.post('api/categories/' + this.category.id + '/image', { image: image[0] })
-                    .then(res => {
-                        console.log(res);
-                        this.category.image = res.data.image;
-                        this.error = null;
-                        swal({
-                            position: 'center',
-                            type: 'success',
-                            title: 'Success',
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                    }).catch(e => {
-                    console.log(e);
-                    this.error = e.response.data.errors;
-                });
             }
         }
     }

@@ -44,3 +44,4 @@ Route::middleware('auth:api')->resource('menus', 'MenusController');
 
 Route::middleware('auth:api')->resource('menu-links', 'MenuLinksController');
 Route::middleware('auth:api')->get('menu-links/{id}/sort', 'MenuLinksController@sort');
+Route::middleware('auth:api')->post('menu-links/{id}/order', 'MenuLinksController@saveOrder');

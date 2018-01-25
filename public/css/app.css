@@ -10452,6 +10452,13 @@ a.text-dark:hover {
   background-color: #7adcc8;
 }
 
+#place .new-link-add {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
 /** AUTH **/
 
 #login {
