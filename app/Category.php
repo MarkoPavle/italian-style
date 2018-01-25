@@ -16,7 +16,7 @@ class Category extends Model
 
     protected $table = 'categories';
 
-    protected $fillable = ['id', 'language_id', 'order', 'parent', 'level', 'image', 'publish'];
+    protected $fillable = ['id', 'order', 'parent', 'level', 'image', 'publish'];
 
     public static function base64UploadImage($category_id, $image){
         $category = self::find($category_id);

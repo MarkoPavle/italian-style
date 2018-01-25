@@ -146,6 +146,12 @@
             newMenu(){
                 this.$router.push('/menus/create');
             },
+            newCollection(){
+                this.$router.push('/collections/create');
+            },
+            newProduct(){
+                this.$router.push('/products/create');
+            },
         }
     }
 </script>

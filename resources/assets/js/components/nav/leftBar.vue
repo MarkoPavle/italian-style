@@ -24,6 +24,15 @@
                     <li><a href="#">Roles</a></li>
                 </ul>
             </li>
+            <li :class="{ 'active': showProductsItemActive }" :style="{ 'display': showProductsItem ? 'block' : 'none' }">
+                <font-awesome-icon icon="angle-right" />
+                <a href="#" @click="changeShowProductsItemActive()">Products</a>
+                <font-awesome-icon icon="shopping-cart" />
+                <ul>
+                    <li><router-link tag="a" :to="'/products'">Products review</router-link></li>
+                    <li><router-link tag="a" :to="'/collections'">Collection review</router-link></li>
+                </ul>
+            </li>
             <li :class="{ 'active': showPostsItemActive }" :style="{ 'display': showPostsItem ? 'block' : 'none' }">
                 <font-awesome-icon icon="angle-right" />
                 <a href="#" @click="changeShowPostsItemActive()">Posts</a>
