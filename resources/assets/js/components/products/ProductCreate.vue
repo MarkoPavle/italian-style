@@ -61,6 +61,16 @@
                                 <small class="form-text text-muted" v-if="error != null && error.body2">{{ error.body2[0] }}</small>
                             </div>
                             <div class="form-group">
+                                <label for="price_small">Price</label>
+                                <input type="text" name="title" class="form-control" id="price_small" placeholder="Price" v-model="product.price_small">
+                                <small class="form-text text-muted" v-if="error != null && error.price_small">{{ error.price_small[0] }}</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="price_outlet">Price outlet</label>
+                                <input type="text" name="price_outlet" class="form-control" id="price_outlet" placeholder="Price outlet" v-model="product.price_outlet">
+                                <small class="form-text text-muted" v-if="error != null && error.price_outlet">{{ error.price_outlet[0] }}</small>
+                            </div>
+                            <div class="form-group">
                                 <label>Published</label><br>
                                 <switches v-model="product.publish" theme="bootstrap" color="primary"></switches>
                             </div>
@@ -111,6 +121,11 @@
               }
           }
         },
+        computed: {
+            user(){
+                return this.$store.getters.getUser;
+            }
+        },
         components: {
             'font-awesome-icon': FontAwesomeIcon,
             'upload-image-helper': UploadImageHelper,
@@ -122,6 +137,7 @@
         },
         methods: {
             submit(){
+                this.product.user_id = this.user.id;
                 axios.post('api/products', this.product)
                     .then(res => {
                         swal({

@@ -39021,14 +39021,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -39054,6 +39046,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         };
     },
 
+    computed: {
+        user: function user() {
+            return this.$store.getters.getUser;
+        }
+    },
     components: {
         'font-awesome-icon': __WEBPACK_IMPORTED_MODULE_0__fortawesome_vue_fontawesome___default.a,
         'upload-image-helper': __WEBPACK_IMPORTED_MODULE_1__helper_UploadImageHelper_vue___default.a,
@@ -39068,6 +39065,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         submit: function submit() {
             var _this = this;
 
+            this.post.user_id = this.user.id;
             axios.post('api/posts', this.post).then(function (res) {
                 __WEBPACK_IMPORTED_MODULE_2_sweetalert2___default()({
                     position: 'center',
@@ -39333,32 +39331,6 @@ var render = function() {
                     _vm.error != null && _vm.error.body
                       ? _c("small", { staticClass: "form-text text-muted" }, [
                           _vm._v(_vm._s(_vm.error.body[0]))
-                        ])
-                      : _vm._e()
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "form-group" },
-                  [
-                    _c("label", [_vm._v("Extra description")]),
-                    _vm._v(" "),
-                    _c("ckeditor", {
-                      attrs: { config: _vm.config },
-                      model: {
-                        value: _vm.post.body2,
-                        callback: function($$v) {
-                          _vm.$set(_vm.post, "body2", $$v)
-                        },
-                        expression: "post.body2"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _vm.error != null && _vm.error.body2
-                      ? _c("small", { staticClass: "form-text text-muted" }, [
-                          _vm._v(_vm._s(_vm.error.body2[0]))
                         ])
                       : _vm._e()
                   ],
@@ -39670,18 +39642,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -39716,6 +39676,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     computed: {
         post_id: function post_id() {
             return this.post.id;
+        },
+        user: function user() {
+            return this.$store.getters.getUser;
         }
     },
     components: {
@@ -39729,7 +39692,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.getPost('en');
         this.getPost('it');
         this.getList();
-        this.getPhotos();
+        //this.getPhotos();
     },
 
     methods: {
@@ -39755,8 +39718,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var data = {};
             if (locale == 'en') {
                 data = this.post;
+                this.post.user_id = this.user.id;
             } else {
                 data = this.postIta;
+                this.postIta.user_id = this.user.id;
             }
             axios.post('api/posts/' + this.post.id + '/lang?locale=' + locale, data).then(function (res) {
                 if (locale == 'en') {
@@ -39780,6 +39745,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         general: function general() {
             var _this3 = this;
 
+            this.post.user_id = this.user.id;
             axios.patch('api/posts/' + this.post.id, this.post).then(function (res) {
                 __WEBPACK_IMPORTED_MODULE_2_sweetalert2___default()({
                     position: 'center',
@@ -43879,46 +43845,6 @@ var render = function() {
       _c("div", { staticClass: "row bela" }, [
         _vm._m(0),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-12" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("h5", [_vm._v("Gallery images")]),
-            _vm._v(" "),
-            _c("hr"),
-            _vm._v(" "),
-            _vm.photos
-              ? _c(
-                  "div",
-                  { attrs: { id: "gallery" } },
-                  _vm._l(_vm.photos, function(photo) {
-                    return _c(
-                      "div",
-                      { staticClass: "photo" },
-                      [
-                        _c("font-awesome-icon", {
-                          attrs: { icon: "times" },
-                          on: {
-                            click: function($event) {
-                              _vm.deletePhoto(photo)
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("img", {
-                          staticClass: "img-thumbnail",
-                          attrs: {
-                            src: photo.file_path_small,
-                            alt: "post.title"
-                          }
-                        })
-                      ],
-                      1
-                    )
-                  })
-                )
-              : _vm._e()
-          ])
-        ]),
-        _vm._v(" "),
         _c("div", { staticClass: "col-md-4" }, [
           _c("div", { staticClass: "card" }, [
             _c("h5", [_vm._v("General info")]),
@@ -43937,8 +43863,8 @@ var render = function() {
               },
               [
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "collection" } }, [
-                    _vm._v("Collection")
+                  _c("label", { attrs: { for: "category" } }, [
+                    _vm._v("Category")
                   ]),
                   _vm._v(" "),
                   _c(
@@ -43948,12 +43874,12 @@ var render = function() {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.product.collection_id,
-                          expression: "product.collection_id"
+                          value: _vm.post.category_id,
+                          expression: "post.category_id"
                         }
                       ],
                       staticClass: "form-control",
-                      attrs: { name: "collection", id: "collection" },
+                      attrs: { name: "category", id: "category" },
                       on: {
                         change: function($event) {
                           var $$selectedVal = Array.prototype.filter
@@ -43965,8 +43891,8 @@ var render = function() {
                               return val
                             })
                           _vm.$set(
-                            _vm.product,
-                            "collection_id",
+                            _vm.post,
+                            "category_id",
                             $event.target.multiple
                               ? $$selectedVal
                               : $$selectedVal[0]
@@ -43974,9 +43900,9 @@ var render = function() {
                         }
                       }
                     },
-                    _vm._l(_vm.lists, function(collection, index) {
+                    _vm._l(_vm.lists, function(category, index) {
                       return _c("option", { domProps: { value: index } }, [
-                        _vm._v(_vm._s(collection))
+                        _vm._v(_vm._s(category))
                       ])
                     })
                   )
@@ -43992,11 +43918,11 @@ var render = function() {
                     _c("switches", {
                       attrs: { theme: "bootstrap", color: "primary" },
                       model: {
-                        value: _vm.product.publish,
+                        value: _vm.post.publish,
                         callback: function($$v) {
-                          _vm.$set(_vm.product, "publish", $$v)
+                          _vm.$set(_vm.post, "publish", $$v)
                         },
-                        expression: "product.publish"
+                        expression: "post.publish"
                       }
                     })
                   ],
@@ -44005,9 +43931,9 @@ var render = function() {
                 _vm._v(" "),
                 _c("upload-image-helper", {
                   attrs: {
-                    image: _vm.product.image,
+                    image: _vm.post.image,
                     defaultImage: null,
-                    titleImage: "Product",
+                    titleImage: "Post",
                     error: _vm.error
                   },
                   on: {
@@ -44024,24 +43950,7 @@ var render = function() {
               ],
               1
             )
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "card" },
-            [
-              _c("vue-dropzone", {
-                ref: "myVueDropzone",
-                attrs: { id: "dropzone", options: _vm.dropzoneOptions },
-                on: {
-                  "vdropzone-success": function($event) {
-                    _vm.showSuccess()
-                  }
-                }
-              })
-            ],
-            1
-          )
+          ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-md-8" }, [
@@ -44224,34 +44133,6 @@ var render = function() {
                                   "small",
                                   { staticClass: "form-text text-muted" },
                                   [_vm._v(_vm._s(_vm.error.body[0]))]
-                                )
-                              : _vm._e()
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "form-group" },
-                          [
-                            _c("label", [_vm._v("Extra description")]),
-                            _vm._v(" "),
-                            _c("ckeditor", {
-                              attrs: { config: _vm.config },
-                              model: {
-                                value: _vm.post.body2,
-                                callback: function($$v) {
-                                  _vm.$set(_vm.post, "body2", $$v)
-                                },
-                                expression: "post.body2"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _vm.error != null && _vm.error.desc
-                              ? _c(
-                                  "small",
-                                  { staticClass: "form-text text-muted" },
-                                  [_vm._v(_vm._s(_vm.error.body2[0]))]
                                 )
                               : _vm._e()
                           ],
@@ -44444,34 +44325,6 @@ var render = function() {
                                   "small",
                                   { staticClass: "form-text text-muted" },
                                   [_vm._v(_vm._s(_vm.error.body[0]))]
-                                )
-                              : _vm._e()
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "form-group" },
-                          [
-                            _c("label", [_vm._v("Extra description")]),
-                            _vm._v(" "),
-                            _c("ckeditor", {
-                              attrs: { config: _vm.config },
-                              model: {
-                                value: _vm.postIta.body2,
-                                callback: function($$v) {
-                                  _vm.$set(_vm.postIta, "body2", $$v)
-                                },
-                                expression: "postIta.body2"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _vm.error != null && _vm.error.desc
-                              ? _c(
-                                  "small",
-                                  { staticClass: "form-text text-muted" },
-                                  [_vm._v(_vm._s(_vm.error.body2[0]))]
                                 )
                               : _vm._e()
                           ],
@@ -46601,6 +46454,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -46626,6 +46489,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         };
     },
 
+    computed: {
+        user: function user() {
+            return this.$store.getters.getUser;
+        }
+    },
     components: {
         'font-awesome-icon': __WEBPACK_IMPORTED_MODULE_0__fortawesome_vue_fontawesome___default.a,
         'upload-image-helper': __WEBPACK_IMPORTED_MODULE_1__helper_UploadImageHelper_vue___default.a,
@@ -46640,6 +46508,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         submit: function submit() {
             var _this = this;
 
+            this.product.user_id = this.user.id;
             axios.post('api/products', this.product).then(function (res) {
                 __WEBPACK_IMPORTED_MODULE_2_sweetalert2___default()({
                     position: 'center',
@@ -46936,6 +46805,92 @@ var render = function() {
                   ],
                   1
                 ),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "price_small" } }, [
+                    _vm._v("Price")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.product.price_small,
+                        expression: "product.price_small"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      name: "title",
+                      id: "price_small",
+                      placeholder: "Price"
+                    },
+                    domProps: { value: _vm.product.price_small },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.product,
+                          "price_small",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.error != null && _vm.error.price_small
+                    ? _c("small", { staticClass: "form-text text-muted" }, [
+                        _vm._v(_vm._s(_vm.error.price_small[0]))
+                      ])
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "price_outlet" } }, [
+                    _vm._v("Price outlet")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.product.price_outlet,
+                        expression: "product.price_outlet"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      name: "price_outlet",
+                      id: "price_outlet",
+                      placeholder: "Price outlet"
+                    },
+                    domProps: { value: _vm.product.price_outlet },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.product,
+                          "price_outlet",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.error != null && _vm.error.price_outlet
+                    ? _c("small", { staticClass: "form-text text-muted" }, [
+                        _vm._v(_vm._s(_vm.error.price_outlet[0]))
+                      ])
+                    : _vm._e()
+                ]),
                 _vm._v(" "),
                 _c(
                   "div",
@@ -47254,6 +47209,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -47288,6 +47257,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     computed: {
         product_id: function product_id() {
             return this.product.id;
+        },
+        user: function user() {
+            return this.$store.getters.getUser;
         }
     },
     components: {
@@ -47301,7 +47273,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.getProduct('en');
         this.getProduct('it');
         this.getList();
-        this.getPhotos();
+        //this.getPhotos();
     },
 
     methods: {
@@ -47327,8 +47299,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var data = {};
             if (locale == 'en') {
                 data = this.product;
+                this.product.user_id = this.user.id;
             } else {
                 data = this.productIta;
+                this.productIta.user_id = this.user.id;
             }
             axios.post('api/products/' + this.product.id + '/lang?locale=' + locale, data).then(function (res) {
                 if (locale == 'en') {
@@ -47352,6 +47326,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         general: function general() {
             var _this3 = this;
 
+            this.product.user_id = this.user.id;
             axios.patch('api/products/' + this.product.id, this.product).then(function (res) {
                 __WEBPACK_IMPORTED_MODULE_2_sweetalert2___default()({
                     position: 'center',
@@ -47465,46 +47440,6 @@ var render = function() {
       _c("div", { staticClass: "row bela" }, [
         _vm._m(0),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-12" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("h5", [_vm._v("Gallery images")]),
-            _vm._v(" "),
-            _c("hr"),
-            _vm._v(" "),
-            _vm.photos
-              ? _c(
-                  "div",
-                  { attrs: { id: "gallery" } },
-                  _vm._l(_vm.photos, function(photo) {
-                    return _c(
-                      "div",
-                      { staticClass: "photo" },
-                      [
-                        _c("font-awesome-icon", {
-                          attrs: { icon: "times" },
-                          on: {
-                            click: function($event) {
-                              _vm.deletePhoto(photo)
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("img", {
-                          staticClass: "img-thumbnail",
-                          attrs: {
-                            src: photo.file_path_small,
-                            alt: "product.title"
-                          }
-                        })
-                      ],
-                      1
-                    )
-                  })
-                )
-              : _vm._e()
-          ])
-        ]),
-        _vm._v(" "),
         _c("div", { staticClass: "col-md-4" }, [
           _c("div", { staticClass: "card" }, [
             _c("h5", [_vm._v("General info")]),
@@ -47568,6 +47503,92 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "price_small" } }, [
+                    _vm._v("Price")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.product.price_small,
+                        expression: "product.price_small"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      name: "title",
+                      id: "price_small",
+                      placeholder: "Price"
+                    },
+                    domProps: { value: _vm.product.price_small },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.product,
+                          "price_small",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.error != null && _vm.error.price_small
+                    ? _c("small", { staticClass: "form-text text-muted" }, [
+                        _vm._v(_vm._s(_vm.error.price_small[0]))
+                      ])
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "price_outlet" } }, [
+                    _vm._v("Price outlet")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.product.price_outlet,
+                        expression: "product.price_outlet"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      name: "price_outlet",
+                      id: "price_outlet",
+                      placeholder: "Price outlet"
+                    },
+                    domProps: { value: _vm.product.price_outlet },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.product,
+                          "price_outlet",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.error != null && _vm.error.price_outlet
+                    ? _c("small", { staticClass: "form-text text-muted" }, [
+                        _vm._v(_vm._s(_vm.error.price_outlet[0]))
+                      ])
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
                 _c(
                   "div",
                   { staticClass: "form-group" },
@@ -47610,24 +47631,7 @@ var render = function() {
               ],
               1
             )
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "card" },
-            [
-              _c("vue-dropzone", {
-                ref: "myVueDropzone",
-                attrs: { id: "dropzone", options: _vm.dropzoneOptions },
-                on: {
-                  "vdropzone-success": function($event) {
-                    _vm.showSuccess()
-                  }
-                }
-              })
-            ],
-            1
-          )
+          ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-md-8" }, [

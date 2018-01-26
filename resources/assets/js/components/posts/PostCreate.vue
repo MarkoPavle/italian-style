@@ -53,14 +53,6 @@
                                 <small class="form-text text-muted" v-if="error != null && error.body">{{ error.body[0] }}</small>
                             </div>
                             <div class="form-group">
-                                <label>Extra description</label>
-                                <ckeditor
-                                        v-model="post.body2"
-                                        :config="config">
-                                </ckeditor>
-                                <small class="form-text text-muted" v-if="error != null && error.body2">{{ error.body2[0] }}</small>
-                            </div>
-                            <div class="form-group">
                                 <label>Published</label><br>
                                 <switches v-model="post.publish" theme="bootstrap" color="primary"></switches>
                             </div>
@@ -111,6 +103,11 @@
               }
           }
         },
+        computed: {
+            user(){
+                return this.$store.getters.getUser;
+            }
+        },
         components: {
             'font-awesome-icon': FontAwesomeIcon,
             'upload-image-helper': UploadImageHelper,
@@ -122,6 +119,7 @@
         },
         methods: {
             submit(){
+                this.post.user_id = this.user.id;
                 axios.post('api/posts', this.post)
                     .then(res => {
                         swal({

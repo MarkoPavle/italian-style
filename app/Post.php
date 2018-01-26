@@ -12,7 +12,7 @@ class Post extends Model
 
     public static $list_limit = 50;
 
-    public $translatedAttributes = ['title', 'slug', 'short', 'body', 'body2'];
+    public $translatedAttributes = ['title', 'slug', 'short', 'body'];
 
     protected $table = 'posts';
 

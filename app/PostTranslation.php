@@ -20,5 +20,5 @@ class PostTranslation extends Model
      *
      * @var array
      */
-    protected $fillable = ['title', 'slug', 'short', 'body', 'body2'];
+    protected $fillable = ['title', 'slug', 'short', 'body'];
 }

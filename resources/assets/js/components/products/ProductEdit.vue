@@ -20,6 +20,7 @@
                     </div>
                 </div>
 
+                <!--
                 <div class="col-md-12">
                     <div class="card">
                         <h5>Gallery images</h5>
@@ -32,6 +33,7 @@
                         </div>
                     </div>
                 </div>
+                -->
 
                 <div class="col-md-4">
                     <div class="card">
@@ -43,6 +45,16 @@
                                 <select name="collection" id="collection" class="form-control" v-model="product.collection_id">
                                     <option :value="index" v-for="(collection, index) in lists">{{ collection }}</option>
                                 </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="price_small">Price</label>
+                                <input type="text" name="title" class="form-control" id="price_small" placeholder="Price" v-model="product.price_small">
+                                <small class="form-text text-muted" v-if="error != null && error.price_small">{{ error.price_small[0] }}</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="price_outlet">Price outlet</label>
+                                <input type="text" name="price_outlet" class="form-control" id="price_outlet" placeholder="Price outlet" v-model="product.price_outlet">
+                                <small class="form-text text-muted" v-if="error != null && error.price_outlet">{{ error.price_outlet[0] }}</small>
                             </div>
                             <div class="form-group">
                                 <label>Published</label><br>
@@ -61,9 +73,11 @@
                             </div>
                         </form>
                     </div><!-- .card -->
+                    <!--
                     <div class="card">
                         <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions" @vdropzone-success="showSuccess()"></vue-dropzone>
                     </div>
+                    -->
                 </div>
                 <div class="col-md-8">
                     <div class="card">
@@ -198,6 +212,9 @@
         computed: {
             product_id(){
                 return this.product.id;
+            },
+            user(){
+                return this.$store.getters.getUser;
             }
         },
         components: {
@@ -211,7 +228,7 @@
             this.getProduct('en');
             this.getProduct('it');
             this.getList();
-            this.getPhotos();
+            //this.getPhotos();
         },
         methods: {
             getProduct(locale){
@@ -234,8 +251,10 @@
                 let data = {};
                 if(locale == 'en'){
                     data = this.product;
+                    this.product.user_id = this.user.id;
                 }else{
                     data = this.productIta;
+                    this.productIta.user_id = this.user.id;
                 }
                 axios.post('api/products/' + this.product.id + '/lang?locale=' + locale, data)
                     .then(res => {
@@ -258,6 +277,7 @@
                     });
             },
             general(){
+                this.product.user_id = this.user.id;
                 axios.patch('api/products/' + this.product.id, this.product)
                     .then(res => {
                         swal({

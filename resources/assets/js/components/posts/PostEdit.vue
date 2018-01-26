@@ -20,6 +20,7 @@
                     </div>
                 </div>
 
+                <!--
                 <div class="col-md-12">
                     <div class="card">
                         <h5>Gallery images</h5>
@@ -32,6 +33,7 @@
                         </div>
                     </div>
                 </div>
+                -->
 
                 <div class="col-md-4">
                     <div class="card">
@@ -39,31 +41,33 @@
                         <hr>
                         <form @submit.prevent="general()">
                             <div class="form-group">
-                                <label for="collection">Collection</label>
-                                <select name="collection" id="collection" class="form-control" v-model="product.collection_id">
-                                    <option :value="index" v-for="(collection, index) in lists">{{ collection }}</option>
+                                <label for="category">Category</label>
+                                <select name="category" id="category" class="form-control" v-model="post.category_id">
+                                    <option :value="index" v-for="(category, index) in lists">{{ category }}</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Published</label><br>
-                                <switches v-model="product.publish" theme="bootstrap" color="primary"></switches>
+                                <switches v-model="post.publish" theme="bootstrap" color="primary"></switches>
                             </div>
                             <upload-image-helper
-                                    :image="product.image"
+                                    :image="post.image"
                                     :defaultImage="null"
-                                    :titleImage="'Product'"
+                                    :titleImage="'Post'"
                                     :error="error"
                                     @uploadImage="upload($event)"
                                     @removeRow="remove($event)"
                             ></upload-image-helper>
-                                <div class="form-group">
-                                    <button class="btn btn-primary" type="submit">Edit general</button>
-                                </div>
+                            <div class="form-group">
+                                <button class="btn btn-primary" type="submit">Edit general</button>
+                            </div>
                         </form>
                     </div><!-- .card -->
+                    <!--
                     <div class="card">
                         <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions" @vdropzone-success="showSuccess()"></vue-dropzone>
                     </div>
+                    -->
                 </div>
                 <div class="col-md-8">
                     <div class="card">
@@ -104,14 +108,6 @@
                                         <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.body[0] }}</small>
                                     </div>
                                     <div class="form-group">
-                                        <label>Extra description</label>
-                                        <ckeditor
-                                                v-model="post.body2"
-                                                :config="config">
-                                        </ckeditor>
-                                        <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.body2[0] }}</small>
-                                    </div>
-                                    <div class="form-group">
                                         <button class="btn btn-primary" type="submit">Edit on English</button>
                                     </div>
                                 </form>
@@ -141,14 +137,6 @@
                                                 :config="config">
                                         </ckeditor>
                                         <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.body[0] }}</small>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Extra description</label>
-                                        <ckeditor
-                                                v-model="postIta.body2"
-                                                :config="config">
-                                        </ckeditor>
-                                        <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.body2[0] }}</small>
                                     </div>
                                     <div class="form-group">
                                         <button class="btn btn-primary" type="submit">Edit on Italian</button>
@@ -198,6 +186,9 @@
         computed: {
             post_id(){
                 return this.post.id;
+            },
+            user(){
+                return this.$store.getters.getUser;
             }
         },
         components: {
@@ -211,7 +202,7 @@
             this.getPost('en');
             this.getPost('it');
             this.getList();
-            this.getPhotos();
+            //this.getPhotos();
         },
         methods: {
             getPost(locale){
@@ -234,8 +225,10 @@
                 let data = {};
                 if(locale == 'en'){
                     data = this.post;
+                    this.post.user_id = this.user.id;
                 }else{
                     data = this.postIta;
+                    this.postIta.user_id = this.user.id;
                 }
                 axios.post('api/posts/' + this.post.id + '/lang?locale=' + locale, data)
                     .then(res => {
@@ -258,6 +251,7 @@
                     });
             },
             general(){
+                this.post.user_id = this.user.id;
                 axios.patch('api/posts/' + this.post.id, this.post)
                     .then(res => {
                         swal({

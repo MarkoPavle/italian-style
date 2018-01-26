@@ -23,10 +23,14 @@ class ProductsController extends Controller
     public function store(CreateProductRequest $request){
         app()->setLocale('en');
         $product = new Product();
+        $product->user_id = request('user_id');
         $product->title = request('title');
         request('slug')? $product->slug = str_slug(request('slug')) : $product->slug = str_slug(request('title'));
         $product->short = request('short');
         $product->body = request('body');
+        $product->body2 = request('body2');
+        $product->price_small = request('price_small');
+        $product->price_outlet = request('price_outlet');
         $product->body2 = request('body2');
         request('publish')? $product->publish = true : $product->publish = false;
         $product->save();
@@ -48,7 +52,10 @@ class ProductsController extends Controller
 
     public function update($id){
         $product = Product::find($id);
+        $product->user_id = request('user_id');
         $product->collection_id = request('collection_id');
+        $product->price_small = request('price_small');
+        $product->price_outlet = request('price_outlet');
         request('publish')? $product->publish = true : $product->publish = false;
         $product->update();
         return response()->json([
@@ -60,6 +67,7 @@ class ProductsController extends Controller
         request('locale')? $locale = request('locale') : $locale = 'en';
         app()->setLocale($locale);
         $product = Product::find($id);
+        $product->user_id = request('user_id');
         $product->title = request('title');
         request('slug')? $product->slug = str_slug(request('slug')) : $product->slug = str_slug(request('title'));
         $product->short = request('short');
