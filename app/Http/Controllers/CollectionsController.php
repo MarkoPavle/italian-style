@@ -23,6 +23,7 @@ class CollectionsController extends Controller
         $collection->title = request('title');
         request('slug')? $collection->slug = str_slug(request('slug')) : $collection->slug = str_slug(request('title'));
         $collection->desc = request('desc');
+        $collection->parent = request('parent');
         $collection->order = 1;
         request('publish')? $collection->publish = true : $collection->publish = false;
         $collection->save();
@@ -43,6 +44,7 @@ class CollectionsController extends Controller
 
     public function update($id){
         $collection = Collection::find($id);
+        $collection->parent = request('parent');
         request('publish')? $collection->publish = true : $collection->publish = false;
         $collection->update();
         return response()->json([
@@ -84,6 +86,17 @@ class CollectionsController extends Controller
         app()->setLocale($locale);
         $collections = Collection::join('collection_translations', 'collections.id', '=', 'collection_translations.collection_id')
             ->where('collections.publish', 1)->orderBy('collection_translations.title', 'ASC')->where('collection_translations.locale', $locale)
+            ->pluck('collection_translations.title', 'collections.id')->prepend('Without collection', 0);
+        return response()->json([
+            'collections' => $collections
+        ]);
+    }
+
+    public function parentLists(){
+        $locale = 'en';
+        app()->setLocale($locale);
+        $collections = Collection::join('collection_translations', 'collections.id', '=', 'collection_translations.collection_id')
+            ->where('collections.publish', 1)->where('collections.parent', 0)->orderBy('collection_translations.title', 'ASC')->where('collection_translations.locale', $locale)
             ->pluck('collection_translations.title', 'collections.id')->prepend('Without collection', 0);
         return response()->json([
             'collections' => $collections

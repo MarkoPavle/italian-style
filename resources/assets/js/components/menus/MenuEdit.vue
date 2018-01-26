@@ -48,7 +48,7 @@
                                 <switches v-model="menu.publish" theme="bootstrap" color="primary"></switches>
                             </div>
                             <div class="form-group">
-                                <button class="btn btn-primary" type="submit">Create</button>
+                                <button class="btn btn-primary" type="submit">Edit</button>
                             </div>
                         </form>
                     </div>

@@ -31,6 +31,7 @@
                             <td>{{ row.publish }}</td>
                             <td>{{ row.created_at }}</td>
                             <td>
+                                <font-awesome-icon icon="sort-amount-up" @click="sortRow(row['id'])"/>
                                 <font-awesome-icon icon="link" @click="links(row['id'])"/>
                                 <font-awesome-icon icon="pencil-alt" @click="editRow(row['id'])"/>
                                 <font-awesome-icon icon="times" @click="deleteRow(row)" />
@@ -122,6 +123,9 @@
             },
             links(id){
                 this.$router.push('/menu-links/' + id + '/sort');
+            },
+            sortRow(id){
+                this.$router.push('/menus/' + id + '/sort');
             }
         }
     }

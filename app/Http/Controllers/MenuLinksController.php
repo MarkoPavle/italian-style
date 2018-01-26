@@ -12,8 +12,9 @@ class MenuLinksController extends Controller
     public function index(){
         app()->setLocale('en');
         $menu = Menu::find(request('id'));
-        $menuLinks = $menu->menuLinks()->orderBy('order', 'ASC')->paginate(3);
+        $menuLinks = $menu->menuLinks()->orderBy('order', 'ASC')->get();
         return response()->json([
+            'menu' => $menu,
             'menuLinks' => $menuLinks
         ]);
     }

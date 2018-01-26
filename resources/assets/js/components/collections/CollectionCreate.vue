@@ -24,6 +24,12 @@
                     <div class="card">
                         <form @submit.prevent="submit()">
                             <div class="form-group">
+                                <label for="collections">Parent collection</label>
+                                <select name="collections" id="collections" class="form-control" v-model="collection.parent">
+                                    <option :value="index" v-for="(collection, index) in collections">{{ collection }}</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label for="title">Title</label>
                                 <input type="text" name="title" class="form-control" id="title" placeholder="Title" v-model="collection.title">
                                 <small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>
@@ -76,6 +82,7 @@
     export default {
         data(){
           return {
+              collections: {},
               collection: {
                   desc: null,
                   publish: false
@@ -96,7 +103,19 @@
             'switches': Switches,
             'ckeditor': Ckeditor
         },
+        created(){
+            this.getParentCollections();
+        },
         methods: {
+            getParentCollections(){
+                axios.get('api/collections/parent-lists')
+                    .then(res => {
+                        this.collections = res.data.collections;
+                    }).catch(e => {
+                    console.log(e.response);
+                    this.error = e.response.data.errors;
+                });
+            },
             submit(){
                 axios.post('api/collections', this.collection)
                     .then(res => {

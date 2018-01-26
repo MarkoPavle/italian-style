@@ -7,7 +7,7 @@
                         <ul class="list-group list-group-flush">
                             <li><router-link tag="a" :to="'/home'">Home</router-link></li>
                             <li><router-link tag="a" :to="'/menus'">Menus</router-link></li>
-                            <li><router-link tag="a" :to="'/menus/' + this.$route.params.id + '/edit'">Selected menu</router-link></li>
+                            <li><router-link tag="a" :to="'/menus/' + this.$route.params.id + '/edit'">{{ menuName }}</router-link></li>
                             <li>Menu links</li>
                         </ul>
                     </div>
@@ -23,54 +23,29 @@
 
                 <div class="col-sm-12">
                     <div class="card">
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#list" role="tab" aria-controls="home" aria-selected="true">List</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#sort" role="tab" aria-controls="contact" aria-selected="false">Sort</a>
-                            </li>
-                            <p><font-awesome-icon icon="plus" class="new-link-add" @click="addRow()" data-tooltip="tooltip" data-placement="left" title="Create new link" /></p>
-                        </ul>
-                        <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="list" role="tabpanel" aria-labelledby="home-tab">
-                                <table class="table table-hover">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col">id</th>
-                                        <th scope="col">title</th>
-                                        <th scope="col">publish</th>
-                                        <th scope="col">created at</th>
-                                        <th>action</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr v-for="row in menuLinks">
-                                        <td>{{ row.id }}</td>
-                                        <td>{{ row.title }}</td>
-                                        <td>{{ row.publish }}</td>
-                                        <td>{{ row.created_at }}</td>
-                                        <td>
-                                            <font-awesome-icon icon="pencil-alt" @click="editRow(row['id'])"/>
-                                            <font-awesome-icon icon="times" @click="deleteRow(row)" />
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div><!-- #eng -->
-
-                            <div class="tab-pane fade" id="sort" role="tabpanel" aria-labelledby="contact-tab">
-                                <ul class="list-group list-group-flush sortable">
-                                    <draggable v-model="links" :options="{draggable:'.list-group-item'}" @change="update()">
-                                        <li v-for="element in links" :key="element.id" class="list-group-item">
-                                            {{element.title}}
-                                            <font-awesome-icon icon="bars" class="sort float-right"/>
-                                        </li>
-                                        <button slot="footer" class="btn btn-success float-right" @click="submit()" style="margin-top: 15px">Save</button>
-                                    </draggable>
-                                </ul>
-                            </div><!-- #ita -->
-                        </div>
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th scope="col">id</th>
+                                <th scope="col">title</th>
+                                <th scope="col">publish</th>
+                                <th scope="col">created at</th>
+                                <th>action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr v-for="row in menuLinks">
+                                <td>{{ row.id }}</td>
+                                <td>{{ row.title }}</td>
+                                <td>{{ row.publish }}</td>
+                                <td>{{ row.created_at }}</td>
+                                <td>
+                                    <font-awesome-icon icon="pencil-alt" @click="editRow(row['id'])"/>
+                                    <font-awesome-icon icon="times" @click="deleteRow(row)" />
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -95,6 +70,11 @@
               error: null,
           }
         },
+        computed: {
+            menuName(){
+                return this.menu.title;
+            }
+        },
         components: {
             'font-awesome-icon': FontAwesomeIcon,
             'switches': Switches,
@@ -102,7 +82,6 @@
         },
         created(){
             this.getMenuList();
-            this.getMenuSort();
         },
         methods: {
             submit(){
@@ -123,22 +102,12 @@
                         this.error = e.response.data.errors;
                     });
             },
-            getMenuSort(){
-                axios.get('api/menu-links/' + this.$route.params.id + '/sort')
-                    .then(res => {
-                        this.menu = res.data.menu;
-                        this.links = res.data.links;
-                        this.lastId = res.data.lastId;
-                    }).catch(e => {
-                        console.log(e.response);
-                        this.error = e.response.data.errors;
-                    });
-            },
             getMenuList(){
                 axios.get('api/menu-links?id=' + this.$route.params.id)
                     .then(res => {
-                        this.menuLinks = res.data.menuLinks.data;
-                        this.paginate = res.data.menuLinks;
+                        console.log(res.data);
+                        this.menu = res.data.menu;
+                        this.menuLinks = res.data.menuLinks;
                     }).catch(e => {
                         console.log(e.response);
                         this.error = e.response.data.errors;

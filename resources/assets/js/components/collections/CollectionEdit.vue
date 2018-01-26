@@ -26,6 +26,12 @@
                         <hr>
                         <form @submit.prevent="general()">
                             <div class="form-group">
+                                <label for="collections">Parent collection</label>
+                                <select name="collections" id="collections" class="form-control" v-model="collection.parent">
+                                    <option :value="index" v-for="(coll, index) in collections" v-if="index != collection.id">{{ coll }}</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label>Published</label><br>
                                 <switches v-model="collection.publish" theme="bootstrap" color="primary"></switches>
                             </div>
@@ -126,6 +132,7 @@
         data(){
           return {
               collection: {},
+              collections: {},
               collectionIta: {},
               error: null,
               config: {
@@ -146,8 +153,18 @@
         created(){
             this.getCollection('en');
             this.getCollection('it');
+            this.getParentCollections();
         },
         methods: {
+            getParentCollections(){
+                axios.get('api/collections/parent-lists')
+                    .then(res => {
+                        this.collections = res.data.collections;
+                    }).catch(e => {
+                    console.log(e.response);
+                    this.error = e.response.data.errors;
+                });
+            },
             getCollection(locale){
                 axios.get('api/collections/' + this.$route.params.id + '?locale=' + locale)
                     .then(res => {
