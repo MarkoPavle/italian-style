@@ -1,5 +1,12 @@
 <template>
     <div id="leftMenu" :class="{ 'hide': hideLeftBar }" v-if="user">
+        <div class="logo-holder">
+            <div class="logo">
+                <a :href="domain" target="_blank">
+                    <img :src="domain + 'img/vue-logo.png'" alt="Vue Admin Panel">
+                </a>
+            </div>
+        </div>
         <ul>
             <li>
                 <font-awesome-icon icon="home" />
@@ -57,9 +64,15 @@
 </template>
 
 <script>
+    import { apiHost } from '../../config';
     import FontAwesomeIcon from '@fortawesome/vue-fontawesome';
 
     export default {
+        data(){
+            return {
+                domain : apiHost
+            }
+        },
         components: {
             'font-awesome-icon': FontAwesomeIcon
         },

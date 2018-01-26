@@ -10148,11 +10148,11 @@ a.text-dark:hover {
 
 #leftMenu {
   position: fixed;
-  top: 80px;
+  top: 0;
   left: 0;
   display: block;
   width: 250px;
-  height: calc(100vh - 80px);
+  height: 100vh;
   padding: 0;
   background-color: #4a5368;
   z-index: 100;
@@ -10168,6 +10168,8 @@ a.text-dark:hover {
 
 @media (max-width: 576px) {
   #leftMenu {
+    top: 80px;
+    height: calc(100vh - 80px);
     /* IE 9 */
     -webkit-transform: translate(-250px, 0);
     /* Safari */
@@ -10175,12 +10177,8 @@ a.text-dark:hover {
     /* Standard syntax */
   }
 
-  #leftMenu.hide + #place {
-    /* IE 9 */
-    -webkit-transform: translate(-220px, 0);
-    /* Safari */
-    transform: translate(-220px, 0);
-    /* Standard syntax */
+  #leftMenu .logo-holder {
+    display: none;
   }
 }
 
@@ -10202,6 +10200,16 @@ a.text-dark:hover {
   /* Safari */
   transform: translate(-220px, 0);
   /* Standard syntax */
+}
+
+@media (max-width: 576px) {
+  #leftMenu.hide + #place {
+    /* IE 9 */
+    -webkit-transform: translate(250px, 0);
+    /* Safari */
+    transform: translate(250px, 0);
+    /* Standard syntax */
+  }
 }
 
 @media (max-width: 576px) {
@@ -10245,6 +10253,30 @@ a.text-dark:hover {
   #leftMenu.hide ul li svg[data-icon="angle-right"] {
     display: none;
   }
+}
+
+#leftMenu .logo {
+  width: 100%;
+  background-color: white;
+  height: 80px;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+}
+
+#leftMenu .logo a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 80px;
+}
+
+#leftMenu .logo a img {
+  display: block;
+  width: 150px;
+  height: 60px;
+  margin: auto;
 }
 
 #leftMenu ul {
