@@ -24,7 +24,7 @@
                                 <a class="dropdown-item" href="#" @click.prevent="newCollection()">Collection</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" @click.prevent="newPost()">Post</a>
-                                <a class="dropdown-item" href="#" @click.prevent="newCategory()">Post category</a>
+                                <a class="dropdown-item" href="#" @click.prevent="newCategory()">Category</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" @click.prevent="newUser()">User</a>
                                 <div class="dropdown-divider"></div>

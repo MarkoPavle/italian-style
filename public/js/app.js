@@ -39697,6 +39697,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -39742,6 +39743,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this = this;
 
             this.post.user_id = this.user.id;
+            console.log(this.post);
             axios.post('api/posts', this.post).then(function (res) {
                 __WEBPACK_IMPORTED_MODULE_2_sweetalert2___default()({
                     position: 'center',
@@ -39872,7 +39874,13 @@ var render = function() {
                         _vm._v(_vm._s(category))
                       ])
                     })
-                  )
+                  ),
+                  _vm._v(" "),
+                  _vm.error != null && _vm.error.category_id
+                    ? _c("small", { staticClass: "form-text text-muted" }, [
+                        _vm._v(_vm._s(_vm.error.category_id[0]))
+                      ])
+                    : _vm._e()
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
@@ -40165,6 +40173,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue2_dropzone___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_vue2_dropzone__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_vue2_dropzone_dist_vue2Dropzone_css__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_vue2_dropzone_dist_vue2Dropzone_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_vue2_dropzone_dist_vue2Dropzone_css__);
+//
 //
 //
 //
@@ -44505,8 +44514,8 @@ var render = function() {
               _c(
                 "li",
                 [
-                  _c("router-link", { attrs: { tag: "a", to: "/products" } }, [
-                    _vm._v("Products")
+                  _c("router-link", { attrs: { tag: "a", to: "/posts" } }, [
+                    _vm._v("Posts")
                   ])
                 ],
                 1
@@ -44581,7 +44590,13 @@ var render = function() {
                         _vm._v(_vm._s(category))
                       ])
                     })
-                  )
+                  ),
+                  _vm._v(" "),
+                  _vm.error != null && _vm.error.category_id
+                    ? _c("small", { staticClass: "form-text text-muted" }, [
+                        _vm._v(_vm._s(_vm.error.category_id[0]))
+                      ])
+                    : _vm._e()
                 ]),
                 _vm._v(" "),
                 _c(
@@ -47372,6 +47387,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -47385,7 +47401,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             product: {
                 desc: null,
                 publish: false,
-                category_id: 0
+                collection_id: 0
             },
             lists: {},
             error: null,
@@ -47547,7 +47563,13 @@ var render = function() {
                         _vm._v(_vm._s(collection))
                       ])
                     })
-                  )
+                  ),
+                  _vm._v(" "),
+                  _vm.error != null && _vm.error.collection_id
+                    ? _c("small", { staticClass: "form-text text-muted" }, [
+                        _vm._v(_vm._s(_vm.error.collection_id[0]))
+                      ])
+                    : _vm._e()
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
@@ -48131,6 +48153,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -48408,7 +48431,13 @@ var render = function() {
                         _vm._v(_vm._s(collection))
                       ])
                     })
-                  )
+                  ),
+                  _vm._v(" "),
+                  _vm.error != null && _vm.error.collection_id
+                    ? _c("small", { staticClass: "form-text text-muted" }, [
+                        _vm._v(_vm._s(_vm.error.collection_id[0]))
+                      ])
+                    : _vm._e()
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
@@ -72397,7 +72426,7 @@ var render = function() {
                         }
                       }
                     },
-                    [_vm._v("Post category")]
+                    [_vm._v("Category")]
                   ),
                   _vm._v(" "),
                   _c("div", { staticClass: "dropdown-divider" }),

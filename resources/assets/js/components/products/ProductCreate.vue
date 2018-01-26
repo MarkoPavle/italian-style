@@ -28,6 +28,7 @@
                                 <select name="collection" id="collection" class="form-control" v-model="product.collection_id">
                                     <option :value="index" v-for="(collection, index) in lists">{{ collection }}</option>
                                 </select>
+                                <small class="form-text text-muted" v-if="error != null && error.collection_id">{{ error.collection_id[0] }}</small>
                             </div>
                             <div class="form-group">
                                 <label for="title">Title</label>
@@ -108,7 +109,7 @@
               product: {
                   desc: null,
                   publish: false,
-                  category_id: 0
+                  collection_id: 0
               },
               lists: {},
               error: null,

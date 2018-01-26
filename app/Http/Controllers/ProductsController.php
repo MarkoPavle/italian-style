@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateProductRequest;
+use App\Http\Requests\UpdateProductLangRequest;
+use App\Http\Requests\UpdateProductRequest;
 use App\Http\Requests\UploadGalleryRequest;
 use App\Photo;
 use App\Product;
@@ -52,7 +54,7 @@ class ProductsController extends Controller
         ]);
     }
 
-    public function update($id){
+    public function update(UpdateProductRequest $request, $id){
         $product = Product::find($id);
         $product->user_id = request('user_id');
         $product->collection_id = request('collection_id');
@@ -65,7 +67,7 @@ class ProductsController extends Controller
         ]);
     }
 
-    public function updateLang(CreateProductRequest $request, $id){
+    public function updateLang(UpdateProductLangRequest $request, $id){
         request('locale')? $locale = request('locale') : $locale = 'en';
         app()->setLocale($locale);
         $product = Product::find($id);

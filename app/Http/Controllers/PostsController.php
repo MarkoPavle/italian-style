@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreatePostRequest;
+use App\Http\Requests\UpdatePostLangRequest;
+use App\Http\Requests\UpdatePostRequest;
 use App\Http\Requests\UploadGalleryRequest;
 use App\Photo;
 use App\Post;
@@ -26,6 +28,7 @@ class PostsController extends Controller
         app()->setLocale('en');
         $post = new Post();
         $post->user_id = request('user_id');
+        $post->category_id = request('category_id');
         $post->title = request('title');
         request('slug')? $post->slug = str_slug(request('slug')) : $post->slug = str_slug(request('title'));
         $post->short = request('short');
@@ -48,7 +51,7 @@ class PostsController extends Controller
         ]);
     }
 
-    public function update($id){
+    public function update(UpdatePostRequest $request, $id){
         $post = Post::find($id);
         $post->user_id = request('user_id');
         $post->category_id = request('category_id');
@@ -59,7 +62,7 @@ class PostsController extends Controller
         ]);
     }
 
-    public function updateLang(CreatePostRequest $request, $id){
+    public function updateLang(UpdatePostLangRequest $request, $id){
         request('locale')? $locale = request('locale') : $locale = 'en';
         app()->setLocale($locale);
         $post = Post::find($id);

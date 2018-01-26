@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateProductRequest extends FormRequest
+class UpdateProductLangRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,16 +27,6 @@ class CreateProductRequest extends FormRequest
             'title' => 'required',
             'short' => 'required',
             'body' => 'required',
-            'collection_id' => 'required|integer|min:1',
         ];
     }
-
-    /*public function messages()
-    {
-        return [
-            'title.required' => 'Naziv je obavezan',
-            'short.required' => 'Kratak tekst je obavezan',
-            'body.required' => 'Glavni tekst je obavezan',
-        ];
-    }*/
 }

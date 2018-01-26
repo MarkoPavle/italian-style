@@ -6,7 +6,7 @@
                     <div id="breadcrumbs">
                         <ul class="list-group list-group-flush">
                             <li><router-link tag="a" :to="'/home'">Home</router-link></li>
-                            <li><router-link tag="a" :to="'/products'">Products</router-link></li>
+                            <li><router-link tag="a" :to="'/posts'">Posts</router-link></li>
                             <li>Product edit</li>
                         </ul>
                     </div>
@@ -45,6 +45,7 @@
                                 <select name="category" id="category" class="form-control" v-model="post.category_id">
                                     <option :value="index" v-for="(category, index) in lists">{{ category }}</option>
                                 </select>
+                                <small class="form-text text-muted" v-if="error != null && error.category_id">{{ error.category_id[0] }}</small>
                             </div>
                             <div class="form-group">
                                 <label>Published</label><br>
