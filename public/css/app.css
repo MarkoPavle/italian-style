@@ -10039,6 +10039,10 @@ a.text-dark:hover {
   display: none;
 }
 
+#topMenu ul.top-nav .avatar-image {
+  border-radius: 50%;
+}
+
 /** RIGHT MENU **/
 
 #rightMenu {

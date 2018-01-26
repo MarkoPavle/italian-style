@@ -12,31 +12,37 @@
                 </div>
             </div>
 
+            <search-helper :lists="categories" :text="''" @updateSearch="search($event)"></search-helper>
+
             <div class="row">
                 <div class="col-md-12">
-                    <table class="table table-hover">
-                        <thead>
-                        <tr>
-                            <th scope="col">id</th>
-                            <th scope="col">title</th>
-                            <th scope="col">publish</th>
-                            <th scope="col">created at</th>
-                            <th>action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr v-for="row in posts">
-                            <td>{{ row.id }}</td>
-                            <td>{{ row.title }}</td>
-                            <td>{{ row.publish }}</td>
-                            <td>{{ row.created_at }}</td>
-                            <td>
-                                <font-awesome-icon icon="pencil-alt" @click="editRow(row['id'])"/>
-                                <font-awesome-icon icon="times" @click="deleteRow(row)" />
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+                    <div class="card">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th scope="col">id</th>
+                                <th scope="col">title</th>
+                                <th scope="col">category</th>
+                                <th scope="col">publish</th>
+                                <th scope="col">created at</th>
+                                <th>action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr v-for="row in posts">
+                                <td>{{ row.id }}</td>
+                                <td>{{ row.title }}</td>
+                                <td>{{ row.category }}</td>
+                                <td>{{ row.publish }}</td>
+                                <td>{{ row.created_at }}</td>
+                                <td>
+                                    <font-awesome-icon icon="pencil-alt" @click="editRow(row['id'])"/>
+                                    <font-awesome-icon icon="times" @click="deleteRow(row)" />
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -50,6 +56,7 @@
 
 <script>
     import PaginateHelper from '../helper/PaginateHelper.vue';
+    import SearchHelper from '../helper/SearchHelper.vue';
     import swal from 'sweetalert2';
     import FontAwesomeIcon from '@fortawesome/vue-fontawesome';
 
@@ -57,16 +64,18 @@
         data(){
             return {
                 posts: {},
-                paginate: {}
+                paginate: {},
+                categories: {}
             }
         },
         components: {
             'paginate-helper': PaginateHelper,
+            'search-helper': SearchHelper,
             'font-awesome-icon': FontAwesomeIcon
         },
         created(){
-            console.log('spisak postova');
             this.getPosts();
+            this.getCategories();
         },
         methods: {
             getPosts(){
@@ -112,6 +121,25 @@
             },
             clickToLink(index){
                 axios.get('api/posts?page=' + index)
+                    .then(res => {
+                        this.posts = res.data.posts.data;
+                        this.paginate = res.data.posts;
+                    })
+                    .catch(e => {
+                        console.log(e);
+                    });
+            },
+            getCategories(){
+                axios.get('api/categories/lists')
+                    .then(res => {
+                        this.categories = res.data.categories;
+                    }).catch(e => {
+                        console.log(e.response);
+                        this.error = e.response.data.errors;
+                    });
+            },
+            search(value){
+                axios.post('api/posts/search', value)
                     .then(res => {
                         this.posts = res.data.posts.data;
                         this.paginate = res.data.posts;

@@ -12,8 +12,10 @@ use File;
 class PostsController extends Controller
 {
     public function index(){
-        $posts = Post::select('posts.id as id', 'post_translations.title as title', 'posts.publish as publish', 'posts.created_at as created_at')
+        $posts = Post::select('posts.id as id', 'post_translations.title as title', 'posts.publish as publish', 'posts.created_at as created_at', 'category_translations.title as category')
             ->join('post_translations', 'posts.id', '=', 'post_translations.post_id')
+            ->join('categories', 'posts.category_id', '=', 'categories.id')
+            ->join('category_translations', 'categories.id', '=', 'category_translations.category_id')
             ->orderBy('posts.created_at', 'DESC')->groupBy('posts.id')->paginate(3);
         return response()->json([
             'posts' => $posts,
@@ -97,6 +99,29 @@ class PostsController extends Controller
         $photos = Post::find($id)->photo;
         return response()->json([
             'photos' => $photos
+        ]);
+    }
+
+    public function search(){
+        $category = request('list');
+        $text = request('text');
+        $posts = Post::select('posts.id as id', 'post_translations.title as title', 'posts.publish as publish', 'posts.created_at as created_at', 'category_translations.title as category')
+            ->join('post_translations', 'posts.id', '=', 'post_translations.post_id')
+            ->join('categories', 'posts.category_id', '=', 'categories.id')
+            ->join('category_translations', 'categories.id', '=', 'category_translations.category_id')
+            ->where(function ($query) use ($category){
+                if($category > 0){
+                    $query->where('posts.category_id', $category);
+                }
+            })
+            ->where(function ($query) use ($text){
+                if($text != ''){
+                    $query->where('post_translations.title', 'like', '%'.$text.'%')->orWhere('post_translations.title', 'like', '%'.$text.'%');
+                }
+            })
+            ->orderBy('posts.created_at', 'DESC')->groupBy('posts.id')->paginate(3);
+        return response()->json([
+            'posts' => $posts,
         ]);
     }
 }

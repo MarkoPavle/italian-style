@@ -14,29 +14,31 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <table class="table table-hover">
-                        <thead>
-                        <tr>
-                            <th scope="col">id</th>
-                            <th scope="col">title</th>
-                            <th scope="col">publish</th>
-                            <th scope="col">created at</th>
-                            <th>action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr v-for="row in categories">
-                            <td>{{ row.id }}</td>
-                            <td>{{ row.title }}</td>
-                            <td>{{ row.publish }}</td>
-                            <td>{{ row.created_at }}</td>
-                            <td>
-                                <font-awesome-icon icon="pencil-alt" @click="editRow(row['id'])"/>
-                                <font-awesome-icon icon="times" @click="deleteRow(row)" />
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+                    <div class="card">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th scope="col">id</th>
+                                <th scope="col">title</th>
+                                <th scope="col">publish</th>
+                                <th scope="col">created at</th>
+                                <th>action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr v-for="row in categories">
+                                <td>{{ row.id }}</td>
+                                <td>{{ row.title }}</td>
+                                <td>{{ row.publish }}</td>
+                                <td>{{ row.created_at }}</td>
+                                <td>
+                                    <font-awesome-icon icon="pencil-alt" @click="editRow(row['id'])"/>
+                                    <font-awesome-icon icon="times" @click="deleteRow(row)" />
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
             <div class="row">

@@ -25,6 +25,7 @@ Route::middleware('auth:api')->resource('categories', 'CategoriesController');
 Route::middleware('auth:api')->post('categories/{id}/image', 'CategoriesController@uploadImage');
 Route::middleware('auth:api')->post('categories/{id}/lang', 'CategoriesController@updateLang');
 
+Route::middleware('auth:api')->post('posts/search', 'PostsController@search');
 Route::middleware('auth:api')->resource('posts', 'PostsController');
 Route::middleware('auth:api')->post('posts/{id}/image', 'PostsController@uploadImage');
 Route::middleware('auth:api')->post('posts/{id}/lang', 'PostsController@updateLang');
@@ -33,12 +34,14 @@ Route::middleware('auth:api')->get('posts/{id}/gallery', 'PostsController@galler
 
 Route::middleware('auth:api')->post('photos/{id}/destroy', 'PhotosController@destroy');
 
+Route::middleware('auth:api')->post('collections/search', 'CollectionsController@search');
 Route::middleware('auth:api')->get('collections/lists', 'CollectionsController@lists');
 Route::middleware('auth:api')->get('collections/parent-lists', 'CollectionsController@parentLists');
 Route::middleware('auth:api')->resource('collections', 'CollectionsController');
 Route::middleware('auth:api')->post('collections/{id}/image', 'CollectionsController@uploadImage');
 Route::middleware('auth:api')->post('collections/{id}/lang', 'CollectionsController@updateLang');
 
+Route::middleware('auth:api')->post('products/search', 'ProductsController@search');
 Route::middleware('auth:api')->resource('products', 'ProductsController');
 Route::middleware('auth:api')->post('products/{id}/image', 'ProductsController@uploadImage');
 Route::middleware('auth:api')->post('products/{id}/lang', 'ProductsController@updateLang');

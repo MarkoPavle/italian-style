@@ -12,8 +12,10 @@ use File;
 class ProductsController extends Controller
 {
     public function index(){
-        $products = Product::select('products.id as id', 'product_translations.title as title', 'products.publish as publish', 'products.created_at as created_at')
+        $products = Product::select('products.id as id', 'product_translations.title as title', 'products.publish as publish', 'products.created_at as created_at', 'collection_translations.title as collection')
             ->join('product_translations', 'products.id', '=', 'product_translations.product_id')
+            ->join('collections', 'products.collection_id', '=', 'collections.id')
+            ->join('collection_translations', 'collections.id', '=', 'collection_translations.collection_id')
             ->orderBy('products.created_at', 'DESC')->groupBy('products.id')->paginate(3);
         return response()->json([
             'products' => $products,
@@ -104,6 +106,29 @@ class ProductsController extends Controller
         $photos = Product::find($id)->photo;
         return response()->json([
             'photos' => $photos
+        ]);
+    }
+
+    public function search(){
+        $collection = request('list');
+        $text = request('text');
+        $products = Product::select('products.id as id', 'product_translations.title as title', 'products.publish as publish', 'products.created_at as created_at', 'collection_translations.title as collection')
+            ->join('product_translations', 'products.id', '=', 'product_translations.product_id')
+            ->join('collections', 'products.collection_id', '=', 'collections.id')
+            ->join('collection_translations', 'collections.id', '=', 'collection_translations.collection_id')
+            ->where(function ($query) use ($collection){
+                if($collection > 0){
+                    $query->where('products.collection_id', $collection);
+                }
+            })
+            ->where(function ($query) use ($text){
+                if($text != ''){
+                    $query->where('product_translations.title', 'like', '%'.$text.'%')->orWhere('product_translations.title', 'like', '%'.$text.'%');
+                }
+            })
+            ->orderBy('products.created_at', 'DESC')->groupBy('products.id')->paginate(3);
+        return response()->json([
+            'products' => $products,
         ]);
     }
 }

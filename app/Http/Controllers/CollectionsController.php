@@ -102,4 +102,25 @@ class CollectionsController extends Controller
             'collections' => $collections
         ]);
     }
+
+    public function search(){
+        $text = request('text');
+        $parent = request('list');
+        $collections = Collection::select('collections.id as id', 'collection_translations.title as title', 'collections.publish as publish', 'collections.created_at as created_at')
+            ->join('collection_translations', 'collections.id', '=', 'collection_translations.collection_id')
+            ->where(function ($query) use ($text){
+                if($text != ''){
+                    $query->where('collection_translations.title', 'like', '%'.$text.'%')->orWhere('collection_translations.title', 'like', '%'.$text.'%');
+                }
+            })
+            ->where(function ($query) use ($parent){
+                if($parent > 0){
+                    $query->where('collections.parent', $parent);
+                }
+            })
+            ->orderBy('collections.created_at', 'DESC')->groupBy('collections.id')->paginate(3);
+        return response()->json([
+            'collections' => $collections,
+        ]);
+    }
 }

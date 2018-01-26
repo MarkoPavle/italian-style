@@ -12,31 +12,35 @@
                 </div>
             </div>
 
+            <search-helper :lists="parents" :text="''" @updateSearch="search($event)"></search-helper>
+
             <div class="row">
                 <div class="col-md-12">
-                    <table class="table table-hover">
-                        <thead>
-                        <tr>
-                            <th scope="col">id</th>
-                            <th scope="col">title</th>
-                            <th scope="col">publish</th>
-                            <th scope="col">created at</th>
-                            <th>action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr v-for="row in collections">
-                            <td>{{ row.id }}</td>
-                            <td>{{ row.title }}</td>
-                            <td>{{ row.publish }}</td>
-                            <td>{{ row.created_at }}</td>
-                            <td>
-                                <font-awesome-icon icon="pencil-alt" @click="editRow(row['id'])"/>
-                                <font-awesome-icon icon="times" @click="deleteRow(row)" />
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+                    <div class="card">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th scope="col">id</th>
+                                <th scope="col">title</th>
+                                <th scope="col">publish</th>
+                                <th scope="col">created at</th>
+                                <th>action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr v-for="row in collections">
+                                <td>{{ row.id }}</td>
+                                <td>{{ row.title }}</td>
+                                <td>{{ row.publish }}</td>
+                                <td>{{ row.created_at }}</td>
+                                <td>
+                                    <font-awesome-icon icon="pencil-alt" @click="editRow(row['id'])"/>
+                                    <font-awesome-icon icon="times" @click="deleteRow(row)" />
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -50,6 +54,7 @@
 
 <script>
     import PaginateHelper from '../helper/PaginateHelper.vue';
+    import SearchHelper from '../helper/SearchHelper.vue';
     import swal from 'sweetalert2';
     import FontAwesomeIcon from '@fortawesome/vue-fontawesome';
 
@@ -57,15 +62,18 @@
         data(){
             return {
                 collections: {},
-                paginate: {}
+                paginate: {},
+                parents: []
             }
         },
         components: {
             'paginate-helper': PaginateHelper,
+            'search-helper': SearchHelper,
             'font-awesome-icon': FontAwesomeIcon
         },
         created(){
             this.getCollections();
+            this.getParents();
         },
         methods: {
             getCollections(){
@@ -73,6 +81,15 @@
                     .then(res => {
                         this.collections = res.data.collections.data;
                         this.paginate = res.data.collections;
+                    })
+                    .catch(e => {
+                        console.log(e);
+                    });
+            },
+            getParents(){
+                axios.get('api/collections/parent-lists')
+                    .then(res => {
+                        this.parents = res.data.collections;
                     })
                     .catch(e => {
                         console.log(e);
@@ -112,6 +129,18 @@
             clickToLink(index){
                 axios.get('api/collections?page=' + index)
                     .then(res => {
+                        this.collections = res.data.collections.data;
+                        this.paginate = res.data.collections;
+                    })
+                    .catch(e => {
+                        console.log(e);
+                    });
+            },
+            search(value){
+                console.log(value);
+                axios.post('api/collections/search', value)
+                    .then(res => {
+                        console.log(res);
                         this.collections = res.data.collections.data;
                         this.paginate = res.data.collections;
                     })

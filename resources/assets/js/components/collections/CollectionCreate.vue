@@ -112,9 +112,9 @@
                     .then(res => {
                         this.collections = res.data.collections;
                     }).catch(e => {
-                    console.log(e.response);
-                    this.error = e.response.data.errors;
-                });
+                        console.log(e.response);
+                        this.error = e.response.data.errors;
+                    });
             },
             submit(){
                 axios.post('api/collections', this.collection)
