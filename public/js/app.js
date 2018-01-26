@@ -73169,6 +73169,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -73407,9 +73409,7 @@ var render = function() {
                       ])
                     ],
                     1
-                  ),
-                  _vm._v(" "),
-                  _vm._m(0)
+                  )
                 ])
               ],
               1
@@ -73523,14 +73523,7 @@ var render = function() {
       )
     : _vm._e()
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Roles")])])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

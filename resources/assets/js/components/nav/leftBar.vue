@@ -28,7 +28,9 @@
                 <font-awesome-icon icon="users" />
                 <ul>
                     <li><router-link tag="a" :to="'/users'">User review</router-link></li>
+                    <!--
                     <li><a href="#">Roles</a></li>
+                    -->
                 </ul>
             </li>
             <li :class="{ 'active': showProductsItemActive }" :style="{ 'display': showProductsItem ? 'block' : 'none' }">
