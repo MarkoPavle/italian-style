@@ -5,6 +5,7 @@ Vue.use(VueRouter);
 
 export const router = new VueRouter({
     routes: [
+        { path: "/", component: require('./components/home/Home.vue'), meta: { forAuth: true } },
         { path: "/home", component: require('./components/home/Home.vue'), meta: { forAuth: true } },
 
         { path: "/login", component: require('./components/auth/Login.vue'), meta: { forVisitors: true } },
