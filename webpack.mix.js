@@ -31,12 +31,7 @@ mix.webpackConfig({
 mix.js('resources/assets/js/app.js', 'public/js')
     .sass('resources/assets/sass/app.scss', 'public/css');
 
-// MediaManager
-/*mix.js('resources/assets/vendor/MediaManager/js/manager.js', 'public/assets/vendor/MediaManager')
-    .sass('resources/assets/vendor/MediaManager/sass/media.scss', 'public/assets/vendor/MediaManager/style.css')
-    .version();*/
-
-/*mix.webpackConfig(webpack => {
+mix.webpackConfig(webpack => {
     return {
         plugins: [
             new webpack.ProvidePlugin({
@@ -46,4 +41,9 @@ mix.js('resources/assets/js/app.js', 'public/js')
             })
         ]
     };
-});*/
+});
+
+// MediaManager
+/*mix.js('resources/assets/vendor/MediaManager/js/manager.js', 'public/assets/vendor/MediaManager')
+    .sass('resources/assets/vendor/MediaManager/sass/media.scss', 'public/assets/vendor/MediaManager/style.css')
+    .version();*/
