@@ -23,5 +23,5 @@ Route::get('/admin', function () {
     return view('layouts.admin-app');
 });
 
-// MediaManager
-ctf0\MediaManager\MediaRoutes::routes();
+// filemanager
+Route::get('filemanager/show', 'FilemanagerController@index');

@@ -174,7 +174,7 @@
                       [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', 'Image' ]
                   ],
                   height: 300,
-                  filebrowserBrowseUrl: 'media'
+                  filebrowserBrowseUrl: 'filemanager/show'
               },
               dropzoneOptions: {
                   url: 'api/posts/' + this.$route.params.id + '/gallery',
