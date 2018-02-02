@@ -24,4 +24,4 @@ Route::get('/admin', function () {
 });
 
 // filemanager
-Route::get('filemanager/show', 'FilemanagerController@index');
+Route::middleware('auth')->get('filemanager/show', 'FilemanagerController@index');
