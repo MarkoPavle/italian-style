@@ -33,6 +33,10 @@
                     -->
                 </ul>
             </li>
+            <li>
+                <font-awesome-icon icon="images" />
+                <a :href="domain + 'filemanager/show'" target="_blank">Media</a>
+            </li>
             <li :class="{ 'active': showProductsItemActive }" :style="{ 'display': showProductsItem ? 'block' : 'none' }">
                 <font-awesome-icon icon="angle-right" />
                 <a href="#" @click="changeShowProductsItemActive()">Products</a>

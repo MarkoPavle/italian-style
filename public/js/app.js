@@ -25137,7 +25137,7 @@ module.exports = defaults;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var baseUrl = 'http://localhost/cim/public/';
+var baseUrl = 'http://cim.mia.rs/';
 
 var apiHost = exports.apiHost = baseUrl;
 
@@ -30279,6 +30279,10 @@ var _faSortAmountUp = __webpack_require__(173);
 
 var _faSortAmountUp2 = _interopRequireDefault(_faSortAmountUp);
 
+var _faImages = __webpack_require__(216);
+
+var _faImages2 = _interopRequireDefault(_faImages);
+
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : { default: obj };
 }
@@ -30312,7 +30316,7 @@ Vue.component('paginate-helper', __webpack_require__(9));
 Vue.component('search-helper', __webpack_require__(11));
 Vue.component('font-awesome-icon', __webpack_require__(1));
 
-_fontawesome2.default.library.add(_faPlus2.default, _faEnvelope2.default, _faBell2.default, _faCommentAlt2.default, _faChevronCircleDown2.default, _faCogs2.default, _faAngleRight2.default, _faHome2.default, _faUsers2.default, _faPaste2.default, _faShoppingCart2.default, _faAlignJustify2.default, _faPencilAlt2.default, _faTimes2.default, _faLink2.default, _faBars2.default, _faSortAmountUp2.default);
+_fontawesome2.default.library.add(_faPlus2.default, _faEnvelope2.default, _faBell2.default, _faCommentAlt2.default, _faChevronCircleDown2.default, _faCogs2.default, _faAngleRight2.default, _faHome2.default, _faUsers2.default, _faPaste2.default, _faShoppingCart2.default, _faAlignJustify2.default, _faPencilAlt2.default, _faTimes2.default, _faLink2.default, _faBars2.default, _faSortAmountUp2.default, _faImages2.default);
 
 Vue.use(_Auth2.default);
 
@@ -73169,6 +73173,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -73415,6 +73423,25 @@ var render = function() {
             _vm._v(" "),
             _c(
               "li",
+              [
+                _c("font-awesome-icon", { attrs: { icon: "images" } }),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    attrs: {
+                      href: _vm.domain + "filemanager/show",
+                      target: "_blank"
+                    }
+                  },
+                  [_vm._v("Media")]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
               {
                 class: { active: _vm.showProductsItemActive },
                 style: { display: _vm.showProductsItem ? "block" : "none" }
@@ -73536,6 +73563,16 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 215 */,
+/* 216 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = { prefix: 'fas', iconName: 'images', icon: [576, 512, [], "f302", "M480 416v16c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V176c0-26.51 21.49-48 48-48h16v208c0 44.112 35.888 80 80 80h336zm96-80V80c0-26.51-21.49-48-48-48H144c-26.51 0-48 21.49-48 48v256c0 26.51 21.49 48 48 48h384c26.51 0 48-21.49 48-48zM256 128c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-96 144l55.515-55.515c4.686-4.686 12.284-4.686 16.971 0L272 256l135.515-135.515c4.686-4.686 12.284-4.686 16.971 0L512 208v112H160v-48z"] };
 
 /***/ })
 /******/ ]);
