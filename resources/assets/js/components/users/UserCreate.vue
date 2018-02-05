@@ -16,7 +16,7 @@
             <div class="row bela">
                 <div class="col-md-12">
                     <div class="card">
-                        <h5>Izmena korisnika</h5>
+                        <h5>User create</h5>
                     </div>
                 </div>
 
@@ -34,23 +34,23 @@
                                 <small class="form-text text-muted" v-if="error != null && error.email">{{ error.email[0] }}</small>
                             </div>
                             <div class="form-group">
-                                <label for="password">Lozinka</label>
+                                <label for="password">Password</label>
                                 <input type="password" name="password" class="form-control" id="password" placeholder="Lozinka" v-model="user.password">
                                 <small class="form-text text-muted" v-if="error != null && error.password">{{ error.password[0] }}</small>
                             </div>
                             <div class="form-group">
-                                <label for="password_confirmation">Potvrda lozinke</label>
-                                <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Potvrda lozinka" v-model="user.password_confirmation">
+                                <label for="password_confirmation">Password confirmation</label>
+                                <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Password confirmation" v-model="user.password_confirmation">
                             </div>
                             <div class="form-group">
-                                <label for="role">Pravo pristupa</label>
+                                <label for="role">Role</label>
                                 <select name="role" class="form-control" id="role" v-model="user.role_id">
-                                    <option value="0" selected>Urednik</option>
+                                    <option value="0" selected>Editor</option>
                                     <option value="1">Admin</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <button class="btn btn-primary">Kreiraj</button>
+                                <button class="btn btn-primary">Create</button>
                             </div>
                         </form>
                     </div>
@@ -59,7 +59,7 @@
                     <upload-image-helper
                             :image="user.image"
                             :defaultImage="'img/user-image.png'"
-                            :titleImage="'korisnika'"
+                            :titleImage="'user'"
                             :error="error"
                             @uploadImage="upload($event)"
                             @removeRow="remove($event)"

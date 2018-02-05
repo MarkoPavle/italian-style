@@ -15,6 +15,7 @@ export const router = new VueRouter({
         { path: "/users", component: require('./components/users/UserList.vue'), meta: { forAuth: true } },
         { path: "/users/create", component: require('./components/users/UserCreate.vue'), meta: { forAuth: true } },
         { path: "/users/:id/edit", component: require('./components/users/UserEdit.vue'), meta: { forAuth: true } },
+        { path: "/users/change-password", component: require('./components/users/UserChangePassword.vue'), meta: { forAuth: true } },
 
         { path: "/categories", component: require('./components/categories/CategoryList.vue'), meta: { forAuth: true } },
         { path: "/categories/create", component: require('./components/categories/CategoryCreate.vue'), meta: { forAuth: true } },

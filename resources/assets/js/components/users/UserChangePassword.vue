@@ -7,7 +7,7 @@
                         <ul class="list-group list-group-flush">
                             <li><router-link tag="a" :to="'/home'">Home</router-link></li>
                             <li><router-link tag="a" :to="'/users'">Users</router-link></li>
-                            <li>Edit user</li>
+                            <li>User create</li>
                         </ul>
                     </div>
                 </div>
@@ -16,7 +16,7 @@
             <div class="row bela">
                 <div class="col-md-12">
                     <div class="card">
-                        <h5>Edit user</h5>
+                        <h5>Izmena korisnika</h5>
                     </div>
                 </div>
 
@@ -24,17 +24,12 @@
                     <div class="card">
                         <form @submit.prevent="submit()">
                             <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Name" v-model="user.name">
-                                <small class="form-text text-muted" v-if="error != null && error.name">{{ error.name[0] }}</small>
+                                <label for="old-password">Old password</label>
+                                <input type="password" name="oldpassword" class="form-control" id="old-password" placeholder="Old password" v-model="user.oldpassword">
+                                <small class="form-text text-muted" v-if="error != null && error.oldpassword">{{ error.oldpassword[0] }}</small>
                             </div>
                             <div class="form-group">
-                                <label for="email">Email adresa</label>
-                                <input type="email" name="email" class="form-control" id="email" placeholder="Email adresa" v-model="user.email">
-                                <small class="form-text text-muted" v-if="error != null && error.email">{{ error.email[0] }}</small>
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Password</label>
+                                <label for="password">New password</label>
                                 <input type="password" name="password" class="form-control" id="password" placeholder="Lozinka" v-model="user.password">
                                 <small class="form-text text-muted" v-if="error != null && error.password">{{ error.password[0] }}</small>
                             </div>
@@ -43,20 +38,20 @@
                                 <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Potvrda lozinka" v-model="user.password_confirmation">
                             </div>
                             <div class="form-group">
-                                <label for="role">Pravo pristupa</label>
-                                <select name="role" class="form-control" id="role" v-model="user.role_id">
-                                    <option value="0" :selected="user.role_id == 0">Editor</option>
-                                    <option value="1" :selected="user.role_id == 1">Admin</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
                                 <button class="btn btn-primary">Edit</button>
                             </div>
                         </form>
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <upload-image-helper :image="user.image" :defaultImage="'img/user-image.png'" :titleImage="'User'" :error="error" @uploadImage="upload($event)"></upload-image-helper>
+                    <upload-image-helper
+                            :image="user.image"
+                            :defaultImage="'img/user-image.png'"
+                            :titleImage="'user'"
+                            :error="error"
+                            @uploadImage="upload($event)"
+                            @removeRow="remove($event)"
+                    ></upload-image-helper>
                 </div>
             </div>
         </div>
@@ -79,12 +74,9 @@
             'font-awesome-icon': FontAwesomeIcon,
             'upload-image-helper': UploadImageHelper,
         },
-        created(){
-            this.getUser();
-        },
         methods: {
             submit(){
-                axios.patch('api/users/' + this.user.id, this.user)
+                axios.post('api/users/change-password', this.user)
                     .then(res => {
                         swal({
                             position: 'center',
@@ -99,35 +91,9 @@
                         this.error = e.response.data.errors;
                     });
             },
-            getUser(){
-                axios.get('api/users/' + this.$route.params.id)
-                    .then(res => {
-                        this.user = res.data.user;
-                        console.log(this.user);
-                    })
-                    .catch(e => {
-                        console.log(e);
-                        this.error = e.response.data.errors;
-                    });
-            },
             upload(image){
-                axios.post('api/users/' + this.user.id + '/image', { image: image[0] })
-                    .then(res => {
-                        console.log(res);
-                        this.user.image = res.data.image;
-                        this.error = null;
-                        swal({
-                            position: 'center',
-                            type: 'success',
-                            title: 'Success',
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                    }).catch(e => {
-                        console.log(e);
-                        this.error = e.response.data.errors;
-                    });
-            }
+                this.user.image = image[0];
+            },
         }
     }
 </script>
