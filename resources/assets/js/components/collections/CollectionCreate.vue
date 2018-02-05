@@ -40,6 +40,11 @@
                                 <small class="form-text text-muted" v-if="error != null && error.slug">{{ error.slug[0] }}</small>
                             </div>
                             <div class="form-group">
+                                <label for="title">Order</label>
+                                <input type="text" name="order" class="form-control" id="order" placeholder="Order" v-model="collection.order">
+                                <small class="form-text text-muted" v-if="error != null && error.order">{{ error.order[0] }}</small>
+                            </div>
+                            <div class="form-group">
                                 <label>Collection description</label>
                                 <ckeditor
                                         v-model="collection.desc"

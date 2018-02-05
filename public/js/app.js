@@ -46062,6 +46062,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -46308,6 +46313,43 @@ var render = function() {
                     : _vm._e()
                 ]),
                 _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "title" } }, [_vm._v("Order")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.collection.order,
+                        expression: "collection.order"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      name: "order",
+                      id: "order",
+                      placeholder: "Order"
+                    },
+                    domProps: { value: _vm.collection.order },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.collection, "order", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.error != null && _vm.error.order
+                    ? _c("small", { staticClass: "form-text text-muted" }, [
+                        _vm._v(_vm._s(_vm.error.order[0]))
+                      ])
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
                 _c(
                   "div",
                   { staticClass: "form-group" },
@@ -46484,6 +46526,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_switches___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vue_switches__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue_ckeditor2__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue_ckeditor2___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vue_ckeditor2__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -46842,6 +46889,43 @@ var render = function() {
                         : _vm._e()
                     })
                   )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "title" } }, [_vm._v("Order")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.collection.order,
+                        expression: "collection.order"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      name: "order",
+                      id: "order",
+                      placeholder: "Order"
+                    },
+                    domProps: { value: _vm.collection.order },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.collection, "order", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.error != null && _vm.error.order
+                    ? _c("small", { staticClass: "form-text text-muted" }, [
+                        _vm._v(_vm._s(_vm.error.order[0]))
+                      ])
+                    : _vm._e()
                 ]),
                 _vm._v(" "),
                 _c(
@@ -54416,6 +54500,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -54576,12 +54661,31 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "row bela" }, [
-        _vm._m(0),
+        _c("div", { staticClass: "col-md-12" }, [
+          _c(
+            "div",
+            { staticClass: "card" },
+            [
+              _c("h5", [_vm._v("Menu links")]),
+              _vm._v(" "),
+              _c("font-awesome-icon", {
+                staticClass: "new-link-add",
+                attrs: { icon: "plus" },
+                on: {
+                  click: function($event) {
+                    _vm.addRow()
+                  }
+                }
+              })
+            ],
+            1
+          )
+        ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-sm-12" }, [
           _c("div", { staticClass: "card" }, [
             _c("table", { staticClass: "table table-hover" }, [
-              _vm._m(1),
+              _vm._m(0),
               _vm._v(" "),
               _c(
                 "tbody",
@@ -54629,14 +54733,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-12" }, [
-      _c("div", { staticClass: "card" }, [_c("h5", [_vm._v("Menu links")])])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

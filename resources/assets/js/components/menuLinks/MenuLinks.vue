@@ -18,6 +18,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <h5>Menu links</h5>
+                        <font-awesome-icon icon="plus" @click="addRow()" class="new-link-add" />
                     </div>
                 </div>
 
@@ -151,7 +152,7 @@
                 this.links.map((link, index) => {
                     link.order = index + 1;
                 });
-            }
+            },
         }
     }
 </script>

@@ -11,7 +11,7 @@ class CollectionsController extends Controller
     public function index(){
         $collections = Collection::select('collections.id as id', 'collection_translations.title as title', 'collections.publish as publish', 'collections.created_at as created_at')
             ->join('collection_translations', 'collections.id', '=', 'collection_translations.collection_id')
-            ->orderBy('collections.created_at', 'DESC')->groupBy('collections.id')->paginate(3);
+            ->orderBy('collections.order', 'ASC')->groupBy('collections.id')->paginate(50);
         return response()->json([
             'collections' => $collections,
         ]);
@@ -24,7 +24,7 @@ class CollectionsController extends Controller
         request('slug')? $collection->slug = str_slug(request('slug')) : $collection->slug = str_slug(request('title'));
         $collection->desc = request('desc');
         $collection->parent = request('parent');
-        $collection->order = 1;
+        $collection->order = request('order');
         request('publish')? $collection->publish = true : $collection->publish = false;
         $collection->save();
 
@@ -45,6 +45,7 @@ class CollectionsController extends Controller
     public function update($id){
         $collection = Collection::find($id);
         $collection->parent = request('parent');
+        $collection->order = request('order');
         request('publish')? $collection->publish = true : $collection->publish = false;
         $collection->update();
         return response()->json([
@@ -118,7 +119,7 @@ class CollectionsController extends Controller
                     $query->where('collections.parent', $parent);
                 }
             })
-            ->orderBy('collections.created_at', 'DESC')->groupBy('collections.id')->paginate(3);
+            ->orderBy('collections.order', 'ASC')->groupBy('collections.id')->paginate(50);
         return response()->json([
             'collections' => $collections,
         ]);

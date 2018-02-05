@@ -617,11 +617,13 @@
     $(document).ready(function() {
         $(".slider").bxSlider({
             auto: !0
-        }), $(".slider2").bxSlider({
+        });
+        $(".slider2").bxSlider({
             auto: !0
-        }), $(".owl-carousel").owlCarousel({
+        });
+        $(".owl-carousel").owlCarousel({
             nav: !0,
-            navText: ["", ""],
+            navText: ["<img src='{{ $theme->slug }}/img/left-arrow.png'>", "<img src='{{ $theme->slug }}/img/right-arrow.png'>"],
             margin: 30,
             loop: !0,
             responsive: {
