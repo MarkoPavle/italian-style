@@ -18,6 +18,26 @@
     @include('themes.'.$theme->slug.'.partials.mobile-menu')
 </nav>
 <div id=site-content>
+
+    <div class=fixed-nav>
+        <div class=location>
+            <div class=location-p>
+                <a href="">
+                    <p>where we are</p>
+                </a>
+            </div>
+            <div class=location-icon> <a href=""> <i class="fas fa-map-marker-alt"></i> </a> </div>
+        </div>
+        <div class=phone>
+            <div class=phone-p>
+                <a href="">
+                    <p>contact</p>
+                </a>
+            </div>
+            <div class=phone-icon> <a href=""> <i class="fas fa-phone"></i> </a> </div>
+        </div>
+    </div>
+
     <div class="container-fluid fluid-nav">
         <div class=container>
             <i class="fas fa-bars" id=trigger></i>
