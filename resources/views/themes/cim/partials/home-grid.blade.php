@@ -8,9 +8,9 @@
                         {!! HTML::Image($collection->image, $collection->title, array('class' => 'img-fluid')) !!}
                     </div>
                     <div class=grid-text-wrapper>
-                        <h5>
+                        <h2>
                             <a href="{{ $collection->slug }}">{{ $collection->title }}</a>
-                        </h5>
+                        </h2>
                         {!! $collection->desc !!}
                         <a href="" class="btn">View more
                             <i class="fas fa-angle-right"></i>

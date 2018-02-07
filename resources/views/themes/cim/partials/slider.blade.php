@@ -1,14 +1,13 @@
 @if(count($collections)>0)
     <div class=collections>
-        <div class=js-hover> Collections
-            <ul id=double>
-                @foreach($collections as $collection)
-                    <li>
-                        <a href="{{ url($collection->slug) }}">{{ $collection->title }}</a>
-                    </li>
-                @endforeach
-            </ul>
-        </div>
+        <h5 class=nav-collections>Collection</h5>
+        <ul id=double>
+            @foreach($collections as $collection)
+                <li>
+                    <a href="{{ url($collection->slug) }}">{{ $collection->title }}</a>
+                </li>
+            @endforeach
+        </ul>
     </div><!-- .collections -->
 @endif
 
