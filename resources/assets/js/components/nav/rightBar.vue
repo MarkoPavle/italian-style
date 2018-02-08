@@ -3,55 +3,27 @@
         <h3>Chat</h3>
         <p class="title">online</p>
         <ul class="online">
-            <li>
-                <img :src="domain + 'img/user-image.png'" alt="Vue Admin Panel">
+            <li v-for="user in loginUsers">
+                <img :src="domain + 'img/user-image.png'" alt="Vue Admin Panel" v-if="user.image == null || user.image == ''">
+                <img :src="domain + user.image" :alt="user.name" v-else>
                 <span class="active"></span>
                 <div>
-                    <p>Nebojša Marković</p>
-                    <p>@admin</p>
-                </div>
-            </li>
-            <li>
-                <img :src="domain + 'img/user-image.png'" alt="Vue Admin Panel">
-                <span class="active"></span>
-                <div>
-                    <p>Nebojša Marković</p>
-                    <p>@admin</p>
-                </div>
-            </li>
-            <li>
-                <img :src="domain + 'img/user-image.png'" alt="Vue Admin Panel">
-                <span class="active"></span>
-                <div>
-                    <p>Nebojša Marković</p>
-                    <p>@admin</p>
+                    <p>{{ user.name }}</p>
+                    <p v-if="user.role_id == 1">@admin</p>
+                    <p v-else>@editor</p>
                 </div>
             </li>
         </ul>
         <p class="title">offline</p>
         <ul class="offline">
-            <li>
-                <img :src="domain + 'img/user-image.png'" alt="Vue Admin Panel">
+            <li v-for="user in logoutUsers">
+                <img :src="domain + 'img/user-image.png'" alt="Vue Admin Panel" v-if="user.image == null || user.image == ''">
+                <img :src="domain + user.image" :alt="user.name" v-else>
                 <span class="active"></span>
                 <div>
-                    <p>Nebojša Marković</p>
-                    <p>@admin</p>
-                </div>
-            </li>
-            <li>
-                <img :src="domain + 'img/user-image.png'" alt="Vue Admin Panel">
-                <span class="active"></span>
-                <div>
-                    <p>Nebojša Marković</p>
-                    <p>@admin</p>
-                </div>
-            </li>
-            <li>
-                <img :src="domain + 'img/user-image.png'" alt="Vue Admin Panel">
-                <span class="active"></span>
-                <div>
-                    <p>Nebojša Marković</p>
-                    <p>@admin</p>
+                    <p>{{ user.name }}</p>
+                    <p v-if="user.role_id == 1">@admin</p>
+                    <p v-else>@editor</p>
                 </div>
             </li>
         </ul>
@@ -65,7 +37,9 @@
     export default {
         data(){
             return {
-                domain : apiHost
+                domain : apiHost,
+                loginUsers: {},
+                logoutUsers: {}
             }
         },
         components: {
@@ -74,6 +48,22 @@
         computed: {
             showRightBar(){
                 return this.$store.getters.getShowRightBar;
+            }
+        },
+        created(){
+            this.getUsers();
+        },
+        methods: {
+            getUsers(){
+                axios.get('api/users/get-users')
+                    .then( res => {
+                        this.loginUsers = res.data.loginUsers;
+                        this.logoutUsers = res.data.logoutUsers;
+                    })
+                    .catch( e => {
+                        console.log(e.response);
+                        this.error = e.response.data;
+                    });
             }
         }
     }

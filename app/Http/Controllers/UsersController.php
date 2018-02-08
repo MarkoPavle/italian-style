@@ -91,4 +91,22 @@ class UsersController extends Controller
             ], 422);
         }
     }
+
+    public function logout(Request $request){
+        $user = $request->user();
+        User::setLogoutUser($user);
+        return response()->json([
+            'message' => 'logout user'
+        ]);
+    }
+
+    public function getUsers(Request $request){
+        $user = $request->user();
+        $login = User::select('id', 'email', 'role_id', 'name', 'image')->where('block', 0)->where('online', 1)->where('id', '<>', $user->id)->get();
+        $logout = User::select('id', 'email', 'role_id', 'name', 'image')->where('block', 0)->where('online', 0)->where('id', '<>', $user->id)->get();
+        return response()->json([
+            'loginUsers' => $login,
+            'logoutUsers' => $logout
+        ]);
+    }
 }

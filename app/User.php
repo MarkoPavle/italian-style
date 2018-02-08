@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'role_id', 'block',
+        'name', 'email', 'password', 'role_id', 'block', 'online'
     ];
 
     /**
@@ -42,6 +42,16 @@ class User extends Authenticatable
         $user->image = 'uploads/users/' . $filename;
         $user->update();
         return $user->image;
+    }
+
+    public static function setLoginUser($user){
+        $user->online = 1;
+        $user->update();
+    }
+
+    public static function setLogoutUser($user){
+        $user->online = 0;
+        $user->update();
     }
 
     public function post(){

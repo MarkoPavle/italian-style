@@ -5,8 +5,19 @@
 <script>
     export default {
         created(){
-            this.$auth.destroyToken();
-            this.$router.push('/login')
+            axios.get('api/users/logout')
+                .then(res => {
+                    if(res.data.message == 'logout user'){
+                        this.$auth.destroyToken();
+                        this.$router.push('/login');
+                    }
+                })
+                .catch(e => {
+                    if(e.response.status == 401){
+                        this.$auth.destroyToken();
+                        this.$router.push('/login');
+                    }
+                });
         }
     }
 </script>

@@ -35049,8 +35049,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     created: function created() {
-        this.$auth.destroyToken();
-        this.$router.push('/login');
+        var _this = this;
+
+        axios.get('api/users/logout').then(function (res) {
+            if (res.data.message == 'logout user') {
+                _this.$auth.destroyToken();
+                _this.$router.push('/login');
+            }
+        }).catch(function (e) {
+            if (e.response.status == 401) {
+                _this.$auth.destroyToken();
+                _this.$router.push('/login');
+            }
+        });
     }
 });
 
@@ -73319,7 +73330,7 @@ exports = module.exports = __webpack_require__(6)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -73366,34 +73377,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -73401,7 +73384,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            domain: __WEBPACK_IMPORTED_MODULE_0__config__["apiHost"]
+            domain: __WEBPACK_IMPORTED_MODULE_0__config__["apiHost"],
+            loginUsers: {},
+            logoutUsers: {}
         };
     },
 
@@ -73411,6 +73396,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     computed: {
         showRightBar: function showRightBar() {
             return this.$store.getters.getShowRightBar;
+        }
+    },
+    created: function created() {
+        this.getUsers();
+    },
+
+    methods: {
+        getUsers: function getUsers() {
+            var _this = this;
+
+            axios.get('api/users/get-users').then(function (res) {
+                _this.loginUsers = res.data.loginUsers;
+                _this.logoutUsers = res.data.logoutUsers;
+            }).catch(function (e) {
+                console.log(e.response);
+                _this.error = e.response.data;
+            });
         }
     }
 });
@@ -73431,154 +73433,69 @@ var render = function() {
       _vm._v(" "),
       _c("p", { staticClass: "title" }, [_vm._v("online")]),
       _vm._v(" "),
-      _c("ul", { staticClass: "online" }, [
-        _c("li", [
-          _c("img", {
-            attrs: {
-              src: _vm.domain + "img/user-image.png",
-              alt: "Vue Admin Panel"
-            }
-          }),
-          _vm._v(" "),
-          _c("span", { staticClass: "active" }),
-          _vm._v(" "),
-          _vm._m(0)
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("img", {
-            attrs: {
-              src: _vm.domain + "img/user-image.png",
-              alt: "Vue Admin Panel"
-            }
-          }),
-          _vm._v(" "),
-          _c("span", { staticClass: "active" }),
-          _vm._v(" "),
-          _vm._m(1)
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("img", {
-            attrs: {
-              src: _vm.domain + "img/user-image.png",
-              alt: "Vue Admin Panel"
-            }
-          }),
-          _vm._v(" "),
-          _c("span", { staticClass: "active" }),
-          _vm._v(" "),
-          _vm._m(2)
-        ])
-      ]),
+      _c(
+        "ul",
+        { staticClass: "online" },
+        _vm._l(_vm.loginUsers, function(user) {
+          return _c("li", [
+            user.image == null || user.image == ""
+              ? _c("img", {
+                  attrs: {
+                    src: _vm.domain + "img/user-image.png",
+                    alt: "Vue Admin Panel"
+                  }
+                })
+              : _c("img", {
+                  attrs: { src: _vm.domain + user.image, alt: user.name }
+                }),
+            _vm._v(" "),
+            _c("span", { staticClass: "active" }),
+            _vm._v(" "),
+            _c("div", [
+              _c("p", [_vm._v(_vm._s(user.name))]),
+              _vm._v(" "),
+              user.role_id == 1
+                ? _c("p", [_vm._v("@admin")])
+                : _c("p", [_vm._v("@editor")])
+            ])
+          ])
+        })
+      ),
       _vm._v(" "),
       _c("p", { staticClass: "title" }, [_vm._v("offline")]),
       _vm._v(" "),
-      _c("ul", { staticClass: "offline" }, [
-        _c("li", [
-          _c("img", {
-            attrs: {
-              src: _vm.domain + "img/user-image.png",
-              alt: "Vue Admin Panel"
-            }
-          }),
-          _vm._v(" "),
-          _c("span", { staticClass: "active" }),
-          _vm._v(" "),
-          _vm._m(3)
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("img", {
-            attrs: {
-              src: _vm.domain + "img/user-image.png",
-              alt: "Vue Admin Panel"
-            }
-          }),
-          _vm._v(" "),
-          _c("span", { staticClass: "active" }),
-          _vm._v(" "),
-          _vm._m(4)
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("img", {
-            attrs: {
-              src: _vm.domain + "img/user-image.png",
-              alt: "Vue Admin Panel"
-            }
-          }),
-          _vm._v(" "),
-          _c("span", { staticClass: "active" }),
-          _vm._v(" "),
-          _vm._m(5)
-        ])
-      ])
+      _c(
+        "ul",
+        { staticClass: "offline" },
+        _vm._l(_vm.logoutUsers, function(user) {
+          return _c("li", [
+            user.image == null || user.image == ""
+              ? _c("img", {
+                  attrs: {
+                    src: _vm.domain + "img/user-image.png",
+                    alt: "Vue Admin Panel"
+                  }
+                })
+              : _c("img", {
+                  attrs: { src: _vm.domain + user.image, alt: user.name }
+                }),
+            _vm._v(" "),
+            _c("span", { staticClass: "active" }),
+            _vm._v(" "),
+            _c("div", [
+              _c("p", [_vm._v(_vm._s(user.name))]),
+              _vm._v(" "),
+              user.role_id == 1
+                ? _c("p", [_vm._v("@admin")])
+                : _c("p", [_vm._v("@editor")])
+            ])
+          ])
+        })
+      )
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("p", [_vm._v("Nebojša Marković")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("@admin")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("p", [_vm._v("Nebojša Marković")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("@admin")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("p", [_vm._v("Nebojša Marković")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("@admin")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("p", [_vm._v("Nebojša Marković")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("@admin")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("p", [_vm._v("Nebojša Marković")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("@admin")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("p", [_vm._v("Nebojša Marković")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("@admin")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
