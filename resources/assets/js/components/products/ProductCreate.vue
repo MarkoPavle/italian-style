@@ -115,7 +115,10 @@
               error: null,
               config: {
                   toolbar: [
-                      [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', 'Image' ]
+                      [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', 'Image', 'Link', 'Unlink', 'Source' ],
+                      { name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
+                      '/',
+                      { name: 'styles', items: [ 'Styles', 'Format', 'Font', 'FontSize' ] },
                   ],
                   height: 300,
                   filebrowserBrowseUrl: 'filemanager/show'

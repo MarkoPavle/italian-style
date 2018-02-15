@@ -16,6 +16,10 @@ Route::get('/', 'PagesController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/collections/{slug}', 'PagesController@collections')->name('collections');
+Route::get('/contact', 'PagesController@contact')->name('contact');
+Route::get('/corporate', 'PagesController@corporate')->name('corporate');
+Route::get('/partnership', 'PagesController@partnership')->name('partnership');
 
 Route::get('/admin', function () {
     return view('layouts.admin-app');

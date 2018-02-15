@@ -16,7 +16,7 @@ class Collection extends Model
 
     protected $table = 'collections';
 
-    protected $fillable = ['id', 'order', 'parent', 'level', 'image', 'publish'];
+    protected $fillable = ['id', 'order', 'parent', 'level', 'image', 'heroImage', 'heroImageMobile', 'publish'];
 
     public static function base64UploadImage($collection_id, $image){
         $collection = self::find($collection_id);

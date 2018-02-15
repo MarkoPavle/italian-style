@@ -22,7 +22,7 @@
     <div class=fixed-nav>
         <div class=location>
             <div class=location-p>
-                <a href="">
+                <a href="{{ url('contact') }}">
                     <p>where we are</p>
                 </a>
             </div>
@@ -30,7 +30,7 @@
         </div>
         <div class=phone>
             <div class=phone-p>
-                <a href="">
+                <a href="{{ url('contact') }}">
                     <p>contact</p>
                 </a>
             </div>

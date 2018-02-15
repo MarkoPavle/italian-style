@@ -4,7 +4,7 @@
         <ul id=double>
             @foreach($collections as $collection)
                 <li>
-                    <a href="{{ url($collection->slug) }}">{{ $collection->title }}</a>
+                    <a href="{{ url('collections/'.$collection->slug) }}">{{ $collection->title }}</a>
                 </li>
             @endforeach
         </ul>
