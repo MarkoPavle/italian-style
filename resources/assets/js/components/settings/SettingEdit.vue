@@ -60,9 +60,9 @@
                                 <small class="form-text text-muted" v-if="error != null && error.instagram">{{ error.instagram[0] }}</small>
                             </div>
                             <div class="form-group">
-                                <label for="google">Google</label>
-                                <input type="text" name="Google" class="form-control" id="google" placeholder="Enter google" v-model="setting.google">
-                                <small class="form-text text-muted" v-if="error != null && error.google">{{ error.google[0] }}</small>
+                                <label for="pinterest">Pinterest</label>
+                                <input type="text" name="pinterest" class="form-control" id="pinterest" placeholder="Enter pinterest" v-model="setting.pinterest">
+                                <small class="form-text text-muted" v-if="error != null && error.pinterest">{{ error.pinterest[0] }}</small>
                             </div>
                             <div class="form-group">
                                 <label for="analytics">Google Analytics</label>

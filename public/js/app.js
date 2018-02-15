@@ -37621,6 +37621,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -37742,6 +37744,8 @@ var render = function() {
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(row.publish))]),
                     _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(row.translations.length))]),
+                    _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(row.created_at))]),
                     _vm._v(" "),
                     _c(
@@ -37807,6 +37811,8 @@ var staticRenderFns = [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("title")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("publish")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("lang")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("created at")]),
         _vm._v(" "),
@@ -39615,6 +39621,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -39905,6 +39913,8 @@ var render = function() {
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(row.publish))]),
                       _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(row.translations.length))]),
+                      _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(row.created_at))]),
                       _vm._v(" "),
                       _c(
@@ -39974,6 +39984,8 @@ var staticRenderFns = [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("category")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("publish")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("lang")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("created at")]),
         _vm._v(" "),
@@ -45687,6 +45699,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -45842,6 +45856,8 @@ var render = function() {
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(row.publish))]),
                       _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(row.translations.length))]),
+                      _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(row.created_at))]),
                       _vm._v(" "),
                       _c(
@@ -45909,6 +45925,8 @@ var staticRenderFns = [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("title")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("publish")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("lang")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("created at")]),
         _vm._v(" "),
@@ -47505,6 +47523,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -47661,6 +47681,8 @@ var render = function() {
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(row.publish))]),
                       _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(row.translations.length))]),
+                      _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(row.created_at))]),
                       _vm._v(" "),
                       _c(
@@ -47730,6 +47752,8 @@ var staticRenderFns = [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("collection")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("publish")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("lang")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("created at")]),
         _vm._v(" "),
@@ -50305,38 +50329,40 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "google" } }, [_vm._v("Google")]),
+                  _c("label", { attrs: { for: "pinterest" } }, [
+                    _vm._v("Pinterest")
+                  ]),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.setting.google,
-                        expression: "setting.google"
+                        value: _vm.setting.pinterest,
+                        expression: "setting.pinterest"
                       }
                     ],
                     staticClass: "form-control",
                     attrs: {
                       type: "text",
-                      name: "Google",
-                      id: "google",
-                      placeholder: "Enter google"
+                      name: "pinterest",
+                      id: "pinterest",
+                      placeholder: "Enter pinterest"
                     },
-                    domProps: { value: _vm.setting.google },
+                    domProps: { value: _vm.setting.pinterest },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.$set(_vm.setting, "google", $event.target.value)
+                        _vm.$set(_vm.setting, "pinterest", $event.target.value)
                       }
                     }
                   }),
                   _vm._v(" "),
-                  _vm.error != null && _vm.error.google
+                  _vm.error != null && _vm.error.pinterest
                     ? _c("small", { staticClass: "form-text text-muted" }, [
-                        _vm._v(_vm._s(_vm.error.google[0]))
+                        _vm._v(_vm._s(_vm.error.pinterest[0]))
                       ])
                     : _vm._e()
                 ]),
@@ -54502,6 +54528,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -54698,6 +54726,8 @@ var render = function() {
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(row.publish))]),
                     _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(row.translations.length))]),
+                    _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(row.created_at))]),
                     _vm._v(" "),
                     _c(
@@ -54745,6 +54775,8 @@ var staticRenderFns = [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("title")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("publish")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("lang")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("created at")]),
         _vm._v(" "),

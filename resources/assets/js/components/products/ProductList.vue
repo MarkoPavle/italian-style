@@ -24,6 +24,7 @@
                                 <th scope="col">title</th>
                                 <th scope="col">collection</th>
                                 <th scope="col">publish</th>
+                                <th scope="col">lang</th>
                                 <th scope="col">created at</th>
                                 <th>action</th>
                             </tr>
@@ -34,6 +35,7 @@
                                 <td>{{ row.title }}</td>
                                 <td>{{ row.collection }}</td>
                                 <td>{{ row.publish }}</td>
+                                <td>{{ row.translations.length }}</td>
                                 <td>{{ row.created_at }}</td>
                                 <td>
                                     <font-awesome-icon icon="pencil-alt" @click="editRow(row['id'])"/>

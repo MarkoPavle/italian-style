@@ -24,7 +24,7 @@
                             @if(count($collections))
                                 @foreach($collections as $collection)
                                     <p>
-                                        <a href="{{ url($collection->slug) }}">{{ $collection->title }}</a>
+                                        <a href="{{ url('collections/'.$collection->slug) }}">{{ $collection->title }}</a>
                                     </p>
                                 @endforeach
                             @endif

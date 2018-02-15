@@ -15,7 +15,11 @@
         <div class="container partners">
             <div class=row>
                 <div class="col-md-12 list-of-partners">
-                    <h4>Thanks to our Partners, that are co-operating with us, to achieve new objectives at mutual satisfaction and interest.</h4>
+                    @if(app()->getLocale() == 'en')
+                        <h4>Thanks to our Partners, that are co-operating with us, to achieve new objectives at mutual satisfaction and interest.</h4>
+                    @else
+                        <h4>Grazie ai partners che collaborano con noi per raggiungere sempre obiettivi migliori , con reciproche soddisfazioni.</h4>
+                    @endif
                     <ul id=triple>
                         <li><a href="">OLGUN & Co. LTD.</a></li>
                         <li><a href="">ITALMOBILI</a></li>

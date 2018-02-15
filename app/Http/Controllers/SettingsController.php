@@ -27,7 +27,7 @@ class SettingsController extends Controller
         $setting->facebook = request('facebook');
         $setting->twitter = request('twitter');
         $setting->instagram = request('instagram');
-        $setting->google = request('google');
+        $setting->pinterest = request('pinterest');
         $setting->analytics = request('analytics');
         $setting->map = request('map');
         $setting->newsletter = request('newsletter');

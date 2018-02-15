@@ -23,7 +23,7 @@ class CreateSettingsTable extends Migration
             $table->text('facebook')->nullable();
             $table->text('twitter')->nullable();
             $table->text('instagram')->nullable();
-            $table->text('google')->nullable();
+            $table->text('pinterest')->nullable();
             $table->text('analytics')->nullable();
             $table->text('map')->nullable();
             $table->timestamps();

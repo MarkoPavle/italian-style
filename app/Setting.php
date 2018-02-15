@@ -24,6 +24,6 @@ class Setting extends Model
      *
      * @var array
      */
-    protected $fillable = ['phone1', 'phone2', 'email1', 'email2', 'facebook', 'twitter', 'instagram', 'google', 'analytics', 'map', 'newsletter'];
+    protected $fillable = ['phone1', 'phone2', 'email1', 'email2', 'facebook', 'twitter', 'instagram', 'pinterest', 'analytics', 'map', 'newsletter'];
 
 }

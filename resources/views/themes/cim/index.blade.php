@@ -176,5 +176,4 @@
 </script>
 {!! HTML::script($theme->slug.'/js/app.bundle.js') !!}
 </body>
-
 </html>
