@@ -34,6 +34,6 @@ class Collection extends Model
     }
 
     public function product(){
-        return $this->hasMany(Post::class);
+        return $this->hasMany(Product::class);
     }
 }

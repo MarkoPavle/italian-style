@@ -141,39 +141,7 @@
     </div>
 </div>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js></script>
-<script>
-    $(document).ready(function() {
-        $(".slider").bxSlider({
-            auto: !0
-        });
-        $(".slider2").bxSlider({
-            auto: !0
-        });
-        $(".owl-carousel").owlCarousel({
-            nav: !0,
-            navText: ["<img src='{{ $theme->slug }}/img/left-arrow.png'>", "<img src='{{ $theme->slug }}/img/right-arrow.png'>"],
-            margin: 30,
-            loop: !0,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                480: {
-                    items: 1
-                },
-                768: {
-                    items: 2
-                },
-                992: {
-                    items: 3
-                },
-                1200: {
-                    items: 3
-                }
-            }
-        })
-    })
-</script>
+@yield('footer_scripts')
 {!! HTML::script($theme->slug.'/js/app.bundle.js') !!}
 </body>
 </html>

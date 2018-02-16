@@ -9,10 +9,10 @@
                     </div>
                     <div class=grid-text-wrapper>
                         <h2>
-                            <a href="{{ $collection->slug }}">{{ $collection->title }}</a>
+                            <a href="{{ url('collections/'.$collection->slug) }}">{{ $collection->title }}</a>
                         </h2>
                         {!! $collection->desc !!}
-                        <a href="" class="btn">View more
+                        <a href="{{ url('collections/'.$collection->slug) }}" class="btn">View more
                             <i class="fas fa-angle-right"></i>
                         </a>
                     </div>

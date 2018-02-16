@@ -30,18 +30,26 @@ Route::group(
     ],
     function() {
         Route::get('/', 'PagesController@index');
-        Route::get('/collections', 'PagesController@index');
+        Route::get('collections', 'PagesController@index');
 
-        Route::get('/collections/{slug}', 'PagesController@collections');
-        Route::get('/collezioni/{slug}', 'PagesController@collections');
+        Route::get('collections/{slug}', 'PagesController@collections');
+        Route::get('collezioni/{slug}', 'PagesController@collections');
 
-        Route::get('/contact', 'PagesController@contact')->name('contact');
-        Route::get('/contatto', 'PagesController@contact')->name('contact');
+        Route::get('collections/{slug1}/{slug2}', 'PagesController@parentCollections');
+        Route::get('collezioni/{slug1}/{slug2}', 'PagesController@parentCollections');
 
-        Route::get('/corporate', 'PagesController@corporate')->name('corporate');
-        Route::get('/azienda', 'PagesController@corporate')->name('corporate');
+        Route::get('contact', 'PagesController@contact')->name('contact');
+        Route::get('contatto', 'PagesController@contact')->name('contact');
 
-        Route::get('/partnership', 'PagesController@partnership')->name('partnership');
-        Route::get('/partner', 'PagesController@partnership')->name('partnership');
+        Route::get('corporate', 'PagesController@corporate')->name('corporate');
+        Route::get('azienda', 'PagesController@corporate')->name('corporate');
+
+        Route::get('partnership', 'PagesController@partnership')->name('partnership');
+        Route::get('partner', 'PagesController@partnership')->name('partnership');
+
+        Route::get('promozioni', 'PagesController@promotions')->name('promotions');
+        Route::get('promotions', 'PagesController@promotions')->name('promotions');
+
+        Route::get('news', 'PagesController@post')->name('post');
     }
 );

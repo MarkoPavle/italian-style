@@ -4,8 +4,13 @@
 
     <section id=hero-img>
         <div class="container-fluid hero-img-container">
-            <img class="img-fluid desktop-image" src="{{ url($parent->heroImage) }}" alt="{{ $parent->title }}">
-            <img class=mobile-image src="{{ url($parent->heroImageMobile) }}" alt="{{ url($parent->title) }}">
+            @if($parent->heroImage == null || $parent->heroImageMobile == null)
+                <img class="img-fluid desktop-image" src="{{ url('uploads/collections/day-collections.jpg') }}" alt="{{ $parent->title }}">
+                <img class=mobile-image src="{{ url('uploads/collections/day-collections-mobile.jpg') }}" alt="{{ url($parent->title) }}">
+            @else
+                <img class="img-fluid desktop-image" src="{{ url($parent->heroImage) }}" alt="{{ $parent->title }}">
+                <img class=mobile-image src="{{ url($parent->heroImageMobile) }}" alt="{{ url($parent->title) }}">
+            @endif
             <div class=collections-header>
                 <h5>{{ $parent->title }}</h5>
             </div>
@@ -27,15 +32,15 @@
                     @foreach($collections as $collection)
                         <div class=collections-grid-item-{{ count($collections) }}>
                             <div class=collections-grid-image-wrapper1>
-                                <a href="">
+                                <a href="{{ url('collections/' . $parent->slug . '/' . $collection->slug) }}">
                                     <img class="img-fluid" src="{{ url($collection->image) }}" alt="{{ $collection->title }}">
                                 </a>
                             </div>
                             <div class=collections-grid-text-wrapper>
                                 <h2>
-                                    <a href=#>{{ $collection->title }}</a>
+                                    <a href="{{ url('collections/' . $parent->slug . '/' . $collection->slug) }}">{{ $collection->title }}</a>
                                 </h2>
-                                <a href=# class=btn>View more <div class=strelica> </div> </a>
+                                <a href="{{ url('collections/' . $parent->slug . '/' . $collection->slug) }}" class=btn>View more <div class=strelica> </div> </a>
                             </div>
                         </div>
                     @endforeach
