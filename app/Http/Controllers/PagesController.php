@@ -41,7 +41,7 @@ class PagesController extends Controller
                 $parent = Collection::whereTranslation('slug', 'kitchens')->first();
                 $products = $parent->product()->where('publish', 1)->get();
             }
-            return view('themes.'.$theme->slug.'.pages.product', compact('settings', 'theme', 'parent', 'products', 'home', 'translate'));
+            return view('themes.'.$theme->slug.'.pages.product2', compact('settings', 'theme', 'parent', 'products', 'home', 'translate'));
         }
     }
 
@@ -60,7 +60,7 @@ class PagesController extends Controller
                 $parent = Collection::whereTranslation('slug', 'kitchens')->first();
                 $products = $parent->product()->where('publish', 1)->get();
             }
-            return view('themes.'.$theme->slug.'.pages.product', compact('settings', 'theme', 'parent', 'products', 'home', 'translate'));
+            return view('themes.'.$theme->slug.'.pages.product2', compact('settings', 'theme', 'parent', 'products', 'home', 'translate'));
         }
     }
 
@@ -103,7 +103,7 @@ class PagesController extends Controller
         return view('themes.'.$theme->slug.'.pages.post', compact('settings', 'theme', 'home', 'related', 'post', 'translate'));
     }
 
-    public function post($slug1, $slug2, $id){
+    public function post($slug2, $id){
         $settings = Setting::first();
         $theme = Theme::where('active', 1)->first();
         $home = false;
@@ -111,6 +111,30 @@ class PagesController extends Controller
         $related = Post::where('id', '<>', $post->id)->where('publish', 1)->orderBy('publish_at', 'DESC')->paginate(6);
         $translate = Post::getPostLink($post);
         return view('themes.'.$theme->slug.'.pages.post', compact('settings', 'theme', 'home', 'related', 'post', 'translate'));
+    }
+
+    public function product($slug1, $slug2, $id){
+        $settings = Setting::first();
+        $theme = Theme::where('active', 1)->first();
+        $parent = Collection::whereTranslation('slug', $slug1)->first();
+        $product = Product::find($id);
+        $products = Product::where('id', '<>', $parent->id)->where('collection_id', $parent->id)->orderBy('order', 'ASC')->get();
+        $photos = $product->photo()->where('piblish', 1)->orderBy('id', 'DESC')->get();
+        $home = false;
+        $translate = 'link';
+        return view('themes.'.$theme->slug.'.pages.product2', compact('settings', 'theme', 'parent', 'products', 'home', 'translate', 'product', 'photos'));
+    }
+
+    public function product2($slug1, $slug2, $slug3, $id){
+        $settings = Setting::first();
+        $theme = Theme::where('active', 1)->first();
+        $parent = Collection::whereTranslation('slug', $slug2)->first();
+        $product = Product::find($id);
+        $products = Product::where('id', '<>', $parent->id)->where('collection_id', $parent->id)->orderBy('order', 'ASC')->get();
+        $photos = $product->photo()->where('piblish', 1)->orderBy('id', 'DESC')->get();
+        $home = false;
+        $translate = 'link';
+        return view('themes.'.$theme->slug.'.pages.product2', compact('settings', 'theme', 'parent', 'products', 'home', 'translate', 'product', 'photos'));
     }
 
     public function promotions(){

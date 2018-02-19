@@ -29,6 +29,7 @@
                                 <label>Published</label><br>
                                 <switches v-model="category.publish" theme="bootstrap" color="primary"></switches>
                             </div>
+
                             <upload-image-helper
                                     :image="category.image"
                                     :defaultImage="null"
@@ -37,6 +38,7 @@
                                     @uploadImage="upload($event)"
                                     @removeRow="remove($event)"
                             ></upload-image-helper>
+
                                 <div class="form-group">
                                     <button class="btn btn-primary" type="submit">Edit general</button>
                                 </div>

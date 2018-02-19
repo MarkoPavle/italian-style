@@ -8,11 +8,11 @@ use File;
 
 class Photo extends Model
 {
-    protected $fillable = ['post_id', 'file_name', 'file_path', 'file_path_small', 'publish'];
+    protected $fillable = ['product_id', 'file_name', 'file_path', 'file_path_small', 'publish'];
 
-    public static function saveImage($post_id, $image){
-        $post = Post::find($post_id);
-        $folderName = $post->{'slug:en'} . '-' . $post->id;
+    public static function saveImage($product_id, $image){
+        $product = Product::find($product_id);
+        $folderName = $product->{'slug:en'} . '-' . $product->id;
         $folderPath = public_path('uploads/galleries/' . $folderName);
         if(!File::exists($folderPath)) {
             File::makeDirectory($folderPath, 0775, true, true);
@@ -31,7 +31,7 @@ class Photo extends Model
             self::cropImage($imagePathTmb, 150);
 
             $photo = new Photo();
-            $photo->post_id = $post_id;
+            $photo->product_id = $product_id;
             $photo->file_name = $imageName;
             $photo->file_path = $imagePath;
             $photo->file_path_small = $imagePathTmb;
@@ -49,7 +49,7 @@ class Photo extends Model
         })->save($image);
     }
 
-    public function post(){
-        return $this->belongsTo(Post::class);
+    public function product(){
+        return $this->belongsTo(Product::class);
     }
 }

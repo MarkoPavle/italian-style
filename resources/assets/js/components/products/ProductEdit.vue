@@ -20,7 +20,7 @@
                     </div>
                 </div>
 
-                <!--
+
                 <div class="col-md-12">
                     <div class="card">
                         <h5>Gallery images</h5>
@@ -33,7 +33,7 @@
                         </div>
                     </div>
                 </div>
-                -->
+
 
                 <div class="col-md-4">
                     <div class="card">
@@ -74,11 +74,11 @@
                             </div>
                         </form>
                     </div><!-- .card -->
-                    <!--
+
                     <div class="card">
                         <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions" @vdropzone-success="showSuccess()"></vue-dropzone>
                     </div>
-                    -->
+
                 </div>
                 <div class="col-md-8">
                     <div class="card">
@@ -232,7 +232,7 @@
             this.getProduct('en');
             this.getProduct('it');
             this.getList();
-            //this.getPhotos();
+            this.getPhotos();
         },
         methods: {
             getProduct(locale){
