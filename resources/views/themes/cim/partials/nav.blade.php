@@ -7,11 +7,11 @@
     @endforeach
     <div class="nav-item lang">
         @if(app()->getLocale() == 'it')
-            <a class=nav-link href="{{ url('en') }}">
+            <a class=nav-link href="{{ $translate }}">
                 <span class=active>eng</span>
             </a>
         @else
-            <a class=nav-link href="{{ url('it') }}">
+            <a class=nav-link href="{{ $translate }}">
                 <span class=active>ita</span>
             </a>
         @endif

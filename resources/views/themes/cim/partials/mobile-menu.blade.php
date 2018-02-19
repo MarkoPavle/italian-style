@@ -24,7 +24,11 @@
                             @if(count($collections))
                                 @foreach($collections as $collection)
                                     <p>
-                                        <a href="{{ url('collections/'.$collection->slug) }}">{{ $collection->title }}</a>
+                                        @if(app()->getLocale() == 'en')
+                                            <a href="{{ url('collections/'.$collection->slug) }}">{{ $collection->title }}</a>
+                                        @else
+                                            <a href="{{ url('collezioni/'.$collection->slug) }}">{{ $collection->title }}</a>
+                                        @endif
                                     </p>
                                 @endforeach
                             @endif

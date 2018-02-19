@@ -71,6 +71,24 @@
                             @uploadImage="upload($event)"
                             @removeRow="remove($event)"
                     ></upload-image-helper>
+
+                    <upload-image-helper
+                            :image="collection.heroImage"
+                            :defaultImage="null"
+                            :titleImage="'Desktop hero image'"
+                            :error="error"
+                            @uploadImage="uploadHeroImage($event)"
+                            @removeRow="remove($event)"
+                    ></upload-image-helper>
+
+                    <upload-image-helper
+                            :image="collection.heroImageMobile"
+                            :defaultImage="null"
+                            :titleImage="'Mobile hero image'"
+                            :error="error"
+                            @uploadImage="uploadHeroImageMobile($event)"
+                            @removeRow="remove($event)"
+                    ></upload-image-helper>
                 </div>
             </div>
         </div>
@@ -142,6 +160,12 @@
             },
             upload(image){
                 this.collection.image = image[0];
+            },
+            uploadHeroImage(image){
+                this.collection.heroImage = image[0];
+            },
+            uploadHeroImageMobile(image){
+                this.collection.heroImageMobile = image[0];
             }
         }
     }

@@ -85,7 +85,11 @@
                                     <ul>
                                         @foreach($collections as $collection)
                                             <li>
-                                                <a href="{{ url($collection->slug) }}">{{ $collection->title }}</a>
+                                                @if(app()->getLocale() == 'en')
+                                                    <a href="{{ url('collections/'.$collection->slug) }}">{{ $collection->title }}</a>
+                                                @else
+                                                    <a href="{{ url('collezioni/'.$collection->slug) }}">{{ $collection->title }}</a>
+                                                @endif
                                             </li>
                                         @endforeach
                                     </ul>

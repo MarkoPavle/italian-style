@@ -20,6 +20,8 @@ Route::get('/admin', function () {
     return view('layouts.admin-app');
 });
 
+Route::get('proba', 'PagesController@proba');
+
 // filemanager
 Route::middleware('auth')->get('filemanager/show', 'FilemanagerController@index');
 
@@ -31,6 +33,7 @@ Route::group(
     function() {
         Route::get('/', 'PagesController@index');
         Route::get('collections', 'PagesController@index');
+        Route::get('collezioni', 'PagesController@index');
 
         Route::get('collections/{slug}', 'PagesController@collections');
         Route::get('collezioni/{slug}', 'PagesController@collections');
@@ -50,6 +53,8 @@ Route::group(
         Route::get('promozioni', 'PagesController@promotions')->name('promotions');
         Route::get('promotions', 'PagesController@promotions')->name('promotions');
 
-        Route::get('news', 'PagesController@post')->name('post');
+        Route::get('news', 'PagesController@news')->name('news');
+
+        Route::get('{slug1}/{slug2}/{id}', 'PagesController@post')->name('post');
     }
 );

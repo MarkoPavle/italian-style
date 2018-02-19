@@ -82,6 +82,20 @@ class CollectionsController extends Controller
         ]);
     }
 
+    public function uploadHeroImage($id){
+        $image = Collection::base64UploadHeroImage($id, request('image'));
+        return response()->json([
+            'image' => $image
+        ]);
+    }
+
+    public function uploadHeroImageMobile($id){
+        $image = Collection::base64UploadHeroImageMobile($id, request('image'));
+        return response()->json([
+            'image' => $image
+        ]);
+    }
+
     public function lists(){
         $locale = 'en';
         app()->setLocale($locale);

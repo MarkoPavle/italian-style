@@ -44,6 +44,8 @@ Route::middleware('auth:api')->get('collections/lists', 'CollectionsController@l
 Route::middleware('auth:api')->get('collections/parent-lists', 'CollectionsController@parentLists');
 Route::middleware('auth:api')->resource('collections', 'CollectionsController');
 Route::middleware('auth:api')->post('collections/{id}/image', 'CollectionsController@uploadImage');
+Route::middleware('auth:api')->post('collections/{id}/heroImage', 'CollectionsController@uploadHeroImage');
+Route::middleware('auth:api')->post('collections/{id}/heroImageMobile', 'CollectionsController@uploadHeroImageMobile');
 Route::middleware('auth:api')->post('collections/{id}/lang', 'CollectionsController@updateLang');
 
 Route::middleware('auth:api')->post('products/search', 'ProductsController@search');

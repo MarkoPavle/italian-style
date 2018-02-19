@@ -16,7 +16,7 @@ class Post extends Model
 
     protected $table = 'posts';
 
-    protected $fillable = ['id', 'user_id', 'category_id', 'order', 'parent', 'level', 'image', 'publish', 'publish_at'];
+    protected $fillable = ['id', 'user_id', 'category_id', 'image', 'publish', 'publish_at'];
 
     public static function base64UploadImage($post_id, $image){
         $post = self::find($post_id);
@@ -31,6 +31,15 @@ class Post extends Model
         $post->image = 'uploads/posts/' . $filename;
         $post->update();
         return $post->image;
+    }
+
+    public static function getPostLink($post){
+        $category = Category::find($post->category_id);
+        if(app()->getLocale() == 'en'){
+            return url('it/' .$category->{"slug:it"} . '/' . $post->{"slug:it"} . '/' . $post->id);
+        }else{
+            return url('en/' .$category->{"slug:en"} . '/' . $post->{"slug:en"} . '/' . $post->id);
+        }
     }
 
     public function user(){

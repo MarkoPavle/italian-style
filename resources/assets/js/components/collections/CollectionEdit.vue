@@ -48,6 +48,25 @@
                                     @uploadImage="upload($event)"
                                     @removeRow="remove($event)"
                             ></upload-image-helper>
+
+                            <upload-image-helper
+                                    :image="collection.heroImage"
+                                    :defaultImage="null"
+                                    :titleImage="'Desktop hero image'"
+                                    :error="error"
+                                    @uploadImage="uploadHeroImage($event)"
+                                    @removeRow="remove($event)"
+                            ></upload-image-helper>
+
+                            <upload-image-helper
+                                    :image="collection.heroImageMobile"
+                                    :defaultImage="null"
+                                    :titleImage="'Mobile hero image'"
+                                    :error="error"
+                                    @uploadImage="uploadHeroImageMobile($event)"
+                                    @removeRow="remove($event)"
+                            ></upload-image-helper>
+
                                 <div class="form-group">
                                     <button class="btn btn-primary" type="submit">Edit general</button>
                                 </div>
@@ -236,6 +255,40 @@
                 axios.post('api/collections/' + this.collection.id + '/image', { image: image[0] })
                     .then(res => {
                         this.collection.image = res.data.image;
+                        this.error = null;
+                        swal({
+                            position: 'center',
+                            type: 'success',
+                            title: 'Success',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }).catch(e => {
+                        console.log(e);
+                        this.error = e.response.data.errors;
+                    });
+            },
+            uploadHeroImage(image){
+                axios.post('api/collections/' + this.collection.id + '/heroImage', { image: image[0] })
+                    .then(res => {
+                        this.collection.heroImage = res.data.image;
+                        this.error = null;
+                        swal({
+                            position: 'center',
+                            type: 'success',
+                            title: 'Success',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }).catch(e => {
+                        console.log(e);
+                        this.error = e.response.data.errors;
+                    });
+            },
+            uploadHeroImageMobile(image){
+                axios.post('api/collections/' + this.collection.id + '/heroImageMobile', { image: image[0] })
+                    .then(res => {
+                        this.collection.heroImageMobile = res.data.image;
                         this.error = null;
                         swal({
                             position: 'center',

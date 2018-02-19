@@ -35042,7 +35042,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var _this = this;
 
         axios.get('api/users/logout').then(function (res) {
-            if (res.data.message == 'logout user') {
+            if (res.data.message == 'logout user' || res.status == 200) {
                 _this.$auth.destroyToken();
                 _this.$router.push('/login');
             }
@@ -46086,6 +46086,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -46150,6 +46168,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         upload: function upload(image) {
             this.collection.image = image[0];
+        },
+        uploadHeroImage: function uploadHeroImage(image) {
+            this.collection.heroImage = image[0];
+        },
+        uploadHeroImageMobile: function uploadHeroImageMobile(image) {
+            this.collection.heroImageMobile = image[0];
         }
     }
 });
@@ -46441,6 +46465,40 @@ var render = function() {
                   _vm.remove($event)
                 }
               }
+            }),
+            _vm._v(" "),
+            _c("upload-image-helper", {
+              attrs: {
+                image: _vm.collection.heroImage,
+                defaultImage: null,
+                titleImage: "Desktop hero image",
+                error: _vm.error
+              },
+              on: {
+                uploadImage: function($event) {
+                  _vm.uploadHeroImage($event)
+                },
+                removeRow: function($event) {
+                  _vm.remove($event)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("upload-image-helper", {
+              attrs: {
+                image: _vm.collection.heroImageMobile,
+                defaultImage: null,
+                titleImage: "Mobile hero image",
+                error: _vm.error
+              },
+              on: {
+                uploadImage: function($event) {
+                  _vm.uploadHeroImageMobile($event)
+                },
+                removeRow: function($event) {
+                  _vm.remove($event)
+                }
+              }
             })
           ],
           1
@@ -46545,6 +46603,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_switches___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vue_switches__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue_ckeditor2__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue_ckeditor2___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vue_ckeditor2__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -46796,6 +46873,42 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 console.log(e);
                 _this5.error = e.response.data.errors;
             });
+        },
+        uploadHeroImage: function uploadHeroImage(image) {
+            var _this6 = this;
+
+            axios.post('api/collections/' + this.collection.id + '/heroImage', { image: image[0] }).then(function (res) {
+                _this6.collection.heroImage = res.data.image;
+                _this6.error = null;
+                __WEBPACK_IMPORTED_MODULE_2_sweetalert2___default()({
+                    position: 'center',
+                    type: 'success',
+                    title: 'Success',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }).catch(function (e) {
+                console.log(e);
+                _this6.error = e.response.data.errors;
+            });
+        },
+        uploadHeroImageMobile: function uploadHeroImageMobile(image) {
+            var _this7 = this;
+
+            axios.post('api/collections/' + this.collection.id + '/heroImageMobile', { image: image[0] }).then(function (res) {
+                _this7.collection.heroImageMobile = res.data.image;
+                _this7.error = null;
+                __WEBPACK_IMPORTED_MODULE_2_sweetalert2___default()({
+                    position: 'center',
+                    type: 'success',
+                    title: 'Success',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }).catch(function (e) {
+                console.log(e);
+                _this7.error = e.response.data.errors;
+            });
         }
     }
 });
@@ -46978,6 +47091,40 @@ var render = function() {
                   on: {
                     uploadImage: function($event) {
                       _vm.upload($event)
+                    },
+                    removeRow: function($event) {
+                      _vm.remove($event)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("upload-image-helper", {
+                  attrs: {
+                    image: _vm.collection.heroImage,
+                    defaultImage: null,
+                    titleImage: "Desktop hero image",
+                    error: _vm.error
+                  },
+                  on: {
+                    uploadImage: function($event) {
+                      _vm.uploadHeroImage($event)
+                    },
+                    removeRow: function($event) {
+                      _vm.remove($event)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("upload-image-helper", {
+                  attrs: {
+                    image: _vm.collection.heroImageMobile,
+                    defaultImage: null,
+                    titleImage: "Mobile hero image",
+                    error: _vm.error
+                  },
+                  on: {
+                    uploadImage: function($event) {
+                      _vm.uploadHeroImageMobile($event)
                     },
                     removeRow: function($event) {
                       _vm.remove($event)
