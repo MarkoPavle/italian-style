@@ -37751,14 +37751,23 @@ var render = function() {
                     _c(
                       "td",
                       [
-                        _c("font-awesome-icon", {
-                          attrs: { icon: "pencil-alt" },
-                          on: {
-                            click: function($event) {
-                              _vm.editRow(row["id"])
+                        _c(
+                          "router-link",
+                          {
+                            staticClass: "edit-link",
+                            attrs: {
+                              tag: "a",
+                              to: "categories/" + row["id"] + "/edit",
+                              target: "_blank"
                             }
-                          }
-                        }),
+                          },
+                          [
+                            _c("font-awesome-icon", {
+                              attrs: { icon: "pencil-alt" }
+                            })
+                          ],
+                          1
+                        ),
                         _vm._v(" "),
                         _c("font-awesome-icon", {
                           attrs: { icon: "times" },
@@ -39922,14 +39931,23 @@ var render = function() {
                       _c(
                         "td",
                         [
-                          _c("font-awesome-icon", {
-                            attrs: { icon: "pencil-alt" },
-                            on: {
-                              click: function($event) {
-                                _vm.editRow(row["id"])
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "edit-link",
+                              attrs: {
+                                tag: "a",
+                                to: "posts/" + row["id"] + "/edit",
+                                target: "_blank"
                               }
-                            }
-                          }),
+                            },
+                            [
+                              _c("font-awesome-icon", {
+                                attrs: { icon: "pencil-alt" }
+                              })
+                            ],
+                            1
+                          ),
                           _vm._v(" "),
                           _c("font-awesome-icon", {
                             attrs: { icon: "times" },
@@ -45865,14 +45883,23 @@ var render = function() {
                       _c(
                         "td",
                         [
-                          _c("font-awesome-icon", {
-                            attrs: { icon: "pencil-alt" },
-                            on: {
-                              click: function($event) {
-                                _vm.editRow(row["id"])
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "edit-link",
+                              attrs: {
+                                tag: "a",
+                                to: "collections/" + row["id"] + "/edit",
+                                target: "_blank"
                               }
-                            }
-                          }),
+                            },
+                            [
+                              _c("font-awesome-icon", {
+                                attrs: { icon: "pencil-alt" }
+                              })
+                            ],
+                            1
+                          ),
                           _vm._v(" "),
                           _c("font-awesome-icon", {
                             attrs: { icon: "times" },
@@ -47837,14 +47864,23 @@ var render = function() {
                       _c(
                         "td",
                         [
-                          _c("font-awesome-icon", {
-                            attrs: { icon: "pencil-alt" },
-                            on: {
-                              click: function($event) {
-                                _vm.editRow(row["id"])
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "edit-link",
+                              attrs: {
+                                tag: "a",
+                                to: "products/" + row["id"] + "/edit",
+                                target: "_blank"
                               }
-                            }
-                          }),
+                            },
+                            [
+                              _c("font-awesome-icon", {
+                                attrs: { icon: "pencil-alt" }
+                              })
+                            ],
+                            1
+                          ),
                           _vm._v(" "),
                           _c("font-awesome-icon", {
                             attrs: { icon: "times" },

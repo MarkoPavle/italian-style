@@ -10440,6 +10440,10 @@ a.text-dark:hover {
   margin-bottom: 0;
 }
 
+#place .edit-link {
+  color: black;
+}
+
 #place .card {
   padding: 15px;
   margin-bottom: 30px;

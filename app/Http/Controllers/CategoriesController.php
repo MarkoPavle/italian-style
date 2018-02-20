@@ -12,7 +12,7 @@ class CategoriesController extends Controller
     public function index(){
         $categories = Category::select('categories.id as id', 'category_translations.title as title', 'categories.publish as publish', 'categories.created_at as created_at')
             ->join('category_translations', 'categories.id', '=', 'category_translations.category_id')
-            ->orderBy('categories.created_at', 'DESC')->groupBy('categories.id')->paginate(3);
+            ->orderBy('categories.created_at', 'DESC')->groupBy('categories.id')->paginate(50);
         return response()->json([
             'categories' => $categories,
         ]);

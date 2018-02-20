@@ -34,7 +34,7 @@
                                 <td>{{ row.translations.length }}</td>
                                 <td>{{ row.created_at }}</td>
                                 <td>
-                                    <font-awesome-icon icon="pencil-alt" @click="editRow(row['id'])"/>
+                                    <router-link tag="a" :to="'categories/' + row['id'] + '/edit'" class="edit-link" target="_blank"><font-awesome-icon icon="pencil-alt"/></router-link>
                                     <font-awesome-icon icon="times" @click="deleteRow(row)" />
                                 </td>
                             </tr>

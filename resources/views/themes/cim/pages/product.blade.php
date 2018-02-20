@@ -17,11 +17,9 @@
     <section id=hero-img>
         <div class="container-fluid hero-img-container">
             @if($collection->heroImage == null || $collection->heroImageMobile == null)
-                <img class="img-fluid desktop-image" src="{{ url('uploads/collections/day-collections.jpg') }}" alt="{{ $collection->title }}">
-                @if(false)<img class=mobile-image src="{{ url('uploads/collections/day-collections-mobile.jpg') }}" alt="{{ url($collection->title) }}">@endif
+                <img class="desktop-image" src="{{ url('uploads/collections/day-collections.jpg') }}" alt="{{ $collection->title }}">
             @else
-                <img class="img-fluid desktop-image" src="{{ url($collection->heroImage) }}" alt="{{ $collection->title }}">
-                    @if(false)<img class=mobile-image src="{{ url($collection->heroImageMobile) }}" alt="{{ url($collection->title) }}">@endif
+                <img class="desktop-image" src="{{ url($collection->heroImage) }}" alt="{{ $collection->title }}">
             @endif
             @if(false)
             <div class=collections-header>

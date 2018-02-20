@@ -18,7 +18,7 @@ class PostsController extends Controller
             ->join('post_translations', 'posts.id', '=', 'post_translations.post_id')
             ->join('categories', 'posts.category_id', '=', 'categories.id')
             ->join('category_translations', 'categories.id', '=', 'category_translations.category_id')
-            ->orderBy('posts.created_at', 'DESC')->groupBy('posts.id')->paginate(3);
+            ->orderBy('posts.created_at', 'DESC')->groupBy('posts.id')->paginate(50);
         return response()->json([
             'posts' => $posts,
         ]);
