@@ -122,7 +122,7 @@ class PostsController extends Controller
                     $query->where('post_translations.title', 'like', '%'.$text.'%')->orWhere('post_translations.title', 'like', '%'.$text.'%');
                 }
             })
-            ->orderBy('posts.created_at', 'DESC')->groupBy('posts.id')->paginate(3);
+            ->orderBy('posts.created_at', 'DESC')->groupBy('posts.id')->paginate(50);
         return response()->json([
             'posts' => $posts,
         ]);

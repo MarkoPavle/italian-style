@@ -130,7 +130,7 @@ class ProductsController extends Controller
                     $query->where('product_translations.title', 'like', '%'.$text.'%')->orWhere('product_translations.title', 'like', '%'.$text.'%');
                 }
             })
-            ->orderBy('products.created_at', 'DESC')->groupBy('products.id')->paginate(3);
+            ->orderBy('products.created_at', 'DESC')->groupBy('products.id')->paginate(50);
         return response()->json([
             'products' => $products,
         ]);

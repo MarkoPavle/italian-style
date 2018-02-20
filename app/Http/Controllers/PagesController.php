@@ -124,7 +124,7 @@ class PagesController extends Controller
         $parent = Collection::whereTranslation('slug', $slug1)->first();
         $collection = Collection::whereTranslation('slug', $slug2)->first();
         $product = Product::find($id);
-        $products = Product::where('id', '<>', $product->id)->where('collection_id', $parent->id)->orderBy('order', 'ASC')->get();
+        $products = Product::where('id', '<>', $product->id)->where('collection_id', $collection->id)->orderBy('order', 'ASC')->get();
         $photos = $product->photo()->where('publish', 1)->orderBy('id', 'DESC')->get();
         $home = false;
         $translate = 'link';
