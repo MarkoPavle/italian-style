@@ -36,12 +36,8 @@ class PagesController extends Controller
         if(count($collections)>0){
             return view('themes.'.$theme->slug.'.pages.collections', compact('settings', 'theme', 'parent', 'collections', 'home', 'translate'));
         }else{
-            $products = $parent->product()->where('publish', 1)->get();
-            if(count($products)==0){
-                $parent = Collection::whereTranslation('slug', 'kitchens')->first();
-                $products = $parent->product()->where('publish', 1)->get();
-            }
-            return view('themes.'.$theme->slug.'.pages.product2', compact('settings', 'theme', 'parent', 'products', 'home', 'translate'));
+            $product = $parent->product()->where('publish', 1)->first();
+            return redirect(Product::getProductLink($product));
         }
     }
 
@@ -55,12 +51,8 @@ class PagesController extends Controller
         if(count($collections)>0){
             return view('themes.'.$theme->slug.'.pages.collections', compact('settings', 'theme', 'parent', 'collections', 'home', 'translate'));
         }else{
-            $products = $parent->product()->where('publish', 1)->get();
-            if(count($products)==0){
-                $parent = Collection::whereTranslation('slug', 'kitchens')->first();
-                $products = $parent->product()->where('publish', 1)->get();
-            }
-            return view('themes.'.$theme->slug.'.pages.product2', compact('settings', 'theme', 'parent', 'products', 'home', 'translate'));
+            $product = $parent->product()->where('publish', 1)->first();
+            return redirect(Product::getProductLink($product));
         }
     }
 
@@ -116,25 +108,27 @@ class PagesController extends Controller
     public function product($slug1, $slug2, $id){
         $settings = Setting::first();
         $theme = Theme::where('active', 1)->first();
-        $parent = Collection::whereTranslation('slug', $slug1)->first();
+        $collection = Collection::whereTranslation('slug', $slug1)->first();
         $product = Product::find($id);
-        $products = Product::where('id', '<>', $parent->id)->where('collection_id', $parent->id)->orderBy('order', 'ASC')->get();
-        $photos = $product->photo()->where('piblish', 1)->orderBy('id', 'DESC')->get();
+        $products = Product::where('id', '<>', $product->id)->where('collection_id', $collection->id)->orderBy('order', 'ASC')->get();
+        $photos = $product->photo()->where('publish', 1)->orderBy('id', 'DESC')->get();
         $home = false;
         $translate = 'link';
-        return view('themes.'.$theme->slug.'.pages.product2', compact('settings', 'theme', 'parent', 'products', 'home', 'translate', 'product', 'photos'));
+        $parent = null;
+        return view('themes.'.$theme->slug.'.pages.product2', compact('settings', 'theme', 'collection', 'products', 'home', 'translate', 'product', 'photos', 'parent'));
     }
 
     public function product2($slug1, $slug2, $slug3, $id){
         $settings = Setting::first();
         $theme = Theme::where('active', 1)->first();
-        $parent = Collection::whereTranslation('slug', $slug2)->first();
+        $parent = Collection::whereTranslation('slug', $slug1)->first();
+        $collection = Collection::whereTranslation('slug', $slug2)->first();
         $product = Product::find($id);
-        $products = Product::where('id', '<>', $parent->id)->where('collection_id', $parent->id)->orderBy('order', 'ASC')->get();
-        $photos = $product->photo()->where('piblish', 1)->orderBy('id', 'DESC')->get();
+        $products = Product::where('id', '<>', $product->id)->where('collection_id', $parent->id)->orderBy('order', 'ASC')->get();
+        $photos = $product->photo()->where('publish', 1)->orderBy('id', 'DESC')->get();
         $home = false;
         $translate = 'link';
-        return view('themes.'.$theme->slug.'.pages.product2', compact('settings', 'theme', 'parent', 'products', 'home', 'translate', 'product', 'photos'));
+        return view('themes.'.$theme->slug.'.pages.product2', compact('settings', 'theme', 'parent', 'products', 'home', 'translate', 'product', 'photos', 'collection'));
     }
 
     public function promotions(){

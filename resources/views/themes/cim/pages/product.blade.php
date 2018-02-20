@@ -4,16 +4,16 @@
 
     <section id=hero-img>
         <div class="container-fluid hero-img-container">
-            @if($parent->heroImage == null || $parent->heroImageMobile == null)
-                <img class="img-fluid desktop-image" src="{{ url('uploads/collections/day-collections.jpg') }}" alt="{{ $parent->title }}">
-                <img class=mobile-image src="{{ url('uploads/collections/day-collections-mobile.jpg') }}" alt="{{ url($parent->title) }}">
+            @if($collection->heroImage == null || $collection->heroImageMobile == null)
+                <img class="img-fluid desktop-image" src="{{ url('uploads/collections/day-collections.jpg') }}" alt="{{ $collection->title }}">
+                <img class=mobile-image src="{{ url('uploads/collections/day-collections-mobile.jpg') }}" alt="{{ url($collection->title) }}">
             @else
-                <img class="img-fluid desktop-image" src="{{ url($parent->heroImage) }}" alt="{{ $parent->title }}">
-                <img class=mobile-image src="{{ url($parent->heroImageMobile) }}" alt="{{ url($parent->title) }}">
+                <img class="img-fluid desktop-image" src="{{ url($collection->heroImage) }}" alt="{{ $collection->title }}">
+                <img class=mobile-image src="{{ url($collection->heroImageMobile) }}" alt="{{ url($collection->title) }}">
             @endif
             @if(false)
             <div class=collections-header>
-                <h5>{{ $parent->title }}</h5>
+                <h5>{{ $collection->title }}</h5>
             </div>
             @endif
         </div>
@@ -28,48 +28,56 @@
                                 <h5>Day collection</h5>
                             </div>
                             <div class="col-md-8 sakrij">
-                                <div class="owl-carousel owl-theme">
-                                    <div class=owl-carousel2>
-                                        <div class=item2> <a href=#>STEVEN1</a> </div>
-                                        <div class=item2> <a href=#>STEVEN2</a> </div>
-                                        <div class=item2> <a href=#>STEVEN3</a> </div>
-                                        <div class=item2> <a href=#>STEVEN4</a> </div>
-                                        <div class=item2> <a href=#>STEVEN5</a> </div>
-                                        <div class=item2> <a href=#>STEVEN6</a> </div>
+                                @if(count($products)>0)
+                                    <div class="owl-carousel owl-theme">
+                                        <div class=owl-carousel2>
+                                            @foreach($products as $p)
+                                                <div class=item2> <a href="{{ \App\Product::getProductLink($p) }}">{{ $p->title }}</a> </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                    @if(count($photos)>0)
+                        @php $link = \App\Product::getProductLink($product); @endphp
+                        <div class="product-image-wrapper col-md-12">
+                            <div class="owl-carousel owl-theme">
+                                @foreach($photos as $photo)
+                                <div class="item col-md-12">
+                                    <div class=img-wrapper>
+                                        <a href="">
+                                            <img class=img-fluid src="{{ url($photo->file_path) }}" alt="{{ $product->title }}">
+                                        </a>
+                                    </div>
+                                    <div class=text-holder>
+                                        <h5>
+                                            <a href="">{{ $product->title }}</a>
+                                        </h5>
+                                        <p class=subtitle2>
+                                            @if(isset($parent))
+                                                {{ $parent->title }} / {{ $collection->title }}
+                                            @else
+                                                {{ $collection->title }}
+                                            @endif
+                                        </p>
+                                        <p>{{ $product->short }}</p>
                                     </div>
                                 </div>
+                                @endforeach
                             </div>
                         </div>
-                    </div>
-                    @if(count($products)>0)
-                    <div class="product-image-wrapper col-md-12">
-                        <div class="owl-carousel owl-theme">
-                            @foreach($products as $product)
-                            <div class="item col-md-12">
-                                <div class=img-wrapper>
-                                    <a href="">
-                                        <img class=img-fluid src="{{ url($product->image) }}" alt="{{ $product->title }}">
-                                    </a>
-                                </div>
-                                <div class=text-holder>
-                                    <h5>
-                                        <a href="">{{ $product->title }}</a>
-                                    </h5>
-                                    <p class=subtitle2>{{ $product->collection->title }}</p>
-                                    <p>{{ $product->short }}</p>
-                                </div>
-                            </div>
-                            @endforeach
-                        </div>
-                    </div>
                     @endif
                 </div>
                 <div class=product-social>
+                    @if(false)
                     <div class=news-open-social-heading>
                         <a href="">
                             <h5>share</h5>
                         </a>
                     </div>
+                    @endif
                     <div class=news-open-social-icons>
                         <ul>
                             <li><a href=""><i class="fab fa-facebook-f"></i></a></li>

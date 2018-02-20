@@ -37,7 +37,7 @@
 
                 <div class="col-md-4">
                     <div class="card">
-                        <h5>General info</h5>
+                        <h5>General info <a :href="link" class="btn btn-success btn-sm" target="_blank" style="width: 80px; float: right;">Preview</a></h5>
                         <hr>
                         <form @submit.prevent="general()">
                             <div class="form-group">
@@ -214,6 +214,9 @@
           }
         },
         computed: {
+            link(){
+                return this.product.link;
+            },
             product_id(){
                 return this.product.id;
             },

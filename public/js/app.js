@@ -48879,6 +48879,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     computed: {
+        link: function link() {
+            return this.product.link;
+        },
         product_id: function product_id() {
             return this.product.id;
         },
@@ -49106,7 +49109,18 @@ var render = function() {
         _vm._v(" "),
         _c("div", { staticClass: "col-md-4" }, [
           _c("div", { staticClass: "card" }, [
-            _c("h5", [_vm._v("General info")]),
+            _c("h5", [
+              _vm._v("General info "),
+              _c(
+                "a",
+                {
+                  staticClass: "btn btn-success btn-sm",
+                  staticStyle: { width: "80px", float: "right" },
+                  attrs: { href: _vm.link, target: "_blank" }
+                },
+                [_vm._v("Preview")]
+              )
+            ]),
             _vm._v(" "),
             _c("hr"),
             _vm._v(" "),

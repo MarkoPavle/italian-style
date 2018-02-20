@@ -22,7 +22,7 @@ class Photo extends Model
         }
 
         if(isset($image)){
-            $imageName = $folderName . '-' . time() . '.' . $image->getClientOriginalExtension();
+            $imageName = $folderName . '-' . time() . str_random(15) . '.' . $image->getClientOriginalExtension();
             $imagePath = 'uploads/galleries/'.$folderName.'/'.$imageName;
             $imagePathTmb = 'uploads/galleries/'.$folderName.'/tmb/'.$imageName;
             $image->move(public_path('/uploads/galleries/' . $folderName . '/'), $imageName);

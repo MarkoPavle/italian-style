@@ -33,6 +33,16 @@ class Product extends Model
         return $product->image;
     }
 
+    public static function getProductLink($product){
+        $collection = Collection::find($product->collection_id);
+        if($collection->parent == 0){
+            return url($collection->slug . '/' . $product->slug . '/' . $product->id);
+        }else{
+            $parent = Collection::find($collection->parent);
+            return url($parent->slug . '/' . $collection->slug . '/' . $product->slug . '/' . $product->id);
+        }
+    }
+
     public function user(){
         return $this->belongsTo(User::class);
     }

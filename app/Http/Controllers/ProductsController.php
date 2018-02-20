@@ -18,7 +18,7 @@ class ProductsController extends Controller
             ->join('product_translations', 'products.id', '=', 'product_translations.product_id')
             ->join('collections', 'products.collection_id', '=', 'collections.id')
             ->join('collection_translations', 'collections.id', '=', 'collection_translations.collection_id')
-            ->orderBy('products.created_at', 'DESC')->groupBy('products.id')->paginate(3);
+            ->orderBy('products.created_at', 'DESC')->groupBy('products.id')->paginate(50);
         return response()->json([
             'products' => $products,
         ]);
@@ -28,6 +28,7 @@ class ProductsController extends Controller
         app()->setLocale('en');
         $product = new Product();
         $product->user_id = request('user_id');
+        $product->collection_id = request('collection_id');
         $product->title = request('title');
         request('slug')? $product->slug = str_slug(request('slug')) : $product->slug = str_slug(request('title'));
         $product->short = request('short');
@@ -49,6 +50,7 @@ class ProductsController extends Controller
         request('locale')? $locale = request('locale') : $locale = 'en';
         app()->setLocale($locale);
         $product = Product::find($id);
+        $product['link'] = Product::getProductLink($product);
         return response()->json([
             'product' => $product
         ]);
