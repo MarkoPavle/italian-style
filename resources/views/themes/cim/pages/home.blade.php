@@ -1,5 +1,9 @@
 @extends('themes.'.$theme->slug.'.index')
 
+@section('title')
+    CIM Italian Style
+@endsection
+
 @section('content')
     <div class=container-fluid>
         <div class=row>
