@@ -4,6 +4,14 @@
     CIM Italian Style
 @endsection
 
+@section('description')
+    {{ $settings->desc }}
+@endsection
+
+@section('keywords')
+    {{ $settings->keywords }}
+@endsection
+
 @section('content')
     <div class=container-fluid>
         <div class=row>

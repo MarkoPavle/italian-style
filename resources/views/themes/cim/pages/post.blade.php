@@ -1,5 +1,17 @@
 @extends('themes.'.$theme->slug.'.index')
 
+@section('title')
+    {{ $post->title }} - CIM Italian Style
+@endsection
+
+@section('description')
+    {{ $settings->desc }}
+@endsection
+
+@section('keywords')
+    {{ $settings->keywords }}
+@endsection
+
 @section('content')
 
     <section id=hero-img>
@@ -12,7 +24,7 @@
             <div class="row news-open-row">
                 <div class=news-open>
                     <div class="news-open-heading col-md-12">
-                        <h5>{{ $post->title }} &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span>/&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp {{ \Carbon\Carbon::parse($post->publish_at)->format('d. M Y.') }}</span></h5>
+                        <h5>{{ $post->title }} <span>/ {{ \Carbon\Carbon::parse($post->publish_at)->format('d. M Y.') }}</span></h5>
                     </div>
                     <div class="news-open-image-wrapper col-md-12">
                         {!! HTML::Image($post->image, $post->title, array('class' => 'img-fluid')) !!}

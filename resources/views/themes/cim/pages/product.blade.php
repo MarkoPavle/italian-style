@@ -1,15 +1,27 @@
 @extends('themes.'.$theme->slug.'.index')
 
+@section('title')
+    {{ $product->title }} - CIM Italian Style
+@endsection
+
+@section('description')
+    {{ $settings->desc }}
+@endsection
+
+@section('keywords')
+    {{ $settings->keywords }}
+@endsection
+
 @section('content')
 
     <section id=hero-img>
         <div class="container-fluid hero-img-container">
             @if($collection->heroImage == null || $collection->heroImageMobile == null)
                 <img class="img-fluid desktop-image" src="{{ url('uploads/collections/day-collections.jpg') }}" alt="{{ $collection->title }}">
-                <img class=mobile-image src="{{ url('uploads/collections/day-collections-mobile.jpg') }}" alt="{{ url($collection->title) }}">
+                @if(false)<img class=mobile-image src="{{ url('uploads/collections/day-collections-mobile.jpg') }}" alt="{{ url($collection->title) }}">@endif
             @else
                 <img class="img-fluid desktop-image" src="{{ url($collection->heroImage) }}" alt="{{ $collection->title }}">
-                <img class=mobile-image src="{{ url($collection->heroImageMobile) }}" alt="{{ url($collection->title) }}">
+                    @if(false)<img class=mobile-image src="{{ url($collection->heroImageMobile) }}" alt="{{ url($collection->title) }}">@endif
             @endif
             @if(false)
             <div class=collections-header>
@@ -21,11 +33,11 @@
     <section>
         <div class=container>
             <div class="row product">
-                <div class=news-open>
+                <div class="news-open col-md-12">
                     <div class="product-heading col-md-12">
                         <div class=row>
                             <div class=col-md-4>
-                                <h5>Day collection</h5>
+                                <h5>{{ $collection->title }}</h5>
                             </div>
                             <div class="col-md-8 sakrij">
                                 @if(count($products)>0)

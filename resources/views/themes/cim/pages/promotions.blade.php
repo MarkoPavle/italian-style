@@ -1,5 +1,18 @@
 @extends('themes.'.$theme->slug.'.index')
 
+
+@section('title')
+    Promotions - CIM Italian Style
+@endsection
+
+@section('description')
+    {{ $settings->desc }}
+@endsection
+
+@section('keywords')
+    {{ $settings->keywords }}
+@endsection
+
 @section('content')
 
     <section id=hero-img>

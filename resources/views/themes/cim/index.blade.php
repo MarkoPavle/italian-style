@@ -9,7 +9,7 @@
 
     <meta name="description" content="@yield('description')" />
     <meta name="keywords" content="@yield('keywords')" />
-    <meta name="author" content="pggrupa.rs" />
+    <meta name="author" content="CIM Italian Style" />
 
     @yield('seo_social_stuff')
 
