@@ -15,7 +15,12 @@
 @section('content')
 
     <section id=hero-img>
-        <div class="container-fluid hero-img-container"> <img class=img-fluid src="{{ url('uploads/collections/day-collections.jpg') }}" alt=hero-image> </div>
+        <div class="container-fluid hero-img-container">
+            <img class=img-fluid src="{{ url('uploads/collections/day-collections.jpg') }}" alt=hero-image>
+            <div class=collections-header>
+                <h5>Corporate</h5>
+            </div>
+        </div>
     </section>
     <div class="container corporate">
         <div class=row>
