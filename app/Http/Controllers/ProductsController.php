@@ -41,6 +41,10 @@ class ProductsController extends Controller
         $product->save();
         if(request('image')){ Product::base64UploadImage($product->id, request('image')); }
 
+        app()->setLocale('it');
+        $product->title = request('title');
+        $product->update();
+
         return response()->json([
             'product' => $product
         ]);
