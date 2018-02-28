@@ -16,7 +16,7 @@
 
     <section id=hero-img>
         <div class="container-fluid hero-img-container">
-            @if($collection->heroImage == null || $collection->heroImageMobile == null)
+            @if($collection->heroImage == null)
                 <img class="desktop-image" src="{{ url('uploads/collections/day-collections.jpg') }}" alt="{{ $collection->title }}">
             @else
                 <img class="desktop-image" src="{{ url($collection->heroImage) }}" alt="{{ $collection->title }}">
