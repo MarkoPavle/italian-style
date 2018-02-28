@@ -13,7 +13,7 @@
                         </h2>
                         {!! $collection->desc !!}
                         <a href="{{ url('collections/'.$collection->slug) }}" class="btn">View more
-                            <i class="fas fa-angle-right"></i>
+                            <div class=strelica> </div>
                         </a>
                     </div>
                 </div>

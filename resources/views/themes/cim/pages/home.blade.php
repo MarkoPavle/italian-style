@@ -66,7 +66,9 @@
     <script>
         $(document).ready(function() {
             $(".slider").bxSlider({
-                auto: !0
+                auto: !0,
+                nextText: '<img src="{{ $theme->slug }}/img/arrow-right.png" />',
+                prevText: '<img src="{{ $theme->slug }}/img/arrow-left.png" />'
             });
             $(".slider2").bxSlider({
                 auto: !0
