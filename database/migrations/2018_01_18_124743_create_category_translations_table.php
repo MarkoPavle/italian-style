@@ -19,7 +19,7 @@ class CreateCategoryTranslationsTable extends Migration
 
             $table->string('title')->nullable();
             $table->string('slug')->nullable();
-            $table->text('desc')->nullable();
+            $table->text('short')->nullable();
             $table->string('locale')->index();
 
             $table->unique(['category_id','locale']);
