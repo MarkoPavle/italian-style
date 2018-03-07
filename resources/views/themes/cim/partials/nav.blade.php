@@ -2,7 +2,9 @@
     @foreach($topMenu as $link)
         <div class=nav-item>
             <a class="nav-link @if($link->id == 6 && $home) nav-collections @endif" href="{{ url($link->link) }}@if($link->id == 6 && !$home)#collections @endif">{{ $link->title }}</a>
-            <div class=box></div>
+            @if($topMenu->last() != $link)
+                <div class=box></div>
+            @endif
         </div>
     @endforeach
     <div class="nav-item lang">
