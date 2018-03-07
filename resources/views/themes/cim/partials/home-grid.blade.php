@@ -9,7 +9,7 @@
                             {!! HTML::Image($collection->image, $collection->title, array('class' => 'img-fluid')) !!}
                         </div>
                         <div class=grid-text-wrapper>
-                            <h2>{{ $collection->title }}</h2>
+                            <h2><a href="{{ url('collections/'.$collection->slug) }}">{{ $collection->title }}</a></h2>
                             {!! $collection->desc !!}
                             <a href="{{ url('collections/'.$collection->slug) }}" class="btn">View more
                                 <div class=strelica> </div>
