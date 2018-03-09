@@ -37,17 +37,17 @@ class Product extends Model
         $collection = Collection::find($product->collection_id);
         if(app()->getLocale() == 'en'){
             if($collection->parent == 0){
-                return url($collection->{'slug:it'} . '/' . $product->{'slug:it'} . '/' . $product->id);
-            }else{
-                $parent = Collection::find($collection->parent);
-                return url($parent->{'slug:it'} . '/' . $collection->{'slug:it'} . '/' . $product->{'slug:it'} . '/' . $product->id);
-            }
-        }else{
-            if($collection->parent == 0){
                 return url($collection->{'slug:en'} . '/' . $product->{'slug:en'} . '/' . $product->id);
             }else{
                 $parent = Collection::find($collection->parent);
                 return url($parent->{'slug:en'} . '/' . $collection->{'slug:en'} . '/' . $product->{'slug:en'} . '/' . $product->id);
+            }
+        }else{
+            if($collection->parent == 0){
+                return url($collection->{'slug:it'} . '/' . $product->{'slug:it'} . '/' . $product->id);
+            }else{
+                $parent = Collection::find($collection->parent);
+                return url($parent->{'slug:it'} . '/' . $collection->{'slug:it'} . '/' . $product->{'slug:it'} . '/' . $product->id);
             }
         }
     }

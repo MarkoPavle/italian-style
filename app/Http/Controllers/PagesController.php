@@ -8,6 +8,7 @@ use App\CollectionTranslation;
 use App\Helper;
 use App\Post;
 use App\Product;
+use App\ProductTranslation;
 use App\Setting;
 use App\Theme;
 use App\User;
@@ -167,6 +168,7 @@ class PagesController extends Controller
                 $br++;
             }
         }*/
+
 
         return 'done';
     }

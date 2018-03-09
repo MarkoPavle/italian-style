@@ -29,7 +29,7 @@
                             <h1>We develop quality. Everything is put down in black and white.</h1>
                             <p> Cim offers services. It works out the sector of furniture for the house, offices and communities, it assists its customers step by step and offers them a series of complementary and horizontal actions to meet any need, both
                                 in terms of supplies and projects. And everything is put down in black and white. </p>
-                            <button class="btn btn-primary">We will show now</button>
+                            <a class="btn btn-primary" href="http://cim.mia.rs/corporate" role="button">We will show you how</a>
                         @else
                             <h2>IL PROGETTO CIM</h2>
                             <h1>Progettiamo qualità. Nero su bianco.</h1>

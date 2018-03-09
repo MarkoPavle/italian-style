@@ -13,11 +13,15 @@
 
 <div class=slider>
     <div>
-        {!! HTML::Image($theme->slug . '/img/slider1.jpg', 'Slider 1', array('class' => 'desktop-image')) !!}
-        {!! HTML::Image($theme->slug . '/img/slider2.jpg', 'Slider 2', array('class' => 'mobile-image')) !!}
+        {!! HTML::Image($theme->slug . '/img/index-01.jpg', 'Slider 1', array('class' => 'desktop-image')) !!}
+        {!! HTML::Image($theme->slug . '/img/index-mob-01.jpg', 'Slider 2', array('class' => 'mobile-image')) !!}
     </div>
     <div>
-        {!! HTML::Image($theme->slug . '/img/slider1.jpg', 'Slider 1', array('class' => 'desktop-image')) !!}
-        {!! HTML::Image($theme->slug . '/img/slider2.jpg', 'Slider 2', array('class' => 'mobile-image')) !!}
+        {!! HTML::Image($theme->slug . '/img/index-02.jpg', 'Slider 1', array('class' => 'desktop-image')) !!}
+        {!! HTML::Image($theme->slug . '/img/index-mob-02.jpg', 'Slider 2', array('class' => 'mobile-image')) !!}
+    </div>
+    <div>
+        {!! HTML::Image($theme->slug . '/img/index-03.jpg', 'Slider 1', array('class' => 'desktop-image')) !!}
+        {!! HTML::Image($theme->slug . '/img/index-mob-03.jpg', 'Slider 2', array('class' => 'mobile-image')) !!}
     </div>
 </div>

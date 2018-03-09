@@ -16,7 +16,7 @@
 
     <section id=hero-img>
         <div class="container-fluid hero-img-container">
-            <img class="desktop-image" src="{{ url('uploads/collections/day-collections.jpg') }}" alt="post">
+            <img class="desktop-image" src="{{ url('uploads/hero/hero-pic-news.jpg') }}" alt="post">
         </div>
     </section>
     <section>

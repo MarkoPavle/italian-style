@@ -38,7 +38,7 @@ Route::group(
         Route::get('collections/{slug}', 'PagesController@collections');
         Route::get('collezioni/{slug}', 'PagesController@collections');
 
-        Route::get('collections/{slug1}', 'PagesController@collections');
+        Route::get('collections/{slug1}/{slug2}', 'PagesController@parentCollections');
         Route::get('collezioni/{slug1}/{slug2}', 'PagesController@parentCollections');
 
         Route::get('contact', 'PagesController@contact')->name('contact');
