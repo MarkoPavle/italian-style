@@ -35,11 +35,36 @@ class Product extends Model
 
     public static function getProductLink($product){
         $collection = Collection::find($product->collection_id);
+        if(app()->getLocale() == 'en'){
+            if($collection->parent == 0){
+                return url($collection->{'slug:it'} . '/' . $product->{'slug:it'} . '/' . $product->id);
+            }else{
+                $parent = Collection::find($collection->parent);
+                return url($parent->{'slug:it'} . '/' . $collection->{'slug:it'} . '/' . $product->{'slug:it'} . '/' . $product->id);
+            }
+        }else{
+            if($collection->parent == 0){
+                return url($collection->{'slug:en'} . '/' . $product->{'slug:en'} . '/' . $product->id);
+            }else{
+                $parent = Collection::find($collection->parent);
+                return url($parent->{'slug:en'} . '/' . $collection->{'slug:en'} . '/' . $product->{'slug:en'} . '/' . $product->id);
+            }
+        }
+    }
+
+    public static function getTranslate($product){
+        $collection = Collection::find($product->collection_id);
         if($collection->parent == 0){
-            return url($collection->slug . '/' . $product->slug . '/' . $product->id);
+            return array(
+                'en' => url('en/'. $collection->{'slug:en'} . '/' . $product->{'slug:en'} . '/' . $product->id),
+                'it' =>  url('it/'. $collection->{'slug:it'} . '/' . $product->{'slug:it'} . '/' . $product->id)
+            );
         }else{
             $parent = Collection::find($collection->parent);
-            return url($parent->slug . '/' . $collection->slug . '/' . $product->slug . '/' . $product->id);
+            return array(
+                'en' => url('en/'. $parent->{'slug:en'} . '/' . $collection->{'slug:en'} . '/' . $product->{'slug:en'} . '/' . $product->id),
+                'it' => url('it/'. $parent->{'slug:it'} . '/' . $collection->{'slug:it'} . '/' . $product->{'slug:it'} . '/' . $product->id)
+            );
         }
     }
 

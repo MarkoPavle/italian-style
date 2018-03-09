@@ -64,19 +64,11 @@ class Collection extends Model
     }
 
     public static function getCollectionLink($slug){
-        if(app()->getLocale() == 'en'){
-            return url('it/collezioni/'.$slug);
-        }else{
-            return url('en/collections/'.$slug);
-        }
+        return array('it' => url('it/collezioni/'.$slug), 'en' => url('en/collections/'.$slug));
     }
 
     public static function getParentCollectionLink($slug1, $slug2){
-        if(app()->getLocale() == 'en'){
-            return url('it/collezioni/'.$slug1.'/'.$slug2);
-        }else{
-            return url('en/collections/'.$slug1.'/'.$slug2);
-        }
+        return array('it' => url('it/collezioni/'.$slug1.'/'.$slug2), 'en' => url('en/collections/'.$slug1.'/'.$slug2));
     }
 
     public function product(){

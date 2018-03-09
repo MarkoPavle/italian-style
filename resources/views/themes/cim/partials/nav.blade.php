@@ -8,14 +8,9 @@
         </div>
     @endforeach
     <div class="nav-item lang">
-        @if(app()->getLocale() == 'it')
-            <a class=nav-link href="{{ $translate }}">
-                <span class=active>eng</span>
-            </a>
-        @else
-            <a class=nav-link href="{{ $translate }}">
-                <span class=active>ita</span>
-            </a>
-        @endif
+        <span class="nav-link">
+            <a href="{{ $translate['en'] }}" @if(app()->getLocale() == 'en') class=active @endif>eng</a>
+            <a href="{{ $translate['it'] }}" @if(app()->getLocale() == 'it') class=active @endif>ita</a>
+        </span>
     </div>
 @endif

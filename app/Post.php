@@ -42,6 +42,11 @@ class Post extends Model
         }
     }
 
+    public static function getTranslate($post){
+        $category = Category::find($post->category_id);
+        return array('en' => url('it/' .$category->{"slug:it"} . '/' . $post->{"slug:it"} . '/' . $post->id), 'it' => url('en/' .$category->{"slug:en"} . '/' . $post->{"slug:en"} . '/' . $post->id));
+    }
+
     public function user(){
         return $this->belongsTo(User::class);
     }

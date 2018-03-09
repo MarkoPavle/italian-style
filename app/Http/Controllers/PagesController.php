@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Collection;
+use App\CollectionTranslation;
 use App\Helper;
 use App\Post;
 use App\Product;
@@ -37,6 +38,7 @@ class PagesController extends Controller
             return view('themes.'.$theme->slug.'.pages.collections', compact('settings', 'theme', 'parent', 'collections', 'home', 'translate'));
         }else{
             $product = $parent->product()->where('publish', 1)->first();
+            if(empty($product)) return redirect('/');
             return redirect(Product::getProductLink($product));
         }
     }
@@ -60,7 +62,7 @@ class PagesController extends Controller
         $settings = Setting::first();
         $theme = Theme::where('active', 1)->first();
         $home = false;
-        app()->getLocale() == 'en'? $translate = url('it/contatto') : $translate = url('en/contact');
+        $translate = array('en' => url('it/contatto'), 'it' => url('en/contact'));
         return view('themes.'.$theme->slug.'.pages.contact', compact('settings', 'theme', 'home', 'translate'));
     }
 
@@ -68,11 +70,10 @@ class PagesController extends Controller
         $settings = Setting::first();
         $theme = Theme::where('active', 1)->first();
         $home = false;
+        $translate = array('en' => url('it/azienda'), 'it' => url('en/corporate'));
         if(app()->getLocale() == 'en'){
-            $translate = url('it/azienda');
             return view('themes.'.$theme->slug.'.pages.corporate.corporate', compact('settings', 'theme', 'home', 'translate'));
         }else{
-            $translate = url('en/corporate');
             return view('themes.'.$theme->slug.'.pages.corporate.azienda', compact('settings', 'theme', 'home', 'translate'));
         }
     }
@@ -81,7 +82,7 @@ class PagesController extends Controller
         $settings = Setting::first();
         $theme = Theme::where('active', 1)->first();
         $home = false;
-        app()->getLocale() == 'en'? $translate = url('it/partner') : $translate = url('en/partnership');
+        $translate = array('en' => url('it/partner'), 'it' => url('en/work-with-us'));
         return view('themes.'.$theme->slug.'.pages.partnership', compact('settings', 'theme', 'home', 'translate'));
     }
 
@@ -91,7 +92,7 @@ class PagesController extends Controller
         $home = false;
         $post = Post::first();
         $related = Post::where('id', '<>', $post->id)->where('publish', 1)->orderBy('publish_at', 'DESC')->paginate(6);
-        $translate = Post::getPostLink($post);
+        $translate = Post::getTranslate($post);
         return view('themes.'.$theme->slug.'.pages.post', compact('settings', 'theme', 'home', 'related', 'post', 'translate'));
     }
 
@@ -101,7 +102,7 @@ class PagesController extends Controller
         $home = false;
         $post = Post::find($id);
         $related = Post::where('id', '<>', $post->id)->where('publish', 1)->orderBy('publish_at', 'DESC')->paginate(6);
-        $translate = Post::getPostLink($post);
+        $translate = Post::getTranslate($post);
         return view('themes.'.$theme->slug.'.pages.post', compact('settings', 'theme', 'home', 'related', 'post', 'translate'));
     }
 
@@ -113,7 +114,7 @@ class PagesController extends Controller
         $products = Product::where('id', '<>', $product->id)->where('collection_id', $collection->id)->orderBy('order', 'ASC')->get();
         $photos = $product->photo()->where('publish', 1)->orderBy('id', 'DESC')->get();
         $home = false;
-        $translate = 'link';
+        $translate = Product::getTranslate($product);
         $parent = null;
         return view('themes.'.$theme->slug.'.pages.product2', compact('settings', 'theme', 'collection', 'products', 'home', 'translate', 'product', 'photos', 'parent'));
     }
@@ -127,7 +128,7 @@ class PagesController extends Controller
         $products = Product::where('id', '<>', $product->id)->where('collection_id', $collection->id)->orderBy('order', 'ASC')->get();
         $photos = $product->photo()->where('publish', 1)->orderBy('id', 'DESC')->get();
         $home = false;
-        $translate = 'link';
+        $translate = Product::getTranslate($product);
         return view('themes.'.$theme->slug.'.pages.product2', compact('settings', 'theme', 'parent', 'products', 'home', 'translate', 'product', 'photos', 'collection'));
     }
 
@@ -135,7 +136,7 @@ class PagesController extends Controller
         $settings = Setting::first();
         $theme = Theme::where('active', 1)->first();
         $home = false;
-        app()->getLocale() == 'en'? $translate = url('it/promozioni') : $translate = url('en/promotions');
+        $translate = array('en' => url('it/promozioni'), 'it' => url('en/promotions'));
         return view('themes.'.$theme->slug.'.pages.promotions', compact('settings', 'theme', 'home', 'translate'));
     }
 
@@ -157,6 +158,16 @@ class PagesController extends Controller
 
             sleep(1);
         }*/
+        /*$br=0;
+        $collections = CollectionTranslation::all();
+        foreach ($collections as $collection){
+            if(empty($collection->slug)){
+                $collection->slug = str_slug($collection->title);
+                $collection->update();
+                $br++;
+            }
+        }*/
+
         return 'done';
     }
 }
