@@ -25,6 +25,8 @@ Route::get('proba', 'PagesController@proba');
 // filemanager
 Route::middleware('auth')->get('filemanager/show', 'FilemanagerController@index');
 
+Route::post('form', 'PagesController@sendForm');
+
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),

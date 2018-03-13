@@ -6,6 +6,7 @@ use App\Category;
 use App\Collection;
 use App\CollectionTranslation;
 use App\Helper;
+use App\Http\Requests\ContactFormRequest;
 use App\Post;
 use App\Product;
 use App\ProductTranslation;
@@ -83,8 +84,8 @@ class PagesController extends Controller
         $settings = Setting::first();
         $theme = Theme::where('active', 1)->first();
         $home = false;
-        $translate = array('en' => url('it/partner'), 'it' => url('en/work-with-us'));
-        return view('themes.'.$theme->slug.'.pages.partnership', compact('settings', 'theme', 'home', 'translate'));
+        $translate = array('en' => url('en/partnership'), 'it' => url('it/partner'));
+        return view('themes.'.$theme->slug.'.pages.work-with-us', compact('settings', 'theme', 'home', 'translate'));
     }
 
     public function news(){
@@ -139,6 +140,10 @@ class PagesController extends Controller
         $home = false;
         $translate = array('en' => url('it/promozioni'), 'it' => url('en/promotions'));
         return view('themes.'.$theme->slug.'.pages.promotions', compact('settings', 'theme', 'home', 'translate'));
+    }
+
+    public function sendForm(ContactFormRequest $request){
+        return request()->all();
     }
 
     public function proba(){

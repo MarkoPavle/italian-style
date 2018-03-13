@@ -51,7 +51,7 @@
             <i class="fas fa-bars" id=trigger></i>
             <nav class="navbar justify-content-end">
                 <div id=logo>
-                    <a href="{{ url('/') }}">{!! HTML::Image($theme->slug . '/img/footer-logo.png', 'CIM Italian style') !!}</a>
+                    <a href="{{ url('/') }}">{!! HTML::Image($theme->slug . '/img/CIM-logo.png', 'CIM Italian style') !!}</a>
                 </div>
                 @include('themes.'.$theme->slug.'.partials.nav')
             </nav>
@@ -115,7 +115,7 @@
                                             <a href=#>About us</a>
                                         </li>
                                         <li>
-                                            <a href=#>Contact us</a>
+                                            <a href="{{ url('contact') }}">Contact us</a>
                                         </li>
                                     </ul>
                                 </div>
