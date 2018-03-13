@@ -24,4 +24,16 @@
         {!! HTML::Image($theme->slug . '/img/index-03.jpg', 'Slider 1', array('class' => 'desktop-image')) !!}
         {!! HTML::Image($theme->slug . '/img/index-mob-03.jpg', 'Slider 2', array('class' => 'mobile-image')) !!}
     </div>
+    <div>
+        {!! HTML::Image($theme->slug . '/img/index-04.jpg', 'Slider 1', array('class' => 'desktop-image')) !!}
+        {!! HTML::Image($theme->slug . '/img/index-mob-04.jpg', 'Slider 2', array('class' => 'mobile-image')) !!}
+    </div>
+    <div>
+        {!! HTML::Image($theme->slug . '/img/index-05.jpg', 'Slider 1', array('class' => 'desktop-image')) !!}
+        {!! HTML::Image($theme->slug . '/img/index-mob-05.jpg', 'Slider 2', array('class' => 'mobile-image')) !!}
+    </div>
+    <div>
+        {!! HTML::Image($theme->slug . '/img/index-06.jpg', 'Slider 1', array('class' => 'desktop-image')) !!}
+        {!! HTML::Image($theme->slug . '/img/index-mob-06.jpg', 'Slider 2', array('class' => 'mobile-image')) !!}
+    </div>
 </div>
