@@ -13,7 +13,7 @@
 @endsection
 
 @section('content')
-    <div class=container-fluid>
+    <div class="container-fluid clear-nav">
         <div class=row>
             @include('themes.'.$theme->slug.'.partials.slider')
         </div>
