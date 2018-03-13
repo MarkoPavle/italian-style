@@ -63,7 +63,7 @@ class PagesController extends Controller
         $settings = Setting::first();
         $theme = Theme::where('active', 1)->first();
         $home = false;
-        $translate = array('en' => url('it/contatto'), 'it' => url('en/contact'));
+        $translate = array('en' => url('en/contact'), 'it' => url('it/contatto'));
         return view('themes.'.$theme->slug.'.pages.contact', compact('settings', 'theme', 'home', 'translate'));
     }
 
@@ -71,7 +71,7 @@ class PagesController extends Controller
         $settings = Setting::first();
         $theme = Theme::where('active', 1)->first();
         $home = false;
-        $translate = array('en' => url('it/azienda'), 'it' => url('en/corporate'));
+        $translate = array('en' => url('en/corporate'), 'it' => url('it/azienda'));
         if(app()->getLocale() == 'en'){
             return view('themes.'.$theme->slug.'.pages.corporate.corporate', compact('settings', 'theme', 'home', 'translate'));
         }else{
@@ -117,7 +117,7 @@ class PagesController extends Controller
         $home = false;
         $translate = Product::getTranslate($product);
         $parent = null;
-        return view('themes.'.$theme->slug.'.pages.product2', compact('settings', 'theme', 'collection', 'products', 'home', 'translate', 'product', 'photos', 'parent'));
+        return view('themes.'.$theme->slug.'.pages.product', compact('settings', 'theme', 'collection', 'products', 'home', 'translate', 'product', 'photos', 'parent'));
     }
 
     public function product2($slug1, $slug2, $slug3, $id){
@@ -130,7 +130,7 @@ class PagesController extends Controller
         $photos = $product->photo()->where('publish', 1)->orderBy('id', 'DESC')->get();
         $home = false;
         $translate = Product::getTranslate($product);
-        return view('themes.'.$theme->slug.'.pages.product2', compact('settings', 'theme', 'parent', 'products', 'home', 'translate', 'product', 'photos', 'collection'));
+        return view('themes.'.$theme->slug.'.pages.product', compact('settings', 'theme', 'parent', 'products', 'home', 'translate', 'product', 'photos', 'collection'));
     }
 
     public function promotions(){
