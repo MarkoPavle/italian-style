@@ -41,7 +41,7 @@ class PagesController extends Controller
         }else{
             $product = $parent->product()->where('publish', 1)->first();
             if(empty($product)) return redirect('/');
-            return redirect(Product::getProductLink($product));
+            return redirect(Product::getProductsLink($product));
         }
     }
 
@@ -56,7 +56,7 @@ class PagesController extends Controller
             return view('themes.'.$theme->slug.'.pages.collections', compact('settings', 'theme', 'parent', 'collections', 'home', 'translate'));
         }else{
             $product = $parent->product()->where('publish', 1)->first();
-            return redirect(Product::getProductLink($product));
+            return redirect(Product::getProductsLink($product));
         }
     }
 
@@ -121,6 +121,19 @@ class PagesController extends Controller
         return view('themes.'.$theme->slug.'.pages.product', compact('settings', 'theme', 'collection', 'products', 'home', 'translate', 'product', 'photos', 'parent'));
     }
 
+    public function products($slug1, $slug2, $id){
+        $settings = Setting::first();
+        $theme = Theme::where('active', 1)->first();
+        $collection = Collection::whereTranslation('slug', $slug1)->first();
+        $product = Product::find($id);
+        $products = Product::where('id', '<>', $product->id)->where('collection_id', $collection->id)->orderBy('order', 'ASC')->paginate(12);
+        $photos = $product->photo()->where('publish', 1)->orderBy('id', 'DESC')->get();
+        $home = false;
+        $translate = Product::getTranslate($product);
+        $parent = null;
+        return view('themes.'.$theme->slug.'.pages.products', compact('settings', 'theme', 'collection', 'products', 'home', 'translate', 'product', 'photos', 'parent'));
+    }
+
     public function product2($slug1, $slug2, $slug3, $id){
         $settings = Setting::first();
         $theme = Theme::where('active', 1)->first();
@@ -132,6 +145,19 @@ class PagesController extends Controller
         $home = false;
         $translate = Product::getTranslate($product);
         return view('themes.'.$theme->slug.'.pages.product', compact('settings', 'theme', 'parent', 'products', 'home', 'translate', 'product', 'photos', 'collection'));
+    }
+
+    public function products2($slug1, $slug2, $slug3, $id){
+        $settings = Setting::first();
+        $theme = Theme::where('active', 1)->first();
+        $parent = Collection::whereTranslation('slug', $slug1)->first();
+        $collection = Collection::whereTranslation('slug', $slug2)->first();
+        $product = Product::find($id);
+        $products = Product::where('id', '<>', $product->id)->where('collection_id', $collection->id)->orderBy('order', 'ASC')->paginate(12);
+        $photos = $product->photo()->where('publish', 1)->orderBy('id', 'DESC')->get();
+        $home = false;
+        $translate = Product::getTranslate($product);
+        return view('themes.'.$theme->slug.'.pages.products', compact('settings', 'theme', 'parent', 'products', 'home', 'translate', 'product', 'photos', 'collection'));
     }
 
     public function promotions(){
@@ -173,6 +199,9 @@ class PagesController extends Controller
                 $br++;
             }
         }*/
+
+        return $ids = Collection::pluck('id');
+        return $products = Product::whereNotIn('collection_id', $ids)->get();
 
 
         return 'done';

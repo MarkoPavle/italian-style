@@ -34,6 +34,7 @@ class Product extends Model
     }
 
     public static function getProductLink($product){
+        if(empty($product)) return url('/');
         $collection = Collection::find($product->collection_id);
         if(app()->getLocale() == 'en'){
             if($collection->parent == 0){
@@ -48,6 +49,26 @@ class Product extends Model
             }else{
                 $parent = Collection::find($collection->parent);
                 return url($parent->{'slug:it'} . '/' . $collection->{'slug:it'} . '/' . $product->{'slug:it'} . '/' . $product->id);
+            }
+        }
+    }
+
+    public static function getProductsLink($product){
+        if(empty($product)) return url('/');
+        $collection = Collection::find($product->collection_id);
+        if(app()->getLocale() == 'en'){
+            if($collection->parent == 0){
+                return url('products/'.$collection->{'slug:en'} . '/' . $product->{'slug:en'} . '/' . $product->id);
+            }else{
+                $parent = Collection::find($collection->parent);
+                return url('products/'.$parent->{'slug:en'} . '/' . $collection->{'slug:en'} . '/' . $product->{'slug:en'} . '/' . $product->id);
+            }
+        }else{
+            if($collection->parent == 0){
+                return url('products/'.$collection->{'slug:it'} . '/' . $product->{'slug:it'} . '/' . $product->id);
+            }else{
+                $parent = Collection::find($collection->parent);
+                return url('products/'.$parent->{'slug:it'} . '/' . $collection->{'slug:it'} . '/' . $product->{'slug:it'} . '/' . $product->id);
             }
         }
     }

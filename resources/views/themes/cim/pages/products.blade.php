@@ -15,37 +15,40 @@
 @section('content')
 
     <section id=hero-img>
-        <div class="container-fluid hero-img-container"> {!! HTML::Image($theme->slug.'/img/collection-hero-image.jpg', 'collection hero image', array('class' => 'img-fluid')) !!}
+        <div class="container-fluid hero-img-container">
+            @if(empty($collection->heroImage))
+                <img class="desktop-image" src="{{ url('uploads/collections/day-collections.jpg') }}" alt="{{ $collection->title }}">
+            @else
+                <img class="desktop-image" src="{{ url($collection->heroImage) }}" alt="{{ $collection->title }}">
+            @endif
             <div class=collections-header>
-                <h5>colection name</h5> </div>
+                <h5>{{ $collection->title }}</h5>
+            </div>
         </div>
     </section>
     <section class=container>
 
         <div class="row products-list">
-            @for($i=0;$i<12;$i++)
+            @foreach($products as $product)
             <div class="col-md-4 col-sm-6 products-list__item">
-                <a href=#>
-                    <div class=media-wrap> {!! HTML::Image($theme->slug.'/img/second-carousel.jpg', 'collection hero image') !!} </div>
+                <a href="{{ url(\App\Product::getProductLink($product)) }}">
+                    <div class=media-wrap>
+                        {!! HTML::Image($product->image, $product->title) !!}
+                    </div>
                     <div class=text-wrap>
-                        <h4 class=product__name>Product name</h4>
-                        <h5 class=product__short-description>Collection</h5> </div>
+                        <h4 class=product__name>{{ $product->title }}</h4>
+                        <h5 class=product__short-description>{{ $collection->title }}</h5>
+                    </div>
                 </a>
             </div>
-            @endfor
+            @endforeach
         </div>
 
-        <ul class="pagination justify-content-end">
-            <li class=page-item>
-                <a class=page-link href=# aria-label=Previous> <span aria-hidden=true>❮</span> <span class=sr-only>Previous</span> </a>
-            </li>
-            <li class=page-item> <a class=page-link href=#>1</a> </li>
-            <li class=page-item> <a class=page-link href=#>2</a> </li>
-            <li class=page-item> <a class=page-link href=#>3</a> </li>
-            <li class=page-item>
-                <a class=page-link href=# aria-label=Next> <span aria-hidden=true>❯</span> <span class=sr-only>Next</span> </a>
-            </li>
-        </ul>
+        <div class="row">
+            <div class="col-md-12">
+                {{ $products->render("pagination::bootstrap-4") }}
+            </div>
+        </div>
 
     </section>
 
