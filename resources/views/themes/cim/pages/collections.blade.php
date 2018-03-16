@@ -16,12 +16,12 @@
 
     <section id=hero-img>
         <div class="container-fluid hero-img-container">
-            @if($parent->heroImage == null || $parent->heroImageMobile == null)
+            @if($parent->heroImage == null)
                 <img class="img-fluid desktop-image" src="{{ url('uploads/collections/day-collections.jpg') }}" alt="{{ $parent->title }}">
-                <img class=mobile-image src="{{ url('uploads/collections/day-collections-mobile.jpg') }}" alt="{{ url($parent->title) }}">
+                {{--<img class=mobile-image src="{{ url('uploads/collections/day-collections-mobile.jpg') }}" alt="{{ url($parent->title) }}">--}}
             @else
                 <img class="img-fluid desktop-image" src="{{ url($parent->heroImage) }}" alt="{{ $parent->title }}">
-                <img class=mobile-image src="{{ url($parent->heroImageMobile) }}" alt="{{ url($parent->title) }}">
+                {{--<img class=mobile-image src="{{ url($parent->heroImageMobile) }}" alt="{{ url($parent->title) }}">--}}
             @endif
             <div class=collections-header>
                 <h5>{{ $parent->title }}</h5>

@@ -208,8 +208,9 @@ class PagesController extends Controller
     }
 
     public function uploadCv(UploadCvRequest $request){
+        $setting = Setting::first();
         $cv = CV::uploadCv($request);
-        \Mail::to('nebojsart1409@yahoo.com')->send(new UploadCvMail($cv));
+        \Mail::to($setting->email1)->send(new UploadCvMail($cv['path'], $cv['extension']));
         return redirect('/');
     }
 }

@@ -9,10 +9,11 @@ class CV extends Model
 {
     public static function uploadCv(Request $request){
         if($request->file('file')){
-            $imageName = time() . '.' . $request->file('file')->getClientOriginalExtension();
+            $extension = $request->file('file')->getClientOriginalExtension();
+            $imageName = time() . '.' . $extension;
             $imagePath = 'uploads/cv/'.$imageName;
             $request->file('file')->move(base_path() . '/public/uploads/cv/', $imageName);
-            return $imagePath;
+            return ['path' => $imagePath, 'extension' => $extension];
         }
         return null;
     }

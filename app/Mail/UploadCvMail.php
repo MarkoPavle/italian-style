@@ -11,16 +11,18 @@ class UploadCvMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $cv;
+    public $path;
+    public $extension;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct( $cv)
+    public function __construct($path, $extension)
     {
-        $this->cv = $cv;
+        $this->path = $path;
+        $this->extension = $extension;
     }
 
     /**
@@ -33,9 +35,9 @@ class UploadCvMail extends Mailable
         return $this->markdown('themes.cim.emails.upload-cv')
             ->subject('Uploaded CV from CIM Italian Style website')
             ->from(['address' => 'info@cim-italianstyle.com', 'name' => 'CIM Italian Style'])
-            ->attach(url($this->cv), [
-                'as' => 'CV.pdf',
-                'mime' => 'application/pdf',
+            ->attach(url($this->path), [
+                'as' => 'CV.'.$this->extension,
+                'mime' => 'application/'.$this->extension,
             ]);
     }
 }
