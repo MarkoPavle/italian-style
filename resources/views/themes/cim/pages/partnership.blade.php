@@ -1,7 +1,7 @@
 @extends('themes.'.$theme->slug.'.index')
 
 @section('title')
-    @if(app()->getLocale() == 'en') Partnership @else Partner @endif - CIM Italian Style
+    @if(app()->getLocale() == 'en') Work with us @else Lavora con noi @endif - CIM Italian Style
 @endsection
 
 @section('description')

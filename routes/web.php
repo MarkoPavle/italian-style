@@ -27,7 +27,7 @@ Route::middleware('auth')->get('filemanager/show', 'FilemanagerController@index'
 
 Route::post('form', 'PagesController@sendForm');
 
-Route::get('new-template', 'PagesController@newTemplate');
+Route::post('upload-cv', 'PagesController@uploadCv');
 
 Route::group(
     [

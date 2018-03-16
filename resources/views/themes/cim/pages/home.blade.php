@@ -45,7 +45,17 @@
         </div>
     </div>
 
-    <div class="container-fluid large-border"></div>
+    <div class=large-border style=height:auto>
+        <div class=container>
+            <div class=visit-card>
+                <h2>CIM Italian Style</h2>
+                <div>BROLO S. CATERINA 24, 31049 VALDOBBIADENE TREVISO ITALY</div>
+                <div>Tel.+ 39 0423 973283 / 972659 - Fax +39 0423 1990665</div>
+                <div>P.I. &amp; C.F. 04549940262 - REA 359106</div>
+                <div>e-mail info@cim-italianstyle.com</div>
+            </div>
+        </div>
+    </div>
 
     @include('themes.'.$theme->slug.'.partials.home-grid')
 

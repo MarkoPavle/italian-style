@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Collection;
 use App\CollectionTranslation;
+use App\CV;
 use App\Helper;
 use App\Http\Requests\ContactFormRequest;
+use App\Http\Requests\UploadCvRequest;
+use App\Mail\UploadCvMail;
 use App\Post;
 use App\Product;
 use App\ProductTranslation;
@@ -126,7 +129,7 @@ class PagesController extends Controller
         $theme = Theme::where('active', 1)->first();
         $collection = Collection::whereTranslation('slug', $slug1)->first();
         $product = Product::find($id);
-        $products = Product::where('id', '<>', $product->id)->where('collection_id', $collection->id)->orderBy('order', 'ASC')->paginate(12);
+        $products = Product::where('collection_id', $collection->id)->orderBy('created_at', 'ASC')->paginate(12);
         $photos = $product->photo()->where('publish', 1)->orderBy('id', 'DESC')->get();
         $home = false;
         $translate = Product::getTranslate($product);
@@ -153,7 +156,7 @@ class PagesController extends Controller
         $parent = Collection::whereTranslation('slug', $slug1)->first();
         $collection = Collection::whereTranslation('slug', $slug2)->first();
         $product = Product::find($id);
-        $products = Product::where('id', '<>', $product->id)->where('collection_id', $collection->id)->orderBy('order', 'ASC')->paginate(12);
+        $products = Product::where('collection_id', $collection->id)->orderBy('created_at', 'ASC')->paginate(12);
         $photos = $product->photo()->where('publish', 1)->orderBy('id', 'DESC')->get();
         $home = false;
         $translate = Product::getTranslate($product);
@@ -200,18 +203,13 @@ class PagesController extends Controller
             }
         }*/
 
-        return $ids = Collection::pluck('id');
-        return $products = Product::whereNotIn('collection_id', $ids)->get();
-
 
         return 'done';
     }
 
-    public function newTemplate(){
-        $settings = Setting::first();
-        $theme = Theme::where('active', 1)->first();
-        $home = true;
-        $translate = Helper::getHomeLink();
-        return view('themes.'.$theme->slug.'.pages.products', compact('settings', 'theme', 'home', 'translate'));
+    public function uploadCv(UploadCvRequest $request){
+        $cv = CV::uploadCv($request);
+        \Mail::to('nebojsart1409@yahoo.com')->send(new UploadCvMail($cv));
+        return redirect('/');
     }
 }

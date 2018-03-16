@@ -1,7 +1,7 @@
 @extends('themes.'.$theme->slug.'.index')
 
 @section('title')
-    @if(app()->getLocale() == 'en') Partnership @else Partner @endif - CIM Italian Style
+    @if(app()->getLocale() == 'en') Work with us @else Lavora con noi @endif - CIM Italian Style
 @endsection
 
 @section('description')
@@ -33,16 +33,52 @@
                             Turn your fantasies into reality with our help and enjoy in all the luxuries high-quality Made in Italy furniture can offer.
                         </h3>
                         <p>We guarantee you will be more than just satisfied! </p>
+                        {!! Form::open(['action' => ['PagesController@uploadCv'], 'method' => 'POST', 'class' => 'cv-form', 'files' => true]) !!}
+                            <div class="fileUpload btn btn-primary">
+                                <span>Upload your CV</span>
+                                <input type=file name="file" class=upload />
+                            </div>
+                            @if ($errors->has('file'))
+                                <div class="invalid-feedback">
+                                    <strong>{{ $errors->first('file') }}</strong>
+                                </div>
+                            @endif
+                        {!! Form::close() !!}
+                        <p>
+                            If you are interested in working with us in a creative and innovative surroundings, in the global market, send us your CV and we will contact you.
+                        </p>
                     @else
                         <h3>
                             Unisciti a noi e crea la tua casa, ufficio o qualsiasi altro tipo di luogo dai tuoi sogni!
                             Trasforma le tue fantasie in realtà con il nostro aiuto e goditi tutti i lussi di alta qualità che i mobili Made in Italy possono offrire.
                         </h3>
                         <p>Ti garantiamo che sarai più che soddisfatto!</p>
+                        {!! Form::open(['action' => ['PagesController@uploadCv'], 'method' => 'POST', 'class' => 'cv-form', 'files' => true]) !!}
+                            <div class="fileUpload btn btn-primary">
+                                <span>Upload your CV</span>
+                                <input type=file name="file" class=upload />
+                            </div>
+                            @if ($errors->has('file'))
+                                <div class="invalid-feedback">
+                                    <strong>{{ $errors->first('file') }}</strong>
+                                </div>
+                            @endif
+                        {!! Form::close() !!}
+                        <p>Se siete interessati a lavorare con noi in un ambiente creativo e innovativo, nel mondo globale, inviaci il tuo CV e vi contatteremo</p>
                     @endif
                 </div>
             </div>
         </div>
     </section>
 
+@endsection
+
+@section('footer_scripts')
+    <script>
+        $(function(){
+            $('.upload').change(function(){
+                $('.cv-form').submit();
+            });
+        });
+    </script>
 @endsection
