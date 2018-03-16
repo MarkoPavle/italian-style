@@ -177,4 +177,12 @@ class PagesController extends Controller
 
         return 'done';
     }
+
+    public function newTemplate(){
+        $settings = Setting::first();
+        $theme = Theme::where('active', 1)->first();
+        $home = true;
+        $translate = Helper::getHomeLink();
+        return view('themes.'.$theme->slug.'.pages.products', compact('settings', 'theme', 'home', 'translate'));
+    }
 }
