@@ -28,11 +28,9 @@
             <div class=row>
                 <div class="col-md-12 list-of-partners">
                     @if(app()->getLocale() == 'en')
-                        <h3>
-                            Join us and create your home, office or any other kind of place from your dreams!
-                            Turn your fantasies into reality with our help and enjoy in all the luxuries high-quality Made in Italy furniture can offer.
-                        </h3>
-                        <p>We guarantee you will be more than just satisfied! </p>
+                        <h3>Join us and create your home, office or any other kind of place from your dreams!</h3>
+                        <p>Turn your fantasies into reality with our help and enjoy in all the luxuries high-quality Made in Italy furniture can offer. We guarantee you will be more than just satisfied! </p>
+                        <h3>If you are interested in working with us in a creative and innovative surroundings, in the global market, send us your CV and we will contact you.</h3>
                         {!! Form::open(['action' => ['PagesController@uploadCv'], 'method' => 'POST', 'class' => 'cv-form', 'files' => true]) !!}
                             <div class="fileUpload btn btn-primary">
                                 <span>Upload your CV</span>
@@ -44,15 +42,10 @@
                                 </div>
                             @endif
                         {!! Form::close() !!}
-                        <p>
-                            If you are interested in working with us in a creative and innovative surroundings, in the global market, send us your CV and we will contact you.
-                        </p>
                     @else
-                        <h3>
-                            Unisciti a noi e crea la tua casa, ufficio o qualsiasi altro tipo di luogo dai tuoi sogni!
-                            Trasforma le tue fantasie in realtà con il nostro aiuto e goditi tutti i lussi di alta qualità che i mobili Made in Italy possono offrire.
-                        </h3>
-                        <p>Ti garantiamo che sarai più che soddisfatto!</p>
+                        <h3>Unisciti a noi e crea la tua casa, ufficio o qualsiasi altro tipo di luogo dai tuoi sogni!</h3>
+                        <p>Trasforma le tue fantasie in realtà con il nostro aiuto e goditi tutti i lussi di alta qualità che i mobili Made in Italy possono offrire. Ti garantiamo che sarai più che soddisfatto!</p>
+                        <p>Se siete interessati a lavorare con noi in un ambiente creativo e innovativo, nel mondo globale, inviaci il tuo CV e vi contatteremo</p>
                         {!! Form::open(['action' => ['PagesController@uploadCv'], 'method' => 'POST', 'class' => 'cv-form', 'files' => true]) !!}
                             <div class="fileUpload btn btn-primary">
                                 <span>Upload your CV</span>
@@ -64,7 +57,6 @@
                                 </div>
                             @endif
                         {!! Form::close() !!}
-                        <p>Se siete interessati a lavorare con noi in un ambiente creativo e innovativo, nel mondo globale, inviaci il tuo CV e vi contatteremo</p>
                     @endif
                 </div>
             </div>

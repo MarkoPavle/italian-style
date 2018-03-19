@@ -36,31 +36,31 @@
                 </div>
                 <div class="container boxes no-padding">
                     <div class=row>
-                        <div class=col-sm-6>
+                        <div class=col-12>
                             <p class=icon> <img src="{{ url($theme->slug.'/img/icon-survey.png') }}" alt="The research of the product"> </p>
                             <h3>The research <span>of the product</span> </h3>
                             <p>Study and feasibility in the local market. Selection of brands and product lines to deal in. Outline of the financial project.</p>
                         </div>
-                        <div class=col-sm-6>
+                        <div class=col-12>
                             <p class=icon> <img src="{{ url($theme->slug.'/img/icon-sewing-tape.png') }}" alt=Supplies> </p>
                             <h3>Supplies</h3>
                             <p>Supply of original Made in Italy products with the possibility to purchase at competitive prices in the market.</p>
                         </div>
                     </div>
                     <div class=row>
-                        <div class=col-sm-6>
+                        <div class=col-12>
                             <p class=icon> <img src="{{ url($theme->slug.'/img/icon-multichanel.png') }}" alt="The visual design of the point of sale"> </p>
                             <h3>The visual design of <span>the point of sale</span> </h3>
                             <p>Study of the communication of the point of sale in the territory.</p>
                         </div>
-                        <div class=col-sm-6>
+                        <div class=col-12>
                             <p class=icon> <img src="{{ url($theme->slug.'/img/icon-trust.png') }}" alt=Supplies> </p>
                             <h3>Why believing <span>in it</span> </h3>
                             <p>We are thinking of the World’s market. We know it since a lot of years. That is why we are presenting ourselves as your Italian partner in the trade, administrative and logistics fields.</p>
                         </div>
                     </div>
                     <div class=row>
-                        <div class=col-sm-12>
+                        <div class=col-12>
                             <p class=icon> <img src="{{ url($theme->slug.'/img/icon-handshake.png') }}" alt="The visual design of the point of sale"> </p>
                             <h3>A clear <span>deal</span> </h3>
                             <p>When proposing all this, we are aware of all the following advantages:</p>
@@ -82,6 +82,68 @@
                         </div>
                     </div>
                 </div>
+                <!-- new stuff -->
+                <div class="container the-cim-project mt-4">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <h1>BRIEF PROFILE ON OUR COMPANY ACTIVITY</h1>
+                      <p>
+                        Our Company, C.I.M. ITALIAN STYLE S.R.L., was born on 19th January 2005 and it is located in the North East of Italy, one hour north of the city of Venice and to its related Marco Polo International Airport.
+                      </p>
+                    </div>
+                      <!-- .col-xs-12 -->
+                  </div>
+                </div>
+              <!-- .container -->
+                <div class="container boxes no-padding">
+                  <div class="row">
+                    <div class="col-12">
+                      <p class="icon">
+                        <img src="img/corporate/RESEARCH.png" alt="The research of the product">
+                      </p>
+                      <h3>Products</h3>
+                      <p>We have been working in furniture business for more than 30 years. Our know-how is made in exporting Made in Italy household, office, and residential contract furniture, to the majors and most important World Wide Countries, where the Italian design and the quality of the finishing of product together with an experienced service, are very much appreciated.</p>
+                    </div>
+                    <div class="col-12">
+                      <p class="icon">
+                        <img src="img/corporate/SUPPLIES.png" alt="Supplies">
+                      </p>
+                      <h3>Brand <span>names</span></h3>
+                      <p>We can supply the most important Italian Brand Names Collections
+                        in the classic and modern furniture field, at very competitive  sales conditions and prices in the market.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12">
+                      <p class="icon">
+                          <img src="img/corporate/RESEARCH.png" alt="The research of the product">
+                      </p>
+                      <h3>Logistic</h3>
+                      <p>We do provide an Inbound/Outbound logistic service to our valued
+                        Partners/customers with a Warehouse of more than 500 s. m. located
+                        in Castagnole, Treviso Province close to the highway A 27-Treviso
+                        North.<br/>
+                        Our service is to load the goods collected from the different suppliers and to deliver them to our Warehouse and we stock them there. Moreover we grant a Consolidation service, through the unloading and loading of the trucks/containers, with only one invoice for the exportation the different orders, around Italy.
+                        <br />
+                        Therefore customer may have an only partner for its purchases from Italy, minimizing export and import costs for custom operations, bank costs, and others more.
+                      </p>
+                    </div>
+                    <div class="col-12">
+                      <p class="icon">
+                          <img src="img/corporate/SUPPLIES.png" alt="Supplies">
+                      </p>
+                      <h3>CUSTOMS <span>OPERATIONS</span></h3>
+                      <p>Soon we will have the chance to get the Customs procedures
+                        domiciled in our Warehouse, thus further reducing costs and giving
+                        your drivers/forwarding Agent the possibility to get out from Italian
+                        border, without losing time. <br/>
+                        Please feel free to contact us for more details and precise information, you will be welcome at any time!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+            <!-- /new stuff -->
             </div>
             <div class="col-md-4 corporate-images">
                 <img src="{{ url($theme->slug.'/img/corporate-1.jpg') }}" alt="corporate 1">

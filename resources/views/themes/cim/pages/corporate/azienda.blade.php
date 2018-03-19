@@ -27,7 +27,7 @@
             <div class=col-md-8>
                 <div class=container>
                     <div class=row>
-                        <div class=col-sm-12>
+                        <div class=col-12>
                             <h1>IL PROGETTO CIM</h1>
                             <h3>Progettiamo qualità. Nero su bianco.</h3>
                             <p>Il CIM offre servizi.
@@ -40,24 +40,24 @@
                 </div>
                 <div class="container boxes no-padding">
                     <div class=row>
-                        <div class=col-sm-6>
+                        <div class=col-12>
                             <p class=icon> <img src="{{ url($theme->slug.'/img/icon-survey.png') }}" alt="The research of the product"> </p>
                             <h3>Ricerca <span>del prodotto</span> </h3>
                             <p>Studio del mercato e della domanda locale. Scelta dei marchi e delle linee di prodotto con cui operare. Un progetto finanziario di massima.</p>
                         </div>
-                        <div class=col-sm-6>
+                        <div class=col-12>
                             <p class=icon> <img src="{{ url($theme->slug.'/img/icon-sewing-tape.png') }}" alt=Supplies> </p>
                             <h3>La fornitura e gli approvvigionamenti</h3>
                             <p>Fornitura del prodotto originale Made in Italy con capacità d'acquisto a prezzi competitivi nel mercato.</p>
                         </div>
                     </div>
                     <div class=row>
-                        <div class=col-sm-6>
+                        <div class=col-12>
                             <p class=icon> <img src="{{ url($theme->slug.'/img/icon-multichanel.png') }}" alt="The visual design of the point of sale"> </p>
                             <h3>Il visual <span>del punto vendita</span> </h3>
                             <p>Studio della comunicazione del punto vendita sul territorio.</p>
                         </div>
-                        <div class=col-sm-6>
+                        <div class=col-12>
                             <p class=icon> <img src="{{ url($theme->slug.'/img/icon-trust.png') }}" alt=Supplies> </p>
                             <h3>Perché <span>crederci</span> </h3>
                             <p>Abbiamo in mente il mercato Mondiale. Lo conosciamo da tanti anni .
@@ -65,7 +65,7 @@
                         </div>
                     </div>
                     <div class=row>
-                        <div class=col-sm-12>
+                        <div class=col-12>
                             <p class=icon> <img src="{{ url($theme->slug.'/img/icon-handshake.png') }}" alt="The visual design of the point of sale"> </p>
                             <h3>Patti <span>chiari</span> </h3>
                             <p>Proponiamo tutto questo consapevoli di offrirvi questi vantaggi: </p>
@@ -87,6 +87,61 @@
                         </div>
                     </div>
                 </div>
+                                    <!-- new stuff -->
+                    <div class="container the-cim-project mt-4">
+                      <div class="row">
+                        <div class="col-12">
+                          <h1>PROFILO AZIENDALE</h1>
+                          <p>
+                            L’azienda, C.I.M. ITALIAN STYLE S.R.L. è nata il 19 Gennaio 2005, è ubicata nel Veneto, ad un’ora dalla città di Venezia e dall’ aeroporto internazionale Marco Polo.
+                          </p>
+                        </div>
+                          <!-- .col-xs-12 -->
+                      </div>
+                    </div>
+                    <div class="container boxes no-padding">
+                      <div class="row">
+                        <div class="col-12">
+                          <p class="icon">
+                            <img src="img/corporate/RESEARCH.png" alt="The research of the product">
+                          </p>
+                          <h3>PRODOTTI</h3>
+                          <p>Lavoriamo nel settore del mobile da più di 30 anni.
+                            La ns. esperienza è maturata nel tempo, con le  di mobili moderni e classici, per la casa, per l’ufficio e per la comunità, nei più importantii mercati mondiali di esportazione del Made in Italy, dove il design italiano, la qualità del prodotto, abbinati ad un servizio accurato, sono ricercati.</p>
+                        </div>
+                        <div class="col-12">
+                          <p class="icon">
+                            <img src="img/corporate/SUPPLIES.png" alt="Supplies">
+                          </p>
+                          <h3>I <span>MARCHI</span></h3>
+                          <p>Siamo in grado di fornire le collezioni italiane dei più importanti brands nel settore  dell’arredamento classico e moderno, a condizioni di vendita molto vantaggiose.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-12">
+                          <p class="icon">
+                              <img src="img/corporate/RESEARCH.png" alt="The research of the product">
+                          </p>
+                          <h3>Logistica</h3>
+                          <p>L’azienda fornisce un servizio di logistica Inbound/Outbound ai nostri partner/clienti con un magazzino di oltre 500 s. m. situato a Castagnole, in Provincia di Treviso, vicino all’autostrada A-27 Treviso Nord. <br/>
+                          Il nostro servizio è quello di caricare la merce ritirata dai diversi fornitori, consegnarla ed immagazzinarla nel nostro deposito. Offriamo un servizio di consolidata, attraverso lo scarico e il carico dei camion/container, con una sola fattura per l’esportazione dei diversi ordini dai fornitori italiani. 
+                          <br />
+                          Il nostro servizio è quello di caricare la merce ritirata dai diversi fornitori, consegnarla ed immagazzinarla nel nostro deposito. Offriamo un servizio di consolidata, attraverso lo scarico e il carico dei camion/container, con una sola fattura per l’esportazione dei diversi ordini dai fornitori italiani. 
+                          </p>
+                        </div>
+                        <div class="col-12">
+                          <p class="icon">
+                              <img src="img/corporate/SUPPLIES.png" alt="Supplies">
+                          </p>
+                          <h3>OPERAZIONI <span>DOGANALI</span></h3>
+                          <p>C.I.M. ITALIAN STYLE avrà la possibilità di effettuare le operazioni doganali domiciliate , (Cad) riducendo ulteriormente i costi doganali di esportazione, con il vantaggio di accelerare le procedure di esportazione al confine italiano.<br/>
+                          Per ulteriori dettagli e informazioni non esitate a contattarci, sarete i benvenuti in qualsiasi momento!
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /new stuff -->
             </div>
             <div class="col-md-4 corporate-images">
                 <img src="{{ url($theme->slug.'/img/corporate-1.jpg') }}" alt="corporate 1">
