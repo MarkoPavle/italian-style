@@ -115,15 +115,27 @@
                                         <a href=#>Our company</a>
                                     </p>
                                     <ul>
-                                        <li>
-                                            <a href=#>Terms and conditions </a>
-                                        </li>
-                                        <li>
-                                            <a href=#>About us</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ url('contact') }}">Contact us</a>
-                                        </li>
+                                        @if(app()->getLocale() == 'en')
+                                            <li>
+                                                <a href=#>Terms and conditions </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ url('en/corporate') }}">About us</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ url('en/contact') }}">Contact us</a>
+                                            </li>
+                                        @else
+                                            <li>
+                                                <a href=#>Terms and conditions </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ url('it/azienda') }}">About us</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ url('it/contatto') }}">Contact us</a>
+                                            </li>
+                                        @endif
                                     </ul>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 kontakt">
