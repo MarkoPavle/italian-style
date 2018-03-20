@@ -84,12 +84,12 @@
                                         <a href="">
                                             <i class="fab fa-linkedin"></i>
                                         </a>
-                                        <a href=#>
-                                            <i class="fab fa-instagram"></i>
-                                        </a>
-                                        <a href="">
-                                            <i class="fab fa-pinterest-square"></i>
-                                        </a>
+                                        {{--<a href=#>--}}
+                                            {{--<i class="fab fa-instagram"></i>--}}
+                                        {{--</a>--}}
+                                        {{--<a href="">--}}
+                                            {{--<i class="fab fa-pinterest-square"></i>--}}
+                                        {{--</a>--}}
                                     </p>
                                 </div>
                                 <div class="col-lg-2 kolekcije2">
