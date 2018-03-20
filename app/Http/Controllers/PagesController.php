@@ -25,7 +25,7 @@ class PagesController extends Controller
     public function index(){
         $settings = Setting::first();
         $theme = Theme::where('active', 1)->first();
-        $collections = Collection::where('publish', 1)->where('parent', 0)->orderBy('order', 'ASC')->get();
+        $collections = Collection::where('publish', 1)->where('id', '<>', 24)->where('parent', 0)->orderBy('order', 'ASC')->get();
         $posts = Post::where('publish', 1)->orderBy('publish_at', 'DESC')->get();
         $home = true;
         $translate = Helper::getHomeLink();
@@ -132,7 +132,7 @@ class PagesController extends Controller
         $products = Product::where('collection_id', $collection->id)->orderBy('created_at', 'ASC')->paginate(12);
         $photos = $product->photo()->where('publish', 1)->orderBy('id', 'DESC')->get();
         $home = false;
-        $translate = Product::getTranslate($product);
+        $translate = Product::getTranslateProducts($product);
         $parent = null;
         return view('themes.'.$theme->slug.'.pages.products', compact('settings', 'theme', 'collection', 'products', 'home', 'translate', 'product', 'photos', 'parent'));
     }
@@ -159,7 +159,7 @@ class PagesController extends Controller
         $products = Product::where('collection_id', $collection->id)->orderBy('created_at', 'ASC')->paginate(12);
         $photos = $product->photo()->where('publish', 1)->orderBy('id', 'DESC')->get();
         $home = false;
-        $translate = Product::getTranslate($product);
+        $translate = Product::getTranslateProducts($product);
         return view('themes.'.$theme->slug.'.pages.products', compact('settings', 'theme', 'parent', 'products', 'home', 'translate', 'product', 'photos', 'collection'));
     }
 
@@ -167,8 +167,16 @@ class PagesController extends Controller
         $settings = Setting::first();
         $theme = Theme::where('active', 1)->first();
         $home = false;
-        $translate = array('en' => url('it/promozioni'), 'it' => url('en/promotions'));
-        return view('themes.'.$theme->slug.'.pages.promotions', compact('settings', 'theme', 'home', 'translate'));
+        //$translate = array('en' => url('it/promozioni'), 'it' => url('en/promotions'));
+        //return view('themes.'.$theme->slug.'.pages.promotions', compact('settings', 'theme', 'home', 'translate'));
+        $collection = Collection::find(24);
+        $product = Product::find(576);
+        $products = Product::where('collection_id', $collection->id)->orderBy('created_at', 'ASC')->paginate(12);
+        $photos = $product->photo()->where('publish', 1)->orderBy('id', 'DESC')->get();
+        $home = false;
+        $translate = Product::getTranslateProducts($product);
+        $parent = null;
+        return view('themes.'.$theme->slug.'.pages.products', compact('settings', 'theme', 'collection', 'products', 'home', 'translate', 'product', 'photos', 'parent'));
     }
 
     public function sendForm(ContactFormRequest $request){

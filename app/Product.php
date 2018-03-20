@@ -89,6 +89,22 @@ class Product extends Model
         }
     }
 
+    public static function getTranslateProducts($product){
+        $collection = Collection::find($product->collection_id);
+        if($collection->parent == 0){
+            return array(
+                'en' => url('en/products/'. $collection->{'slug:en'} . '/' . $product->{'slug:en'} . '/' . $product->id),
+                'it' =>  url('it/products/'. $collection->{'slug:it'} . '/' . $product->{'slug:it'} . '/' . $product->id)
+            );
+        }else{
+            $parent = Collection::find($collection->parent);
+            return array(
+                'en' => url('en/products/'. $parent->{'slug:en'} . '/' . $collection->{'slug:en'} . '/' . $product->{'slug:en'} . '/' . $product->id),
+                'it' => url('it/products/'. $parent->{'slug:it'} . '/' . $collection->{'slug:it'} . '/' . $product->{'slug:it'} . '/' . $product->id)
+            );
+        }
+    }
+
     public function user(){
         return $this->belongsTo(User::class);
     }
