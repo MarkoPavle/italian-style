@@ -59,6 +59,9 @@ Route::group(
 
         Route::get('news', 'PagesController@news')->name('news');
 
+        Route::get('shop-online', 'PagesController@shopOnline')->name('shop-online');
+        Route::get('vendita-on-line', 'PagesController@shopOnline')->name('shop-online');
+
         Route::get('news/{slug}/{id}', 'PagesController@post')->name('post');
         Route::get('notizia/{slug}/{id}', 'PagesController@post')->name('post');
 

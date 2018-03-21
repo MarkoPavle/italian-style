@@ -172,15 +172,27 @@ class PagesController extends Controller
         $collection = Collection::find(24);
         $product = Product::find(576);
         $products = Product::where('collection_id', $collection->id)->orderBy('created_at', 'ASC')->paginate(12);
-        $photos = $product->photo()->where('publish', 1)->orderBy('id', 'DESC')->get();
         $home = false;
-        $translate = Product::getTranslateProducts($product);
-        $parent = null;
-        return view('themes.'.$theme->slug.'.pages.products', compact('settings', 'theme', 'collection', 'products', 'home', 'translate', 'product', 'photos', 'parent'));
+        $translate = array('en' => url('en/promotions'), 'it' => url('it/promozioni'));
+        return view('themes.'.$theme->slug.'.pages.products', compact('settings', 'theme', 'collection', 'products', 'home', 'translate', 'product'));
     }
 
     public function sendForm(ContactFormRequest $request){
         return request()->all();
+    }
+
+    public function shopOnline(){
+        $settings = Setting::first();
+        $theme = Theme::where('active', 1)->first();
+        $home = false;
+        //$translate = array('en' => url('it/promozioni'), 'it' => url('en/promotions'));
+        //return view('themes.'.$theme->slug.'.pages.promotions', compact('settings', 'theme', 'home', 'translate'));
+        $collection = Collection::find(25);
+        $product = Product::find(576);
+        $products = Product::where('collection_id', $collection->id)->orderBy('created_at', 'ASC')->paginate(12);
+        $home = false;
+        $translate = array('en' => url('en/shop-online'), 'it' => url('it/vendita-on-line'));
+        return view('themes.'.$theme->slug.'.pages.products', compact('settings', 'theme', 'collection', 'products', 'home', 'translate', 'product'));
     }
 
     public function proba(){
