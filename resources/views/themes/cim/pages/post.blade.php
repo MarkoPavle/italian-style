@@ -5,11 +5,21 @@
 @endsection
 
 @section('description')
-    {{ $settings->desc }}
+    {!! $settings->desc !!}
 @endsection
 
 @section('keywords')
     {{ $settings->keywords }}
+@endsection
+
+@section('seo_social_stuff')
+    <meta property="og:type" content="article"/>
+    <meta property="og:site_name" content="CIM Italian Style">
+    <meta property="og:url" content="{{ url(\App\Post::getPostLink($post)) }}">
+    <meta property="og:image" content="{{ url($post->image) }}">
+    <meta property="og:title" content="{{ $post->title }}" />
+    <meta property="og:description" content="{{ $post->short }}" />
+    <link rel="canonical" href="{{ url(\App\Post::getPostLink($post)) }}" />
 @endsection
 
 @section('content')

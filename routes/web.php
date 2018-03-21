@@ -60,6 +60,7 @@ Route::group(
         Route::get('news', 'PagesController@news')->name('news');
 
         Route::get('news/{slug}/{id}', 'PagesController@post')->name('post');
+        Route::get('notizia/{slug}/{id}', 'PagesController@post')->name('post');
 
         Route::get('products/{slug1}/{slug2}/{id}', 'PagesController@products')->name('products');
         Route::get('products/{slug1}/{slug2}/{slug3}/{id}', 'PagesController@products2')->name('products2');

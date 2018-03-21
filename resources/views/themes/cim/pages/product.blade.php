@@ -5,11 +5,21 @@
 @endsection
 
 @section('description')
-    {{ $settings->desc }}
+    {!! $settings->desc !!}
 @endsection
 
 @section('keywords')
     {{ $settings->keywords }}
+@endsection
+
+@section('seo_social_stuff')
+    <meta property="og:type" content="article"/>
+    <meta property="og:site_name" content="CIM Italian Style">
+    <meta property="og:url" content="{{ \App\Product::getProductLink($product) }}">
+    <meta property="og:image" content="{{ url($product->image) }}">
+    <meta property="og:title" content="{{ $product->title }}" />
+    <meta property="og:description" content="{{ $product->short }}" />
+    <link rel="canonical" href="{{ \App\Product::getProductLink($product) }}" />
 @endsection
 
 @section('content')

@@ -5,11 +5,26 @@
 @endsection
 
 @section('description')
-    {{ $settings->desc }}
+    {!! $settings->desc !!}
 @endsection
 
 @section('keywords')
     {{ $settings->keywords }}
+@endsection
+
+@section('seo_social_stuff')
+    <meta property="og:type" content="article"/>
+    <meta property="og:site_name" content="CIM Italian Style">
+    @if(app()->getLocale() == 'en')
+        <meta property="og:url" content="{{ url('collections/'.$parent->slug) }}">
+        <link rel="canonical" href="{{url('collections/'.$parent->slug) }}" />
+    @else
+        <meta property="og:url" content="{{ url('collezioni/'.$parent->slug) }}">
+        <link rel="canonical" href="{{ url('collezioni/'.$parent->slug) }}" />
+    @endif
+    <meta property="og:image" content="{{ url($parent->image) }}">
+    <meta property="og:title" content="{{ $parent->title }}" />
+    <meta property="og:description" content="{!! $parent->desc !!}" />
 @endsection
 
 @section('content')
