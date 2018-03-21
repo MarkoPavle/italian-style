@@ -31776,7 +31776,7 @@ function _interopRequireDefault(obj) {
 _vue2.default.use(_vueRouter2.default);
 
 var router = exports.router = new _vueRouter2.default({
-        routes: [{ path: "/", component: __webpack_require__(19), meta: { forAuth: true } }, { path: "/home", component: __webpack_require__(19), meta: { forAuth: true } }, { path: "/login", component: __webpack_require__(44), meta: { forVisitors: true } }, { path: "/register", component: __webpack_require__(47), meta: { forVisitors: true } }, { path: "/logout", component: __webpack_require__(50), meta: { forAuth: true } }, { path: "/users", component: __webpack_require__(53), meta: { forAuth: true } }, { path: "/users/create", component: __webpack_require__(60), meta: { forAuth: true } }, { path: "/users/:id/edit", component: __webpack_require__(67), meta: { forAuth: true } }, { path: "/users/change-password", component: __webpack_require__(72), meta: { forAuth: true } }, { path: "/categories", component: __webpack_require__(77), meta: { forAuth: true } }, { path: "/categories/create", component: __webpack_require__(80), meta: { forAuth: true } }, { path: "/categories/:id/edit", component: __webpack_require__(92), meta: { forAuth: true } }, { path: "/posts", component: __webpack_require__(95), meta: { forAuth: true } }, { path: "/posts/create", component: __webpack_require__(100), meta: { forAuth: true } }, { path: "/posts/:id/edit", component: __webpack_require__(103), meta: { forAuth: true } }, { path: "/collections", component: __webpack_require__(110), meta: { forAuth: true } }, { path: "/collections/create", component: __webpack_require__(113), meta: { forAuth: true } }, { path: "/collections/:id/edit", component: __webpack_require__(116), meta: { forAuth: true } }, { path: "/products", component: __webpack_require__(119), meta: { forAuth: true } }, { path: "/products/create", component: __webpack_require__(122), meta: { forAuth: true } }, { path: "/products/:id/edit", component: __webpack_require__(125), meta: { forAuth: true } }, { path: "/settings/:id/edit", component: __webpack_require__(128), meta: { forAuth: true } }, { path: "/themes", component: __webpack_require__(131), meta: { forAuth: true } }, { path: "/themes/create", component: __webpack_require__(134), meta: { forAuth: true } }, { path: "/themes/:id/edit", component: __webpack_require__(137), meta: { forAuth: true } }, { path: "/menus", component: __webpack_require__(140), meta: { forAuth: true } }, { path: "/menus/create", component: __webpack_require__(143), meta: { forAuth: true } }, { path: "/menus/:id/edit", component: __webpack_require__(146), meta: { forAuth: true } }, { path: "/menus/:id/sort", component: __webpack_require__(149), meta: { forAuth: true } }, { path: "/menu-links/:id/create", component: __webpack_require__(152), meta: { forAuth: true } }, { path: "/menu-links/:id/sort", component: __webpack_require__(155), meta: { forAuth: true } }, { path: "/menu-links/:id/edit", component: __webpack_require__(158), meta: { forAuth: true } }],
+        routes: [{ path: "/", component: __webpack_require__(19), meta: { forAuth: true } }, { path: "/home", component: __webpack_require__(19), meta: { forAuth: true } }, { path: "/login", component: __webpack_require__(44), meta: { forVisitors: true } }, { path: "/register", component: __webpack_require__(47), meta: { forVisitors: true } }, { path: "/logout", component: __webpack_require__(50), meta: { forAuth: true } }, { path: "/users", component: __webpack_require__(53), meta: { forAuth: true } }, { path: "/users/create", component: __webpack_require__(60), meta: { forAuth: true } }, { path: "/users/:id/edit", component: __webpack_require__(67), meta: { forAuth: true } }, { path: "/users/change-password", component: __webpack_require__(72), meta: { forAuth: true } }, { path: "/categories", component: __webpack_require__(77), meta: { forAuth: true } }, { path: "/categories/create", component: __webpack_require__(80), meta: { forAuth: true } }, { path: "/categories/:id/edit", component: __webpack_require__(92), meta: { forAuth: true } }, { path: "/posts", component: __webpack_require__(95), meta: { forAuth: true } }, { path: "/posts/create", component: __webpack_require__(100), meta: { forAuth: true } }, { path: "/posts/:id/edit", component: __webpack_require__(103), meta: { forAuth: true } }, { path: "/collections", component: __webpack_require__(110), meta: { forAuth: true } }, { path: "/collections/create", component: __webpack_require__(113), meta: { forAuth: true } }, { path: "/collections/:id/edit", component: __webpack_require__(116), meta: { forAuth: true } }, { path: "/products", component: __webpack_require__(119), meta: { forAuth: true } }, { path: "/products/create", component: __webpack_require__(122), meta: { forAuth: true } }, { path: "/products/:id/edit", component: __webpack_require__(125), meta: { forAuth: true } }, { path: "/settings/:id/edit", component: __webpack_require__(128), meta: { forAuth: true } }, { path: "/themes", component: __webpack_require__(131), meta: { forAuth: true } }, { path: "/themes/create", component: __webpack_require__(134), meta: { forAuth: true } }, { path: "/themes/:id/edit", component: __webpack_require__(137), meta: { forAuth: true } }, { path: "/menus", component: __webpack_require__(140), meta: { forAuth: true } }, { path: "/menus/create", component: __webpack_require__(143), meta: { forAuth: true } }, { path: "/menus/:id/edit", component: __webpack_require__(146), meta: { forAuth: true } }, { path: "/menus/:id/sort", component: __webpack_require__(149), meta: { forAuth: true } }, { path: "/menu-links/:id/create", component: __webpack_require__(152), meta: { forAuth: true } }, { path: "/menu-links/:id/sort", component: __webpack_require__(155), meta: { forAuth: true } }, { path: "/menu-links/:id/edit", component: __webpack_require__(158), meta: { forAuth: true } }, { path: "/sliders", component: __webpack_require__(222), meta: { forAuth: true } }],
 
         linkActiveClass: 'active'
 });
@@ -73913,6 +73913,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -74278,6 +74282,18 @@ var render = function() {
                 ])
               ],
               1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              [
+                _c("font-awesome-icon", { attrs: { icon: "images" } }),
+                _vm._v(" "),
+                _c("router-link", { attrs: { tag: "a", to: "/sliders" } }, [
+                  _vm._v("Slider")
+                ])
+              ],
+              1
             )
           ])
         ]
@@ -74299,6 +74315,291 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 221 */,
+/* 222 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(223)
+/* template */
+var __vue_template__ = __webpack_require__(224)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\sliders\\SliderEdit.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-f2251ba8", Component.options)
+  } else {
+    hotAPI.reload("data-v-f2251ba8", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 223 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__fortawesome_vue_fontawesome__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__fortawesome_vue_fontawesome___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__fortawesome_vue_fontawesome__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_sweetalert2__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_sweetalert2___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_sweetalert2__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_switches__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_switches___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_switches__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue2_dropzone__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue2_dropzone___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vue2_dropzone__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue2_dropzone_dist_vue2Dropzone_css__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue2_dropzone_dist_vue2Dropzone_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vue2_dropzone_dist_vue2Dropzone_css__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            error: null,
+            images: {},
+            dropzoneOptions: {
+                url: 'api/sliders',
+                thumbnailWidth: 150,
+                maxFilesize: 0.5,
+                headers: { "Authorization": "Bearer " + this.$auth.getToken() }
+            }
+        };
+    },
+
+    computed: {
+        user: function user() {
+            return this.$store.getters.getUser;
+        }
+    },
+    components: {
+        'font-awesome-icon': __WEBPACK_IMPORTED_MODULE_0__fortawesome_vue_fontawesome___default.a,
+        'switches': __WEBPACK_IMPORTED_MODULE_2_vue_switches___default.a,
+        'vue-dropzone': __WEBPACK_IMPORTED_MODULE_3_vue2_dropzone___default.a
+    },
+    created: function created() {
+        this.getImages();
+    },
+
+    methods: {
+        getGallery: function getGallery() {
+            var _this = this;
+
+            axios.get('api/galleries/' + this.$route.params.id).then(function (res) {
+                if (res.data.gallery != null) {
+                    _this.gallery = res.data.gallery;
+                }
+            }).catch(function (e) {
+                console.log(e);
+                _this.error = e.response.data.errors;
+            });
+        },
+        getImages: function getImages() {
+            var _this2 = this;
+
+            axios.get('api/sliders').then(function (res) {
+                _this2.images = res.data.images;
+            }).catch(function (e) {
+                console.log(e.response);
+                _this2.error = e.response.data.errors;
+            });
+        },
+        deleteImage: function deleteImage(image) {
+            var _this3 = this;
+
+            axios.post('api/sliders/' + image.id + '/destroy').then(function (res) {
+                _this3.images = _this3.images.filter(function (item) {
+                    return image.id != item.id;
+                });
+            }).catch(function (e) {
+                console.log(e.response);
+                _this3.error = e.response.data.errors;
+            });
+        },
+        showSuccess: function showSuccess() {
+            this.getImages();
+        }
+    }
+});
+
+/***/ }),
+/* 224 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { attrs: { id: "place" } }, [
+    _c("div", { staticClass: "container-fluid" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-12" }, [
+          _c("div", { attrs: { id: "breadcrumbs" } }, [
+            _c("ul", { staticClass: "list-group list-group-flush" }, [
+              _c(
+                "li",
+                [
+                  _c("router-link", { attrs: { tag: "a", to: "/home" } }, [
+                    _vm._v("Home")
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("li", [_vm._v("Slider")])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row bela" }, [
+        _c("div", { staticClass: "col-md-12" }, [
+          _c("div", { staticClass: "card" }, [
+            _c("h5", [_vm._v("Images")]),
+            _vm._v(" "),
+            _c("hr"),
+            _vm._v(" "),
+            _vm.images
+              ? _c(
+                  "div",
+                  { attrs: { id: "gallery" } },
+                  _vm._l(_vm.images, function(image) {
+                    return _c(
+                      "div",
+                      { staticClass: "photo" },
+                      [
+                        _c("font-awesome-icon", {
+                          attrs: { icon: "times" },
+                          on: {
+                            click: function($event) {
+                              _vm.deleteImage(image)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("img", {
+                          staticClass: "img-thumbnail",
+                          attrs: { src: image.file_path, alt: "slider" }
+                        })
+                      ],
+                      1
+                    )
+                  })
+                )
+              : _vm._e()
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-12" }, [
+          _c(
+            "div",
+            { staticClass: "card" },
+            [
+              _c("h5", [_vm._v("Upload images")]),
+              _vm._v(" "),
+              _c("hr"),
+              _vm._v(" "),
+              _c("vue-dropzone", {
+                ref: "myVueDropzone",
+                attrs: { id: "dropzone", options: _vm.dropzoneOptions },
+                on: {
+                  "vdropzone-success": function($event) {
+                    _vm.showSuccess()
+                  }
+                }
+              })
+            ],
+            1
+          )
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-f2251ba8", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

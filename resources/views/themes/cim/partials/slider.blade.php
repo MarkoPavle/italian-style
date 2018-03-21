@@ -11,29 +11,13 @@
     </div><!-- .collections -->
 @endif
 
+@if(count($sliders)>0)
 <div class=slider>
-    <div>
-        {!! HTML::Image($theme->slug . '/img/index-01.jpg', 'Slider 1', array('class' => 'desktop-image')) !!}
-        {!! HTML::Image($theme->slug . '/img/index-mob-01.jpg', 'Slider 2', array('class' => 'mobile-image')) !!}
-    </div>
-    <div>
-        {!! HTML::Image($theme->slug . '/img/index-02.jpg', 'Slider 1', array('class' => 'desktop-image')) !!}
-        {!! HTML::Image($theme->slug . '/img/index-mob-02.jpg', 'Slider 2', array('class' => 'mobile-image')) !!}
-    </div>
-    <div>
-        {!! HTML::Image($theme->slug . '/img/index-03.jpg', 'Slider 1', array('class' => 'desktop-image')) !!}
-        {!! HTML::Image($theme->slug . '/img/index-mob-03.jpg', 'Slider 2', array('class' => 'mobile-image')) !!}
-    </div>
-    <div>
-        {!! HTML::Image($theme->slug . '/img/index-04.jpg', 'Slider 1', array('class' => 'desktop-image')) !!}
-        {!! HTML::Image($theme->slug . '/img/index-mob-04.jpg', 'Slider 2', array('class' => 'mobile-image')) !!}
-    </div>
-    <div>
-        {!! HTML::Image($theme->slug . '/img/index-05.jpg', 'Slider 1', array('class' => 'desktop-image')) !!}
-        {!! HTML::Image($theme->slug . '/img/index-mob-05.jpg', 'Slider 2', array('class' => 'mobile-image')) !!}
-    </div>
-    <div>
-        {!! HTML::Image($theme->slug . '/img/index-06.jpg', 'Slider 1', array('class' => 'desktop-image')) !!}
-        {!! HTML::Image($theme->slug . '/img/index-mob-06.jpg', 'Slider 2', array('class' => 'mobile-image')) !!}
-    </div>
+    @foreach($sliders as $slider)
+        <div>
+            {!! HTML::Image($slider->file_path, 'Slider image', array('class' => 'desktop-image')) !!}
+            {!! HTML::Image($slider->file_path_mobile, 'Slider image', array('class' => 'mobile-image')) !!}
+        </div>
+    @endforeach
 </div>
+@endif

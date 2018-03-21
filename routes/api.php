@@ -67,3 +67,7 @@ Route::middleware('auth:api')->resource('menus', 'MenusController');
 Route::middleware('auth:api')->resource('menu-links', 'MenuLinksController');
 Route::middleware('auth:api')->get('menu-links/{id}/sort', 'MenuLinksController@sort');
 Route::middleware('auth:api')->post('menu-links/{id}/order', 'MenuLinksController@saveOrder');
+
+Route::middleware('auth:api')->get('sliders', 'SlidersController@index');
+Route::middleware('auth:api')->post('sliders', 'SlidersController@store');
+Route::middleware('auth:api')->post('sliders/{id}/destroy', 'SlidersController@destroy');

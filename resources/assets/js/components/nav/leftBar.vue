@@ -67,6 +67,10 @@
                 </ul>
             </li>
             -->
+            <li>
+                <font-awesome-icon icon="images" />
+                <router-link tag="a" :to="'/sliders'">Slider</router-link>
+            </li>
         </ul>
     </div>
 </template>

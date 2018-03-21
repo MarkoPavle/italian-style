@@ -14,6 +14,7 @@ use App\Post;
 use App\Product;
 use App\ProductTranslation;
 use App\Setting;
+use App\Slider;
 use App\Theme;
 use App\User;
 use Carbon\Carbon;
@@ -29,7 +30,8 @@ class PagesController extends Controller
         $posts = Post::where('publish', 1)->orderBy('publish_at', 'DESC')->get();
         $home = true;
         $translate = Helper::getHomeLink();
-        return view('themes.'.$theme->slug.'.pages.home', compact('settings', 'theme', 'collections', 'posts', 'home', 'translate'));
+        $sliders = Slider::orderBy('id', 'DESC')->get();
+        return view('themes.'.$theme->slug.'.pages.home', compact('settings', 'theme', 'collections', 'posts', 'home', 'translate', 'sliders'));
     }
 
     public function collections($slug){
