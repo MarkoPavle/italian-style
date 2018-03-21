@@ -174,5 +174,7 @@
 <script src=https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js></script>
 @yield('footer_scripts')
 {!! HTML::script($theme->slug.'/js/app.bundle.js') !!}
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ab10ca8f0f08e4b"></script>
 </body>
 </html>

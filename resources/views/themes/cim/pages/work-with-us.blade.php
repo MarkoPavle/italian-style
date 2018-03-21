@@ -48,7 +48,7 @@
                         <p>Se siete interessati a lavorare con noi in un ambiente creativo e innovativo, nel mondo globale, inviaci il tuo CV e vi contatteremo</p>
                         {!! Form::open(['action' => ['PagesController@uploadCv'], 'method' => 'POST', 'class' => 'cv-form', 'files' => true]) !!}
                             <div class="fileUpload btn btn-primary">
-                                <span>Upload your CV</span>
+                                <span>Inviateci il CV</span>
                                 <input type=file name="file" class=upload />
                             </div>
                             @if ($errors->has('file'))

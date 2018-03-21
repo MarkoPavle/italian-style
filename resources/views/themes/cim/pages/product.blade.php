@@ -80,6 +80,7 @@
                     @endif
                 </div>
                 <div class=product-social>
+                    @if(false)
                     <div class=news-open-social-icons>
                         <ul>
                             <li>
@@ -96,6 +97,10 @@
                             </li>
                         </ul>
                     </div>
+                    @else
+                        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                        <div class="addthis_inline_share_toolbox"></div>
+                    @endif
                 </div>
             </div>
         </div>
