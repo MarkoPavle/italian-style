@@ -73,10 +73,12 @@
                                     @if($product->body2 != null)
                                         <div class=product__details>
                                             {!! $product->body2 !!}
+                                            @if($product->price_small != null) <p>Value: <span>{{ $product->price_small }} &euro;</span></p>  @endif
                                         </div>
                                     @else
                                         <div class=product__details>
                                             {!! $product->body !!}
+                                            @if($product->price_small != null) <p>Value: <span>{{ $product->price_small }} &euro;</span></p>  @endif
                                         </div>
                                     @endif
                                 </div>
