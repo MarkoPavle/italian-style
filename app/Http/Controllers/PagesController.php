@@ -26,7 +26,7 @@ class PagesController extends Controller
     public function index(){
         $settings = Setting::first();
         $theme = Theme::where('active', 1)->first();
-        $collections = Collection::where('publish', 1)->where('id', '<>', 24)->where('parent', 0)->orderBy('order', 'ASC')->get();
+        $collections = Collection::where('publish', 1)->where('id', '<>', 24)->where('id', '<>', 25)->where('parent', 0)->orderBy('order', 'ASC')->get();
         $posts = Post::where('publish', 1)->orderBy('publish_at', 'DESC')->get();
         $home = true;
         $translate = Helper::getHomeLink();
@@ -186,15 +186,12 @@ class PagesController extends Controller
     public function shopOnline(){
         $settings = Setting::first();
         $theme = Theme::where('active', 1)->first();
+        $parent = Collection::find(25);
+        $collections = Collection::where('parent', $parent->id)->orderBy('order', 'ASC')->get();
         $home = false;
-        //$translate = array('en' => url('it/promozioni'), 'it' => url('en/promotions'));
-        //return view('themes.'.$theme->slug.'.pages.promotions', compact('settings', 'theme', 'home', 'translate'));
-        $collection = Collection::find(25);
-        $product = Product::find(576);
-        $products = Product::where('collection_id', $collection->id)->orderBy('created_at', 'ASC')->paginate(12);
-        $home = false;
-        $translate = array('en' => url('en/shop-online'), 'it' => url('it/vendita-on-line'));
-        return view('themes.'.$theme->slug.'.pages.products', compact('settings', 'theme', 'collection', 'products', 'home', 'translate', 'product'));
+        $translate = Collection::getCollectionLink($parent->slug);
+        if(count($collections)==0) return redirect('/');
+        return view('themes.'.$theme->slug.'.pages.shop', compact('settings', 'theme', 'parent', 'collections', 'home', 'translate'));
     }
 
     public function proba(){
