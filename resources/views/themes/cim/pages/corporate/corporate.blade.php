@@ -116,7 +116,7 @@
                         <img src="img/corporate/RESEARCH.png" alt="The research of the product">
                       </p>
                       <h3>Products</h3>
-                      <p>We have been working in furniture business for more than 30 years. Our know-how is made in exporting Made in Italy household, office, and residential contract furniture, to the majors and most important World Wide Countries, where the Italian design and the quality of the finishing of product together with an experienced service, are very much appreciated.</p>
+                      <p>C.I.M.ITALIN STYLES S.R.L. works in the furniture field , for the house for more than 30 years. Our know-how is made in exporting Made in Italy household, office, and residential contract furniture, to the majors and most important World Wide Countries, where the Italian design and the quality of the finishing of product together with an experienced service, are very much appreciated.</p>
                     </div>
                     <div class="col-12">
                       <p class="icon">
@@ -135,8 +135,7 @@
                       </p>
                       <h3>Logistic</h3>
                       <p>We do provide an Inbound/Outbound logistic service to our valued
-                        Partners/customers with a Warehouse of more than 500 s. m. located
-                        in Castagnole, Treviso Province close to the highway A 27-Treviso
+                        Partners/customers with a Warehouse of more than 1800 s.m. , located in Villorba Tv , 3 kms far from exit Treviso Nord of highway A 27-Treviso
                         North.<br/>
                         Our service is to load the goods collected from the different suppliers and to deliver them to our Warehouse and we stock them there. Moreover we grant a Consolidation service, through the unloading and loading of the trucks/containers, with only one invoice for the exportation the different orders, around Italy.
                         <br />
@@ -148,8 +147,7 @@
                           <img src="img/corporate/SUPPLIES.png" alt="Supplies">
                       </p>
                       <h3>CUSTOMS <span>OPERATIONS</span></h3>
-                      <p>Soon we will have the chance to get the Customs procedures
-                        domiciled in our Warehouse, thus further reducing costs and giving
+                      <p>We have the possibility  make  the Customs procedures domiciled in our Warehouse, thus further reducing costs and giving
                         your drivers/forwarding Agent the possibility to get out from Italian
                         border, without losing time. <br/>
                         Please feel free to contact us for more details and precise information, you will be welcome at any time!
