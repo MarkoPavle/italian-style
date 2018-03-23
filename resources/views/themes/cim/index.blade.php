@@ -41,7 +41,11 @@
                     <p>where we are</p>
                 </a>
             </div>
-            <div class=location-icon> <a href=""> <i class="fas fa-map-marker-alt"></i> </a> </div>
+            @if(app()->getLocale() == 'en')
+                <div class=location-icon> <a href="{{ url('contact') }}"> <i class="fas fa-map-marker-alt"></i> </a> </div>
+            @else
+                <div class=location-icon> <a href="{{ url('it/contatto') }}"> <i class="fas fa-map-marker-alt"></i> </a> </div>
+            @endif
         </div>
         <div class=phone>
             <div class=phone-p>
@@ -49,7 +53,11 @@
                     <p>contact</p>
                 </a>
             </div>
-            <div class=phone-icon> <a href=""> <i class="fas fa-phone"></i> </a> </div>
+            @if(app()->getLocale() == 'en')
+                <div class=phone-icon> <a href="{{ url('contact') }}"> <i class="fas fa-phone"></i> </a> </div>
+            @else
+                <div class=phone-icon> <a href="{{ url('it/contatto') }}"> <i class="fas fa-phone"></i> </a> </div>
+            @endif
         </div>
     </div>
 
@@ -78,10 +86,10 @@
                                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 logo-social">
                                     <a href="{{ url('/') }}">{!! HTML::Image($theme->slug . '/img/footer-logo.png', 'cim italian style') !!}</a>
                                     <p class=social>
-                                        <a href=#>
+                                        <a href="https://www.facebook.com/CimItalianStyle/" target="_blank">
                                             <i class="fab fa-facebook-f"></i>
                                         </a>
-                                        <a href="">
+                                        <a href="https://www.linkedin.com/in/fabio-guerra-61933697/" target="_blank">
                                             <i class="fab fa-linkedin"></i>
                                         </a>
                                         {{--<a href=#>--}}
@@ -145,21 +153,25 @@
                                     <ul class=address>
                                         <li>
                                             <i class="fas fa-map-marker-alt"></i>
-                                            <a href=#>Brolo Santa Caterina 27, 31049 Valdobbiadene Treviso, Italy</a>
+                                            @if(app()->getLocale() == 'en')
+                                                <a href="{{ url('contact') }}" target="_blank">Via Sotto il Mur del Brolo 24, 31049 Valdobbiadene Treviso, Italy</a>
+                                            @else
+                                                <a href="{{ url('it/contatto') }}" target="_blank">Via Sotto il Mur del Brolo 24, 31049 Valdobbiadene Treviso, Italy</a>
+                                            @endif
                                         </li>
                                         <li>
                                             <i class="fas fa-phone"></i>
-                                            <a href=#>Tel.+ 39 0423 973283 / 972659 -</a>
+                                            <a href="tel:+390423973283">tel. + 39 0423 973283 / 972659 -</a>
                                         </li>
                                         <li>
-                                            <a href=#>Fax +39 0423 1990665</a>
+                                            <a href="tel:+3904231990665">fax +39 0423 1990665</a>
                                         </li>
                                         <li>
-                                            <a href=#>P.I. & C.F. 04549940262 - REA 359106</a>
+                                            <a href=#>P.I. e C.F. 04549940262 - REA 359106</a>
                                         </li>
                                         <li>
                                             <i class="far fa-envelope"></i>
-                                            <a href=#>e-mail info@cim-italianstyle.com </a>
+                                            <a href="mailto:info@cim-italianstyle.com">e-mail info@cim-italianstyle.com </a>
                                         </li>
                                     </ul>
                                 </div>

@@ -44,10 +44,8 @@
                         <div class=col-12>
                             <h1>IL PROGETTO CIM</h1>
                             <h3>Progettiamo qualità. Nero su bianco.</h3>
-                            <p>Il CIM offre servizi.
-                                Opera nel settore del mobile per la casa, per ufficio e per la comunità, è in grado di seguire il cliente passo per passo proponendo
-                                una serie di azioni complementari e trasversali. Queste azioni vanno a costituire un servizio a 360 gradi per soddisfare ogni esigenza,
-                                sia essa di fornitura o di progettazione. E tutto nero su bianco.<br>Vediamo come:
+                            <p>Il CIM opera nel settore del mobile per la casa, per ufficio e per la comunità, è in grado di seguire il cliente passo per passo proponendo una serie di azioni complementari e trasversali. Queste azioni vanno a costituire un servizio a 360 gradi per soddisfare ogni esigenza, sia essa di fornitura o di progettazione. E tutto nero su bianco.
+                                <br>Vediamo come:
                             </p>
                         </div>
                     </div>
@@ -120,7 +118,7 @@
                             <img src="img/corporate/RESEARCH.png" alt="The research of the product">
                           </p>
                           <h3>PRODOTTI</h3>
-                          <p>Lavoriamo nel settore del mobile da più di 30 anni.
+                          <p>C.I.M. ITALIAN STYLE S.R.L.. opera nel settore del mobile per la casa, da più di 30 anni.
                             La ns. esperienza è maturata nel tempo, con le vendite di mobili moderni e classici, per la casa, per l’ufficio e per la comunità, nei più importantii mercati mondiali di esportazione del Made in Italy, dove il design italiano, la qualità del prodotto, abbinati ad un servizio accurato, sono ricercati.</p>
                         </div>
                         <div class="col-12">
@@ -138,8 +136,12 @@
                               <img src="img/corporate/RESEARCH.png" alt="The research of the product">
                           </p>
                           <h3>Logistica</h3>
-                          <p>L’azienda fornisce un servizio di logistica Inbound/Outbound ai nostri partner/clienti con un magazzino di oltre 500 s. m. situato a Castagnole, in Provincia di Treviso, vicino all’autostrada A-27 Treviso Nord. <br/>
-                          Il nostro servizio è quello di caricare la merce ritirata dai diversi fornitori, consegnarla ed immagazzinarla nel nostro deposito. Offriamo un servizio di consolidata, attraverso lo scarico e il carico dei camion/container, con una sola fattura per l’esportazione dei diversi ordini dai fornitori italiani. 
+                          <p>
+                              L’azienda fornisce un servizio di logistica Inbound/Outbound ai nostri partnerS/clienti con un magazzino di
+                              oltre 1800 m.q. situato a Villorba, in Provincia di Treviso, a 3 kms. dall'uscita Treviso Nord autostrada A-27.
+                              Il nostro servizio è quello di caricare la merce ritirata dai diversi fornitori, consegnarla e
+                              immagazzinarla nel nostro deposito. Offriamo un servizio di consolidata,
+                              attraverso lo scarico e il carico dei camion/container, con una sola fattura per l’esportazione dei diversi ordini dai fornitori italiani.
                           </p>
                         </div>
                         <div class="col-12">
@@ -147,7 +149,8 @@
                               <img src="img/corporate/SUPPLIES.png" alt="Supplies">
                           </p>
                           <h3>OPERAZIONI <span>DOGANALI</span></h3>
-                          <p>C.I.M. ITALIAN STYLE S.R.L. ha la possibilità di effettuare le operazioni doganali domiciliate , (Cad) riducendo ulteriormente i costi doganali di esportazione, con il vantaggio di accelerare le procedure di esportazione al confine italiano.<br/>
+                          <p>C.I.M. ITALIAN STYLE S.R.L. ha la possibilità di effettuare le operazioni doganali domiciliate , (Cad) riducendo ulteriormente i costi doganali di esportazione,
+                              con il vantaggio di accelerare le procedure di esportazione al confine italiano.<br/>
                           Per ulteriori dettagli e informazioni non esitate a contattarci, sarete i benvenuti in qualsiasi momento!
                           </p>
                         </div>
