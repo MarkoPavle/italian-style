@@ -44,7 +44,7 @@
                         <div class=col-12>
                             <h1>IL PROGETTO CIM</h1>
                             <h3>Progettiamo qualità. Nero su bianco.</h3>
-                            <p>Il CIM opera nel settore del mobile per la casa, per ufficio e per la comunità, è in grado di seguire il cliente passo per passo proponendo una serie di azioni complementari e trasversali. Queste azioni vanno a costituire un servizio a 360 gradi per soddisfare ogni esigenza, sia essa di fornitura o di progettazione. E tutto nero su bianco.
+                            <p>Il C.I.M. ITALIAN STYLE S.R.L. opera nel settore del mobile per la casa, per ufficio e per la comunità, è in grado di seguire il cliente passo per passo proponendo una serie di azioni complementari e trasversali. Queste azioni vanno a costituire un servizio a 360 gradi per soddisfare ogni esigenza, sia essa di fornitura o di progettazione. E tutto nero su bianco.
                                 <br>Vediamo come:
                             </p>
                         </div>

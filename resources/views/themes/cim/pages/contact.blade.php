@@ -69,7 +69,7 @@
                 <div class=how-to-find>
                     <div class=how-to-find-heading>
                         <h5>how to find the cim</h5>
-                        <h4>C.I.M. Italian Styler</h4> </div>
+                        <h4>C.I.M. Italian Style</h4> </div>
                     <div class=how-to-find-details>
                         <p>Via Sotto il Mur del Brolo 24, 31049
                             <br> Valdobbiadene Treviso, Italy</p>
@@ -77,7 +77,7 @@
                         <p><span>fax</span> +39 0423 1990665</p>
                         <p>P.I. e C.F. 04549940262 - REA 359106</p>
                         <p><span>e-mail</span> info@cim-italianstyle.com</p>
-                        <p><span>open</span> Monday – Friday 09:00 – 18:00</p>
+                        <p><span>open</span> Monday – Friday 08:30 – 17:30</p>
                     </div>
                 </div>
             </div>

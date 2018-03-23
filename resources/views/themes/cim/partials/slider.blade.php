@@ -1,6 +1,10 @@
 @if(count($collections)>0)
     <div class=collections>
-        <h5 class=nav-collections>Collection</h5>
+        @if(app()->getLocale() == 'en')
+            <h5 class=nav-collections>Collections</h5>
+        @else
+            <h5 class=nav-collections>COLLEZIONI</h5>
+        @endif
         <ul id=double>
             @foreach($collections as $collection)
                 <li>
