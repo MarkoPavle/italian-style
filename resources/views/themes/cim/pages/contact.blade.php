@@ -30,8 +30,7 @@
 
     <section id=hero-img>
         <div class="container-fluid hero-img-container">
-            <img class="img-fluid desktop-image" src="{{ url('uploads/hero/hero-pic-contactus.jpg') }}" alt="contact">
-            <img class=mobile-image src="{{ url('uploads/collections/day-collections-mobile.jpg') }}" alt="contact">
+            <img class="img-fluid" src="{{ url('uploads/hero/hero-pic-contactus.jpg') }}" alt="contact">
             <div class=collections-header>
                 <h5>contact</h5>
             </div>
@@ -68,8 +67,8 @@
                 <div class=contact-us-btn-2> <a href=# class=btn>submit form <div class=strelica> </div> </a> </div>
                 <div class=how-to-find>
                     <div class=how-to-find-heading>
-                        <h5>how to find the cim</h5>
-                        <h4>C.I.M. Italian Style</h4> </div>
+                        <h5>how to find us</h5>
+                        <h4>C.I.M. Italian Style SRL</h4> </div>
                     <div class=how-to-find-details>
                         <p>Via Sotto il Mur del Brolo 24, 31049
                             <br> Valdobbiadene Treviso, Italy</p>

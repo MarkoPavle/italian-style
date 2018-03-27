@@ -1,7 +1,7 @@
 @extends('themes.'.$theme->slug.'.index')
 
 @section('title')
-    @if(app()->getLocale() == 'en') Partnership @else Partner @endif - CIM Italian Style
+    @if(app()->getLocale() == 'en') Promotions @else Promozioni @endif - CIM Italian Style
 @endsection
 
 @section('description')
@@ -27,9 +27,9 @@
     <section id=hero-img>
         <div class="container-fluid hero-img-container">
             @if(empty($collection->heroImage))
-                <img class="desktop-image" src="{{ url('uploads/collections/day-collections.jpg') }}" alt="{{ $collection->title }}">
+                <img class="img-fluid" src="{{ url('uploads/collections/day-collections.jpg') }}" alt="{{ $collection->title }}">
             @else
-                <img class="desktop-image" src="{{ url($collection->heroImage) }}" alt="{{ $collection->title }}">
+                <img class="img-fluid" src="{{ url($collection->heroImage) }}" alt="{{ $collection->title }}">
             @endif
             <div class=collections-header>
                 <h5>{{ $collection->title }}</h5>

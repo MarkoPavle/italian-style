@@ -30,8 +30,7 @@
 
     <section id=hero-img>
         <div class="container-fluid hero-img-container">
-            <img class="img-fluid desktop-image" src="{{ url('uploads/hero/hero-pic-WorkWithUs.jpg') }}" alt="partnership">
-            <img class=mobile-image src="{{ url('uploads/collections/day-collections-mobile.jpg') }}" alt="partnership">
+            <img class="img-fluid" src="{{ url('uploads/hero/hero-pic-WorkWithUs.jpg') }}" alt="partnership">
             <div class=collections-header>
                 <h5>work with us</h5>
             </div>

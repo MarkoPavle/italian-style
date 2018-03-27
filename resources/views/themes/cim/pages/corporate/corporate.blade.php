@@ -19,18 +19,19 @@
     <meta property="og:image" content="{{ url($theme->slug.'/img/fb.jpg') }}">
     @if(app()->getLocale() == 'en')
         <meta property="og:title" content="Cim offers services. It works out the sector of furniture for the house, offices and communities, it assists its customers step by step..." />
+        <link rel="canonical" href="{{ url('/corporate') }}" />
     @else
         <meta property="og:title" content="Il CIM offre servizi. Opera nel settore del mobile per la casa, per ufficio e per la comunità, è in grado di seguire il cliente passo per passo..." />
+        <link rel="canonical" href="{{ url('/it/azienda') }}" />
     @endif
     <meta property="og:description" content="{{ \App\Helper::removePTag($settings->footer) }}" />
-    <link rel="canonical" href="{{ url('/') }}" />
 @endsection
 
 @section('content')
 
     <section id=hero-img>
         <div class="container-fluid hero-img-container">
-            <img class="img-fluid desktop-image" src="{{ url('uploads/hero/hero-CORPORATE.jpg') }}" alt=hero-image>
+            <img class="img-fluid" src="{{ url('uploads/hero/hero-CORPORATE.jpg') }}" alt=hero-image>
             <div class=collections-header>
                 <h5>Corporate</h5>
             </div>

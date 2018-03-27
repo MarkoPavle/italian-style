@@ -51,8 +51,8 @@ Route::group(
         Route::get('corporate', 'PagesController@corporate')->name('corporate');
         Route::get('azienda', 'PagesController@corporate')->name('corporate');
 
-        Route::get('partnership', 'PagesController@partnership')->name('partnership');
-        Route::get('partner', 'PagesController@partnership')->name('partnership');
+        Route::get('work-with-us', 'PagesController@partnership')->name('work-with-us'); //partnership
+        Route::get('lavora-con-noi', 'PagesController@partnership')->name('work-with-us'); // partner
 
         Route::get('promozioni', 'PagesController@promotions')->name('promotions');
         Route::get('promotions', 'PagesController@promotions')->name('promotions');
