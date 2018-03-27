@@ -124,9 +124,9 @@
                                     </p>
                                     <ul>
                                         @if(app()->getLocale() == 'en')
-                                            <li>
-                                                <a href=#>Terms and conditions </a>
-                                            </li>
+                                            {{--<li>--}}
+                                                {{--<a href=#>Terms and conditions </a>--}}
+                                            {{--</li>--}}
                                             <li>
                                                 <a href="{{ url('en/corporate') }}">About us</a>
                                             </li>
@@ -134,9 +134,9 @@
                                                 <a href="{{ url('en/contact') }}">Contact us</a>
                                             </li>
                                         @else
-                                            <li>
-                                                <a href=#>Terms and conditions </a>
-                                            </li>
+                                            {{--<li>--}}
+                                                {{--<a href=#>Terms and conditions </a>--}}
+                                            {{--</li>--}}
                                             <li>
                                                 <a href="{{ url('it/azienda') }}">About us</a>
                                             </li>

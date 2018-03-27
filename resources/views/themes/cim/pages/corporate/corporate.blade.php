@@ -44,7 +44,7 @@
                         <div class=col-sm-12>
                             <h1>The cim project</h1>
                             <h3>We develop quality. Everything is put down in black and white.</h3>
-                            <p> Cim offers services. It works out the sector of furniture for the house, offices and communities, it assists its customers step by step and offers them a series of complementary and horizontal actions to meet any need, both in terms of supplies and projects. And everything is put down in black and white.<br> We will show how: </p>
+                            <p> C.I.M. ITALIAN STYLE S.R.L. offers services. It works out the sector of furniture for the house, offices and communities, it assists its customers step by step and offers them a series of complementary and horizontal actions to meet any need, both in terms of supplies and projects. And everything is put down in black and white.<br> We will show how: </p>
                         </div>
                     </div>
                 </div>
@@ -116,7 +116,7 @@
                         <img src="img/corporate/RESEARCH.png" alt="The research of the product">
                       </p>
                       <h3>Products</h3>
-                      <p>C.I.M.ITALIN STYLES S.R.L. works in the furniture field , for the house for more than 30 years. Our know-how is made in exporting Made in Italy household, office, and residential contract furniture, to the majors and most important World Wide Countries, where the Italian design and the quality of the finishing of product together with an experienced service, are very much appreciated.</p>
+                      <p>C.I.M. ITALIAN STYLE S.R.L. works in the furniture field , for the house for more than 30 years. Our know-how is made in exporting Made in Italy household, office, and residential contract furniture, to the majors and most important World Wide Countries, where the Italian design and the quality of the finishing of product together with an experienced service, are very much appreciated.</p>
                     </div>
                     <div class="col-12">
                       <p class="icon">

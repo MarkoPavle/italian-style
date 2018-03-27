@@ -41,13 +41,13 @@
                         @if(app()->getLocale() == 'en')
                             <h2>THE CIM PROJECT</h2>
                             <h1>We develop quality. Everything is put down in black and white.</h1>
-                            <p> Cim offers services. It works out the sector of furniture for the house, offices and communities, it assists its customers step by step and offers them a series of complementary and horizontal actions to meet any need, both
+                            <p> C.I.M. ITALIAN STYLE SRL offers services. It works out the sector of furniture for the house, offices and communities, it assists its customers step by step and offers them a series of complementary and horizontal actions to meet any need, both
                                 in terms of supplies and projects. And everything is put down in black and white. </p>
                             <a class="btn btn-primary" href="{{ url('corporate') }}" role="button">We will show you how</a>
                         @else
                             <h2>IL PROGETTO CIM</h2>
                             <h1>Progettiamo qualità. Nero su bianco.</h1>
-                            <p> Il CIM offre servizi.
+                            <p> C.I.M. ITALIAN STYLE SRL offre servizi.
                                 Opera nel settore del mobile per la casa, per ufficio e per la comunità, è in grado di seguire il cliente passo per passo proponendo una serie di
                                 azioni complementari e trasversali. Queste azioni vanno a costituire un servizio a 360 gradi per soddisfare ogni esigenza, sia essa di fornitura o di progettazione. E tutto nero su bianco.
                                 </p>
@@ -63,7 +63,7 @@
         <div class=container>
             <div class=visit-card>
                 <h2>CIM Italian Style</h2>
-                <div>BROLO S. CATERINA 24, 31049 VALDOBBIADENE TREVISO ITALY</div>
+                <div>Via Sotto il Mur del Brolo 24, 31049 Valdobbiadene Treviso, Italy</div>
                 <div>Tel.+ 39 0423 973283 / 972659 - Fax +39 0423 1990665</div>
                 <div>P.I. &amp; C.F. 04549940262 - REA 359106</div>
                 <div>e-mail info@cim-italianstyle.com</div>
