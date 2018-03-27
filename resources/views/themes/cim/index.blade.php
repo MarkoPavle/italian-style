@@ -148,7 +148,7 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 kontakt">
                                     <p>
-                                        <a href=#>C.I.M. ITALIAN STYLE SRL</a>
+                                        <a href=#>C.I.M. ITALIAN STYLE S.R.L</a>
                                     </p>
                                     <ul class=address>
                                         <li>

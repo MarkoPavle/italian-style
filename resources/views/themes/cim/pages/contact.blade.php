@@ -68,14 +68,14 @@
                 <div class=how-to-find>
                     <div class=how-to-find-heading>
                         <h5>how to find us</h5>
-                        <h4>C.I.M. Italian Style SRL</h4> </div>
+                        <h4>C.I.M. Italian Style S.R.L</h4> </div>
                     <div class=how-to-find-details>
                         <p>Via Sotto il Mur del Brolo 24, 31049
                             <br> Valdobbiadene Treviso, Italy</p>
-                        <p><span>tel.</span> + 39 0423 973283 / 972659</p>
+                        <p><span>tel.</span> <a href="tel:+390423973283">+ 39 0423 973283 / 972659</a></p>
                         <p><span>fax</span> +39 0423 1990665</p>
                         <p>P.I. e C.F. 04549940262 - REA 359106</p>
-                        <p><span>e-mail</span> info@cim-italianstyle.com</p>
+                        <p><span>e-mail</span> <a href="mailto:info@cim-italianstyle.com">info@cim-italianstyle.com</a></p>
                         <p><span>open</span> Monday – Friday 08:30 – 17:30</p>
                     </div>
                 </div>

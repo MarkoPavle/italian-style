@@ -119,7 +119,7 @@
                             <img src="img/corporate/RESEARCH.png" alt="The research of the product">
                           </p>
                           <h3>PRODOTTI</h3>
-                          <p>C.I.M. ITALIAN STYLE S.R.L.. opera nel settore del mobile per la casa, da più di 30 anni.
+                          <p>C.I.M. ITALIAN STYLE S.R.L. opera nel settore del mobile per la casa, da più di 30 anni.
                             La ns. esperienza è maturata nel tempo, con le vendite di mobili moderni e classici, per la casa, per l’ufficio e per la comunità, nei più importantii mercati mondiali di esportazione del Made in Italy, dove il design italiano, la qualità del prodotto, abbinati ad un servizio accurato, sono ricercati.</p>
                         </div>
                         <div class="col-12">
