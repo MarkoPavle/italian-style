@@ -68,7 +68,7 @@
                 <div class=how-to-find>
                     <div class=how-to-find-heading>
                         <h5>how to find us</h5>
-                        <h4>C.I.M. Italian Style S.R.L</h4> </div>
+                        <h4>C.I.M. ITALIAN STYLE S.R.L</h4> </div>
                     <div class=how-to-find-details>
                         <p>Via Sotto il Mur del Brolo 24, 31049
                             <br> Valdobbiadene Treviso, Italy</p>
