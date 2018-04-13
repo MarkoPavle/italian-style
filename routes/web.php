@@ -39,6 +39,9 @@ Route::group(
         Route::get('collections', 'PagesController@index');
         Route::get('collezioni', 'PagesController@index');
 
+        Route::get('products/brand-names/projecthospitality/519', 'PagesController@brandNames');
+        Route::get('products/brand-names/progettoospitalita/519', 'PagesController@brandNames');
+
         Route::get('collections/{slug}', 'PagesController@collections');
         Route::get('collezioni/{slug}', 'PagesController@collections');
 

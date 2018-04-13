@@ -85,6 +85,14 @@ class PagesController extends Controller
         }
     }
 
+    public function brandNames(){
+        $settings = Setting::first();
+        $theme = Theme::where('active', 1)->first();
+        $home = false;
+        $translate = array('en' => url('en/products/brand-names/projecthospitality/519'), 'it' => url('it/products/brand-names/progettoospitalita/519'));
+        return view('themes.'.$theme->slug.'.pages.brand-name', compact('settings', 'theme', 'home', 'translate'));
+    }
+
     public function partnership(){
         $settings = Setting::first();
         $theme = Theme::where('active', 1)->first();
