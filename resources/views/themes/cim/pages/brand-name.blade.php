@@ -31,7 +31,7 @@
 
     <section id=hero-img>
         <div class="container-fluid hero-img-container">
-            <img class="img-fluid" src="{{ url($theme->slug.'/img/1369046709_BRAND-NAMES-CIM-ITALIAN-STYLE-01.jpg') }}" alt="partnership">
+            <img class="img-fluid desktop-image" src="{{ url($theme->slug.'/img/brand-names2.jpg') }}" alt="partnership">
             <div class=collections-header>
                 <h5>Brand names</h5>
             </div>
@@ -40,7 +40,7 @@
     <section>
         <div class="container partners">
             <div class=row>
-                <div class="col-md-12 list-of-partners">
+                <div class="col-md-12 list-of-partners" style="padding-top: 50px;">
                     @if(app()->getLocale() == 'en')
                         <p>We can supply the most important Italian Brand Names Collections in the classic and modern furniture field, at very competitive sales conditions and prices in the market.</p>
                     @else

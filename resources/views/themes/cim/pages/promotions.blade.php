@@ -32,7 +32,7 @@
     <section id=hero-img>
         <div class="container-fluid hero-img-container">
             <img class="img-fluid desktop-image" src="{{ url('uploads/hero/hero-pic-PROMOTIONS.jpg') }}" alt="contact">
-            <img class=mobile-image src="{{ url('uploads/collections/day-collections-mobile.jpg') }}" alt="contact">
+            {{--<img class=mobile-image src="{{ url('uploads/collections/day-collections-mobile.jpg') }}" alt="contact">--}}
             <div class=collections-header>
                 <h5>Promotions</h5>
             </div>

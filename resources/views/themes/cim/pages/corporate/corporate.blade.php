@@ -31,7 +31,7 @@
 
     <section id=hero-img>
         <div class="container-fluid hero-img-container">
-            <img class="img-fluid" src="{{ url('uploads/hero/hero-CORPORATE.jpg') }}" alt=hero-image>
+            <img class="img-fluid desktop-image" src="{{ url('uploads/hero/hero-CORPORATE.jpg') }}" alt=hero-image>
             <div class=collections-header>
                 <h5>Corporate</h5>
             </div>
