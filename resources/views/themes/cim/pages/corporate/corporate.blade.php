@@ -135,9 +135,7 @@
                           <img src="img/corporate/RESEARCH.png" alt="The research of the product">
                       </p>
                       <h3>Logistic</h3>
-                      <p>We do provide an Inbound/Outbound logistic service to our valued
-                        Partners/customers with a Warehouse of more than 1800 s.m. , located in Villorba Tv , 3 kms far from exit Treviso Nord of highway A 27-Treviso
-                        North.<br/>
+                      <p>We do provide an Inbound/Outbound logistic service to our valued Partners/customers with a Warehouse of more than 1800 s.m. , located in Villorba Tv , 3 kms far from exit Treviso North highway A 27. <br/>
                         Our service is to load the goods collected from the different suppliers and to deliver them to our Warehouse and we stock them there. Moreover we grant a Consolidation service, through the unloading and loading of the trucks/containers, with only one invoice for the exportation the different orders, around Italy.
                         <br />
                         Therefore customer may have an only partner for its purchases from Italy, minimizing export and import costs for custom operations, bank costs, and others more.

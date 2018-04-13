@@ -138,7 +138,7 @@
                           </p>
                           <h3>Logistica</h3>
                           <p>
-                              L’azienda fornisce un servizio di logistica Inbound/Outbound ai nostri partnerS/clienti con un magazzino di
+                              L’azienda fornisce un servizio di logistica Inbound/Outbound ai nostri partners/clienti con un magazzino di
                               oltre 1800 m.q. situato a Villorba, in Provincia di Treviso, a 3 kms. dall'uscita Treviso Nord autostrada A-27.
                               Il nostro servizio è quello di caricare la merce ritirata dai diversi fornitori, consegnarla e
                               immagazzinarla nel nostro deposito. Offriamo un servizio di consolidata,
