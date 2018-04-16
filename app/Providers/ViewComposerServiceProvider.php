@@ -34,7 +34,7 @@ class ViewComposerServiceProvider extends ServiceProvider
         $topMenu = Menu::find(1)->menuLinks()->where('menu_links.publish', 1)->where('menu_links.parent', 0)->orderBy('menu_links.order', 'ASC')->get();
         $mobileMenu = Menu::find(2)->menuLinks()->where('menu_links.publish', 1)->where('menu_links.parent', 0)->orderBy('menu_links.order', 'ASC')->get();
         $collections = Collection::where('publish', 1)->where('parent', 0)->orderBy('order', 'ASC')->get();
-
+        
         view()->composer('themes.'.$theme->slug.'.partials.nav', function($view) use ($topMenu){
             $view->with('topMenu', $topMenu);
         });

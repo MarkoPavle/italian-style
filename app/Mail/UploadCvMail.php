@@ -34,7 +34,7 @@ class UploadCvMail extends Mailable
     {
         return $this->markdown('themes.cim.emails.upload-cv')
             ->subject('Uploaded CV from CIM Italian Style website')
-            ->from(['address' => 'info@cim-italianstyle.com', 'name' => 'CIM Italian Style'])
+            ->from(['address' => 'website@cim-italianstyle.com', 'name' => 'CIM Italian Style'])
             ->attach(url($this->path), [
                 'as' => 'CV.'.$this->extension,
                 'mime' => 'application/'.$this->extension,

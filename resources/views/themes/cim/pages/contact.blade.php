@@ -45,42 +45,58 @@
             </div>
         </div>
     </section>
-    <div class=section>
-        <div class=container>
-            <div class="row contact-grid">
-                <div class=contact-us>
-                    <div class=contact-us-heading>
-                        <h5>contact us</h5> </div>
-                    <div class=form-group>
-                        <label for=exampleInputEmail1>name <span>*</span></label>
-                        <input type=name class=form-control id=exampleInputName1>
-                        <label for=exampleInputEmail1>email <span>*</span></label>
-                        <input type=email class=form-control id=exampleInputEmail1>
-                        <label for=exampleInputEmail1>phone <span>*</span></label>
-                        <input type=phone class=form-control id=exampleInputPhone1> </div>
-                    <div class=contact-us-btn> <a href=# class=btn>submit form <div class=strelica> </div> </a> </div>
-                </div>
-                <div class=message-us>
-                    <label for=exampleTextarea>message <span>*</span></label>
-                    <textarea class=form-control id=exampleTextarea rows=3></textarea>
-                </div>
-                <div class=contact-us-btn-2> <a href=# class=btn>submit form <div class=strelica> </div> </a> </div>
-                <div class=how-to-find>
-                    <div class=how-to-find-heading>
-                        <h5>how to find us</h5>
-                        <h4>C.I.M. ITALIAN STYLE S.R.L</h4> </div>
-                    <div class=how-to-find-details>
-                        <p>Via Sotto il Mur del Brolo 24, 31049
-                            <br> Valdobbiadene Treviso, Italy</p>
-                        <p><span>tel.</span> <a href="tel:+390423973283">+ 39 0423 973283 / 972659</a></p>
-                        <p><span>fax</span> +39 0423 1990665</p>
-                        <p>P.I. e C.F. 04549940262 - REA 359106</p>
-                        <p><span>e-mail</span> <a href="mailto:info@cim-italianstyle.com">info@cim-italianstyle.com</a></p>
-                        <p><span>open</span> Monday – Friday 08:30 – 17:30</p>
+    {!! Form::open(['action' => ['PagesController@sendForm'], 'method' => 'POST', 'id' => 'forma']) !!}
+        <div class=section>
+            <div class=container>
+                <div class="row contact-grid">
+                    <div class=contact-us>
+                        <div class=contact-us-heading>
+                            <h5>contact us</h5>
+                        </div>
+                        <div class=form-group>
+                            <label for=exampleInputEmail1>name <span>*</span></label>
+                            <input type="text" name="name" class=form-control id=exampleInputName1>
+                            <label for=exampleInputEmail1>email <span>*</span></label>
+                            <input type=email name="email" class=form-control id=exampleInputEmail1>
+                            <label for=exampleInputEmail1>phone <span>*</span></label>
+                            <input type=phone name="phone" class=form-control id=exampleInputPhone1> </div>
+                        <div class=contact-us-btn>
+                            <a href=# class="btn submit">submit form <div class=strelica> </div> </a>
+                        </div>
+                    </div>
+                    <div class=message-us>
+                        <label for=exampleTextarea>message <span>*</span></label>
+                        <textarea class=form-control name="message" id=exampleTextarea rows=3></textarea>
+                    </div>
+                    <div class=contact-us-btn-2> <a href=# class=btn>submit form <div class=strelica> </div> </a> </div>
+                    <div class=how-to-find>
+                        <div class=how-to-find-heading>
+                            <h5>how to find us</h5>
+                            <h4>C.I.M. ITALIAN STYLE S.R.L</h4> </div>
+                        <div class=how-to-find-details>
+                            <p>Via Sotto il Mur del Brolo 24, 31049
+                                <br> Valdobbiadene Treviso, Italy</p>
+                            <p><span>tel.</span> <a href="tel:+390423973283">+ 39 0423 973283 / 972659</a></p>
+                            <p><span>fax</span> +39 0423 1990665</p>
+                            <p>P.I. e C.F. 04549940262 - REA 359106</p>
+                            <p><span>e-mail</span> <a href="mailto:info@cim-italianstyle.com">info@cim-italianstyle.com</a></p>
+                            <p><span>open</span> Monday – Friday 08:30 – 17:30</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    {!! Form::close() !!}
 
+@endsection
+
+@section('footer_scripts')
+    <script>
+        $(function(){
+            $('.submit').click(function(e){
+                e.preventDefault();
+                $('#forma').submit();
+            });
+        });
+    </script>
 @endsection

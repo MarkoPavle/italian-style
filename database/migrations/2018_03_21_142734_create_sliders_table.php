@@ -17,7 +17,6 @@ class CreateSlidersTable extends Migration
             $table->increments('id');
             $table->string('file_name')->nullable();
             $table->string('file_path')->nullable();
-            $table->string('file_path_mobile')->nullable();
             $table->string('file_path_small')->nullable();
             $table->integer('order')->nullable()->default(1);
             $table->boolean('publish')->default(1);

@@ -9,7 +9,9 @@ use App\CV;
 use App\Helper;
 use App\Http\Requests\ContactFormRequest;
 use App\Http\Requests\UploadCvRequest;
+use App\Mail\SendContactForm;
 use App\Mail\UploadCvMail;
+use App\Message;
 use App\Post;
 use App\Product;
 use App\ProductTranslation;
@@ -188,7 +190,17 @@ class PagesController extends Controller
     }
 
     public function sendForm(ContactFormRequest $request){
-        return request()->all();
+        $message = new Message();
+        $message->name = request('name');
+        $message->email = request('email');
+        $message->phone = request('phone');
+        $message->message = request('message');
+
+        $settings = Setting::first();
+
+        \Mail::to($settings->email1)->send(new SendContactForm($message));
+
+        return redirect('/');
     }
 
     public function shopOnline(){
