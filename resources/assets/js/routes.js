@@ -47,6 +47,8 @@ export const router = new VueRouter({
         { path: "/menu-links/:id/create", component: require('./components/menuLinks/MenuLinkCreate.vue'), meta: { forAuth: true } },
         { path: "/menu-links/:id/sort", component: require('./components/menuLinks/MenuLinks.vue'), meta: { forAuth: true } },
         { path: "/menu-links/:id/edit", component: require('./components/menuLinks/MenuLinkEdit.vue'), meta: { forAuth: true } },
+
+        { path: "/sliders", component: require('./components/sliders/SliderEdit.vue'), meta: { forAuth: true } },
     ],
 
     linkActiveClass: 'active'
