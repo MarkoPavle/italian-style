@@ -11,6 +11,7 @@ use App\Http\Requests\ContactFormRequest;
 use App\Http\Requests\UploadCvRequest;
 use App\Mail\SendContactForm;
 use App\Mail\UploadCvMail;
+use App\Menu;
 use App\Message;
 use App\Post;
 use App\Product;
@@ -243,7 +244,7 @@ class PagesController extends Controller
         }*/
 
 
-        return 'done';
+        return  $mobileMenu = Menu::find(2)->menuLinks()->where('menu_links.publish', 1)->where('menu_links.parent', 0)->orderBy('menu_links.order', 'ASC')->get();
     }
 
     public function uploadCv(UploadCvRequest $request){
