@@ -129,7 +129,7 @@ class PagesController extends Controller
         $theme = Theme::where('active', 1)->first();
         $collection = Collection::whereTranslation('slug', $slug1)->first();
         $product = Product::find($id);
-        $products = Product::where('id', '<>', $product->id)->where('collection_id', $collection->id)->orderBy('order', 'ASC')->get();
+        $products = Product::where('id', '<>', $product->id)->where('collection_id', $collection->id)->orderBy('order', 'DESC')->get();
         $photos = $product->photo()->where('publish', 1)->orderBy('id', 'DESC')->get();
         $home = false;
         $translate = Product::getTranslate($product);
@@ -142,7 +142,7 @@ class PagesController extends Controller
         $theme = Theme::where('active', 1)->first();
         $collection = Collection::whereTranslation('slug', $slug1)->first();
         $product = Product::find($id);
-        $products = Product::where('collection_id', $collection->id)->orderBy('created_at', 'ASC')->paginate(12);
+        $products = Product::where('collection_id', $collection->id)->orderBy('created_at', 'DESC')->paginate(12);
         $photos = $product->photo()->where('publish', 1)->orderBy('id', 'DESC')->get();
         $home = false;
         $translate = Product::getTranslateProducts($product);
@@ -156,7 +156,7 @@ class PagesController extends Controller
         $parent = Collection::whereTranslation('slug', $slug1)->first();
         $collection = Collection::whereTranslation('slug', $slug2)->first();
         $product = Product::find($id);
-        $products = Product::where('id', '<>', $product->id)->where('collection_id', $collection->id)->orderBy('order', 'ASC')->get();
+        $products = Product::where('id', '<>', $product->id)->where('collection_id', $collection->id)->orderBy('order', 'DESC')->get();
         $photos = $product->photo()->where('publish', 1)->orderBy('id', 'DESC')->get();
         $home = false;
         $translate = Product::getTranslate($product);
@@ -169,7 +169,7 @@ class PagesController extends Controller
         $parent = Collection::whereTranslation('slug', $slug1)->first();
         $collection = Collection::whereTranslation('slug', $slug2)->first();
         $product = Product::find($id);
-        $products = Product::where('collection_id', $collection->id)->orderBy('created_at', 'ASC')->paginate(12);
+        $products = Product::where('collection_id', $collection->id)->orderBy('created_at', 'DESC')->paginate(12);
         $photos = $product->photo()->where('publish', 1)->orderBy('id', 'DESC')->get();
         $home = false;
         $translate = Product::getTranslateProducts($product);
